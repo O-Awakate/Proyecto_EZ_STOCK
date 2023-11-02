@@ -1,0 +1,13 @@
+C:\Users\Cesaniel\Documents\GitHub\Proyecto_EZ_STOCK\CapaPresentacion\bin\Debug\CapaPresentacion.exe.config
+C:\Users\Cesaniel\Documents\GitHub\Proyecto_EZ_STOCK\CapaPresentacion\bin\Debug\CapaPresentacion.exe
+C:\Users\Cesaniel\Documents\GitHub\Proyecto_EZ_STOCK\CapaPresentacion\bin\Debug\CapaPresentacion.pdb
+C:\Users\Cesaniel\Documents\GitHub\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\CapaPresentacion.csprojAssemblyReference.cache
+C:\Users\Cesaniel\Documents\GitHub\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\CapaPresentacion.Properties.Resources.resources
+C:\Users\Cesaniel\Documents\GitHub\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.GenerateResource.cache
+C:\Users\Cesaniel\Documents\GitHub\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CoreCompileInputs.cache
+C:\Users\Cesaniel\Documents\GitHub\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\CapaPresentacion.exe
+C:\Users\Cesaniel\Documents\GitHub\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
+C:\Users\Cesaniel\Documents\GitHub\Proyecto_EZ_STOCK\CapaPresentacion\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\Cesaniel\Documents\GitHub\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\CapaPresentacion.Inicio.resources
+C:\Users\Cesaniel\Documents\GitHub\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\CapaPresentacion.Login.resources
+C:\Users\Cesaniel\Documents\GitHub\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CopyComplete
