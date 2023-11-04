@@ -144,6 +144,7 @@
             // 
             this.Checkbox.HeaderText = "";
             this.Checkbox.Name = "Checkbox";
+            this.Checkbox.Width = 32;
             // 
             // Cedula
             // 
