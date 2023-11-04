@@ -68,6 +68,42 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCategoria.Designer.cs">
+      <DependentUpon>FrmCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCliente.Designer.cs">
+      <DependentUpon>FrmCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNegocio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNegocio.Designer.cs">
+      <DependentUpon>FrmNegocio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProveedor.Designer.cs">
+      <DependentUpon>FrmProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUsuario.Designer.cs">
+      <DependentUpon>FrmUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVentaRegistro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVentaRegistro.Designer.cs">
+      <DependentUpon>FrmVentaRegistro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,13 +116,49 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modales\FrmListaClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modales\FrmListaClientes.Designer.cs">
+      <DependentUpon>FrmListaClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modales\FrmListaProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modales\FrmListaProductos.Designer.cs">
+      <DependentUpon>FrmListaProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmCategoria.resx">
+      <DependentUpon>FrmCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCliente.resx">
+      <DependentUpon>FrmCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNegocio.resx">
+      <DependentUpon>FrmNegocio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProveedor.resx">
+      <DependentUpon>FrmProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUsuario.resx">
+      <DependentUpon>FrmUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVentaRegistro.resx">
+      <DependentUpon>FrmVentaRegistro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modales\FrmListaClientes.resx">
+      <DependentUpon>FrmListaClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modales\FrmListaProductos.resx">
+      <DependentUpon>FrmListaProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -174,6 +246,36 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save-20-regular %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear-outlined %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete-outline %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear-outlined %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear-outlined %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifying-glass-thin %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifying-glass-thin %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shopping-cart-outline %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\upload %282%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

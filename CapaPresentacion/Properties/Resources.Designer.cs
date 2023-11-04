@@ -63,6 +63,16 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add__2_ {
+            get {
+                object obj = ResourceManager.GetObject("add (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap arrow_back_circle_outline__1_ {
             get {
                 object obj = ResourceManager.GetObject("arrow-back-circle-outline (1)", resourceCulture);
@@ -86,6 +96,46 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap box_time_outline__1_ {
             get {
                 object obj = ResourceManager.GetObject("box-time-outline (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap clear_outlined__1_ {
+            get {
+                object obj = ResourceManager.GetObject("clear-outlined (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap clear_outlined__2_ {
+            get {
+                object obj = ResourceManager.GetObject("clear-outlined (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap clear_outlined__3_ {
+            get {
+                object obj = ResourceManager.GetObject("clear-outlined (3)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap delete_outline__2_ {
+            get {
+                object obj = ResourceManager.GetObject("delete-outline (2)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -144,6 +194,26 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap magnifying_glass_thin__1_ {
+            get {
+                object obj = ResourceManager.GetObject("magnifying-glass-thin (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap magnifying_glass_thin__2_ {
+            get {
+                object obj = ResourceManager.GetObject("magnifying-glass-thin (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap password__1_ {
             get {
                 object obj = ResourceManager.GetObject("password (1)", resourceCulture);
@@ -194,9 +264,39 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap save_20_regular__2_ {
+            get {
+                object obj = ResourceManager.GetObject("save-20-regular (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shopping_cart_outline__2_ {
+            get {
+                object obj = ResourceManager.GetObject("shopping-cart-outline (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap timeline_delivery__1_ {
             get {
                 object obj = ResourceManager.GetObject("timeline-delivery (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap upload__2_ {
+            get {
+                object obj = ResourceManager.GetObject("upload (2)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
