@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion.Modales
 {
-    partial class FrmListaClientes
+    partial class FrmListaProveedores
     {
         /// <summary>
         /// Required designer variable.
@@ -29,13 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Checkbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
@@ -43,6 +36,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.Checkbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.IdProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RazonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -52,53 +50,14 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Checkbox,
+            this.IdProveedor,
             this.Cedula,
-            this.IdCliente,
             this.NombreCompleto,
-            this.Correo,
-            this.Telefono,
-            this.Direccion});
+            this.RazonSocial});
             this.dataGridView1.Location = new System.Drawing.Point(17, 145);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(772, 444);
-            this.dataGridView1.TabIndex = 21;
-            // 
-            // Checkbox
-            // 
-            this.Checkbox.HeaderText = "";
-            this.Checkbox.Name = "Checkbox";
-            this.Checkbox.Width = 32;
-            // 
-            // Cedula
-            // 
-            this.Cedula.HeaderText = "Cédula";
-            this.Cedula.Name = "Cedula";
-            // 
-            // IdCliente
-            // 
-            this.IdCliente.HeaderText = "IdCliente";
-            this.IdCliente.Name = "IdCliente";
-            this.IdCliente.Visible = false;
-            // 
-            // NombreCompleto
-            // 
-            this.NombreCompleto.HeaderText = "Nombre Completo";
-            this.NombreCompleto.Name = "NombreCompleto";
-            // 
-            // Correo
-            // 
-            this.Correo.HeaderText = "Correo";
-            this.Correo.Name = "Correo";
-            // 
-            // Telefono
-            // 
-            this.Telefono.HeaderText = "Teléfono";
-            this.Telefono.Name = "Telefono";
-            // 
-            // Direccion
-            // 
-            this.Direccion.HeaderText = "Dirección";
-            this.Direccion.Name = "Direccion";
+            this.dataGridView1.TabIndex = 24;
             // 
             // panel2
             // 
@@ -111,7 +70,7 @@
             this.panel2.Location = new System.Drawing.Point(17, 55);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(772, 69);
-            this.panel2.TabIndex = 20;
+            this.panel2.TabIndex = 23;
             // 
             // comboBox1
             // 
@@ -147,9 +106,9 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(171, 30);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Lista de Clientes";
+            this.label1.Size = new System.Drawing.Size(215, 30);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Lista de Proveedores";
             // 
             // button1
             // 
@@ -177,7 +136,35 @@
             this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // FrmListaClientes
+            // Checkbox
+            // 
+            this.Checkbox.HeaderText = "";
+            this.Checkbox.Name = "Checkbox";
+            this.Checkbox.Width = 32;
+            // 
+            // IdProveedor
+            // 
+            this.IdProveedor.HeaderText = "IdProveedor";
+            this.IdProveedor.Name = "IdProveedor";
+            this.IdProveedor.Visible = false;
+            // 
+            // Cedula
+            // 
+            this.Cedula.HeaderText = "Cédula";
+            this.Cedula.Name = "Cedula";
+            // 
+            // NombreCompleto
+            // 
+            this.NombreCompleto.HeaderText = "Nombre Completo";
+            this.NombreCompleto.Name = "NombreCompleto";
+            this.NombreCompleto.Width = 200;
+            // 
+            // RazonSocial
+            // 
+            this.RazonSocial.HeaderText = "Razón Social";
+            this.RazonSocial.Name = "RazonSocial";
+            // 
+            // FrmListaProveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -186,8 +173,8 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
-            this.Name = "FrmListaClientes";
-            this.Text = "FrmListaClientes";
+            this.Name = "FrmListaProveedores";
+            this.Text = "FrmListaProveedores";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -207,11 +194,9 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Checkbox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdProveedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cedula;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreCompleto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Correo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RazonSocial;
     }
 }

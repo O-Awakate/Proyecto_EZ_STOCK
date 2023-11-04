@@ -143,6 +143,16 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap file_pdf__2_ {
+            get {
+                object obj = ResourceManager.GetObject("file-pdf (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap information_outline__1_ {
             get {
                 object obj = ResourceManager.GetObject("information-outline (1)", resourceCulture);
