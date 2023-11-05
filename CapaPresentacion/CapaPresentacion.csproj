@@ -140,6 +140,18 @@
     <Compile Include="FrmRegIngresoProducto.Designer.cs">
       <DependentUpon>FrmRegIngresoProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReportesIngresoProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportesIngresoProductos.Designer.cs">
+      <DependentUpon>FrmReportesIngresoProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReporteVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReporteVentas.Designer.cs">
+      <DependentUpon>FrmReporteVentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +231,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegIngresoProducto.resx">
       <DependentUpon>FrmRegIngresoProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportesIngresoProductos.resx">
+      <DependentUpon>FrmReportesIngresoProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReporteVentas.resx">
+      <DependentUpon>FrmReporteVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUsuario.resx">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
@@ -363,6 +381,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\file-pdf %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\microsoft-excel %281%291.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
