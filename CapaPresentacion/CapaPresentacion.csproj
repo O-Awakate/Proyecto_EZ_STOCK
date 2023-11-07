@@ -68,6 +68,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\DropdownMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\MenuColorTable.cs" />
+    <Compile Include="Controls\MenuRenderer.cs" />
     <Compile Include="FrmAbonoIngresoProducto.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -1,0 +1,6 @@
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaNegocio\obj\Debug\CapaNegocio.csprojAssemblyReference.cache
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaNegocio\obj\Debug\CapaNegocio.pdb
