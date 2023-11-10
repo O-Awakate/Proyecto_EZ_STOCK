@@ -69,7 +69,6 @@ namespace CapaDatos
                                         Numero = dr["Numero"].ToString()
                                     },
 
-
                                 },
                                 Clave = dr["Clave"].ToString(),
                                 ConfirmarClave = dr["ConfirmarClave"].ToString(),
