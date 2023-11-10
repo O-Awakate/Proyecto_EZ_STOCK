@@ -4,3 +4,6 @@ C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaDatos\obj\Debug\CapaDatos.
 C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
 C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaDatos\obj\Debug\CapaDatos.dll
 C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaDatos\bin\Debug\CapaEntidad.dll
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaDatos\bin\Debug\CapaEntidad.pdb
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaDatos\obj\Debug\CapaDatos.csproj.CopyComplete

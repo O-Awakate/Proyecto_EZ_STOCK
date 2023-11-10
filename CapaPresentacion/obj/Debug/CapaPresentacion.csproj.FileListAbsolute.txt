@@ -43,3 +43,9 @@ C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\Cap
 C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CopyComplete
 C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\CapaPresentacion.exe
 C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\bin\Debug\CapaEntidad.dll
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\bin\Debug\CapaNegocio.dll
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\bin\Debug\CapaDatos.dll
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\bin\Debug\CapaEntidad.pdb
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\bin\Debug\CapaNegocio.pdb
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\bin\Debug\CapaDatos.pdb

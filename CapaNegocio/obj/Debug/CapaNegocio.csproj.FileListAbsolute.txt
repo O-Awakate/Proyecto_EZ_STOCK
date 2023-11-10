@@ -4,3 +4,8 @@ C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaNegocio\obj\Debug\CapaNego
 C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
 C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaNegocio\obj\Debug\CapaNegocio.dll
 C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaNegocio\obj\Debug\CapaNegocio.pdb
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaNegocio\bin\Debug\CapaEntidad.dll
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaNegocio\bin\Debug\CapaEntidad.pdb
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete

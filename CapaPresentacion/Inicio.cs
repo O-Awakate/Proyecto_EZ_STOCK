@@ -1,4 +1,6 @@
-﻿using CapaPresentacion.Controls;
+﻿using CapaEntidad;
+using CapaNegocio;
+using CapaPresentacion.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +15,18 @@ namespace CapaPresentacion
 {
     public partial class Inicio : Form
     {
-        public Inicio()
+        private static Usuario usuarioActual;
+        private static Button menuActivo = null;
+        private static Form formularioActivo = null;
+
+        public Inicio(Usuario objUsuario)
         {
+            usuarioActual = objUsuario; 
+
             InitializeComponent();
         }
 
+        //Dropdown menu
         private void btnAdministracion_Click(object sender, EventArgs e)
         {
             Open_DropDownMenu(dropdownMenu1, sender);
@@ -39,7 +48,7 @@ namespace CapaPresentacion
 
         private void btnDevolucion_Click(object sender, EventArgs e)
         {
-            Open_DropDownMenu(dropdownMenu5, sender);
+            Open_DropDownMenu(SubMenuDevlVenta, sender);
         }
 
         private void Open_DropDownMenu(DropdownMenu dropdownMenu, object sender)
@@ -67,5 +76,127 @@ namespace CapaPresentacion
             }
         }
 
+        private void Inicio_Load(object sender, EventArgs e)
+        {
+            //List<Permiso> listaPermisos = new CN_Permiso().Listar(usuarioActual.IdUsuario);
+
+            lblUsuario.Text = usuarioActual.oDatosPersona.Nombre + " " + usuarioActual.oDatosPersona.Apellido;
+            
+        }
+
+        private void AbrirFormulario(Button menu, Form formulario)
+        {
+            if (menuActivo != null)
+            {
+                menuActivo.BackColor = Color.FromArgb(240, 240, 240);
+            }
+
+            menu.BackColor = Color.FromArgb(252, 163, 17);
+            menuActivo = menu;
+
+            if (formularioActivo != null)
+            {
+                formularioActivo.Close();
+            }
+
+            formularioActivo = formulario;
+            formulario.TopLevel = false;
+            formulario.FormBorderStyle = FormBorderStyle.None;
+            formulario.Dock = DockStyle.Fill;
+            formulario.BackColor = Color.WhiteSmoke;
+            contenedor.Controls.Add(formulario);
+            formulario.Show();
+
+
+
+        }
+        //menu Usuario
+        private void menuUsuario_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((Button)sender, new FrmUsuario());
+
+        }
+        //menu Administracion 
+        private void SubMenuCategoria_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(MenuAdministracion, new FrmCategoria());
+        }
+
+        private void SubMenuProducto_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(MenuAdministracion, new FrmProducto());
+        }
+
+        private void SubMenuNegocio_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(MenuAdministracion, new FrmNegocio());
+        }
+        //menu venta
+        private void SubMenuRegVenta_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuVenta, new FrmVentaRegistro());
+        }
+
+        private void SubMenuDetVenta_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuVenta, new FrmDetalleVenta());
+        }
+
+        private void SubMenuAbonoVenta_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuVenta, new FrmAbonoVenta());
+        }
+        //menu Ingreso
+        private void SubMenuRegIngreso_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuIngreso, new FrmRegIngresoProducto());
+        }
+
+        private void SubMenuDetIngreso_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuIngreso, new FrmDetalleIngresoProducto());
+        }
+
+        private void SubMenuAbonoIngreso_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuIngreso, new FrmAbonoIngresoProducto());
+        }
+        //menu Cliente
+        private void menuClientes_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuClientes, new FrmCliente());
+        }
+        //menu proveedor
+        private void menuProveedores_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuProveedores, new FrmProveedor());
+        }
+        //menu Genera Reportes
+        private void SubMenuRepVenta_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuGeneraReportes, new FrmReporteVentas());
+        }
+
+        private void SubMenuRepIngreso_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuGeneraReportes, new FrmReportesIngresoProductos());
+        }
+
+        private void menuServicioApartado_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuServicioApartado, new FrmApartado());
+        }
+
+        private void devolverVentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuDevolucion, new FrmDevolucion());
+        }
+
+        private void SubMenuDevlProv_Click(object sender, EventArgs e)
+        {
+
+        }
     }
+    
+    
 }
