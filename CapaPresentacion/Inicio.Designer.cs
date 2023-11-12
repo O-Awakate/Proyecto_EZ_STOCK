@@ -33,18 +33,19 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnAcercaDe = new System.Windows.Forms.Button();
-            this.menuProveedores = new System.Windows.Forms.Button();
-            this.menuClientes = new System.Windows.Forms.Button();
-            this.menuGeneraReportes = new System.Windows.Forms.Button();
-            this.MenuAdministracion = new System.Windows.Forms.Button();
-            this.menuDevolucion = new System.Windows.Forms.Button();
-            this.menuIngreso = new System.Windows.Forms.Button();
-            this.menuVenta = new System.Windows.Forms.Button();
-            this.menuServicioApartado = new System.Windows.Forms.Button();
-            this.menuUsuario = new System.Windows.Forms.Button();
+            this.menuacercade = new System.Windows.Forms.Button();
+            this.menuproveedores = new System.Windows.Forms.Button();
+            this.menuclientes = new System.Windows.Forms.Button();
+            this.menureportes = new System.Windows.Forms.Button();
+            this.menuadministracion = new System.Windows.Forms.Button();
+            this.menudevolución = new System.Windows.Forms.Button();
+            this.menucompras = new System.Windows.Forms.Button();
+            this.menuventas = new System.Windows.Forms.Button();
+            this.menuapartado = new System.Windows.Forms.Button();
+            this.menuusuarios = new System.Windows.Forms.Button();
             this.contenedor = new System.Windows.Forms.Panel();
             this.lblUsuario = new System.Windows.Forms.Label();
+            this.menu = new System.Windows.Forms.Panel();
             this.dropdownMenu1 = new CapaPresentacion.Controls.DropdownMenu(this.components);
             this.SubMenuCategoria = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuProducto = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,6 +64,7 @@
             this.SubMenuDevlVenta = new CapaPresentacion.Controls.DropdownMenu(this.components);
             this.devolverVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuDevlProv = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu.SuspendLayout();
             this.dropdownMenu1.SuspendLayout();
             this.dropdownMenu2.SuspendLayout();
             this.dropdownMenu3.SuspendLayout();
@@ -105,166 +107,166 @@
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             // 
-            // btnAcercaDe
+            // menuacercade
             // 
-            this.btnAcercaDe.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnAcercaDe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAcercaDe.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAcercaDe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(163)))), ((int)(((byte)(17)))));
-            this.btnAcercaDe.Image = global::CapaPresentacion.Properties.Resources.information_outline__1_1;
-            this.btnAcercaDe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAcercaDe.Location = new System.Drawing.Point(10, 583);
-            this.btnAcercaDe.Name = "btnAcercaDe";
-            this.btnAcercaDe.Size = new System.Drawing.Size(168, 34);
-            this.btnAcercaDe.TabIndex = 11;
-            this.btnAcercaDe.Text = "Acerca De";
-            this.btnAcercaDe.UseVisualStyleBackColor = true;
+            this.menuacercade.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.menuacercade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menuacercade.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuacercade.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(163)))), ((int)(((byte)(17)))));
+            this.menuacercade.Image = global::CapaPresentacion.Properties.Resources.information_outline__1_1;
+            this.menuacercade.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.menuacercade.Location = new System.Drawing.Point(10, 583);
+            this.menuacercade.Name = "menuacercade";
+            this.menuacercade.Size = new System.Drawing.Size(168, 34);
+            this.menuacercade.TabIndex = 11;
+            this.menuacercade.Text = "Acerca De";
+            this.menuacercade.UseVisualStyleBackColor = true;
             // 
-            // menuProveedores
+            // menuproveedores
             // 
-            this.menuProveedores.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.menuProveedores.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.menuProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menuProveedores.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuProveedores.Image = global::CapaPresentacion.Properties.Resources.timeline_delivery__1_;
-            this.menuProveedores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.menuProveedores.Location = new System.Drawing.Point(12, 208);
-            this.menuProveedores.Name = "menuProveedores";
-            this.menuProveedores.Size = new System.Drawing.Size(168, 27);
-            this.menuProveedores.TabIndex = 7;
-            this.menuProveedores.Text = "Proveedores";
-            this.menuProveedores.UseVisualStyleBackColor = true;
-            this.menuProveedores.Click += new System.EventHandler(this.menuProveedores_Click);
+            this.menuproveedores.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.menuproveedores.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.menuproveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menuproveedores.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuproveedores.Image = global::CapaPresentacion.Properties.Resources.timeline_delivery__1_;
+            this.menuproveedores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.menuproveedores.Location = new System.Drawing.Point(10, 129);
+            this.menuproveedores.Name = "menuproveedores";
+            this.menuproveedores.Size = new System.Drawing.Size(168, 34);
+            this.menuproveedores.TabIndex = 7;
+            this.menuproveedores.Text = "Proveedores";
+            this.menuproveedores.UseVisualStyleBackColor = true;
+            this.menuproveedores.Click += new System.EventHandler(this.menuProveedores_Click);
             // 
-            // menuClientes
+            // menuclientes
             // 
-            this.menuClientes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.menuClientes.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.menuClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menuClientes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuClientes.Image = global::CapaPresentacion.Properties.Resources.users__1_;
-            this.menuClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.menuClientes.Location = new System.Drawing.Point(12, 175);
-            this.menuClientes.Name = "menuClientes";
-            this.menuClientes.Size = new System.Drawing.Size(168, 27);
-            this.menuClientes.TabIndex = 6;
-            this.menuClientes.Text = "Clientes";
-            this.menuClientes.UseVisualStyleBackColor = true;
-            this.menuClientes.Click += new System.EventHandler(this.menuClientes_Click);
+            this.menuclientes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.menuclientes.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.menuclientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menuclientes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuclientes.Image = global::CapaPresentacion.Properties.Resources.users__1_;
+            this.menuclientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.menuclientes.Location = new System.Drawing.Point(10, 89);
+            this.menuclientes.Name = "menuclientes";
+            this.menuclientes.Size = new System.Drawing.Size(168, 34);
+            this.menuclientes.TabIndex = 6;
+            this.menuclientes.Text = "Clientes";
+            this.menuclientes.UseVisualStyleBackColor = true;
+            this.menuclientes.Click += new System.EventHandler(this.menuClientes_Click);
             // 
-            // menuGeneraReportes
+            // menureportes
             // 
-            this.menuGeneraReportes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.menuGeneraReportes.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.menuGeneraReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menuGeneraReportes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuGeneraReportes.Image = global::CapaPresentacion.Properties.Resources.report_multiple__1_;
-            this.menuGeneraReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.menuGeneraReportes.Location = new System.Drawing.Point(12, 241);
-            this.menuGeneraReportes.Name = "menuGeneraReportes";
-            this.menuGeneraReportes.Size = new System.Drawing.Size(168, 27);
-            this.menuGeneraReportes.TabIndex = 8;
-            this.menuGeneraReportes.Text = "    Generar Reportes";
-            this.menuGeneraReportes.UseVisualStyleBackColor = true;
-            this.menuGeneraReportes.Click += new System.EventHandler(this.btnGeneraReportes_Click);
+            this.menureportes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.menureportes.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.menureportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menureportes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menureportes.Image = global::CapaPresentacion.Properties.Resources.report_multiple__1_;
+            this.menureportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.menureportes.Location = new System.Drawing.Point(10, 289);
+            this.menureportes.Name = "menureportes";
+            this.menureportes.Size = new System.Drawing.Size(168, 34);
+            this.menureportes.TabIndex = 8;
+            this.menureportes.Text = "    Generar Reportes";
+            this.menureportes.UseVisualStyleBackColor = true;
+            this.menureportes.Click += new System.EventHandler(this.btnGeneraReportes_Click);
             // 
-            // MenuAdministracion
+            // menuadministracion
             // 
-            this.MenuAdministracion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MenuAdministracion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.MenuAdministracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MenuAdministracion.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MenuAdministracion.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.MenuAdministracion.Image = global::CapaPresentacion.Properties.Resources.result_draft__1_;
-            this.MenuAdministracion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.MenuAdministracion.Location = new System.Drawing.Point(12, 76);
-            this.MenuAdministracion.Name = "MenuAdministracion";
-            this.MenuAdministracion.Size = new System.Drawing.Size(168, 27);
-            this.MenuAdministracion.TabIndex = 5;
-            this.MenuAdministracion.Text = "Administración";
-            this.MenuAdministracion.UseVisualStyleBackColor = true;
-            this.MenuAdministracion.Click += new System.EventHandler(this.btnAdministracion_Click);
+            this.menuadministracion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.menuadministracion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.menuadministracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menuadministracion.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuadministracion.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.menuadministracion.Image = global::CapaPresentacion.Properties.Resources.result_draft__1_;
+            this.menuadministracion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.menuadministracion.Location = new System.Drawing.Point(10, 249);
+            this.menuadministracion.Name = "menuadministracion";
+            this.menuadministracion.Size = new System.Drawing.Size(168, 34);
+            this.menuadministracion.TabIndex = 5;
+            this.menuadministracion.Text = "Administración";
+            this.menuadministracion.UseVisualStyleBackColor = true;
+            this.menuadministracion.Click += new System.EventHandler(this.btnAdministracion_Click);
             // 
-            // menuDevolucion
+            // menudevolución
             // 
-            this.menuDevolucion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.menuDevolucion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.menuDevolucion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menuDevolucion.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuDevolucion.Image = global::CapaPresentacion.Properties.Resources.product_release__1_;
-            this.menuDevolucion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.menuDevolucion.Location = new System.Drawing.Point(12, 307);
-            this.menuDevolucion.Name = "menuDevolucion";
-            this.menuDevolucion.Size = new System.Drawing.Size(168, 27);
-            this.menuDevolucion.TabIndex = 9;
-            this.menuDevolucion.Text = "Devolución";
-            this.menuDevolucion.UseVisualStyleBackColor = true;
-            this.menuDevolucion.Click += new System.EventHandler(this.btnDevolucion_Click);
+            this.menudevolución.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.menudevolución.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.menudevolución.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menudevolución.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menudevolución.Image = global::CapaPresentacion.Properties.Resources.product_release__1_;
+            this.menudevolución.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.menudevolución.Location = new System.Drawing.Point(10, 329);
+            this.menudevolución.Name = "menudevolución";
+            this.menudevolución.Size = new System.Drawing.Size(168, 34);
+            this.menudevolución.TabIndex = 9;
+            this.menudevolución.Text = "Devolución";
+            this.menudevolución.UseVisualStyleBackColor = true;
+            this.menudevolución.Click += new System.EventHandler(this.btnDevolucion_Click);
             // 
-            // menuIngreso
+            // menucompras
             // 
-            this.menuIngreso.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.menuIngreso.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.menuIngreso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menuIngreso.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuIngreso.Image = global::CapaPresentacion.Properties.Resources.interface_download_box_1_arrow_box_down_download_internet_network_server_upload__1_;
-            this.menuIngreso.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.menuIngreso.Location = new System.Drawing.Point(12, 142);
-            this.menuIngreso.Name = "menuIngreso";
-            this.menuIngreso.Size = new System.Drawing.Size(168, 27);
-            this.menuIngreso.TabIndex = 4;
-            this.menuIngreso.Text = "Ingreso";
-            this.menuIngreso.UseVisualStyleBackColor = true;
-            this.menuIngreso.Click += new System.EventHandler(this.btnIngreso_Click);
+            this.menucompras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.menucompras.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.menucompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menucompras.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menucompras.Image = global::CapaPresentacion.Properties.Resources.interface_download_box_1_arrow_box_down_download_internet_network_server_upload__1_;
+            this.menucompras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.menucompras.Location = new System.Drawing.Point(10, 49);
+            this.menucompras.Name = "menucompras";
+            this.menucompras.Size = new System.Drawing.Size(168, 34);
+            this.menucompras.TabIndex = 4;
+            this.menucompras.Text = "Ingreso";
+            this.menucompras.UseVisualStyleBackColor = true;
+            this.menucompras.Click += new System.EventHandler(this.btnIngreso_Click);
             // 
-            // menuVenta
+            // menuventas
             // 
-            this.menuVenta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.menuVenta.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.menuVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menuVenta.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuVenta.Image = global::CapaPresentacion.Properties.Resources.interface_upload_box_1_arrow_box_download_internet_network_server_up_upload__1_;
-            this.menuVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.menuVenta.Location = new System.Drawing.Point(12, 109);
-            this.menuVenta.Name = "menuVenta";
-            this.menuVenta.Size = new System.Drawing.Size(168, 27);
-            this.menuVenta.TabIndex = 3;
-            this.menuVenta.Text = "Venta";
-            this.menuVenta.UseVisualStyleBackColor = true;
-            this.menuVenta.Click += new System.EventHandler(this.btnVenta_Click);
+            this.menuventas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.menuventas.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.menuventas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menuventas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuventas.Image = global::CapaPresentacion.Properties.Resources.interface_upload_box_1_arrow_box_download_internet_network_server_up_upload__1_;
+            this.menuventas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.menuventas.Location = new System.Drawing.Point(10, 9);
+            this.menuventas.Name = "menuventas";
+            this.menuventas.Size = new System.Drawing.Size(168, 34);
+            this.menuventas.TabIndex = 3;
+            this.menuventas.Text = "Venta";
+            this.menuventas.UseVisualStyleBackColor = true;
+            this.menuventas.Click += new System.EventHandler(this.btnVenta_Click);
             // 
-            // menuServicioApartado
+            // menuapartado
             // 
-            this.menuServicioApartado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.menuServicioApartado.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.menuServicioApartado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menuServicioApartado.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuServicioApartado.Image = global::CapaPresentacion.Properties.Resources.box_time_outline__1_;
-            this.menuServicioApartado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.menuServicioApartado.Location = new System.Drawing.Point(12, 274);
-            this.menuServicioApartado.Name = "menuServicioApartado";
-            this.menuServicioApartado.Size = new System.Drawing.Size(168, 27);
-            this.menuServicioApartado.TabIndex = 0;
-            this.menuServicioApartado.Text = "Servicio de Apartado";
-            this.menuServicioApartado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.menuServicioApartado.UseVisualStyleBackColor = true;
-            this.menuServicioApartado.Click += new System.EventHandler(this.menuServicioApartado_Click);
+            this.menuapartado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.menuapartado.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.menuapartado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menuapartado.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuapartado.Image = global::CapaPresentacion.Properties.Resources.box_time_outline__1_;
+            this.menuapartado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.menuapartado.Location = new System.Drawing.Point(10, 169);
+            this.menuapartado.Name = "menuapartado";
+            this.menuapartado.Size = new System.Drawing.Size(168, 34);
+            this.menuapartado.TabIndex = 0;
+            this.menuapartado.Text = "Servicio de Apartado";
+            this.menuapartado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.menuapartado.UseVisualStyleBackColor = true;
+            this.menuapartado.Click += new System.EventHandler(this.menuServicioApartado_Click);
             // 
-            // menuUsuario
+            // menuusuarios
             // 
-            this.menuUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.menuUsuario.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.menuUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menuUsuario.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuUsuario.Image = global::CapaPresentacion.Properties.Resources.user__1_1;
-            this.menuUsuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.menuUsuario.Location = new System.Drawing.Point(12, 43);
-            this.menuUsuario.Name = "menuUsuario";
-            this.menuUsuario.Size = new System.Drawing.Size(168, 27);
-            this.menuUsuario.TabIndex = 2;
-            this.menuUsuario.Text = "Usuario";
-            this.menuUsuario.UseVisualStyleBackColor = true;
-            this.menuUsuario.Click += new System.EventHandler(this.menuUsuario_Click);
+            this.menuusuarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.menuusuarios.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.menuusuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menuusuarios.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuusuarios.Image = global::CapaPresentacion.Properties.Resources.user__1_1;
+            this.menuusuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.menuusuarios.Location = new System.Drawing.Point(10, 209);
+            this.menuusuarios.Name = "menuusuarios";
+            this.menuusuarios.Size = new System.Drawing.Size(168, 34);
+            this.menuusuarios.TabIndex = 2;
+            this.menuusuarios.Text = "Usuario";
+            this.menuusuarios.UseVisualStyleBackColor = true;
+            this.menuusuarios.Click += new System.EventHandler(this.menuUsuario_Click);
             // 
             // contenedor
             // 
@@ -284,6 +286,22 @@
             this.lblUsuario.Size = new System.Drawing.Size(81, 17);
             this.lblUsuario.TabIndex = 19;
             this.lblUsuario.Text = "lorem ipsum";
+            // 
+            // menu
+            // 
+            this.menu.Controls.Add(this.menudevolución);
+            this.menu.Controls.Add(this.menureportes);
+            this.menu.Controls.Add(this.menuadministracion);
+            this.menu.Controls.Add(this.menuusuarios);
+            this.menu.Controls.Add(this.menuventas);
+            this.menu.Controls.Add(this.menucompras);
+            this.menu.Controls.Add(this.menuproveedores);
+            this.menu.Controls.Add(this.menuapartado);
+            this.menu.Controls.Add(this.menuclientes);
+            this.menu.Location = new System.Drawing.Point(0, 40);
+            this.menu.Name = "menu";
+            this.menu.Size = new System.Drawing.Size(187, 400);
+            this.menu.TabIndex = 10;
             // 
             // dropdownMenu1
             // 
@@ -402,14 +420,14 @@
             // SubMenuRepVenta
             // 
             this.SubMenuRepVenta.Name = "SubMenuRepVenta";
-            this.SubMenuRepVenta.Size = new System.Drawing.Size(180, 22);
+            this.SubMenuRepVenta.Size = new System.Drawing.Size(162, 22);
             this.SubMenuRepVenta.Text = "Reporte Ventas";
             this.SubMenuRepVenta.Click += new System.EventHandler(this.SubMenuRepVenta_Click);
             // 
             // SubMenuRepIngreso
             // 
             this.SubMenuRepIngreso.Name = "SubMenuRepIngreso";
-            this.SubMenuRepIngreso.Size = new System.Drawing.Size(180, 22);
+            this.SubMenuRepIngreso.Size = new System.Drawing.Size(162, 22);
             this.SubMenuRepIngreso.Text = "Reporte Ingresos";
             this.SubMenuRepIngreso.Click += new System.EventHandler(this.SubMenuRepIngreso_Click);
             // 
@@ -423,7 +441,7 @@
             this.SubMenuDevlVenta.MenuItemTextColor = System.Drawing.Color.DimGray;
             this.SubMenuDevlVenta.Name = "dropdownMenu5";
             this.SubMenuDevlVenta.PrimaryColor = System.Drawing.Color.MediumSlateBlue;
-            this.SubMenuDevlVenta.Size = new System.Drawing.Size(190, 70);
+            this.SubMenuDevlVenta.Size = new System.Drawing.Size(190, 48);
             // 
             // devolverVentaToolStripMenuItem
             // 
@@ -445,26 +463,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(1072, 633);
+            this.Controls.Add(this.menu);
             this.Controls.Add(this.lblUsuario);
-            this.Controls.Add(this.menuUsuario);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.menuServicioApartado);
-            this.Controls.Add(this.menuVenta);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.menuIngreso);
-            this.Controls.Add(this.btnAcercaDe);
-            this.Controls.Add(this.menuDevolucion);
+            this.Controls.Add(this.menuacercade);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.MenuAdministracion);
             this.Controls.Add(this.contenedor);
-            this.Controls.Add(this.menuGeneraReportes);
-            this.Controls.Add(this.menuProveedores);
-            this.Controls.Add(this.menuClientes);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Inicio_Load);
+            this.menu.ResumeLayout(false);
             this.dropdownMenu1.ResumeLayout(false);
             this.dropdownMenu2.ResumeLayout(false);
             this.dropdownMenu3.ResumeLayout(false);
@@ -479,17 +490,17 @@
 
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Button btnAcercaDe;
+        private System.Windows.Forms.Button menuacercade;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button menuProveedores;
-        private System.Windows.Forms.Button menuClientes;
-        private System.Windows.Forms.Button menuGeneraReportes;
-        private System.Windows.Forms.Button menuDevolucion;
-        private System.Windows.Forms.Button menuIngreso;
-        private System.Windows.Forms.Button menuVenta;
-        private System.Windows.Forms.Button menuServicioApartado;
-        private System.Windows.Forms.Button menuUsuario;
+        private System.Windows.Forms.Button menuproveedores;
+        private System.Windows.Forms.Button menuclientes;
+        private System.Windows.Forms.Button menureportes;
+        private System.Windows.Forms.Button menudevolución;
+        private System.Windows.Forms.Button menucompras;
+        private System.Windows.Forms.Button menuventas;
+        private System.Windows.Forms.Button menuapartado;
+        private System.Windows.Forms.Button menuusuarios;
         private System.Windows.Forms.Panel contenedor;
         private Controls.DropdownMenu dropdownMenu1;
         private System.Windows.Forms.ToolStripMenuItem SubMenuCategoria;
@@ -509,7 +520,8 @@
         private Controls.DropdownMenu SubMenuDevlVenta;
         private System.Windows.Forms.ToolStripMenuItem devolverVentaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SubMenuDevlProv;
-        private System.Windows.Forms.Button MenuAdministracion;
+        private System.Windows.Forms.Button menuadministracion;
         private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.Panel menu;
     }
 }

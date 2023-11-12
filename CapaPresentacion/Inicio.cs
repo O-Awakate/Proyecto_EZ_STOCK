@@ -19,9 +19,21 @@ namespace CapaPresentacion
         private static Button menuActivo = null;
         private static Form formularioActivo = null;
 
-        public Inicio(Usuario objUsuario)
+        public Inicio(Usuario objUsuario = null)
         {
-            usuarioActual = objUsuario; 
+            if (objUsuario == null)
+            {
+                usuarioActual = new Usuario()
+                {
+                    
+                    oDatosPersona = new Datos_Persona { Nombre = "ADMIN" },IdUsuario =2
+                };
+            }
+            else
+            {
+                usuarioActual = objUsuario;
+            }
+           
 
             InitializeComponent();
         }
@@ -78,7 +90,15 @@ namespace CapaPresentacion
 
         private void Inicio_Load(object sender, EventArgs e)
         {
-            //List<Permiso> listaPermisos = new CN_Permiso().Listar(usuarioActual.IdUsuario);
+            List<Permiso> listaPermisos = new CN_Permiso().Listar(usuarioActual.IdUsuario);
+            foreach (Button botonMenu in menu.Controls.OfType<Button>())
+            {
+                bool encontrado = listaPermisos.Any(m => m.NombreMenu == botonMenu.Name);
+                if (!encontrado)
+                {
+                    botonMenu.Visible = false;
+                }
+            }
 
             lblUsuario.Text = usuarioActual.oDatosPersona.Nombre + " " + usuarioActual.oDatosPersona.Apellido;
             
@@ -119,83 +139,85 @@ namespace CapaPresentacion
         //menu Administracion 
         private void SubMenuCategoria_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(MenuAdministracion, new FrmCategoria());
+            AbrirFormulario(menuadministracion, new FrmCategoria());
         }
 
         private void SubMenuProducto_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(MenuAdministracion, new FrmProducto());
+            AbrirFormulario(menuadministracion, new FrmProducto());
         }
 
         private void SubMenuNegocio_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(MenuAdministracion, new FrmNegocio());
+            AbrirFormulario(menuadministracion, new FrmNegocio());
         }
         //menu venta
         private void SubMenuRegVenta_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menuVenta, new FrmVentaRegistro());
+            AbrirFormulario(menuventas, new FrmVentaRegistro());
         }
 
         private void SubMenuDetVenta_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menuVenta, new FrmDetalleVenta());
+            AbrirFormulario(menuventas, new FrmDetalleVenta());
         }
 
         private void SubMenuAbonoVenta_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menuVenta, new FrmAbonoVenta());
+            AbrirFormulario(menuventas, new FrmAbonoVenta());
         }
         //menu Ingreso
         private void SubMenuRegIngreso_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menuIngreso, new FrmRegIngresoProducto());
+            AbrirFormulario(menucompras, new FrmRegIngresoProducto());
         }
 
         private void SubMenuDetIngreso_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menuIngreso, new FrmDetalleIngresoProducto());
+            AbrirFormulario(menucompras, new FrmDetalleIngresoProducto());
         }
 
         private void SubMenuAbonoIngreso_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menuIngreso, new FrmAbonoIngresoProducto());
+            AbrirFormulario(menucompras, new FrmAbonoIngresoProducto());
         }
         //menu Cliente
         private void menuClientes_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menuClientes, new FrmCliente());
+            AbrirFormulario(menuclientes, new FrmCliente());
         }
         //menu proveedor
         private void menuProveedores_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menuProveedores, new FrmProveedor());
+            AbrirFormulario(menuproveedores, new FrmProveedor());
         }
         //menu Genera Reportes
         private void SubMenuRepVenta_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menuGeneraReportes, new FrmReporteVentas());
+            AbrirFormulario(menureportes, new FrmReporteVentas());
         }
 
         private void SubMenuRepIngreso_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menuGeneraReportes, new FrmReportesIngresoProductos());
+            AbrirFormulario(menureportes, new FrmReportesIngresoProductos());
         }
 
         private void menuServicioApartado_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menuServicioApartado, new FrmApartado());
+            AbrirFormulario(menuapartado, new FrmApartado());
         }
 
         private void devolverVentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menuDevolucion, new FrmDevolucion());
+            AbrirFormulario(menudevolución, new FrmDevolucion());
         }
 
         private void SubMenuDevlProv_Click(object sender, EventArgs e)
         {
 
         }
+
+        
     }
     
     
