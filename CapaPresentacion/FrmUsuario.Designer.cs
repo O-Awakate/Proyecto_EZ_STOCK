@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUsuario));
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -47,6 +47,28 @@
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.IdUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.IdDatosPersonas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ciudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sector = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Calle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Casa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Clave = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ConfirmarClave = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstadoActual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -86,28 +108,6 @@
             this.txtIdCorreo = new System.Windows.Forms.TextBox();
             this.txtIdDireccion = new System.Windows.Forms.TextBox();
             this.txtIdTelefono = new System.Windows.Forms.TextBox();
-            this.IdUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.IdDatosPersonas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ciudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sector = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Calle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Casa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Clave = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ConfirmarClave = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EstadoActual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EstadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.panel1.SuspendLayout();
@@ -269,15 +269,16 @@
             // dgvData
             // 
             this.dgvData.AllowUserToAddRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvData.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdUsuario,
@@ -306,14 +307,157 @@
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvData.RowTemplate.Height = 28;
             this.dgvData.Size = new System.Drawing.Size(829, 258);
             this.dgvData.TabIndex = 4;
             this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick_1);
             this.dgvData.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvData_CellPainting);
+            // 
+            // IdUsuario
+            // 
+            this.IdUsuario.HeaderText = "IdUsuario";
+            this.IdUsuario.Name = "IdUsuario";
+            this.IdUsuario.ReadOnly = true;
+            this.IdUsuario.Visible = false;
+            this.IdUsuario.Width = 30;
+            // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.HeaderText = "";
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Width = 30;
+            // 
+            // IdDatosPersonas
+            // 
+            this.IdDatosPersonas.HeaderText = "IdDatosPersonas";
+            this.IdDatosPersonas.Name = "IdDatosPersonas";
+            this.IdDatosPersonas.ReadOnly = true;
+            this.IdDatosPersonas.Visible = false;
+            // 
+            // Cedula
+            // 
+            this.Cedula.HeaderText = "Cédula";
+            this.Cedula.Name = "Cedula";
+            this.Cedula.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Apellido
+            // 
+            this.Apellido.HeaderText = "Apellido";
+            this.Apellido.Name = "Apellido";
+            this.Apellido.ReadOnly = true;
+            // 
+            // IdCorreo
+            // 
+            this.IdCorreo.HeaderText = "IdCorreo";
+            this.IdCorreo.Name = "IdCorreo";
+            this.IdCorreo.ReadOnly = true;
+            this.IdCorreo.Visible = false;
+            // 
+            // Correo
+            // 
+            this.Correo.HeaderText = "Correo";
+            this.Correo.Name = "Correo";
+            this.Correo.ReadOnly = true;
+            // 
+            // IdTelefono
+            // 
+            this.IdTelefono.HeaderText = "IdTelefono";
+            this.IdTelefono.Name = "IdTelefono";
+            this.IdTelefono.ReadOnly = true;
+            this.IdTelefono.Visible = false;
+            // 
+            // Telefono
+            // 
+            this.Telefono.HeaderText = "Teléfono";
+            this.Telefono.Name = "Telefono";
+            this.Telefono.ReadOnly = true;
+            // 
+            // IdDireccion
+            // 
+            this.IdDireccion.HeaderText = "IdDireccion";
+            this.IdDireccion.Name = "IdDireccion";
+            this.IdDireccion.ReadOnly = true;
+            this.IdDireccion.Visible = false;
+            // 
+            // Estado
+            // 
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            // 
+            // Ciudad
+            // 
+            this.Ciudad.HeaderText = "Ciudad";
+            this.Ciudad.Name = "Ciudad";
+            this.Ciudad.ReadOnly = true;
+            // 
+            // Sector
+            // 
+            this.Sector.HeaderText = "Sector";
+            this.Sector.Name = "Sector";
+            this.Sector.ReadOnly = true;
+            // 
+            // Calle
+            // 
+            this.Calle.HeaderText = "Calle";
+            this.Calle.Name = "Calle";
+            this.Calle.ReadOnly = true;
+            // 
+            // Casa
+            // 
+            this.Casa.HeaderText = "Casa";
+            this.Casa.Name = "Casa";
+            this.Casa.ReadOnly = true;
+            // 
+            // Clave
+            // 
+            this.Clave.HeaderText = "Clave";
+            this.Clave.Name = "Clave";
+            this.Clave.ReadOnly = true;
+            this.Clave.Visible = false;
+            // 
+            // ConfirmarClave
+            // 
+            this.ConfirmarClave.HeaderText = "Confirmar Clave";
+            this.ConfirmarClave.Name = "ConfirmarClave";
+            this.ConfirmarClave.ReadOnly = true;
+            this.ConfirmarClave.Visible = false;
+            // 
+            // idRol
+            // 
+            this.idRol.HeaderText = "idRol";
+            this.idRol.Name = "idRol";
+            this.idRol.ReadOnly = true;
+            this.idRol.Visible = false;
+            // 
+            // Rol
+            // 
+            this.Rol.HeaderText = "Rol";
+            this.Rol.Name = "Rol";
+            this.Rol.ReadOnly = true;
+            // 
+            // EstadoActual
+            // 
+            this.EstadoActual.HeaderText = "Estado Actual";
+            this.EstadoActual.Name = "EstadoActual";
+            this.EstadoActual.ReadOnly = true;
+            // 
+            // EstadoValor
+            // 
+            this.EstadoValor.HeaderText = "EstadoValor";
+            this.EstadoValor.Name = "EstadoValor";
+            this.EstadoValor.ReadOnly = true;
+            this.EstadoValor.Visible = false;
             // 
             // btnEliminar
             // 
@@ -703,149 +847,6 @@
             this.txtIdTelefono.Size = new System.Drawing.Size(25, 22);
             this.txtIdTelefono.TabIndex = 38;
             this.txtIdTelefono.Text = "0";
-            // 
-            // IdUsuario
-            // 
-            this.IdUsuario.HeaderText = "IdUsuario";
-            this.IdUsuario.Name = "IdUsuario";
-            this.IdUsuario.ReadOnly = true;
-            this.IdUsuario.Visible = false;
-            this.IdUsuario.Width = 30;
-            // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.HeaderText = "";
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Width = 30;
-            // 
-            // IdDatosPersonas
-            // 
-            this.IdDatosPersonas.HeaderText = "IdDatosPersonas";
-            this.IdDatosPersonas.Name = "IdDatosPersonas";
-            this.IdDatosPersonas.ReadOnly = true;
-            this.IdDatosPersonas.Visible = false;
-            // 
-            // Cedula
-            // 
-            this.Cedula.HeaderText = "Cédula";
-            this.Cedula.Name = "Cedula";
-            this.Cedula.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // Apellido
-            // 
-            this.Apellido.HeaderText = "Apellido";
-            this.Apellido.Name = "Apellido";
-            this.Apellido.ReadOnly = true;
-            // 
-            // IdCorreo
-            // 
-            this.IdCorreo.HeaderText = "IdCorreo";
-            this.IdCorreo.Name = "IdCorreo";
-            this.IdCorreo.ReadOnly = true;
-            this.IdCorreo.Visible = false;
-            // 
-            // Correo
-            // 
-            this.Correo.HeaderText = "Correo";
-            this.Correo.Name = "Correo";
-            this.Correo.ReadOnly = true;
-            // 
-            // IdTelefono
-            // 
-            this.IdTelefono.HeaderText = "IdTelefono";
-            this.IdTelefono.Name = "IdTelefono";
-            this.IdTelefono.ReadOnly = true;
-            this.IdTelefono.Visible = false;
-            // 
-            // Telefono
-            // 
-            this.Telefono.HeaderText = "Teléfono";
-            this.Telefono.Name = "Telefono";
-            this.Telefono.ReadOnly = true;
-            // 
-            // IdDireccion
-            // 
-            this.IdDireccion.HeaderText = "IdDireccion";
-            this.IdDireccion.Name = "IdDireccion";
-            this.IdDireccion.ReadOnly = true;
-            this.IdDireccion.Visible = false;
-            // 
-            // Estado
-            // 
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            // 
-            // Ciudad
-            // 
-            this.Ciudad.HeaderText = "Ciudad";
-            this.Ciudad.Name = "Ciudad";
-            this.Ciudad.ReadOnly = true;
-            // 
-            // Sector
-            // 
-            this.Sector.HeaderText = "Sector";
-            this.Sector.Name = "Sector";
-            this.Sector.ReadOnly = true;
-            // 
-            // Calle
-            // 
-            this.Calle.HeaderText = "Calle";
-            this.Calle.Name = "Calle";
-            this.Calle.ReadOnly = true;
-            // 
-            // Casa
-            // 
-            this.Casa.HeaderText = "Casa";
-            this.Casa.Name = "Casa";
-            this.Casa.ReadOnly = true;
-            // 
-            // Clave
-            // 
-            this.Clave.HeaderText = "Clave";
-            this.Clave.Name = "Clave";
-            this.Clave.ReadOnly = true;
-            this.Clave.Visible = false;
-            // 
-            // ConfirmarClave
-            // 
-            this.ConfirmarClave.HeaderText = "Confirmar Clave";
-            this.ConfirmarClave.Name = "ConfirmarClave";
-            this.ConfirmarClave.ReadOnly = true;
-            this.ConfirmarClave.Visible = false;
-            // 
-            // idRol
-            // 
-            this.idRol.HeaderText = "idRol";
-            this.idRol.Name = "idRol";
-            this.idRol.ReadOnly = true;
-            this.idRol.Visible = false;
-            // 
-            // Rol
-            // 
-            this.Rol.HeaderText = "Rol";
-            this.Rol.Name = "Rol";
-            this.Rol.ReadOnly = true;
-            // 
-            // EstadoActual
-            // 
-            this.EstadoActual.HeaderText = "Estado Actual";
-            this.EstadoActual.Name = "EstadoActual";
-            this.EstadoActual.ReadOnly = true;
-            // 
-            // EstadoValor
-            // 
-            this.EstadoValor.HeaderText = "EstadoValor";
-            this.EstadoValor.Name = "EstadoValor";
-            this.EstadoValor.ReadOnly = true;
-            this.EstadoValor.Visible = false;
             // 
             // FrmUsuario
             // 

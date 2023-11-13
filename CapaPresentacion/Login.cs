@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaNegocio;
 using CapaEntidad;
+using System.IO;
 
 namespace CapaPresentacion
 {
@@ -54,6 +55,24 @@ namespace CapaPresentacion
             txtClave.Text = "";
 
             this.Show();
+        }
+
+        public Image byteToImagege(byte[] imageByte)
+        {
+            MemoryStream ms = new MemoryStream();
+            ms.Write(imageByte, 0, imageByte.Length);
+            Image image = new Bitmap(ms);
+
+            return image;
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            bool obtenido = true;
+            byte[] byteimage = new CN_Negocio().obtenerLogo(out obtenido);
+
+            if (obtenido)
+                picLogo.Image = byteToImagege(byteimage);
         }
     }
 }
