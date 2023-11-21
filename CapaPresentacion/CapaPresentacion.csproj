@@ -437,5 +437,11 @@
   <ItemGroup>
     <None Include="Resources\clear-box-outline %282%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save-20-regular  %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete-outline %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

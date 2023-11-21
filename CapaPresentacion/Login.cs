@@ -27,8 +27,7 @@ namespace CapaPresentacion
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            List<Usuario> TEST = new CN_Usuario().Listar();
-
+            
             Usuario oUsuario = new CN_Usuario().Listar().Where(u => u.oDatosPersona.CI == txtCedula.Text && u.Clave == txtClave.Text).FirstOrDefault();
             
             if (oUsuario!= null)
@@ -69,7 +68,7 @@ namespace CapaPresentacion
         private void Login_Load(object sender, EventArgs e)
         {
             bool obtenido = true;
-            byte[] byteimage = new CN_Negocio().obtenerLogo(out obtenido);
+            byte[] byteimage = new CN_OtrosDatos().obtenerLogo(out obtenido);
 
             if (obtenido)
                 picLogo.Image = byteToImagege(byteimage);

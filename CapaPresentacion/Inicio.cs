@@ -25,7 +25,6 @@ namespace CapaPresentacion
             {
                 usuarioActual = new Usuario()
                 {
-                    
                     oDatosPersona = new Datos_Persona { Nombre = "ADMIN" },IdUsuario =2
                 };
             }
@@ -169,7 +168,7 @@ namespace CapaPresentacion
         //menu Ingreso
         private void SubMenuRegIngreso_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menucompras, new FrmRegIngresoProducto());
+            AbrirFormulario(menucompras, new FrmRegIngresoProducto(usuarioActual));
         }
 
         private void SubMenuDetIngreso_Click(object sender, EventArgs e)

@@ -300,7 +300,7 @@
             this.menu.Controls.Add(this.menuclientes);
             this.menu.Location = new System.Drawing.Point(0, 40);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(187, 400);
+            this.menu.Size = new System.Drawing.Size(187, 443);
             this.menu.TabIndex = 10;
             // 
             // dropdownMenu1
@@ -314,27 +314,27 @@
             this.dropdownMenu1.MenuItemTextColor = System.Drawing.Color.DimGray;
             this.dropdownMenu1.Name = "dropdownMenu1";
             this.dropdownMenu1.PrimaryColor = System.Drawing.Color.MediumSlateBlue;
-            this.dropdownMenu1.Size = new System.Drawing.Size(126, 70);
+            this.dropdownMenu1.Size = new System.Drawing.Size(181, 92);
             // 
             // SubMenuCategoria
             // 
             this.SubMenuCategoria.Name = "SubMenuCategoria";
-            this.SubMenuCategoria.Size = new System.Drawing.Size(125, 22);
+            this.SubMenuCategoria.Size = new System.Drawing.Size(180, 22);
             this.SubMenuCategoria.Text = "Categoria";
             this.SubMenuCategoria.Click += new System.EventHandler(this.SubMenuCategoria_Click);
             // 
             // SubMenuProducto
             // 
             this.SubMenuProducto.Name = "SubMenuProducto";
-            this.SubMenuProducto.Size = new System.Drawing.Size(125, 22);
+            this.SubMenuProducto.Size = new System.Drawing.Size(180, 22);
             this.SubMenuProducto.Text = "Producto";
             this.SubMenuProducto.Click += new System.EventHandler(this.SubMenuProducto_Click);
             // 
             // SubMenuNegocio
             // 
             this.SubMenuNegocio.Name = "SubMenuNegocio";
-            this.SubMenuNegocio.Size = new System.Drawing.Size(125, 22);
-            this.SubMenuNegocio.Text = "Negocio";
+            this.SubMenuNegocio.Size = new System.Drawing.Size(180, 22);
+            this.SubMenuNegocio.Text = "Otros Detalles";
             this.SubMenuNegocio.Click += new System.EventHandler(this.SubMenuNegocio_Click);
             // 
             // dropdownMenu2

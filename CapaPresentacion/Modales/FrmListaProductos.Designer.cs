@@ -28,26 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.txtBusqueda = new System.Windows.Forms.TextBox();
+            this.cboBuscar = new System.Windows.Forms.ComboBox();
+            this.btnLimpiarBuscador = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.Checkbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.IdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodigoFabrica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvData = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CodigoAvila = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodigoFrabrica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MarcaProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MarcaCarro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValidoPara = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AplicaParaCarro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -64,139 +67,181 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.comboBox1);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.textBox11);
+            this.panel2.Controls.Add(this.txtBusqueda);
+            this.panel2.Controls.Add(this.cboBuscar);
+            this.panel2.Controls.Add(this.btnLimpiarBuscador);
+            this.panel2.Controls.Add(this.btnBuscar);
             this.panel2.Controls.Add(this.label20);
             this.panel2.Location = new System.Drawing.Point(17, 55);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(772, 69);
             this.panel2.TabIndex = 17;
             // 
-            // comboBox1
+            // txtBusqueda
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(93, 25);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(226, 21);
-            this.comboBox1.TabIndex = 57;
+            this.txtBusqueda.Location = new System.Drawing.Point(219, 27);
+            this.txtBusqueda.Name = "txtBusqueda";
+            this.txtBusqueda.Size = new System.Drawing.Size(120, 20);
+            this.txtBusqueda.TabIndex = 91;
             // 
-            // textBox11
+            // cboBuscar
             // 
-            this.textBox11.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox11.Location = new System.Drawing.Point(325, 25);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(334, 22);
-            this.textBox11.TabIndex = 33;
+            this.cboBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboBuscar.FormattingEnabled = true;
+            this.cboBuscar.Location = new System.Drawing.Point(88, 26);
+            this.cboBuscar.Name = "cboBuscar";
+            this.cboBuscar.Size = new System.Drawing.Size(125, 21);
+            this.cboBuscar.TabIndex = 90;
+            // 
+            // btnLimpiarBuscador
+            // 
+            this.btnLimpiarBuscador.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnLimpiarBuscador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiarBuscador.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiarBuscador.Image = global::CapaPresentacion.Properties.Resources.clear_outlined__1_;
+            this.btnLimpiarBuscador.Location = new System.Drawing.Point(402, 17);
+            this.btnLimpiarBuscador.Name = "btnLimpiarBuscador";
+            this.btnLimpiarBuscador.Size = new System.Drawing.Size(43, 39);
+            this.btnLimpiarBuscador.TabIndex = 89;
+            this.btnLimpiarBuscador.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnLimpiarBuscador.UseVisualStyleBackColor = true;
+            this.btnLimpiarBuscador.Click += new System.EventHandler(this.btnLimpiarBuscador_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Image = global::CapaPresentacion.Properties.Resources.magnifying_glass_thin__1_;
+            this.btnBuscar.Location = new System.Drawing.Point(353, 17);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(43, 39);
+            this.btnBuscar.TabIndex = 88;
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(14, 25);
+            this.label20.Location = new System.Drawing.Point(12, 26);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(73, 17);
-            this.label20.TabIndex = 32;
+            this.label20.TabIndex = 87;
             this.label20.Text = "Buscar por";
             // 
-            // dataGridView1
+            // dgvData
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Checkbox,
-            this.IdProducto,
-            this.Marca,
-            this.CodigoFabrica,
+            this.dgvData.AllowUserToAddRows = false;
+            this.dgvData.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
             this.CodigoAvila,
+            this.CodigoFrabrica,
+            this.MarcaProducto,
+            this.MarcaCarro,
             this.Descripcion,
-            this.ValidoPara,
             this.Categoria,
+            this.AplicaParaCarro,
             this.Stock,
+            this.PrecioCompra,
             this.PrecioVenta});
-            this.dataGridView1.Location = new System.Drawing.Point(17, 145);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(772, 444);
-            this.dataGridView1.TabIndex = 18;
+            this.dgvData.Location = new System.Drawing.Point(17, 139);
+            this.dgvData.MultiSelect = false;
+            this.dgvData.Name = "dgvData";
+            this.dgvData.ReadOnly = true;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvData.RowTemplate.Height = 28;
+            this.dgvData.Size = new System.Drawing.Size(772, 450);
+            this.dgvData.TabIndex = 63;
+            this.dgvData.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellDoubleClick);
             // 
-            // button1
+            // Id
             // 
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = global::CapaPresentacion.Properties.Resources.clear_outlined__1_;
-            this.button1.Location = new System.Drawing.Point(714, 16);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(43, 39);
-            this.button1.TabIndex = 58;
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Image = global::CapaPresentacion.Properties.Resources.magnifying_glass_thin__1_;
-            this.button2.Location = new System.Drawing.Point(665, 16);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(43, 39);
-            this.button2.TabIndex = 43;
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // Checkbox
-            // 
-            this.Checkbox.HeaderText = "";
-            this.Checkbox.Name = "Checkbox";
-            this.Checkbox.Width = 32;
-            // 
-            // IdProducto
-            // 
-            this.IdProducto.HeaderText = "IdProducto";
-            this.IdProducto.Name = "IdProducto";
-            this.IdProducto.Visible = false;
-            // 
-            // Marca
-            // 
-            this.Marca.HeaderText = "Marca";
-            this.Marca.Name = "Marca";
-            // 
-            // CodigoFabrica
-            // 
-            this.CodigoFabrica.HeaderText = "Código Fábrica";
-            this.CodigoFabrica.Name = "CodigoFabrica";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
             // 
             // CodigoAvila
             // 
-            this.CodigoAvila.HeaderText = "Código Ávila";
+            this.CodigoAvila.HeaderText = "Codigo Avila";
             this.CodigoAvila.Name = "CodigoAvila";
+            this.CodigoAvila.ReadOnly = true;
+            // 
+            // CodigoFrabrica
+            // 
+            this.CodigoFrabrica.HeaderText = "Codigo de Frabrica";
+            this.CodigoFrabrica.Name = "CodigoFrabrica";
+            this.CodigoFrabrica.ReadOnly = true;
+            this.CodigoFrabrica.Width = 130;
+            // 
+            // MarcaProducto
+            // 
+            this.MarcaProducto.HeaderText = "Marca del Producto";
+            this.MarcaProducto.Name = "MarcaProducto";
+            this.MarcaProducto.ReadOnly = true;
+            this.MarcaProducto.Width = 150;
+            // 
+            // MarcaCarro
+            // 
+            this.MarcaCarro.HeaderText = "Marca de Carro";
+            this.MarcaCarro.Name = "MarcaCarro";
+            this.MarcaCarro.ReadOnly = true;
+            this.MarcaCarro.Width = 150;
             // 
             // Descripcion
             // 
-            this.Descripcion.HeaderText = "Descripción";
+            this.Descripcion.HeaderText = "Descripcion";
             this.Descripcion.Name = "Descripcion";
-            // 
-            // ValidoPara
-            // 
-            this.ValidoPara.HeaderText = "Válido Para";
-            this.ValidoPara.Name = "ValidoPara";
+            this.Descripcion.ReadOnly = true;
             // 
             // Categoria
             // 
-            this.Categoria.HeaderText = "Categoría";
+            this.Categoria.HeaderText = "Categoria";
             this.Categoria.Name = "Categoria";
+            this.Categoria.ReadOnly = true;
+            // 
+            // AplicaParaCarro
+            // 
+            this.AplicaParaCarro.HeaderText = "Aplica Para Carro";
+            this.AplicaParaCarro.Name = "AplicaParaCarro";
+            this.AplicaParaCarro.ReadOnly = true;
+            this.AplicaParaCarro.Width = 120;
             // 
             // Stock
             // 
             this.Stock.HeaderText = "Stock";
             this.Stock.Name = "Stock";
+            this.Stock.ReadOnly = true;
+            this.Stock.Visible = false;
+            // 
+            // PrecioCompra
+            // 
+            this.PrecioCompra.HeaderText = "Precio Compra";
+            this.PrecioCompra.Name = "PrecioCompra";
+            this.PrecioCompra.ReadOnly = true;
+            this.PrecioCompra.Visible = false;
             // 
             // PrecioVenta
             // 
             this.PrecioVenta.HeaderText = "Precio Venta";
             this.PrecioVenta.Name = "PrecioVenta";
+            this.PrecioVenta.ReadOnly = true;
+            this.PrecioVenta.Visible = false;
             // 
             // FrmListaProductos
             // 
@@ -204,14 +249,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(804, 601);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvData);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
             this.Name = "FrmListaProductos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.FrmListaProductos_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,21 +268,22 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.DataGridView dgvData;
+        private System.Windows.Forms.TextBox txtBusqueda;
+        private System.Windows.Forms.ComboBox cboBuscar;
+        private System.Windows.Forms.Button btnLimpiarBuscador;
+        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Checkbox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoFabrica;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodigoAvila;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoFrabrica;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MarcaProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MarcaCarro;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ValidoPara;
         private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AplicaParaCarro;
         private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioCompra;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioVenta;
     }
 }

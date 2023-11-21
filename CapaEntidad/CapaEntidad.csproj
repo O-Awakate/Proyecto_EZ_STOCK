@@ -47,7 +47,7 @@
     <Compile Include="Categoria.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Compra.cs" />
-    <Compile Include="Compra_Credito.cs" />
+    <Compile Include="Credito.cs" />
     <Compile Include="Correo.cs" />
     <Compile Include="Datos_Persona.cs" />
     <Compile Include="Detalle_Compra.cs" />
@@ -65,7 +65,6 @@
     <Compile Include="Telefono.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Venta.cs" />
-    <Compile Include="Venta_Credito.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

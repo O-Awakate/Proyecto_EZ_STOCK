@@ -32,16 +32,22 @@ namespace CapaPresentacion
         private void FrmNegocio_Load(object sender, EventArgs e)
         {
             bool obtenido = true;
-            byte[] byteimage = new CN_Negocio().obtenerLogo(out obtenido);
+            byte[] byteimage = new CN_OtrosDatos().obtenerLogo(out obtenido);
 
             if (obtenido)
                 picLogo.Image = byteToImagege(byteimage);
 
-            Negocio datos = new CN_Negocio().obtenerDatos();
+            Negocio datos = new CN_OtrosDatos().obtenerDatos();
 
             txtNombreNegocio.Text = datos.Nombre;
             txtRIF.Text = datos.RIF;
             txtDireccion.Text = datos.Direccion;
+
+
+            Otros_Datos OtrosDatos = new CN_OtrosDatos().obtenerOtrosDatos();
+
+            txtPrecioDolar.Text = OtrosDatos.ValorDolar.ToString();
+
         }
 
         private void btnSubir_Click(object sender, EventArgs e)
@@ -54,7 +60,7 @@ namespace CapaPresentacion
             if (oOpenFileDialog.ShowDialog() == DialogResult.OK)
             {
                 byte[] byteimage = File.ReadAllBytes(oOpenFileDialog.FileName);
-                bool respuesta = new CN_Negocio().actualizarLogo(byteimage, out mensaje);
+                bool respuesta = new CN_OtrosDatos().actualizarLogo(byteimage, out mensaje);
 
                 if (respuesta)
                     picLogo.Image = byteToImagege(byteimage);
@@ -74,7 +80,24 @@ namespace CapaPresentacion
                 Direccion = txtDireccion.Text
             };
 
-            bool respuesta = new CN_Negocio().GuardarDatos(obj, out mensaje);
+            bool respuesta = new CN_OtrosDatos().GuardarDatos(obj, out mensaje);
+
+            if (respuesta)
+                MessageBox.Show("Los cambios fueron guardados", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("No se pudo guaedar los cambios", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string mensaje = string.Empty;
+
+            Otros_Datos obj = new Otros_Datos()
+            {
+                ValorDolar = decimal.Parse(txtPrecioDolar.Text)
+            };
+
+            bool respuesta = new CN_OtrosDatos().GuardarOtrosDatos(obj, out mensaje);
 
             if (respuesta)
                 MessageBox.Show("Los cambios fueron guardados", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -82,5 +105,4 @@ namespace CapaPresentacion
                 MessageBox.Show("No se pudo guaedar los cambios", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
     }
-    
 }

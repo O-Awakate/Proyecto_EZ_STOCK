@@ -173,6 +173,16 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap delete_outline__1_ {
+            get {
+                object obj = ResourceManager.GetObject("delete_outline__1_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap delete_outline__2_ {
             get {
                 object obj = ResourceManager.GetObject("delete-outline (2)", resourceCulture);
@@ -327,6 +337,16 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap result_draft__1_ {
             get {
                 object obj = ResourceManager.GetObject("result-draft (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap save_20_regular___1_ {
+            get {
+                object obj = ResourceManager.GetObject("save-20-regular  (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

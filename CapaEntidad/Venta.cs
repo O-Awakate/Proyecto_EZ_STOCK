@@ -11,7 +11,7 @@ namespace CapaEntidad
         public int IdVenta { get; set; }
         public Usuario oUsuario { get; set; }
         public Cliente oCliente { get; set; }
-        public Otros_Datos oOtrosDatos { get; set; }
+        public Credito oCompraCredito { get; set; }
         public string TipoDocumento { get; set; }
         public string NumeroDocumento { get; set; }
         public decimal MontoBs { get; set; }
