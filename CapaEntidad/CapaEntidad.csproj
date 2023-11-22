@@ -47,8 +47,8 @@
     <Compile Include="Categoria.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Compra.cs" />
-    <Compile Include="Credito.cs" />
     <Compile Include="Correo.cs" />
+    <Compile Include="Credito.cs" />
     <Compile Include="Datos_Persona.cs" />
     <Compile Include="Detalle_Compra.cs" />
     <Compile Include="Detalle_Venta.cs" />

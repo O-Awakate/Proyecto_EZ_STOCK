@@ -305,5 +305,42 @@ namespace CapaPresentacion
                 }
             }
         }
+
+        private void txtRegistrar_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(txtIdProv.Text) == 0)
+            {
+                MessageBox.Show("Debe seleccionar unn proveedor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if (dgvData.Rows.Count < 1)
+            {
+                MessageBox.Show("Debe ingresar productos en la compra", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            DataTable detalle_Compra = new DataTable();
+            detalle_Compra.Columns.Add("IdProducto", typeof(int));
+            detalle_Compra.Columns.Add("PrecioCompra", typeof(decimal));
+            detalle_Compra.Columns.Add("PrecioVenta", typeof(decimal));
+            detalle_Compra.Columns.Add("Cantidad", typeof(int));
+            detalle_Compra.Columns.Add("MontoTotal", typeof(decimal));
+
+            foreach (DataGridViewRow row in dgvData.Rows)
+            {
+                detalle_Compra.Rows.Add(
+                    new object[]{
+                        Convert.ToInt32(row.Cells ["IdProducto"].Value.ToString()),
+                        row.Cells ["PrecioCompra"].Value.ToString(),
+                        row.Cells ["PrecioVenta"].Value.ToString(),
+                        row.Cells ["Cantidad"].Value.ToString(),
+                        row.Cells ["SubTotal"].Value.ToString()
+
+                });
+            }
+
+            string vare = "";
+
+        }
     }
 }

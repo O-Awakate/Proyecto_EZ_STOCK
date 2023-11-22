@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtRegistrar = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.textBox15 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.txtMontoBs = new System.Windows.Forms.TextBox();
@@ -56,6 +58,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnBuscarProducto = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -71,6 +74,7 @@
             this.cboTipDocumento = new System.Windows.Forms.ComboBox();
             this.txtRazonSocial = new System.Windows.Forms.TextBox();
             this.txtFecha = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.txtDocumento = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -88,11 +92,7 @@
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnBuscarProducto = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCantidad)).BeginInit();
@@ -104,7 +104,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.groupBox1);
-            this.panel3.Controls.Add(this.button3);
+            this.panel3.Controls.Add(this.txtRegistrar);
             this.panel3.Controls.Add(this.label18);
             this.panel3.Controls.Add(this.textBox15);
             this.panel3.Controls.Add(this.label17);
@@ -126,6 +126,20 @@
             this.groupBox1.TabIndex = 63;
             this.groupBox1.TabStop = false;
             // 
+            // txtRegistrar
+            // 
+            this.txtRegistrar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.txtRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.txtRegistrar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRegistrar.Image = global::CapaPresentacion.Properties.Resources.shopping_cart_outline__2_;
+            this.txtRegistrar.Location = new System.Drawing.Point(7, 203);
+            this.txtRegistrar.Name = "txtRegistrar";
+            this.txtRegistrar.Size = new System.Drawing.Size(101, 83);
+            this.txtRegistrar.TabIndex = 56;
+            this.txtRegistrar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.txtRegistrar.UseVisualStyleBackColor = true;
+            this.txtRegistrar.Click += new System.EventHandler(this.txtRegistrar_Click);
+            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -143,6 +157,16 @@
             this.textBox15.Name = "textBox15";
             this.textBox15.Size = new System.Drawing.Size(101, 22);
             this.textBox15.TabIndex = 62;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(7, 98);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(47, 17);
+            this.label17.TabIndex = 59;
+            this.label17.Text = "Abono";
             // 
             // textBox14
             // 
@@ -381,6 +405,20 @@
             this.label9.TabIndex = 44;
             this.label9.Text = "Marca Carro";
             // 
+            // btnBuscarProducto
+            // 
+            this.btnBuscarProducto.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnBuscarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarProducto.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarProducto.Image = global::CapaPresentacion.Properties.Resources.magnifying_glass_thin__1_;
+            this.btnBuscarProducto.Location = new System.Drawing.Point(139, 21);
+            this.btnBuscarProducto.Name = "btnBuscarProducto";
+            this.btnBuscarProducto.Size = new System.Drawing.Size(49, 26);
+            this.btnBuscarProducto.TabIndex = 43;
+            this.btnBuscarProducto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnBuscarProducto.UseVisualStyleBackColor = true;
+            this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -540,6 +578,21 @@
             this.txtFecha.Size = new System.Drawing.Size(100, 20);
             this.txtFecha.TabIndex = 65;
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.AccessibleDescription = "";
+            this.btnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Image = global::CapaPresentacion.Properties.Resources.magnifying_glass_thin__1_;
+            this.btnBuscar.Location = new System.Drawing.Point(747, 18);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(59, 24);
+            this.btnBuscar.TabIndex = 58;
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // txtDocumento
             // 
             this.txtDocumento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -631,15 +684,15 @@
             // 
             this.dgvData.AllowUserToAddRows = false;
             this.dgvData.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdProducto,
@@ -653,9 +706,9 @@
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvData.RowTemplate.Height = 28;
             this.dgvData.Size = new System.Drawing.Size(708, 289);
             this.dgvData.TabIndex = 69;
@@ -713,34 +766,6 @@
             this.btnSeleccionar.UseColumnTextForButtonValue = true;
             this.btnSeleccionar.Width = 30;
             // 
-            // btnBuscar
-            // 
-            this.btnBuscar.AccessibleDescription = "";
-            this.btnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Image = global::CapaPresentacion.Properties.Resources.magnifying_glass_thin__1_;
-            this.btnBuscar.Location = new System.Drawing.Point(747, 18);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(59, 24);
-            this.btnBuscar.TabIndex = 58;
-            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // button3
-            // 
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Image = global::CapaPresentacion.Properties.Resources.shopping_cart_outline__2_;
-            this.button3.Location = new System.Drawing.Point(7, 203);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(101, 83);
-            this.button3.TabIndex = 56;
-            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // btnAgregar
             // 
             this.btnAgregar.BackColor = System.Drawing.Color.White;
@@ -753,30 +778,6 @@
             this.btnAgregar.TabIndex = 23;
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // btnBuscarProducto
-            // 
-            this.btnBuscarProducto.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnBuscarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarProducto.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarProducto.Image = global::CapaPresentacion.Properties.Resources.magnifying_glass_thin__1_;
-            this.btnBuscarProducto.Location = new System.Drawing.Point(139, 21);
-            this.btnBuscarProducto.Name = "btnBuscarProducto";
-            this.btnBuscarProducto.Size = new System.Drawing.Size(49, 26);
-            this.btnBuscarProducto.TabIndex = 43;
-            this.btnBuscarProducto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnBuscarProducto.UseVisualStyleBackColor = true;
-            this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(7, 98);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(47, 17);
-            this.label17.TabIndex = 59;
-            this.label17.Text = "Abono";
             // 
             // FrmRegIngresoProducto
             // 
@@ -810,7 +811,7 @@
 
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button txtRegistrar;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.TextBox textBox14;
