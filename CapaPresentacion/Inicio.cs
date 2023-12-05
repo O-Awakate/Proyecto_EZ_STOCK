@@ -40,26 +40,26 @@ namespace CapaPresentacion
         //Dropdown menu
         private void btnAdministracion_Click(object sender, EventArgs e)
         {
-            Open_DropDownMenu(dropdownMenu1, sender);
+            Open_DropDownMenu(ddmAdministracion, sender);
         }
         private void btnVenta_Click(object sender, EventArgs e)
         {
-            Open_DropDownMenu(dropdownMenu2, sender);
+            Open_DropDownMenu(ddmVenta, sender);
 
         }
         private void btnIngreso_Click(object sender, EventArgs e)
         {
-            Open_DropDownMenu(dropdownMenu3, sender);
+            Open_DropDownMenu(ddmCompra, sender);
         }
 
         private void btnGeneraReportes_Click(object sender, EventArgs e)
         {
-            Open_DropDownMenu(dropdownMenu4, sender);
+            Open_DropDownMenu(ddmReportes, sender);
         }
 
         private void btnDevolucion_Click(object sender, EventArgs e)
         {
-            Open_DropDownMenu(SubMenuDevlVenta, sender);
+            Open_DropDownMenu(ddmDevoluciones, sender);
         }
 
         private void Open_DropDownMenu(DropdownMenu dropdownMenu, object sender)
@@ -153,7 +153,7 @@ namespace CapaPresentacion
         //menu venta
         private void SubMenuRegVenta_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menuventas, new FrmVentaRegistro());
+            AbrirFormulario(menuventas, new FrmVentaRegistro(usuarioActual));
         }
 
         private void SubMenuDetVenta_Click(object sender, EventArgs e)
@@ -168,12 +168,12 @@ namespace CapaPresentacion
         //menu Ingreso
         private void SubMenuRegIngreso_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menucompras, new FrmRegIngresoProducto(usuarioActual));
+            AbrirFormulario(menucompras, new FrmCompra(usuarioActual));
         }
 
         private void SubMenuDetIngreso_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menucompras, new FrmDetalleIngresoProducto());
+            AbrirFormulario(menucompras, new FrmDetalleCompra());
         }
 
         private void SubMenuAbonoIngreso_Click(object sender, EventArgs e)
@@ -213,7 +213,7 @@ namespace CapaPresentacion
 
         private void SubMenuDevlProv_Click(object sender, EventArgs e)
         {
-
+            AbrirFormulario(menudevolución, new FrmDevolucionProducto());
         }
 
         

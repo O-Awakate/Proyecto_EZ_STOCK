@@ -1,4 +1,4 @@
-﻿ using CapaEntidad;
+﻿using CapaEntidad;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -43,6 +43,8 @@ namespace CapaDatos
         {
             bool Respuesta = false;
             Mensaje = string.Empty;
+            int idCredito = 0;
+
 
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
@@ -57,8 +59,8 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("MontoBs", obj.MontoBs);
                     cmd.Parameters.AddWithValue("Abono", obj.Abono);
                     cmd.Parameters.AddWithValue("DetalleCompra", DetalleCompra);
+                    cmd.Parameters.AddWithValue("MetodoPago", obj.MetodoPago);
                     cmd.Parameters.AddWithValue("TieneDeuda", obj.TieneDeuda);
-                    cmd.Parameters.AddWithValue("Intereses", obj.oCredito.Intereses);
                     cmd.Parameters.AddWithValue("Deuda", obj.oCredito.Deuda);
                     
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -80,7 +82,139 @@ namespace CapaDatos
             }
             return Respuesta;
         }
-
         
+
+        public Compra ObtenerCompra(string numero)
+        {
+            Compra obj = new Compra();
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("select c.IdCompra,");
+                    query.AppendLine("dpu.Nombre, dpu.Apellido,");
+                    query.AppendLine("dppr.CI, dppr.Nombre as NombreProveedor, dppr.Apellido as ApellidoProveedor, cp.RazonSocial,");
+                    query.AppendLine("c.TipoDocumento, c.NumeroDocumento, c.MontoTotal, c.MontoBs, c.MetodoPago, CONVERT(char(10), c.FechaRegistro, 103)[FechaRegistro],");
+                    query.AppendLine("crd.IdCredito, crd.Deuda");
+                    query.AppendLine("from COMPRA c");
+                    query.AppendLine("left join CREDITO crd ON crd.IdCredito = c.IdCredito");
+                    query.AppendLine("inner join USUARIO u on u.IdUsuario = c.IdUsuario");
+                    query.AppendLine("inner join DATOS_PERSONA dpu ON dpu.IdDatosPersona = u.IdDatosPersona");
+                    query.AppendLine("inner join PROVEEDOR pr on pr.IdProveedor = c.IdProveedor");
+                    query.AppendLine("inner join DATOS_PERSONA dppr ON dppr.IdDatosPersona = pr.IdDatosPersona");
+                    query.AppendLine("inner join CASA_PROVEEDORA cp on cp.IdCasaProveedora = pr.IdCasaProveedora");
+                    query.AppendLine("where c.NumeroDocumento = @numero");
+
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    cmd.Parameters.AddWithValue("@numero", numero);
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read()) 
+                        {
+                            obj = new Compra()
+                            {
+                                IdCompra = Convert.ToInt32(dr["IdCompra"]),
+                                OUsuario = new Usuario()
+                                {
+                                    oDatosPersona = new Datos_Persona()
+                                    {
+                                        Nombre = dr["Nombre"].ToString(),
+                                        Apellido = dr["Apellido"].ToString()
+                                    }
+                                },
+                                oCredito = new Credito()
+                                {
+                                    IdCompraCredito = Convert.ToInt32(dr["IdCredito"]),
+                                    Deuda 
+                                },
+                                OProvedor = new Proveedor()
+                                {
+                                    oDatosPersona = new Datos_Persona()
+                                    {
+                                        CI = dr["CI"].ToString(),
+                                        Nombre = dr["NombreProveedor"].ToString(),
+                                        Apellido = dr["ApellidoProveedor"].ToString()
+                                    },
+                                    oCasaProveedora = new Casa_Proveedora()
+                                    {
+                                        RazonSocial = dr["RazonSocial"].ToString(),
+                                    }
+                                },
+                                TipoDocumento = dr["TipoDocumento"].ToString(),
+                                NumeroDocumento = dr["NumeroDocumento"].ToString(),
+                                MontoTotal = Convert.ToDecimal(dr["MontoTotal"].ToString()),
+                                MontoBs = Convert.ToDecimal(dr["MontoBs"].ToString()),
+                                Deuda = dr["Deuda"] != DBNull.Value ? Convert.ToDecimal(dr["Deuda"]) : 0,
+                                FechaRegistro = dr["FechaRegistro"].ToString()
+                            };
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    obj = new Compra();
+                }
+            }
+
+            return obj;
+        }
+
+        public List<Detalle_Compra> ObtenerDetalleCompra(int idcompra)
+        {
+            List<Detalle_Compra> oLista = new List<Detalle_Compra>();
+
+            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    conexion.Open();
+
+                    StringBuilder query = new StringBuilder();
+
+                    query.AppendLine("select p.DescripcionProducto,p.MarcaProducto,dc.PrecioCompra,dc.Cantidad,dc.MontoTotal from DETALLE_COMPRA dc");
+                    query.AppendLine("inner join PRODUCTO p on p.IdProducto = dc.IdProducto");
+                    query.AppendLine("where dc.IdCompra = @idcompra");
+
+
+                    SqlCommand cmd = new SqlCommand(query.ToString(), conexion);
+                    cmd.Parameters.AddWithValue("@idcompra", idcompra);
+                    cmd.CommandType = System.Data.CommandType.Text;
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            oLista.Add(new Detalle_Compra()
+                            {
+                                OProducto = new Producto() {
+                                    DescripcionProducto = dr["DescripcionProducto"].ToString(),
+                                    MarcaProducto = dr["MarcaProducto"].ToString()
+                                },
+                                PrecioCompra = Convert.ToDecimal(dr["PrecioCompra"].ToString()),
+                                Cantidad = Convert.ToInt32(dr["Cantidad"].ToString()),
+                                MontoTotal = Convert.ToDecimal(dr["MontoTotal"].ToString()),
+
+                            });
+                        }
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    oLista = new List<Detalle_Compra>();
+                }
+            }
+
+            return oLista;
+        }
+
     }
 }

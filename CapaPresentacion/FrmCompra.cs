@@ -14,11 +14,11 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class FrmRegIngresoProducto : Form
+    public partial class FrmCompra : Form
     {
         private Usuario _Usuario;
 
-        public FrmRegIngresoProducto(Usuario oUsuario = null)
+        public FrmCompra(Usuario oUsuario = null)
         {
             _Usuario = oUsuario;
             InitializeComponent();
@@ -30,6 +30,16 @@ namespace CapaPresentacion
             cboTipDocumento.DisplayMember = "Texto";
             cboTipDocumento.ValueMember = "Valor";
             cboTipDocumento.SelectedIndex = 0;
+
+            cboMetodo.Items.Add(new OpcionCombo() { Valor = "Efectivo", Texto = "Efectivo" });
+            cboMetodo.Items.Add(new OpcionCombo() { Valor = "Divisa", Texto = "Divisa" });
+            cboMetodo.Items.Add(new OpcionCombo() { Valor = "Pago Movil", Texto = "Pago Movil" });
+            cboMetodo.Items.Add(new OpcionCombo() { Valor = "Credito", Texto = "Credito" });
+            cboMetodo.DisplayMember = "Texto";
+            cboMetodo.ValueMember = "Valor";
+            cboMetodo.SelectedIndex = 0;
+            cboMetodo.SelectedIndexChanged += cboMetodo_SelectedIndexChanged;
+
 
             txtFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
 
@@ -122,6 +132,24 @@ namespace CapaPresentacion
             decimal precioCompra = 0;
             decimal PrecioVenta = 0;
             bool Producto_Existe = false;
+
+            if (txtPrecCompra.Text == "")
+            {
+                MessageBox.Show("Asegurese de establecer un precio para la compra", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (txtPrecVenta.Text == "")
+            {
+                MessageBox.Show("Asegurese de establecer un precio para la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (decimal.Parse(txtPrecCompra.Text) > decimal.Parse(txtPrecVenta.Text))
+            {
+                MessageBox.Show("El precio de venta no puede ser menor al de la compra", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
             if (int.Parse(txtIdProducto.Text) == 0)
             {
@@ -310,7 +338,7 @@ namespace CapaPresentacion
         {
             if (Convert.ToInt32(txtIdProv.Text) == 0)
             {
-                MessageBox.Show("Debe seleccionar unn proveedor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Debe seleccionar un proveedor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             if (dgvData.Rows.Count < 1)
@@ -339,7 +367,82 @@ namespace CapaPresentacion
                 });
             }
 
-            string vare = "";
+            int IdCorrelativo = new CN_Compra().ObtenerCorrelativo();
+            string NumeroDocumento = string.Format("{0:00000}", IdCorrelativo);
+
+            Compra oCompra = new Compra()
+            {
+                OUsuario = new Usuario() { IdUsuario = _Usuario.IdUsuario },
+                OProvedor = new Proveedor() { IdProveedor = Convert.ToInt32(txtIdProv.Text) },
+                TipoDocumento = ((OpcionCombo)cboTipDocumento.SelectedItem).Texto,
+                NumeroDocumento = NumeroDocumento,
+                MetodoPago = ((OpcionCombo)cboMetodo.SelectedItem).Texto,
+                MontoTotal = Convert.ToDecimal(txtTotalPagar.Text),
+                MontoBs = Convert.ToDecimal(txtMontoBs.Text),
+                oCredito = new Credito()
+
+            };
+
+            Console.WriteLine("Valor de oCompra.MetodoPago: '" + oCompra.MetodoPago + "'");
+
+            if (oCompra.MetodoPago == "Credito")
+            {
+                oCompra.TieneDeuda = true;
+
+                if (oCompra.oCredito != null)
+                {
+                    oCompra.oCredito.Deuda = Convert.ToDecimal(txtDeuda.Text);
+                }
+            }
+            else
+            {
+                oCompra.TieneDeuda = false;
+            }
+
+            string mensaje = string.Empty;
+            bool Respuesta = new CN_Compra().Registrar(oCompra, detalle_Compra, out mensaje);
+
+            if (Respuesta)
+            {
+                var result = MessageBox.Show("Numero de compra generada:\n" + NumeroDocumento + "\n\n¿Desea copiar al porta papeles?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (result == DialogResult.Yes)
+                    Clipboard.SetText(NumeroDocumento);
+
+                txtIdProv.Text = "0";
+                txtDocumento.Text = "";
+                txtNombreProveedor.Text = "";
+                txtApellidoProveedor.Text = "";
+                txtRazonSocial.Text = "";
+                cboMetodo.SelectedIndex = 0;
+                dgvData.Rows.Clear();
+                calcularTotal();
+                calcularTotalBs();
+            }
+
+            else
+            {
+                MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+        }
+
+        private void cboMetodo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string metodoSeleccionado = Convert.ToString ( ((OpcionCombo)cboMetodo.SelectedItem).Valor);
+
+            if (metodoSeleccionado == "Credito")
+            {
+                lblDeuda.Visible = true;
+                txtDeuda.Visible = true;
+                txtIdCredito.Visible = true;
+            }
+            else
+            {
+                lblDeuda.Visible = false;
+                txtDeuda.Visible = false;
+                txtIdCredito.Visible = false;
+            }
 
         }
     }

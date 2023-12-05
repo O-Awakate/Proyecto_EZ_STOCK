@@ -19,7 +19,13 @@ namespace CapaEntidad
         public decimal Abono { get; set; }
         public decimal Deuda { get; set; }
         public bool TieneDeuda { get; set; }
+        public string MetodoPago { get; set; }
         public List<Detalle_Compra> ODetalleCompra { get; set; }
         public string FechaRegistro { get; set; }
+
+        public Compra()
+        {
+            oCredito = new Credito();
+        }
     }
 }

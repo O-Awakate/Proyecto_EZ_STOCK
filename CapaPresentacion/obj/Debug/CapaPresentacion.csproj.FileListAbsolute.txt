@@ -81,3 +81,10 @@ C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\bin\Debug\Doc
 C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\bin\Debug\ExcelNumberFormat.xml
 >>>>>>> inicio
 C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\CapaPresentacion.FrmDevolucionProducto.resources
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\CapaPresentacion.FrmCompra.resources
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\CapaPresentacion.FrmCompraCredito.resources
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\CapaPresentacion.FrmDetalleCompra.resources
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\bin\Debug\itextsharp.dll
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\bin\Debug\itextsharp.xmlworker.dll
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\bin\Debug\itextsharp.xml

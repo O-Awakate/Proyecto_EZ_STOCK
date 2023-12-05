@@ -46,30 +46,30 @@
             this.contenedor = new System.Windows.Forms.Panel();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.menu = new System.Windows.Forms.Panel();
-            this.dropdownMenu1 = new CapaPresentacion.Controls.DropdownMenu(this.components);
+            this.ddmAdministracion = new CapaPresentacion.Controls.DropdownMenu(this.components);
             this.SubMenuCategoria = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuProducto = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuNegocio = new System.Windows.Forms.ToolStripMenuItem();
-            this.dropdownMenu2 = new CapaPresentacion.Controls.DropdownMenu(this.components);
+            this.ddmVenta = new CapaPresentacion.Controls.DropdownMenu(this.components);
             this.SubMenuRegVenta = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuDetVenta = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuAbonoVenta = new System.Windows.Forms.ToolStripMenuItem();
-            this.dropdownMenu3 = new CapaPresentacion.Controls.DropdownMenu(this.components);
+            this.ddmCompra = new CapaPresentacion.Controls.DropdownMenu(this.components);
             this.SubMenuRegIngreso = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuDetIngreso = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuAbonoIngreso = new System.Windows.Forms.ToolStripMenuItem();
-            this.dropdownMenu4 = new CapaPresentacion.Controls.DropdownMenu(this.components);
+            this.ddmReportes = new CapaPresentacion.Controls.DropdownMenu(this.components);
             this.SubMenuRepVenta = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuRepIngreso = new System.Windows.Forms.ToolStripMenuItem();
-            this.SubMenuDevlVenta = new CapaPresentacion.Controls.DropdownMenu(this.components);
+            this.ddmDevoluciones = new CapaPresentacion.Controls.DropdownMenu(this.components);
             this.devolverVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuDevlProv = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
-            this.dropdownMenu1.SuspendLayout();
-            this.dropdownMenu2.SuspendLayout();
-            this.dropdownMenu3.SuspendLayout();
-            this.dropdownMenu4.SuspendLayout();
-            this.SubMenuDevlVenta.SuspendLayout();
+            this.ddmAdministracion.SuspendLayout();
+            this.ddmVenta.SuspendLayout();
+            this.ddmCompra.SuspendLayout();
+            this.ddmReportes.SuspendLayout();
+            this.ddmDevoluciones.SuspendLayout();
             this.SuspendLayout();
             // 
             // notifyIcon1
@@ -215,7 +215,7 @@
             this.menucompras.Name = "menucompras";
             this.menucompras.Size = new System.Drawing.Size(168, 34);
             this.menucompras.TabIndex = 4;
-            this.menucompras.Text = "Ingreso";
+            this.menucompras.Text = "Compra";
             this.menucompras.UseVisualStyleBackColor = true;
             this.menucompras.Click += new System.EventHandler(this.btnIngreso_Click);
             // 
@@ -303,52 +303,52 @@
             this.menu.Size = new System.Drawing.Size(187, 443);
             this.menu.TabIndex = 10;
             // 
-            // dropdownMenu1
+            // ddmAdministracion
             // 
-            this.dropdownMenu1.IsMainMenu = false;
-            this.dropdownMenu1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ddmAdministracion.IsMainMenu = false;
+            this.ddmAdministracion.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SubMenuCategoria,
             this.SubMenuProducto,
             this.SubMenuNegocio});
-            this.dropdownMenu1.MenuItemHeight = 25;
-            this.dropdownMenu1.MenuItemTextColor = System.Drawing.Color.DimGray;
-            this.dropdownMenu1.Name = "dropdownMenu1";
-            this.dropdownMenu1.PrimaryColor = System.Drawing.Color.MediumSlateBlue;
-            this.dropdownMenu1.Size = new System.Drawing.Size(181, 92);
+            this.ddmAdministracion.MenuItemHeight = 25;
+            this.ddmAdministracion.MenuItemTextColor = System.Drawing.Color.DimGray;
+            this.ddmAdministracion.Name = "dropdownMenu1";
+            this.ddmAdministracion.PrimaryColor = System.Drawing.Color.MediumSlateBlue;
+            this.ddmAdministracion.Size = new System.Drawing.Size(148, 70);
             // 
             // SubMenuCategoria
             // 
             this.SubMenuCategoria.Name = "SubMenuCategoria";
-            this.SubMenuCategoria.Size = new System.Drawing.Size(180, 22);
+            this.SubMenuCategoria.Size = new System.Drawing.Size(147, 22);
             this.SubMenuCategoria.Text = "Categoria";
             this.SubMenuCategoria.Click += new System.EventHandler(this.SubMenuCategoria_Click);
             // 
             // SubMenuProducto
             // 
             this.SubMenuProducto.Name = "SubMenuProducto";
-            this.SubMenuProducto.Size = new System.Drawing.Size(180, 22);
+            this.SubMenuProducto.Size = new System.Drawing.Size(147, 22);
             this.SubMenuProducto.Text = "Producto";
             this.SubMenuProducto.Click += new System.EventHandler(this.SubMenuProducto_Click);
             // 
             // SubMenuNegocio
             // 
             this.SubMenuNegocio.Name = "SubMenuNegocio";
-            this.SubMenuNegocio.Size = new System.Drawing.Size(180, 22);
+            this.SubMenuNegocio.Size = new System.Drawing.Size(147, 22);
             this.SubMenuNegocio.Text = "Otros Detalles";
             this.SubMenuNegocio.Click += new System.EventHandler(this.SubMenuNegocio_Click);
             // 
-            // dropdownMenu2
+            // ddmVenta
             // 
-            this.dropdownMenu2.IsMainMenu = false;
-            this.dropdownMenu2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ddmVenta.IsMainMenu = false;
+            this.ddmVenta.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SubMenuRegVenta,
             this.SubMenuDetVenta,
             this.SubMenuAbonoVenta});
-            this.dropdownMenu2.MenuItemHeight = 25;
-            this.dropdownMenu2.MenuItemTextColor = System.Drawing.Color.DimGray;
-            this.dropdownMenu2.Name = "dropdownMenu2";
-            this.dropdownMenu2.PrimaryColor = System.Drawing.Color.MediumSlateBlue;
-            this.dropdownMenu2.Size = new System.Drawing.Size(130, 70);
+            this.ddmVenta.MenuItemHeight = 25;
+            this.ddmVenta.MenuItemTextColor = System.Drawing.Color.DimGray;
+            this.ddmVenta.Name = "dropdownMenu2";
+            this.ddmVenta.PrimaryColor = System.Drawing.Color.MediumSlateBlue;
+            this.ddmVenta.Size = new System.Drawing.Size(130, 70);
             // 
             // SubMenuRegVenta
             // 
@@ -371,18 +371,18 @@
             this.SubMenuAbonoVenta.Text = "Abono";
             this.SubMenuAbonoVenta.Click += new System.EventHandler(this.SubMenuAbonoVenta_Click);
             // 
-            // dropdownMenu3
+            // ddmCompra
             // 
-            this.dropdownMenu3.IsMainMenu = false;
-            this.dropdownMenu3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ddmCompra.IsMainMenu = false;
+            this.ddmCompra.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SubMenuRegIngreso,
             this.SubMenuDetIngreso,
             this.SubMenuAbonoIngreso});
-            this.dropdownMenu3.MenuItemHeight = 25;
-            this.dropdownMenu3.MenuItemTextColor = System.Drawing.Color.DimGray;
-            this.dropdownMenu3.Name = "dropdownMenu3";
-            this.dropdownMenu3.PrimaryColor = System.Drawing.Color.MediumSlateBlue;
-            this.dropdownMenu3.Size = new System.Drawing.Size(135, 70);
+            this.ddmCompra.MenuItemHeight = 25;
+            this.ddmCompra.MenuItemTextColor = System.Drawing.Color.DimGray;
+            this.ddmCompra.Name = "dropdownMenu3";
+            this.ddmCompra.PrimaryColor = System.Drawing.Color.MediumSlateBlue;
+            this.ddmCompra.Size = new System.Drawing.Size(135, 70);
             // 
             // SubMenuRegIngreso
             // 
@@ -405,17 +405,17 @@
             this.SubMenuAbonoIngreso.Text = "Abono";
             this.SubMenuAbonoIngreso.Click += new System.EventHandler(this.SubMenuAbonoIngreso_Click);
             // 
-            // dropdownMenu4
+            // ddmReportes
             // 
-            this.dropdownMenu4.IsMainMenu = false;
-            this.dropdownMenu4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ddmReportes.IsMainMenu = false;
+            this.ddmReportes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SubMenuRepVenta,
             this.SubMenuRepIngreso});
-            this.dropdownMenu4.MenuItemHeight = 25;
-            this.dropdownMenu4.MenuItemTextColor = System.Drawing.Color.DimGray;
-            this.dropdownMenu4.Name = "dropdownMenu4";
-            this.dropdownMenu4.PrimaryColor = System.Drawing.Color.MediumSlateBlue;
-            this.dropdownMenu4.Size = new System.Drawing.Size(163, 48);
+            this.ddmReportes.MenuItemHeight = 25;
+            this.ddmReportes.MenuItemTextColor = System.Drawing.Color.DimGray;
+            this.ddmReportes.Name = "dropdownMenu4";
+            this.ddmReportes.PrimaryColor = System.Drawing.Color.MediumSlateBlue;
+            this.ddmReportes.Size = new System.Drawing.Size(163, 48);
             // 
             // SubMenuRepVenta
             // 
@@ -431,17 +431,17 @@
             this.SubMenuRepIngreso.Text = "Reporte Ingresos";
             this.SubMenuRepIngreso.Click += new System.EventHandler(this.SubMenuRepIngreso_Click);
             // 
-            // SubMenuDevlVenta
+            // ddmDevoluciones
             // 
-            this.SubMenuDevlVenta.IsMainMenu = false;
-            this.SubMenuDevlVenta.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ddmDevoluciones.IsMainMenu = false;
+            this.ddmDevoluciones.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.devolverVentaToolStripMenuItem,
             this.SubMenuDevlProv});
-            this.SubMenuDevlVenta.MenuItemHeight = 25;
-            this.SubMenuDevlVenta.MenuItemTextColor = System.Drawing.Color.DimGray;
-            this.SubMenuDevlVenta.Name = "dropdownMenu5";
-            this.SubMenuDevlVenta.PrimaryColor = System.Drawing.Color.MediumSlateBlue;
-            this.SubMenuDevlVenta.Size = new System.Drawing.Size(190, 48);
+            this.ddmDevoluciones.MenuItemHeight = 25;
+            this.ddmDevoluciones.MenuItemTextColor = System.Drawing.Color.DimGray;
+            this.ddmDevoluciones.Name = "dropdownMenu5";
+            this.ddmDevoluciones.PrimaryColor = System.Drawing.Color.MediumSlateBlue;
+            this.ddmDevoluciones.Size = new System.Drawing.Size(190, 48);
             // 
             // devolverVentaToolStripMenuItem
             // 
@@ -476,11 +476,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Inicio_Load);
             this.menu.ResumeLayout(false);
-            this.dropdownMenu1.ResumeLayout(false);
-            this.dropdownMenu2.ResumeLayout(false);
-            this.dropdownMenu3.ResumeLayout(false);
-            this.dropdownMenu4.ResumeLayout(false);
-            this.SubMenuDevlVenta.ResumeLayout(false);
+            this.ddmAdministracion.ResumeLayout(false);
+            this.ddmVenta.ResumeLayout(false);
+            this.ddmCompra.ResumeLayout(false);
+            this.ddmReportes.ResumeLayout(false);
+            this.ddmDevoluciones.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -502,22 +502,22 @@
         private System.Windows.Forms.Button menuapartado;
         private System.Windows.Forms.Button menuusuarios;
         private System.Windows.Forms.Panel contenedor;
-        private Controls.DropdownMenu dropdownMenu1;
+        private Controls.DropdownMenu ddmAdministracion;
         private System.Windows.Forms.ToolStripMenuItem SubMenuCategoria;
         private System.Windows.Forms.ToolStripMenuItem SubMenuProducto;
         private System.Windows.Forms.ToolStripMenuItem SubMenuNegocio;
-        private Controls.DropdownMenu dropdownMenu2;
+        private Controls.DropdownMenu ddmVenta;
         private System.Windows.Forms.ToolStripMenuItem SubMenuRegVenta;
         private System.Windows.Forms.ToolStripMenuItem SubMenuDetVenta;
         private System.Windows.Forms.ToolStripMenuItem SubMenuAbonoVenta;
-        private Controls.DropdownMenu dropdownMenu3;
+        private Controls.DropdownMenu ddmCompra;
         private System.Windows.Forms.ToolStripMenuItem SubMenuRegIngreso;
         private System.Windows.Forms.ToolStripMenuItem SubMenuDetIngreso;
         private System.Windows.Forms.ToolStripMenuItem SubMenuAbonoIngreso;
-        private Controls.DropdownMenu dropdownMenu4;
+        private Controls.DropdownMenu ddmReportes;
         private System.Windows.Forms.ToolStripMenuItem SubMenuRepVenta;
         private System.Windows.Forms.ToolStripMenuItem SubMenuRepIngreso;
-        private Controls.DropdownMenu SubMenuDevlVenta;
+        private Controls.DropdownMenu ddmDevoluciones;
         private System.Windows.Forms.ToolStripMenuItem devolverVentaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SubMenuDevlProv;
         private System.Windows.Forms.Button menuadministracion;

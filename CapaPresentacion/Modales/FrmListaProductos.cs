@@ -40,7 +40,9 @@ namespace CapaPresentacion.Modales
 
             foreach (Producto item in Lista)
             {
-                dgvData.Rows.Add(new object[] {
+                if (item.Estado)
+                {
+                    dgvData.Rows.Add(new object[] {
                     item.IdProducto,
                     item.CodigoAvila,
                     item.CodigoFabrica,
@@ -52,8 +54,8 @@ namespace CapaPresentacion.Modales
                     item.Stock,
                     item.PrecioCompra,
                     item.PrecioVenta
-                });
-
+                    });
+                }
             }
         }
 
