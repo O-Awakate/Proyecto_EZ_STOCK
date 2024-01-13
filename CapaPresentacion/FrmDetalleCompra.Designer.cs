@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
@@ -47,6 +47,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtIdCredito = new System.Windows.Forms.TextBox();
             this.txtNumDocumento = new System.Windows.Forms.TextBox();
             this.txtTipoDocumento = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
@@ -62,14 +63,17 @@
             this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
+            this.lblDeuda = new System.Windows.Forms.Label();
             this.btnpdf = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtMetodo = new System.Windows.Forms.TextBox();
             this.txtDeuda = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.txtMontoBs = new System.Windows.Forms.TextBox();
             this.txtMontoTotal = new System.Windows.Forms.TextBox();
-            this.txtIdCredito = new System.Windows.Forms.TextBox();
+            this.txtRIF = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -236,6 +240,8 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.label10);
+            this.panel4.Controls.Add(this.txtRIF);
             this.panel4.Controls.Add(this.txtNombreProveedor);
             this.panel4.Controls.Add(this.txtDocumento);
             this.panel4.Controls.Add(this.label7);
@@ -255,6 +261,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.txtIdCredito);
             this.panel1.Controls.Add(this.txtNumDocumento);
             this.panel1.Controls.Add(this.txtTipoDocumento);
             this.panel1.Controls.Add(this.txtUsuario);
@@ -268,6 +275,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(708, 68);
             this.panel1.TabIndex = 72;
+            // 
+            // txtIdCredito
+            // 
+            this.txtIdCredito.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIdCredito.Location = new System.Drawing.Point(660, 19);
+            this.txtIdCredito.Name = "txtIdCredito";
+            this.txtIdCredito.Size = new System.Drawing.Size(35, 20);
+            this.txtIdCredito.TabIndex = 76;
             // 
             // txtNumDocumento
             // 
@@ -346,15 +361,15 @@
             // 
             this.dgvData.AllowUserToAddRows = false;
             this.dgvData.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Producto,
@@ -365,9 +380,9 @@
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvData.RowTemplate.Height = 28;
             this.dgvData.Size = new System.Drawing.Size(708, 289);
             this.dgvData.TabIndex = 74;
@@ -419,15 +434,15 @@
             this.label16.TabIndex = 57;
             this.label16.Text = "Monto Bs.";
             // 
-            // label18
+            // lblDeuda
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(3, 102);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(46, 17);
-            this.label18.TabIndex = 61;
-            this.label18.Text = "Deuda";
+            this.lblDeuda.AutoSize = true;
+            this.lblDeuda.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeuda.Location = new System.Drawing.Point(3, 147);
+            this.lblDeuda.Name = "lblDeuda";
+            this.lblDeuda.Size = new System.Drawing.Size(46, 17);
+            this.lblDeuda.TabIndex = 61;
+            this.lblDeuda.Text = "Deuda";
             // 
             // btnpdf
             // 
@@ -435,9 +450,9 @@
             this.btnpdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnpdf.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnpdf.Image = global::CapaPresentacion.Properties.Resources.file_pdf__2_;
-            this.btnpdf.Location = new System.Drawing.Point(0, 201);
+            this.btnpdf.Location = new System.Drawing.Point(0, 209);
             this.btnpdf.Name = "btnpdf";
-            this.btnpdf.Size = new System.Drawing.Size(107, 88);
+            this.btnpdf.Size = new System.Drawing.Size(120, 77);
             this.btnpdf.TabIndex = 56;
             this.btnpdf.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnpdf.UseVisualStyleBackColor = true;
@@ -445,7 +460,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Location = new System.Drawing.Point(6, 190);
+            this.groupBox1.Location = new System.Drawing.Point(11, 198);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(98, 5);
             this.groupBox1.TabIndex = 63;
@@ -454,28 +469,48 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.txtIdCredito);
+            this.panel3.Controls.Add(this.txtMetodo);
             this.panel3.Controls.Add(this.txtDeuda);
+            this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.txtMontoBs);
             this.panel3.Controls.Add(this.txtMontoTotal);
             this.panel3.Controls.Add(this.groupBox1);
             this.panel3.Controls.Add(this.btnpdf);
-            this.panel3.Controls.Add(this.label18);
+            this.panel3.Controls.Add(this.lblDeuda);
             this.panel3.Controls.Add(this.label16);
             this.panel3.Controls.Add(this.label15);
             this.panel3.Location = new System.Drawing.Point(726, 265);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(107, 289);
+            this.panel3.Size = new System.Drawing.Size(120, 289);
             this.panel3.TabIndex = 70;
+            // 
+            // txtMetodo
+            // 
+            this.txtMetodo.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMetodo.Location = new System.Drawing.Point(3, 122);
+            this.txtMetodo.Name = "txtMetodo";
+            this.txtMetodo.ReadOnly = true;
+            this.txtMetodo.Size = new System.Drawing.Size(114, 22);
+            this.txtMetodo.TabIndex = 68;
             // 
             // txtDeuda
             // 
             this.txtDeuda.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDeuda.Location = new System.Drawing.Point(3, 122);
+            this.txtDeuda.Location = new System.Drawing.Point(3, 167);
             this.txtDeuda.Name = "txtDeuda";
             this.txtDeuda.ReadOnly = true;
-            this.txtDeuda.Size = new System.Drawing.Size(101, 22);
+            this.txtDeuda.Size = new System.Drawing.Size(114, 22);
             this.txtDeuda.TabIndex = 66;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(3, 102);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(109, 17);
+            this.label9.TabIndex = 67;
+            this.label9.Text = "Metodo De Pago";
             // 
             // txtMontoBs
             // 
@@ -483,7 +518,7 @@
             this.txtMontoBs.Location = new System.Drawing.Point(3, 77);
             this.txtMontoBs.Name = "txtMontoBs";
             this.txtMontoBs.ReadOnly = true;
-            this.txtMontoBs.Size = new System.Drawing.Size(101, 22);
+            this.txtMontoBs.Size = new System.Drawing.Size(114, 22);
             this.txtMontoBs.TabIndex = 65;
             // 
             // txtMontoTotal
@@ -492,16 +527,27 @@
             this.txtMontoTotal.Location = new System.Drawing.Point(3, 32);
             this.txtMontoTotal.Name = "txtMontoTotal";
             this.txtMontoTotal.ReadOnly = true;
-            this.txtMontoTotal.Size = new System.Drawing.Size(101, 22);
+            this.txtMontoTotal.Size = new System.Drawing.Size(114, 22);
             this.txtMontoTotal.TabIndex = 64;
             // 
-            // txtIdCredito
+            // txtRIF
             // 
-            this.txtIdCredito.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIdCredito.Location = new System.Drawing.Point(25, 150);
-            this.txtIdCredito.Name = "txtIdCredito";
-            this.txtIdCredito.Size = new System.Drawing.Size(35, 20);
-            this.txtIdCredito.TabIndex = 76;
+            this.txtRIF.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRIF.Location = new System.Drawing.Point(589, 29);
+            this.txtRIF.Name = "txtRIF";
+            this.txtRIF.ReadOnly = true;
+            this.txtRIF.Size = new System.Drawing.Size(106, 20);
+            this.txtRIF.TabIndex = 71;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(586, 9);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(25, 17);
+            this.label10.TabIndex = 72;
+            this.label10.Text = "RIF";
             // 
             // FrmDetalleCompra
             // 
@@ -564,7 +610,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label lblDeuda;
         private System.Windows.Forms.Button btnpdf;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel3;
@@ -573,5 +619,9 @@
         private System.Windows.Forms.TextBox txtDeuda;
         private System.Windows.Forms.TextBox txtNumDocumento;
         private System.Windows.Forms.TextBox txtIdCredito;
+        private System.Windows.Forms.TextBox txtMetodo;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtRIF;
     }
 }

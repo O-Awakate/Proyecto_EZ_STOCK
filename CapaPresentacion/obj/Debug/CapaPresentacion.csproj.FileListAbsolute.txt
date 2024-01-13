@@ -88,3 +88,9 @@ C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\bin\Debug\Bou
 C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\bin\Debug\itextsharp.dll
 C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\bin\Debug\itextsharp.xmlworker.dll
 C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\bin\Debug\itextsharp.xml
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\CapaPresentacion.Modales.FrmDeudaClientes.resources
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\CapaPresentacion.FrmAbonoCompra.resources
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\CapaPresentacion.FrmReportesCompra.resources
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\CapaPresentacion.FrmDevolucionVenta.resources
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\CapaPresentacion.FrmDevolucionCompra.resources
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\CapaPresentacion.FrmVerificacion.resources

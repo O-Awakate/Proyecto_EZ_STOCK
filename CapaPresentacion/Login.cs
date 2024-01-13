@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CapaNegocio;
 using CapaEntidad;
 using System.IO;
+using CapaPresentacion.Utilities;
 
 namespace CapaPresentacion
 {
@@ -27,10 +28,11 @@ namespace CapaPresentacion
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            
-            Usuario oUsuario = new CN_Usuario().Listar().Where(u => u.oDatosPersona.CI == txtCedula.Text && u.Clave == txtClave.Text).FirstOrDefault();
-            
-            if (oUsuario!= null)
+            string claveCifrada = Encrypt.GetSHA256(txtClave.Text);
+
+            Usuario oUsuario = new CN_Usuario().Listar().FirstOrDefault(u => u.oDatosPersona.CI == txtCedula.Text && u.Clave == claveCifrada);
+
+            if (oUsuario != null)
             {
                 Inicio form = new Inicio(oUsuario);
 
@@ -39,10 +41,9 @@ namespace CapaPresentacion
 
                 form.FormClosing += frm_clossign;
             }
-
             else
             {
-                MessageBox.Show("No se encontro el usuario", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("No se encontró el usuario o la contraseña es incorrecta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             
 
@@ -72,6 +73,16 @@ namespace CapaPresentacion
 
             if (obtenido)
                 picLogo.Image = byteToImagege(byteimage);
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmVerificacion form = new FrmVerificacion();
+
+            form.Show();
+            this.Hide();
+
+            form.FormClosing += frm_clossign;
         }
     }
 }

@@ -19,7 +19,7 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT u.IdUsuario, dp.IdDatosPersona, dp.CI, dp.Nombre, dp.Apellido, u.Clave, u.ConfirmarClave, u.Estado AS EstadoActual, c.IdCorreo, c.Correo, t.IdTelefono, t.Numero, d.IdDireccion, d.Estado, d.Ciudad, d.Sector, d.Calle, d.Casa, r.IdRol, r.Descripcion FROM USUARIO u");
+                    query.AppendLine("SELECT u.IdUsuario, dp.IdDatosPersona, dp.CI, dp.Nombre, dp.Apellido, u.Clave, u.Estado AS EstadoActual, c.IdCorreo, c.Correo, t.IdTelefono, t.Numero, d.IdDireccion, d.Estado, d.Ciudad, d.Sector, d.Calle, d.Casa, r.IdRol, r.Descripcion FROM USUARIO u");
                     query.AppendLine("INNER JOIN ROL r ON u.IdRol = r.IdRol");
                     query.AppendLine("INNER JOIN DATOS_PERSONA dp ON u.IdDatosPersona = dp.IdDatosPersona");
                     query.AppendLine("INNER JOIN CORREO c ON dp.IdCorreo = c.IdCorreo");
@@ -68,7 +68,6 @@ namespace CapaDatos
 
                                 },
                                 Clave = dr["Clave"].ToString(),
-                                ConfirmarClave = dr["ConfirmarClave"].ToString(),
                                 Estado = Convert.ToBoolean(dr["EstadoActual"]),
                                 oRol = new Rol
                                 {
@@ -113,7 +112,6 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("Calle", obj.oDatosPersona.oDireccion.Calle);
                     cmd.Parameters.AddWithValue("Casa", obj.oDatosPersona.oDireccion.Casa);
                     cmd.Parameters.AddWithValue("Clave", obj.Clave);
-                    cmd.Parameters.AddWithValue("ConfiClave", obj.ConfirmarClave);
                     cmd.Parameters.AddWithValue("IdRol", obj.oRol.IdRol);
                     cmd.Parameters.AddWithValue("EstadoUsuario", obj.Estado);
                     
@@ -176,7 +174,6 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("Calle", obj.oDatosPersona.oDireccion.Calle);
                     cmd.Parameters.AddWithValue("Casa", obj.oDatosPersona.oDireccion.Casa);
                     cmd.Parameters.AddWithValue("Clave", obj.Clave);
-                    cmd.Parameters.AddWithValue("ConfiClave", obj.ConfirmarClave);
                     cmd.Parameters.AddWithValue("IdRol", obj.oRol.IdRol);
                     cmd.Parameters.AddWithValue("EstadoUsuario", obj.Estado);
 
@@ -243,6 +240,48 @@ namespace CapaDatos
 
         }
 
+        public Usuario ObtenerCorreo(string CI)
+        {
+            Usuario oUsuario = new Usuario();
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    oconexion.Open();
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("select c.Correo from USUARIO u");
+                    query.AppendLine("inner join DATOS_PERSONA p on p.IdDatosPersona = u.IdDatosPersona");
+                    query.AppendLine("inner join CORREO c on c.IdCorreo = p.IdCorreo");
+                    query.AppendLine("where p.CI = @numero ");
+
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    cmd.Parameters.AddWithValue("@numero", CI);
+                    cmd.CommandType = CommandType.Text;
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            oUsuario = new Usuario()
+                            {
+                                    oDatosPersona = new Datos_Persona()
+                                    {
+                                        oCorreo = new Correo() { UsuarioCorreo = dr["Correo"].ToString()}
+                                        
+                                    }
+                            };
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    oUsuario = new Usuario();
+                }
+            }
+
+            return oUsuario;
+        }
 
     }
 }

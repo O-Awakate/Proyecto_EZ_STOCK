@@ -382,8 +382,7 @@ namespace CapaPresentacion
                 oCredito = new Credito()
 
             };
-
-            Console.WriteLine("Valor de oCompra.MetodoPago: '" + oCompra.MetodoPago + "'");
+            
 
             if (oCompra.MetodoPago == "Credito")
             {

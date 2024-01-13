@@ -113,8 +113,8 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("DetalleVenta", DetalleVenta);
                     cmd.Parameters.AddWithValue("MetodoPago", obj.MetodoPago);
                     cmd.Parameters.AddWithValue("TieneDeuda", obj.TieneDeuda);
-                    //cmd.Parameters.AddWithValue("Intereses", obj.oCredito.Intereses);
-                    //cmd.Parameters.AddWithValue("Deuda", obj.oCredito.Deuda);
+                    cmd.Parameters.AddWithValue("Deuda", obj.oCredito.Deuda);
+
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -148,9 +148,11 @@ namespace CapaDatos
                     StringBuilder query = new StringBuilder();
                     query.AppendLine("select v.IdVenta,");
                     query.AppendLine("dpu.Nombre, dpu.Apellido,");
-                    query.AppendLine("dpcl.CI, dpcl.Nombre as NombreCliente, dpcl.Apellido as ApellidoCliente,");
-                    query.AppendLine("v.TipoDocumento, v.NumeroDocumento, v.MontoTotal, v.MontoBs, v.MontoPago, v.MontoCambio, CONVERT(char(10), v.FechaRegistro, 103)[FechaRegistro]");
+                    query.AppendLine("cl.IdCliente, dpcl.CI, dpcl.Nombre as NombreCliente, dpcl.Apellido as ApellidoCliente,");
+                    query.AppendLine("v.TipoDocumento, v.NumeroDocumento, v.MontoTotal, v.MontoBs, v.MontoPago, v.MontoCambio, v.MetodoPago, CONVERT(char(10), v.FechaRegistro, 103)[FechaRegistro], v.Estado,");
+                    query.AppendLine("crd.Deuda, crd.IdCredito");
                     query.AppendLine("from VENTA v");
+                    query.AppendLine("left join CREDITO crd ON crd.IdCredito = v.IdCredito");
                     query.AppendLine("inner join USUARIO u on u.IdUsuario = v.IdUsuario");
                     query.AppendLine("inner join DATOS_PERSONA dpu ON dpu.IdDatosPersona = u.IdDatosPersona");
                     query.AppendLine("inner join CLIENTE cl on cl.IdCliente = v.IdCliente");
@@ -160,9 +162,7 @@ namespace CapaDatos
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.Parameters.AddWithValue("@numero", numero);
                     cmd.CommandType = CommandType.Text;
-
-
-
+                    
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
                         while (dr.Read())
@@ -178,8 +178,14 @@ namespace CapaDatos
                                         Apellido = dr["Apellido"].ToString()
                                     }
                                 },
+                                oCredito = new Credito()
+                                {
+                                    IdCredito = dr["IdCredito"] != DBNull.Value ? Convert.ToInt32(dr["IdCredito"]) : 0,
+                                    Deuda = dr["Deuda"] != DBNull.Value ? Convert.ToDecimal(dr["Deuda"]) : 0
+                                },
                                 oCliente = new Cliente()
                                 {
+                                    IdCliente = int.Parse(dr["IdCliente"].ToString()),
                                     oDatosPersona = new Datos_Persona()
                                     {
                                         CI = dr["CI"].ToString(),
@@ -193,6 +199,8 @@ namespace CapaDatos
                                 MontoBs = Convert.ToDecimal(dr["MontoBs"].ToString()),
                                 MontoPago = Convert.ToDecimal(dr["MontoPago"].ToString()),
                                 MontoCambio = Convert.ToDecimal(dr["MontoCambio"].ToString()),
+                                MetodoPago = dr["MetodoPago"].ToString(),
+                                Estado = Convert.ToBoolean(dr["Estado"].ToString()),
                                 FechaRegistro = dr["FechaRegistro"].ToString()
                             };
                         }
@@ -255,6 +263,72 @@ namespace CapaDatos
                 }
             }
             return oLista;
+        }
+
+        public bool Abono(Abono_Credito obj, out string Mensaje)
+        {
+            bool Respuesta = false;
+            Mensaje = string.Empty;
+
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("SP_REGISTRARABONOCREDITO", oconexion);
+                    cmd.Parameters.AddWithValue("@IdCredito", obj.oCredito.IdCredito);
+                    cmd.Parameters.AddWithValue("@MontoAbono", obj.Monto);
+
+                    cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oconexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                    Respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
+                    Mensaje = cmd.Parameters["mensaje"].Value.ToString();
+                }
+
+                catch (Exception ex)
+                {
+                    Respuesta = false;
+                    Mensaje = ex.Message;
+                }
+            }
+            return Respuesta;
+        }
+
+        public bool DevolucionVenta(Venta obj, out string Mensaje)
+        {
+            bool respuesta = false;
+            Mensaje = string.Empty;
+
+            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("SP_DEVOlUCIONVENTA", conexion);
+                    cmd.Parameters.AddWithValue("@IdVenta", obj.IdVenta);
+                    cmd.Parameters.Add("@Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    conexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                    respuesta = Convert.ToBoolean(cmd.Parameters["@Resultado"].Value);
+                    Mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
+                }
+                catch (Exception ex)
+                {
+                    respuesta = false;
+                    Mensaje = ex.Message;
+                }
+            }
+
+            return respuesta;
         }
 
     }

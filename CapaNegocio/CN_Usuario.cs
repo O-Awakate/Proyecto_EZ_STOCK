@@ -46,12 +46,7 @@ namespace CapaNegocio
             {
                 Mensaje += "Es necesario la clave del usuario\n";
             }
-
-            if (obj.Clave != obj.ConfirmarClave)
-            {
-                Mensaje += "La confirmacion debe ser igual a la clave, verifique\n";
-            }
-
+            
             if (Mensaje != string.Empty)
             {
                 return 0;
@@ -92,12 +87,7 @@ namespace CapaNegocio
             {
                 Mensaje += "Es necesario la clave del usuario\n";
             }
-
-            if (obj.Clave != obj.ConfirmarClave)
-            {
-                Mensaje += "La confirmacion debe ser igual a la clave, verifique\n";
-            }
-
+            
             if (Mensaje != string.Empty)
             {
                 return false;
@@ -113,6 +103,11 @@ namespace CapaNegocio
         public bool Eliminar(Usuario obj, out string Mensaje)
         {
             return objCD_Usuario.Eliminar(obj, out Mensaje);
+        }
+
+        public Usuario ObtenerCorreo(string CI)
+        {
+            return objCD_Usuario.ObtenerCorreo(CI);
         }
     }
 }

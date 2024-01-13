@@ -32,6 +32,15 @@ namespace CapaPresentacion
             cboTipDocumento.ValueMember = "Valor";
             cboTipDocumento.SelectedIndex = 0;
 
+            cboMetodo.Items.Add(new OpcionCombo() { Valor = "Efectivo", Texto = "Efectivo" });
+            cboMetodo.Items.Add(new OpcionCombo() { Valor = "Divisa", Texto = "Divisa" });
+            cboMetodo.Items.Add(new OpcionCombo() { Valor = "Pago Movil", Texto = "Pago Movil" });
+            cboMetodo.Items.Add(new OpcionCombo() { Valor = "Credito", Texto = "Credito" });
+            cboMetodo.DisplayMember = "Texto";
+            cboMetodo.ValueMember = "Valor";
+            cboMetodo.SelectedIndex = 0;
+            cboMetodo.SelectedIndexChanged += cboMetodo_SelectedIndexChanged;
+
             txtFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
             txtIdCliente.Text = "0";
             txtIdProducto.Text = "0";
@@ -373,7 +382,7 @@ namespace CapaPresentacion
 
         private void txtRegistrar_Click(object sender, EventArgs e)
         {
-            Compra TieneDeuda = new Compra();
+            Venta TieneDeuda = new Venta();
 
             TieneDeuda.TieneDeuda = false;
 
@@ -425,11 +434,28 @@ namespace CapaPresentacion
                 oCliente = new Cliente() { IdCliente = Convert.ToInt32(txtIdCliente.Text)},
                 TipoDocumento = ((OpcionCombo)cboTipDocumento.SelectedItem).Texto,
                 NumeroDocumento = NumeroDocumento,
+                MetodoPago = ((OpcionCombo)cboMetodo.SelectedItem).Texto,
                 MontoPago = Convert.ToDecimal(txtPago.Text),
                 MontoBs = Convert.ToDecimal(txtMontoBs.Text),
                 MontoCambio = Convert.ToDecimal(txtCambio.Text),
-                MontoTotal = Convert.ToDecimal(txtTotalPagar.Text)
+                MontoTotal = Convert.ToDecimal(txtTotalPagar.Text),
+                oCredito = new Credito(),
+                Estado = true
             };
+
+            if (oVenta.MetodoPago == "Credito")
+            {
+                oVenta.TieneDeuda = true;
+
+                if (oVenta.oCredito != null)
+                {
+                    oVenta.oCredito.Deuda = Convert.ToDecimal(txtDeuda.Text);
+                }
+            }
+            else
+            {
+                oVenta.TieneDeuda = false;
+            }
 
             string mensaje = string.Empty;
             bool respuesta = new CN_Venta().Registrar(oVenta, detalle_venta, out mensaje);
@@ -441,10 +467,12 @@ namespace CapaPresentacion
                 if (result == DialogResult.Yes)
                     Clipboard.SetText(NumeroDocumento);
 
+                
                 txtIdCliente.Text = "0";
                 txtDocumento.Text = "";
                 txtNombreCompleto.Text = "";
                 txtApellido.Text = "";
+                cboMetodo.SelectedIndex = 0;
                 dgvData.Rows.Clear();
                 calcularTotal();
                 txtPago.Text = "";
@@ -456,6 +484,28 @@ namespace CapaPresentacion
                 MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
 
+        }
+
+        private void cboMetodo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string metodoSeleccionado = Convert.ToString(((OpcionCombo)cboMetodo.SelectedItem).Valor);
+
+            if (metodoSeleccionado == "Credito")
+            {
+                lblCambio.Visible = false;
+                lblDeuda.Visible = true;
+                txtDeuda.Visible = true;
+                txtCambio.Visible = false;
+                txtIdCredito.Visible = true;
+            }
+            else
+            {
+                lblCambio.Visible = true;
+                lblDeuda.Visible = false;
+                txtDeuda.Visible = false;
+                txtCambio.Visible = true;
+                txtIdCredito.Visible = false;
+            }
         }
     }
 }

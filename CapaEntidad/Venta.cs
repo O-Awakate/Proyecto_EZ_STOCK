@@ -21,6 +21,7 @@ namespace CapaEntidad
         public bool TieneDeuda { get; set; }
         public string MetodoPago { get; set; }
         public List<Detalle_Venta> oDetalleVenta { get; set; }
+        public bool Estado { get; set; }
         public string FechaRegistro { get; set; }
     }
 }

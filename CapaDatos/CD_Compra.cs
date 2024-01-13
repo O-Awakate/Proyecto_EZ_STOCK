@@ -96,8 +96,8 @@ namespace CapaDatos
                     StringBuilder query = new StringBuilder();
                     query.AppendLine("select c.IdCompra,");
                     query.AppendLine("dpu.Nombre, dpu.Apellido,");
-                    query.AppendLine("dppr.CI, dppr.Nombre as NombreProveedor, dppr.Apellido as ApellidoProveedor, cp.RazonSocial,");
-                    query.AppendLine("c.TipoDocumento, c.NumeroDocumento, c.MontoTotal, c.MontoBs, c.MetodoPago, CONVERT(char(10), c.FechaRegistro, 103)[FechaRegistro],");
+                    query.AppendLine("dppr.CI, dppr.Nombre as NombreProveedor, dppr.Apellido as ApellidoProveedor, cp.RazonSocial, cp.RIF,");
+                    query.AppendLine("c.TipoDocumento, c.NumeroDocumento, c.MontoTotal, c.MontoBs, c.MetodoPago, CONVERT(char(10), c.FechaRegistro, 103)[FechaRegistro], c.Estado");
                     query.AppendLine("crd.IdCredito, crd.Deuda");
                     query.AppendLine("from COMPRA c");
                     query.AppendLine("left join CREDITO crd ON crd.IdCredito = c.IdCredito");
@@ -131,8 +131,8 @@ namespace CapaDatos
                                 },
                                 oCredito = new Credito()
                                 {
-                                    IdCompraCredito = Convert.ToInt32(dr["IdCredito"]),
-                                    Deuda 
+                                    IdCredito = dr["IdCredito"] != DBNull.Value ? Convert.ToInt32(dr["IdCredito"]) : 0,
+                                    Deuda = dr["Deuda"] != DBNull.Value ? Convert.ToDecimal(dr["Deuda"]) : 0
                                 },
                                 OProvedor = new Proveedor()
                                 {
@@ -145,13 +145,15 @@ namespace CapaDatos
                                     oCasaProveedora = new Casa_Proveedora()
                                     {
                                         RazonSocial = dr["RazonSocial"].ToString(),
+                                        RIF = dr["RIF"].ToString(),
                                     }
                                 },
                                 TipoDocumento = dr["TipoDocumento"].ToString(),
                                 NumeroDocumento = dr["NumeroDocumento"].ToString(),
+                                MetodoPago = dr["MetodoPago"].ToString(),
                                 MontoTotal = Convert.ToDecimal(dr["MontoTotal"].ToString()),
                                 MontoBs = Convert.ToDecimal(dr["MontoBs"].ToString()),
-                                Deuda = dr["Deuda"] != DBNull.Value ? Convert.ToDecimal(dr["Deuda"]) : 0,
+                                Estado = Convert.ToBoolean(dr["Estado"].ToString()),
                                 FechaRegistro = dr["FechaRegistro"].ToString()
                             };
 
@@ -186,7 +188,7 @@ namespace CapaDatos
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), conexion);
                     cmd.Parameters.AddWithValue("@idcompra", idcompra);
-                    cmd.CommandType = System.Data.CommandType.Text;
+                    cmd.CommandType = CommandType.Text;
 
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
@@ -214,6 +216,72 @@ namespace CapaDatos
             }
 
             return oLista;
+        }
+
+        public bool Abono (Abono_Credito obj, out string Mensaje)
+        {
+            bool Respuesta = false;
+            Mensaje = string.Empty;
+
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("SP_REGISTRARABONOCREDITO", oconexion);
+                    cmd.Parameters.AddWithValue("@IdCredito", obj.oCredito.IdCredito);
+                    cmd.Parameters.AddWithValue("@MontoAbono", obj.Monto);
+
+                    cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oconexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                    Respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
+                    Mensaje = cmd.Parameters["mensaje"].Value.ToString();
+                }
+
+                catch (Exception ex)
+                {
+                    Respuesta = false;
+                    Mensaje = ex.Message;
+                }
+            }
+            return Respuesta;
+        }
+
+        public bool DevolucionCompra(Compra obj, out string Mensaje)
+        {
+            bool respuesta = false;
+            Mensaje = string.Empty;
+
+            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("SP_DEVOlUCIONCOMPRA", conexion);
+                    cmd.Parameters.AddWithValue("@IdCompra", obj.IdCompra);
+                    cmd.Parameters.Add("@Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    conexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                    respuesta = Convert.ToBoolean(cmd.Parameters["@Resultado"].Value);
+                    Mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
+                }
+                catch (Exception ex)
+                {
+                    respuesta = false;
+                    Mensaje = ex.Message;
+                }
+            }
+
+            return respuesta;
         }
 
     }

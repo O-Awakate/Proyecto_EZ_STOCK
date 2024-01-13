@@ -44,5 +44,14 @@ namespace CapaNegocio
             }
             return oVenta;
         }
+        public bool Abono(Abono_Credito obj, out string Mensaje)
+        {
+            return objcd_Venta.Abono(obj, out Mensaje);
+        }
+        public bool DevolucionVenta(Venta obj , out string Mensaje)
+        {
+            return objcd_Venta.DevolucionVenta (obj, out Mensaje);
+        }
+
     }
 }

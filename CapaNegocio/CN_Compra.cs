@@ -36,7 +36,16 @@ namespace CapaNegocio
                     
                 }
             return oCompra;
+        }
 
+        public bool Abono (Abono_Credito obj, out string Mensaje)
+        {
+            return objcd_Compra.Abono(obj, out Mensaje);
+        }
+
+        public bool DevolucionCompra(Compra obj, out string Mensaje)
+        {
+            return objcd_Compra.DevolucionCompra(obj, out Mensaje);
         }
     }
 }

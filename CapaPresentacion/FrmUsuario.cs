@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CapaPresentacion.Utilidades;
 using CapaEntidad;
 using CapaNegocio;
+using CapaPresentacion.Utilities;
 
 namespace CapaPresentacion
 {
@@ -47,13 +48,59 @@ namespace CapaPresentacion
 
         }
 
+        private bool SeguridadClaves(string contraseña)
+        {
+            if (contraseña.Length < 8 || contraseña.Length > 12)
+            {
+                MessageBox.Show("La contraseña debe tener entre 8 y 12 caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!contraseña.Any(char.IsLower))
+            {
+                MessageBox.Show("La contraseña debe contener al menos una letra minúscula.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            // Verificar si la contraseña contiene al menos una letra mayúscula
+            if (!contraseña.Any(char.IsUpper))
+            {
+                MessageBox.Show("La contraseña debe contener al menos una letra mayúscula.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            // Verificar si la contraseña contiene al menos un número
+            if (!contraseña.Any(char.IsDigit))
+            {
+                MessageBox.Show("La contraseña debe contener al menos un número.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            // Si todas las condiciones se cumplen, la contraseña es válida
+            return true;
+        }
+
         private void btnGuardar_Click_1(object sender, EventArgs e)
         {
             string mensaje = string.Empty;
 
+            if (!SeguridadClaves(txtContraseña.Text))
+            {
+                return;
+            }
+
+            if (txtContraseña.Text != txtConfirmarContraseña.Text)
+            {
+                MessageBox.Show("Las contraseñas no coinciden. Por favor, verifique.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string claveCifrada = Encrypt.GetSHA256(txtContraseña.Text);
+
             Usuario objUsuario = new Usuario()
             {
                 IdUsuario = Convert.ToInt32(txtIdUsuario.Text),
+                
                 oDatosPersona = new Datos_Persona
                 {
                     IdDatosPersona= Convert.ToInt32(txtIdDatosPersonas.Text),
@@ -80,8 +127,7 @@ namespace CapaPresentacion
                         Casa = txtNurCasa.Text
                     },
                 },
-                Clave = txtContraseña.Text,
-                ConfirmarClave = txtConfirmarContraseña.Text,
+                Clave = claveCifrada,
                 oRol = new Rol() { IdRol = Convert.ToInt32(((OpcionCombo)cboRol.SelectedItem).Valor) },
                 Estado = Convert.ToInt32(((OpcionCombo)cboEstado.SelectedItem).Valor) == 1 ? true : false
             };
@@ -96,7 +142,7 @@ namespace CapaPresentacion
 
                     dgvData.Rows.Add(new object[] { IdUsuarioGenrado, "", txtIdDatosPersonas.Text, txtCI.Text, txtNombre.Text, txtApellido.Text,
                         txtIdCorreo.Text, txtCorreo.Text, txtIdTelefono.Text, txtTelefono.Text, txtIdDireccion.Text, txtEstado.Text, txtCiudad.Text, txtSector.Text, txtCalle.Text, txtNurCasa.Text,
-                        txtContraseña.Text, txtConfirmarContraseña.Text,
+                        txtContraseña.Text,
                         ((OpcionCombo)cboRol.SelectedItem).Valor.ToString(),
                         ((OpcionCombo)cboRol.SelectedItem).Texto.ToString(),
                         ((OpcionCombo)cboEstado.SelectedItem).Texto.ToString(),
@@ -136,7 +182,6 @@ namespace CapaPresentacion
                     row.Cells["Calle"].Value = txtCalle.Text;
                     row.Cells["Casa"].Value = txtNurCasa.Text;
                     row.Cells["Clave"].Value = txtContraseña.Text;
-                    row.Cells["ConfirmarClave"].Value = txtContraseña.Text;
                     row.Cells["idRol"].Value = ((OpcionCombo)cboRol.SelectedItem).Valor.ToString();
                     row.Cells["Rol"].Value = ((OpcionCombo)cboRol.SelectedItem).Texto.ToString();
                     row.Cells["EstadoValor"].Value = ((OpcionCombo)cboEstado.SelectedItem).Valor.ToString();
@@ -185,7 +230,7 @@ namespace CapaPresentacion
                     item.oDatosPersona.CI, item.oDatosPersona.Nombre, item.oDatosPersona.Apellido, item.oDatosPersona.oCorreo.IdCorreo,
                     item.oDatosPersona.oCorreo.UsuarioCorreo,item.oDatosPersona.oTelefono.IdTelefono, item.oDatosPersona.oTelefono.Numero,
                     item.oDatosPersona.oDireccion.IdDireccion, item.oDatosPersona.oDireccion.Estado, item.oDatosPersona.oDireccion.Ciudad, item.oDatosPersona.oDireccion.Sector, item.oDatosPersona.oDireccion.Calle, item.oDatosPersona.oDireccion.Casa,
-                    item.Clave, item.Clave, item.oRol.IdRol,item.oRol.Descripcion,
+                    item.Clave, item.oRol.IdRol,item.oRol.Descripcion,
                     item.Estado == true ? "Activo" : "No Activo",
                     item.Estado == true ? 1 : 0
 
@@ -214,12 +259,6 @@ namespace CapaPresentacion
             }
         }
 
-
-
-
-
-       
-
         private void dgvData_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvData.Columns[e.ColumnIndex].Name == "btnSeleccionar")
@@ -243,8 +282,6 @@ namespace CapaPresentacion
                     txtSector.Text = dgvData.Rows[indice].Cells["Sector"].Value.ToString();
                     txtCalle.Text = dgvData.Rows[indice].Cells["Calle"].Value.ToString();
                     txtNurCasa.Text = dgvData.Rows[indice].Cells["Casa"].Value.ToString();
-                    txtContraseña.Text = dgvData.Rows[indice].Cells["Clave"].Value.ToString();
-                    txtConfirmarContraseña.Text = dgvData.Rows[indice].Cells["ConfirmarClave"].Value.ToString();
                     
                     foreach (OpcionCombo oc in cboRol.Items)
                     {
@@ -303,5 +340,6 @@ namespace CapaPresentacion
         {
             Limpiar();
         }
+        
     }
 }

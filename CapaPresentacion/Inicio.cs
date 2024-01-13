@@ -178,7 +178,7 @@ namespace CapaPresentacion
 
         private void SubMenuAbonoIngreso_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menucompras, new FrmAbonoIngresoProducto());
+            AbrirFormulario(menucompras, new FrmAbonoCompra());
         }
         //menu Cliente
         private void menuClientes_Click(object sender, EventArgs e)
@@ -198,7 +198,7 @@ namespace CapaPresentacion
 
         private void SubMenuRepIngreso_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menureportes, new FrmReportesIngresoProductos());
+            AbrirFormulario(menureportes, new FrmReportesCompra());
         }
 
         private void menuServicioApartado_Click(object sender, EventArgs e)
@@ -208,15 +208,21 @@ namespace CapaPresentacion
 
         private void devolverVentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menudevolución, new FrmDevolucion());
+            AbrirFormulario(menudevolución, new FrmDevolucionVenta());
         }
 
         private void SubMenuDevlProv_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menudevolución, new FrmDevolucionProducto());
+            AbrirFormulario(menudevolución, new FrmDevolucionCompra());
         }
 
-        
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Desea Salir?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
     }
     
     
