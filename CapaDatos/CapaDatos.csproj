@@ -45,6 +45,7 @@
     <Compile Include="CD_Categoria.cs" />
     <Compile Include="CD_Cliente.cs" />
     <Compile Include="CD_Compra.cs" />
+    <Compile Include="CD_Datos_Sistema.cs" />
     <Compile Include="CD_OtrosDatos.cs" />
     <Compile Include="CD_Permiso.cs" />
     <Compile Include="CD_Producto.cs" />
@@ -55,7 +56,6 @@
     <Compile Include="CD_Venta.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utilities\Encrypt.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CapaEntidad\CapaEntidad.csproj">

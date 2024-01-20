@@ -28,7 +28,9 @@ namespace CapaPresentacion
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            string claveCifrada = Encrypt.GetSHA256(txtClave.Text);
+            EncryptMD5 cifrado = new EncryptMD5();
+
+            string claveCifrada = cifrado.Encrypt(txtClave.Text);
 
             Usuario oUsuario = new CN_Usuario().Listar().FirstOrDefault(u => u.oDatosPersona.CI == txtCedula.Text && u.Clave == claveCifrada);
 

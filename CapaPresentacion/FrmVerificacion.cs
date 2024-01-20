@@ -66,11 +66,14 @@ namespace CapaPresentacion
 
         private void btnCorreo_Click(object sender, EventArgs e)
         {
-            
+            EncryptMD5 cifrado = new EncryptMD5();
+
             DialogResult result = DialogResult.OK;
 
-            string emisor = "RESERACA01@gmail.com";
-            string clave = "kkak wawz ezml tham";
+            Datos_Sistema oDatosSistema = new CN_Datos_Sistema().ObtenerDatos(2);
+
+            string emisor = cifrado.Decrypt(oDatosSistema.Identificador);
+            string clave = cifrado.Decrypt(oDatosSistema.Autentificador);
             string receptor = txtCorreo.Text;
             
             do
@@ -107,6 +110,8 @@ namespace CapaPresentacion
 
         private void btnSMS_Click(object sender, EventArgs e)
         {
+
+
             verificacion();
         }
 

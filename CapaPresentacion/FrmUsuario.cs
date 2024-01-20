@@ -50,7 +50,7 @@ namespace CapaPresentacion
 
         private bool SeguridadClaves(string contraseña)
         {
-            if (contraseña.Length < 8 || contraseña.Length > 12)
+            if (contraseña.Length < 8 || contraseña.Length > 16)
             {
                 MessageBox.Show("La contraseña debe tener entre 8 y 12 caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -61,22 +61,19 @@ namespace CapaPresentacion
                 MessageBox.Show("La contraseña debe contener al menos una letra minúscula.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-
-            // Verificar si la contraseña contiene al menos una letra mayúscula
+        
             if (!contraseña.Any(char.IsUpper))
             {
                 MessageBox.Show("La contraseña debe contener al menos una letra mayúscula.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-
-            // Verificar si la contraseña contiene al menos un número
+            
             if (!contraseña.Any(char.IsDigit))
             {
                 MessageBox.Show("La contraseña debe contener al menos un número.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-
-            // Si todas las condiciones se cumplen, la contraseña es válida
+            
             return true;
         }
 
@@ -95,12 +92,13 @@ namespace CapaPresentacion
                 return;
             }
 
-            string claveCifrada = Encrypt.GetSHA256(txtContraseña.Text);
+            EncryptMD5 cifrado = new EncryptMD5();
+
+            string claveCifrada = cifrado.Encrypt(txtContraseña.Text);
 
             Usuario objUsuario = new Usuario()
             {
                 IdUsuario = Convert.ToInt32(txtIdUsuario.Text),
-                
                 oDatosPersona = new Datos_Persona
                 {
                     IdDatosPersona= Convert.ToInt32(txtIdDatosPersonas.Text),

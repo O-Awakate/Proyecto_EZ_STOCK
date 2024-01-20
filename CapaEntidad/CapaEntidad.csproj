@@ -50,6 +50,7 @@
     <Compile Include="Correo.cs" />
     <Compile Include="Credito.cs" />
     <Compile Include="Datos_Persona.cs" />
+    <Compile Include="Datos_Sistema.cs" />
     <Compile Include="Detalle_Compra.cs" />
     <Compile Include="Detalle_Venta.cs" />
     <Compile Include="Devolucion_Compra.cs" />

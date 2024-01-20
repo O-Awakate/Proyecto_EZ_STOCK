@@ -12,7 +12,8 @@ namespace CapaDatos
 {
     public class CD_Categoria
     {
-        public List<Categoria> listar()
+        // Método para listar categorías desde la base de datos.
+        public List<Categoria> listar() 
         {
             List<Categoria> lista = new List<Categoria>();
 
@@ -20,6 +21,7 @@ namespace CapaDatos
             {
                 try
                 {
+                    // Construir y ejecutar consulta SQL para obtener categorías.
                     StringBuilder query = new StringBuilder();
                     query.AppendLine("select IdCategoria,NombreCategoria,Estado from CATEGORIA ");
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
@@ -27,6 +29,7 @@ namespace CapaDatos
 
                     oconexion.Open();
 
+                    // Procesar resultados y agregar a la lista.
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
                         while (dr.Read())
@@ -42,6 +45,7 @@ namespace CapaDatos
                 }
                 catch (Exception ex)
                 {
+                    // En caso de error, reinicializar la lista.
                     lista = new List<Categoria>();
                 }
             }
@@ -49,17 +53,18 @@ namespace CapaDatos
             return lista;
         }
 
-        public int Registrar(Categoria obj, out string Mensaje)
+        // Método para registrar una nueva categoría en la base de datos.
+        public int Registrar(Categoria obj, out string Mensaje) 
         {
 
-            int IdCategoriaGenrado = 0;
+            int IdCategoriaGenerado = 0;
             Mensaje = string.Empty;
 
             try
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
-
+                    // Llamar al procedimiento almacenado para registrar una categoría.
                     SqlCommand cmd = new SqlCommand("SP_REGISTRARCATEGORIA", oconexion);
                     cmd.Parameters.AddWithValue("NombreCategoria", obj.NombreCategoria);
                     cmd.Parameters.AddWithValue("estado", obj.Estado);
@@ -68,27 +73,28 @@ namespace CapaDatos
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     oconexion.Open();
-
+                    // Ejecutar el procedimiento almacenado y obtener resultados.
                     cmd.ExecuteNonQuery();
 
-                    IdCategoriaGenrado = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
+                    IdCategoriaGenerado = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
                     Mensaje = cmd.Parameters["mensaje"].Value.ToString();
                 }
 
             }
             catch (Exception ex)
             {
-
-                IdCategoriaGenrado = 0;
+                // En caso de error, asignar valores por defecto y capturar mensaje de error.
+                IdCategoriaGenerado = 0;
                 Mensaje = ex.Message;
 
             }
 
-            return IdCategoriaGenrado;
+            return IdCategoriaGenerado;
 
         }
 
-        public bool Editar(Categoria obj, out string Mensaje)
+        // Método para editar una categoría existente en la base de datos.
+        public bool Editar(Categoria obj, out string Mensaje) 
         {
 
             bool Respuesta = false;
@@ -98,7 +104,7 @@ namespace CapaDatos
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
-
+                    // Llamar al procedimiento almacenado para editar una categoría.
                     SqlCommand cmd = new SqlCommand("SP_EditarCategoria", oconexion);
                     cmd.Parameters.AddWithValue("IdCategoria", obj.IdCategoria);
                     cmd.Parameters.AddWithValue("NombreCategoria", obj.NombreCategoria);
@@ -108,7 +114,7 @@ namespace CapaDatos
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     oconexion.Open();
-
+                    // Ejecutar el procedimiento almacenado y obtener resultados.
                     cmd.ExecuteNonQuery();
 
                     Respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
@@ -118,7 +124,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-
+                // En caso de error, asignar valores por defecto y capturar mensaje de error.
                 Respuesta = false;
                 Mensaje = ex.Message;
 
@@ -128,6 +134,7 @@ namespace CapaDatos
 
         }
 
+        // Método para eliminar una categoría de la base de datos.
         public bool Eliminar(Categoria obj, out string Mensaje)
         {
 
@@ -138,7 +145,7 @@ namespace CapaDatos
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
-
+                    // Llamar al procedimiento almacenado para eliminar una categoría.
                     SqlCommand cmd = new SqlCommand("SP_EliminarCategoria", oconexion);
                     cmd.Parameters.AddWithValue("IdCategoria", obj.IdCategoria);
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -146,7 +153,7 @@ namespace CapaDatos
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     oconexion.Open();
-
+                    // Ejecutar el procedimiento almacenado y obtener resultados.
                     cmd.ExecuteNonQuery();
 
                     Respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
@@ -156,7 +163,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-
+                // En caso de error, asignar valores por defecto y capturar mensaje de error.
                 Respuesta = false;
                 Mensaje = ex.Message;
 
