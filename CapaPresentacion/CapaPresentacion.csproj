@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -48,13 +48,52 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML, Version=0.95.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.95.4\lib\net46\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.0.10.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.0.10\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
     <Reference Include="FontAwesome.Sharp, Version=5.15.4.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.5.15.4\lib\net45\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itextsharp.xmlworker.5.5.13.2\lib\itextsharp.xmlworker.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=1.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.1.1.2\lib\net451\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.1.2\lib\net451\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.1.2\lib\net451\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.0.1\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.0.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -65,14 +104,22 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Twilio, Version=6.15.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Twilio.6.15.2\lib\net451\Twilio.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmAbonoIngresoProducto.cs">
+    <Compile Include="Controls\DropdownMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\MenuColorTable.cs" />
+    <Compile Include="Controls\MenuRenderer.cs" />
+    <Compile Include="FrmAbonoCompra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAbonoIngresoProducto.Designer.cs">
-      <DependentUpon>FrmAbonoIngresoProducto.cs</DependentUpon>
+    <Compile Include="FrmAbonoCompra.Designer.cs">
+      <DependentUpon>FrmAbonoCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmAbonoVenta.cs">
       <SubType>Form</SubType>
@@ -98,11 +145,11 @@
     <Compile Include="FrmCliente.Designer.cs">
       <DependentUpon>FrmCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmDetalleIngresoProducto.cs">
+    <Compile Include="FrmDetalleCompra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmDetalleIngresoProducto.Designer.cs">
-      <DependentUpon>FrmDetalleIngresoProducto.cs</DependentUpon>
+    <Compile Include="FrmDetalleCompra.Designer.cs">
+      <DependentUpon>FrmDetalleCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmDetalleVenta.cs">
       <SubType>Form</SubType>
@@ -110,11 +157,17 @@
     <Compile Include="FrmDetalleVenta.Designer.cs">
       <DependentUpon>FrmDetalleVenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmDevolucion.cs">
+    <Compile Include="FrmDevolucionVenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmDevolucion.Designer.cs">
-      <DependentUpon>FrmDevolucion.cs</DependentUpon>
+    <Compile Include="FrmDevolucionVenta.Designer.cs">
+      <DependentUpon>FrmDevolucionVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDevolucionCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDevolucionCompra.Designer.cs">
+      <DependentUpon>FrmDevolucionCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmNegocio.cs">
       <SubType>Form</SubType>
@@ -134,17 +187,17 @@
     <Compile Include="FrmProveedor.Designer.cs">
       <DependentUpon>FrmProveedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmRegIngresoProducto.cs">
+    <Compile Include="FrmCompra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmRegIngresoProducto.Designer.cs">
-      <DependentUpon>FrmRegIngresoProducto.cs</DependentUpon>
+    <Compile Include="FrmCompra.Designer.cs">
+      <DependentUpon>FrmCompra.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmReportesIngresoProductos.cs">
+    <Compile Include="FrmReportesCompra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmReportesIngresoProductos.Designer.cs">
-      <DependentUpon>FrmReportesIngresoProductos.cs</DependentUpon>
+    <Compile Include="FrmReportesCompra.Designer.cs">
+      <DependentUpon>FrmReportesCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmReporteVentas.cs">
       <SubType>Form</SubType>
@@ -164,6 +217,12 @@
     <Compile Include="FrmVentaRegistro.Designer.cs">
       <DependentUpon>FrmVentaRegistro.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmVerificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVerificacion.Designer.cs">
+      <DependentUpon>FrmVerificacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +234,12 @@
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modales\FrmDeudaClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modales\FrmDeudaClientes.Designer.cs">
+      <DependentUpon>FrmDeudaClientes.cs</DependentUpon>
     </Compile>
     <Compile Include="Modales\FrmListaClientes.cs">
       <SubType>Form</SubType>
@@ -196,8 +261,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmAbonoIngresoProducto.resx">
-      <DependentUpon>FrmAbonoIngresoProducto.cs</DependentUpon>
+    <Compile Include="Utilities\Encrypt.cs" />
+    <Compile Include="Utilities\EncryptMD5.cs" />
+    <Compile Include="Utilities\OpcionCombo.cs" />
+    <Compile Include="Utilities\VerificacionCorreo.cs" />
+    <EmbeddedResource Include="FrmAbonoCompra.resx">
+      <DependentUpon>FrmAbonoCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAbonoVenta.resx">
       <DependentUpon>FrmAbonoVenta.cs</DependentUpon>
@@ -211,14 +280,17 @@
     <EmbeddedResource Include="FrmCliente.resx">
       <DependentUpon>FrmCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmDetalleIngresoProducto.resx">
-      <DependentUpon>FrmDetalleIngresoProducto.cs</DependentUpon>
+    <EmbeddedResource Include="FrmDetalleCompra.resx">
+      <DependentUpon>FrmDetalleCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDetalleVenta.resx">
       <DependentUpon>FrmDetalleVenta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmDevolucion.resx">
-      <DependentUpon>FrmDevolucion.cs</DependentUpon>
+    <EmbeddedResource Include="FrmDevolucionVenta.resx">
+      <DependentUpon>FrmDevolucionVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDevolucionCompra.resx">
+      <DependentUpon>FrmDevolucionCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmNegocio.resx">
       <DependentUpon>FrmNegocio.cs</DependentUpon>
@@ -229,11 +301,11 @@
     <EmbeddedResource Include="FrmProveedor.resx">
       <DependentUpon>FrmProveedor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmRegIngresoProducto.resx">
-      <DependentUpon>FrmRegIngresoProducto.cs</DependentUpon>
+    <EmbeddedResource Include="FrmCompra.resx">
+      <DependentUpon>FrmCompra.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmReportesIngresoProductos.resx">
-      <DependentUpon>FrmReportesIngresoProductos.cs</DependentUpon>
+    <EmbeddedResource Include="FrmReportesCompra.resx">
+      <DependentUpon>FrmReportesCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReporteVentas.resx">
       <DependentUpon>FrmReporteVentas.cs</DependentUpon>
@@ -244,11 +316,17 @@
     <EmbeddedResource Include="FrmVentaRegistro.resx">
       <DependentUpon>FrmVentaRegistro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmVerificacion.resx">
+      <DependentUpon>FrmVerificacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modales\FrmDeudaClientes.resx">
+      <DependentUpon>FrmDeudaClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modales\FrmListaClientes.resx">
       <DependentUpon>FrmListaClientes.cs</DependentUpon>
@@ -385,5 +463,40 @@
   <ItemGroup>
     <None Include="Resources\microsoft-excel %281%291.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaEntidad\CapaEntidad.csproj">
+      <Project>{5cffdd14-e70f-4f36-8332-f742d23747d0}</Project>
+      <Name>CapaEntidad</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
+      <Project>{ff482d7f-5423-42a0-b20d-682d969c048c}</Project>
+      <Name>CapaNegocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkbox-outline %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkbox-outline %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear-box-outline %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear-box-outline %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save-20-regular  %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete-outline %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Plantilla compra.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Plantilla Venta.html" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

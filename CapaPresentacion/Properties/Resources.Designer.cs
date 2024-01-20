@@ -103,6 +103,46 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap checkbox_outline__1_ {
+            get {
+                object obj = ResourceManager.GetObject("checkbox_outline__1_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap checkbox_outline__2_ {
+            get {
+                object obj = ResourceManager.GetObject("checkbox_outline__2_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap clear_box_outline__1_ {
+            get {
+                object obj = ResourceManager.GetObject("clear_box_outline__1_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap clear_box_outline__2_ {
+            get {
+                object obj = ResourceManager.GetObject("clear_box_outline__2_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap clear_outlined__1_ {
             get {
                 object obj = ResourceManager.GetObject("clear-outlined (1)", resourceCulture);
@@ -126,6 +166,16 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap clear_outlined__3_ {
             get {
                 object obj = ResourceManager.GetObject("clear-outlined (3)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap delete_outline__1_ {
+            get {
+                object obj = ResourceManager.GetObject("delete_outline__1_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -262,6 +312,72 @@ namespace CapaPresentacion.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
+        ///&lt;html&gt;
+        ///&lt;head&gt;
+        ///    &lt;title&gt;Web Page Design&lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        table.border {
+        ///            border-collapse: collapse;
+        ///        }
+        ///
+        ///            table.border th {
+        ///                text-align: center;
+        ///                padding: 5px;
+        ///                border: 1px solid black;
+        ///            }
+        ///
+        ///            table.border td {
+        ///                text-align: center;
+        ///                padding: 5px;
+        ///                border: 1px solid black;
+        ///            }
+        ///    &lt;/style&gt;
+        ///&lt;/head&gt;
+        ///&lt;body&gt;
+        ///    &lt;tab [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string Plantilla_compra {
+            get {
+                return ResourceManager.GetString("Plantilla_compra", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
+        ///&lt;html&gt;
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot; /&gt;
+        ///		&lt;title&gt;Factura RESERACA&lt;/title&gt;
+        ///
+        ///		&lt;style&gt;
+        ///			.invoice-box {
+        ///				max-width: 800px;
+        ///				margin: auto;
+        ///				padding: 30px;
+        ///				border: 1px solid #eee;
+        ///				box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+        ///				font-size: 16px;
+        ///				line-height: 24px;
+        ///				font-family: &apos;Helvetica Neue&apos;, &apos;Helvetica&apos;, Helvetica, Arial, sans-serif;
+        ///				color: #555;
+        ///			}
+        ///
+        ///			.invoice-box table {
+        ///				width: 100%;
+        ///				line-height: inherit;
+        ///				text-align: left;
+        ///			}
+        ///
+        ///			.invoice-box ta [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string Plantilla_Venta {
+            get {
+                return ResourceManager.GetString("Plantilla_Venta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap product_release__1_ {
@@ -287,6 +403,16 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap result_draft__1_ {
             get {
                 object obj = ResourceManager.GetObject("result-draft (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap save_20_regular___1_ {
+            get {
+                object obj = ResourceManager.GetObject("save-20-regular  (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
