@@ -124,9 +124,9 @@ namespace CapaPresentacion
             }
             texto_HTML = texto_HTML.Replace("@filas", filas);
             texto_HTML = texto_HTML.Replace("@montototal", txtMontoTotal.Text);
-            texto_HTML = texto_HTML.Replace("@montobs", txtMontoTotal.Text);
-            texto_HTML = texto_HTML.Replace("@metodopago", txtMontoTotal.Text);
-            texto_HTML = texto_HTML.Replace("@deuda", txtMontoTotal.Text);
+            texto_HTML = texto_HTML.Replace("@montobs", txtMontoBs.Text);
+            texto_HTML = texto_HTML.Replace("@metodopago", txtMetodo.Text);
+            texto_HTML = texto_HTML.Replace("@deuda", txtDeuda.Text);
 
             SaveFileDialog savefile = new SaveFileDialog();
             savefile.FileName = string.Format("Compra_{0}.pdf", txtNumDocumento.Text);

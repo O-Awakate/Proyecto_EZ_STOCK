@@ -103,3 +103,5 @@ C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\bin\Debug\Mic
 C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\bin\Debug\Newtonsoft.Json.xml
 C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
 C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\bin\Debug\Twilio.xml
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\CapaPresentacion.Verificacion.resources
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\CapaPresentacion.frmPanelGestion.resources

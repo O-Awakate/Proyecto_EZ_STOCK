@@ -14,7 +14,6 @@ namespace CapaNegocio
 
         public List<Usuario> Listar()
         {
-            
             return objCD_Usuario.Listar();
         }
 
@@ -94,7 +93,7 @@ namespace CapaNegocio
             }
             else
             {
-                return objCD_Usuario.Editar(obj, out Mensaje); ;
+                return objCD_Usuario.Editar(obj, out Mensaje); 
 
             }
             
@@ -105,9 +104,9 @@ namespace CapaNegocio
             return objCD_Usuario.Eliminar(obj, out Mensaje);
         }
 
-        public Usuario ObtenerCorreo(string CI)
+        public bool ActualizarContraseña(Usuario obj, out string Mensaje)
         {
-            return objCD_Usuario.ObtenerCorreo(CI);
+            return objCD_Usuario.ActualizarContraseña(obj, out Mensaje);
         }
     }
 }

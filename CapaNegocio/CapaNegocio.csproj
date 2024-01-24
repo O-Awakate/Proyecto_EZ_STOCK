@@ -46,6 +46,7 @@
     <Compile Include="CN_Compra.cs" />
     <Compile Include="CN_Datos_Sistema.cs" />
     <Compile Include="CN_OtrosDatos.cs" />
+    <Compile Include="CN_PanelGerencial.cs" />
     <Compile Include="CN_Permiso.cs" />
     <Compile Include="CN_Producto.cs" />
     <Compile Include="CN_Proveedor.cs" />

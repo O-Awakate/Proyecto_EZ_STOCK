@@ -58,6 +58,7 @@
     <Compile Include="Direccion.cs" />
     <Compile Include="Negocio.cs" />
     <Compile Include="Otros_Datos.cs" />
+    <Compile Include="PaneldeGestion.cs" />
     <Compile Include="Permiso.cs" />
     <Compile Include="Producto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

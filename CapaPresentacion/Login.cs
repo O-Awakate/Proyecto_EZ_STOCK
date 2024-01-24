@@ -79,7 +79,7 @@ namespace CapaPresentacion
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FrmVerificacion form = new FrmVerificacion();
+            Verificacion form = new Verificacion();
 
             form.Show();
             this.Hide();

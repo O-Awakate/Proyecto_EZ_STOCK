@@ -52,7 +52,7 @@ namespace CapaPresentacion
         {
             if (contraseña.Length < 8 || contraseña.Length > 16)
             {
-                MessageBox.Show("La contraseña debe tener entre 8 y 12 caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La contraseña debe tener entre 8 y 16 caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 

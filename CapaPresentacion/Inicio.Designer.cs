@@ -64,6 +64,7 @@
             this.ddmDevoluciones = new CapaPresentacion.Controls.DropdownMenu(this.components);
             this.devolverVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuDevlProv = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelGerencialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.ddmAdministracion.SuspendLayout();
             this.ddmVenta.SuspendLayout();
@@ -411,24 +412,25 @@
             this.ddmReportes.IsMainMenu = false;
             this.ddmReportes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SubMenuRepVenta,
-            this.SubMenuRepIngreso});
+            this.SubMenuRepIngreso,
+            this.panelGerencialToolStripMenuItem});
             this.ddmReportes.MenuItemHeight = 25;
             this.ddmReportes.MenuItemTextColor = System.Drawing.Color.DimGray;
             this.ddmReportes.Name = "dropdownMenu4";
             this.ddmReportes.PrimaryColor = System.Drawing.Color.MediumSlateBlue;
-            this.ddmReportes.Size = new System.Drawing.Size(163, 48);
+            this.ddmReportes.Size = new System.Drawing.Size(181, 92);
             // 
             // SubMenuRepVenta
             // 
             this.SubMenuRepVenta.Name = "SubMenuRepVenta";
-            this.SubMenuRepVenta.Size = new System.Drawing.Size(162, 22);
+            this.SubMenuRepVenta.Size = new System.Drawing.Size(180, 22);
             this.SubMenuRepVenta.Text = "Reporte Ventas";
             this.SubMenuRepVenta.Click += new System.EventHandler(this.SubMenuRepVenta_Click);
             // 
             // SubMenuRepIngreso
             // 
             this.SubMenuRepIngreso.Name = "SubMenuRepIngreso";
-            this.SubMenuRepIngreso.Size = new System.Drawing.Size(162, 22);
+            this.SubMenuRepIngreso.Size = new System.Drawing.Size(180, 22);
             this.SubMenuRepIngreso.Text = "Reporte Ingresos";
             this.SubMenuRepIngreso.Click += new System.EventHandler(this.SubMenuRepIngreso_Click);
             // 
@@ -457,6 +459,13 @@
             this.SubMenuDevlProv.Size = new System.Drawing.Size(189, 22);
             this.SubMenuDevlProv.Text = "Devolver al Proveedor";
             this.SubMenuDevlProv.Click += new System.EventHandler(this.SubMenuDevlProv_Click);
+            // 
+            // panelGerencialToolStripMenuItem
+            // 
+            this.panelGerencialToolStripMenuItem.Name = "panelGerencialToolStripMenuItem";
+            this.panelGerencialToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.panelGerencialToolStripMenuItem.Text = "Panel Gerencial";
+            this.panelGerencialToolStripMenuItem.Click += new System.EventHandler(this.panelGerencialToolStripMenuItem_Click);
             // 
             // Inicio
             // 
@@ -524,5 +533,6 @@
         private System.Windows.Forms.Button menuadministracion;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Panel menu;
+        private System.Windows.Forms.ToolStripMenuItem panelGerencialToolStripMenuItem;
     }
 }

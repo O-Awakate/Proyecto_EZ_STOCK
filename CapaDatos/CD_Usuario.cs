@@ -239,48 +239,42 @@ namespace CapaDatos
             return Respuesta;
 
         }
-
-        public Usuario ObtenerCorreo(string CI)
+        
+        public bool ActualizarContraseña(Usuario obj, out string Mensaje)
         {
-            Usuario oUsuario = new Usuario();
+            bool Respuesta = false;
+            Mensaje = string.Empty;
 
-            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            try
             {
-                try
+                using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
                 {
-                    oconexion.Open();
-                    StringBuilder query = new StringBuilder();
-                    query.AppendLine("select c.Correo from USUARIO u");
-                    query.AppendLine("inner join DATOS_PERSONA p on p.IdDatosPersona = u.IdDatosPersona");
-                    query.AppendLine("inner join CORREO c on c.IdCorreo = p.IdCorreo");
-                    query.AppendLine("where p.CI = @numero ");
+                    SqlCommand cmd = new SqlCommand("SP_EDITARCLAVEUSUARIOS", conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
-                    cmd.Parameters.AddWithValue("@numero", CI);
-                    cmd.CommandType = CommandType.Text;
+                    //Parámetros de entrada
+                    cmd.Parameters.AddWithValue("IdUsuario", obj.IdUsuario);
+                    cmd.Parameters.AddWithValue("Clave", obj.Clave);
 
-                    using (SqlDataReader dr = cmd.ExecuteReader())
-                    {
-                        while (dr.Read())
-                        {
-                            oUsuario = new Usuario()
-                            {
-                                    oDatosPersona = new Datos_Persona()
-                                    {
-                                        oCorreo = new Correo() { UsuarioCorreo = dr["Correo"].ToString()}
-                                        
-                                    }
-                            };
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    oUsuario = new Usuario();
+                    // Parámetros de salida
+                    cmd.Parameters.Add("Respuesta", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+
+                    conexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                    //Obtener los valores de los parámetros de salida
+                    Respuesta = Convert.ToBoolean(cmd.Parameters["Respuesta"].Value);
+                    Mensaje = cmd.Parameters["mensaje"].Value.ToString();
                 }
             }
 
-            return oUsuario;
+            catch (Exception ex)
+            {
+                Respuesta = false;
+                Mensaje = ex.Message;
+            }
+            return Respuesta;
         }
 
     }

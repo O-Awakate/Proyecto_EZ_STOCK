@@ -149,7 +149,7 @@ namespace CapaDatos
                     query.AppendLine("select v.IdVenta,");
                     query.AppendLine("dpu.Nombre, dpu.Apellido,");
                     query.AppendLine("cl.IdCliente, dpcl.CI, dpcl.Nombre as NombreCliente, dpcl.Apellido as ApellidoCliente,");
-                    query.AppendLine("v.TipoDocumento, v.NumeroDocumento, v.MontoTotal, v.MontoBs, v.MontoPago, v.MontoCambio, v.MetodoPago, CONVERT(char(10), v.FechaRegistro, 103)[FechaRegistro], v.Estado,");
+                    query.AppendLine("v.TipoDocumento, v.NumeroDocumento, v.MontoTotal, v.MontoBs, v.MontoPago, v.MontoCambio, v.MetodoPago, CONVERT(char(10), v.FechaRegistro, 103)[FechaRegistro],");
                     query.AppendLine("crd.Deuda, crd.IdCredito");
                     query.AppendLine("from VENTA v");
                     query.AppendLine("left join CREDITO crd ON crd.IdCredito = v.IdCredito");
@@ -200,7 +200,7 @@ namespace CapaDatos
                                 MontoPago = Convert.ToDecimal(dr["MontoPago"].ToString()),
                                 MontoCambio = Convert.ToDecimal(dr["MontoCambio"].ToString()),
                                 MetodoPago = dr["MetodoPago"].ToString(),
-                                Estado = Convert.ToBoolean(dr["Estado"].ToString()),
+                                //Estado = Convert.ToBoolean(dr["Estado"].ToString()),
                                 FechaRegistro = dr["FechaRegistro"].ToString()
                             };
                         }

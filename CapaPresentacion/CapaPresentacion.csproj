@@ -94,6 +94,7 @@
       <HintPath>..\packages\System.IO.Packaging.4.0.0\lib\net46\System.IO.Packaging.dll</HintPath>
     </Reference>
     <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -175,6 +176,12 @@
     <Compile Include="FrmNegocio.Designer.cs">
       <DependentUpon>FrmNegocio.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPanelGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPanelGestion.Designer.cs">
+      <DependentUpon>frmPanelGestion.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,11 +224,11 @@
     <Compile Include="FrmVentaRegistro.Designer.cs">
       <DependentUpon>FrmVentaRegistro.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmVerificacion.cs">
+    <Compile Include="Verificacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmVerificacion.Designer.cs">
-      <DependentUpon>FrmVerificacion.cs</DependentUpon>
+    <Compile Include="Verificacion.Designer.cs">
+      <DependentUpon>Verificacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
@@ -261,7 +268,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utilities\Encrypt.cs" />
     <Compile Include="Utilities\EncryptMD5.cs" />
     <Compile Include="Utilities\OpcionCombo.cs" />
     <Compile Include="Utilities\VerificacionCorreo.cs" />
@@ -295,6 +301,9 @@
     <EmbeddedResource Include="FrmNegocio.resx">
       <DependentUpon>FrmNegocio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPanelGestion.resx">
+      <DependentUpon>frmPanelGestion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmProducto.resx">
       <DependentUpon>FrmProducto.cs</DependentUpon>
     </EmbeddedResource>
@@ -316,8 +325,8 @@
     <EmbeddedResource Include="FrmVentaRegistro.resx">
       <DependentUpon>FrmVentaRegistro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmVerificacion.resx">
-      <DependentUpon>FrmVerificacion.cs</DependentUpon>
+    <EmbeddedResource Include="Verificacion.resx">
+      <DependentUpon>Verificacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>

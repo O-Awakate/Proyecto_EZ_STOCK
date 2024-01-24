@@ -223,6 +223,11 @@ namespace CapaPresentacion
                 this.Close();
             }
         }
+
+        private void panelGerencialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menureportes, new frmPanelGestion());
+        }
     }
     
     
