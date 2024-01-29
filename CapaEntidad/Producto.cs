@@ -9,7 +9,6 @@ namespace CapaEntidad
     public class Producto
     {
         public int IdProducto { get; set; }
-        public Categoria oCategoria { get; set; }
         public string CodigoFabrica { get; set; }
         public string CodigoAvila { get; set; }
         public string DescripcionProducto { get; set; }

@@ -259,6 +259,7 @@
             this.txtIdCredito.Name = "txtIdCredito";
             this.txtIdCredito.Size = new System.Drawing.Size(35, 20);
             this.txtIdCredito.TabIndex = 77;
+            this.txtIdCredito.Visible = false;
             // 
             // txtNumDocumento
             // 

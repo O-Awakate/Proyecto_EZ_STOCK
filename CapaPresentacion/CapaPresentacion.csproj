@@ -134,12 +134,6 @@
     <Compile Include="FrmApartado.Designer.cs">
       <DependentUpon>FrmApartado.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCategoria.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCategoria.Designer.cs">
-      <DependentUpon>FrmCategoria.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +218,7 @@
     <Compile Include="FrmVentaRegistro.Designer.cs">
       <DependentUpon>FrmVentaRegistro.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\Ciudades.cs" />
     <Compile Include="Verificacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -279,9 +274,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmApartado.resx">
       <DependentUpon>FrmApartado.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmCategoria.resx">
-      <DependentUpon>FrmCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCliente.resx">
       <DependentUpon>FrmCliente.cs</DependentUpon>
@@ -506,6 +498,35 @@
   <ItemGroup>
     <None Include="Resources\Plantilla Venta.html" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\pricetag-outline %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pricetag-outline %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye %285%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-package %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\product-return %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove-package.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EZ STOCK 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EZ STOCK 2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

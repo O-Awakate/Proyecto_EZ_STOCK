@@ -31,18 +31,7 @@ namespace CapaPresentacion
             cboEstado.DisplayMember = "Texto";
             cboEstado.ValueMember = "Valor";
             cboEstado.SelectedIndex = 0;
-
-            List<Categoria> ListaCategoria = new CN_Categoria().listar();
-
-            foreach (Categoria item in ListaCategoria)
-            {
-                cboCategoria.Items.Add(new OpcionCombo() { Valor = item.IdCategoria, Texto = item.NombreCategoria });
-
-            }
-            cboCategoria.DisplayMember = "Texto";
-            cboCategoria.ValueMember = "Valor";
-            cboCategoria.SelectedIndex = 0;
-
+            
             foreach (DataGridViewColumn columna in dgvData.Columns)
             {
                 if (columna.Visible == true && columna.Name != "btnSeleccionar")
@@ -69,8 +58,6 @@ namespace CapaPresentacion
                     item.MarcaProducto,
                     item.MarcaCarro,
                     item.AplicaParaCarro,
-                    item.oCategoria.IdCategoria,
-                    item.oCategoria.NombreCategoria,
                     item.Stock,
                     item.PrecioCompra,
                     item.PrecioVenta,
@@ -95,7 +82,6 @@ namespace CapaPresentacion
                 MarcaProducto = txtMarcaProducto.Text,
                 MarcaCarro = txtMarcaCarro.Text,
                 AplicaParaCarro = txtAplicaParaCarro.Text,
-                oCategoria = new Categoria() { IdCategoria = Convert.ToInt32(((OpcionCombo)cboCategoria.SelectedItem).Valor) },
                 Estado = Convert.ToInt32(((OpcionCombo)cboEstado.SelectedItem).Valor) == 1 ? true : false
             };
 
@@ -116,8 +102,6 @@ namespace CapaPresentacion
                         txtMarcaProducto.Text,
                         txtMarcaCarro.Text,
                         txtAplicaParaCarro.Text,
-                        ((OpcionCombo)cboCategoria.SelectedItem).Valor.ToString(),
-                        ((OpcionCombo)cboCategoria.SelectedItem).Texto.ToString(),
                         "0",
                         "0,00",
                         "0,00",
@@ -149,8 +133,6 @@ namespace CapaPresentacion
                     row.Cells["MarcaProducto"].Value = txtMarcaProducto.Text;
                     row.Cells["MarcaCarro"].Value = txtMarcaCarro.Text;
                     row.Cells["AplicaParaCarro"].Value = txtAplicaParaCarro.Text;
-                    row.Cells["IdCategoria"].Value = ((OpcionCombo)cboCategoria.SelectedItem).Valor.ToString();
-                    row.Cells["Categoria"].Value = ((OpcionCombo)cboCategoria.SelectedItem).Texto.ToString();
                     row.Cells["EstadoValor"].Value = ((OpcionCombo)cboEstado.SelectedItem).Valor.ToString();
                     row.Cells["Estado"].Value = ((OpcionCombo)cboEstado.SelectedItem).Texto.ToString();
 
@@ -178,7 +160,6 @@ namespace CapaPresentacion
             txtMarcaProducto.Text = "";
             txtMarcaCarro.Text = "";
             txtAplicaParaCarro.Text = "";
-            cboCategoria.SelectedIndex = 0;
             cboEstado.SelectedIndex = 0;
 
             txtCodigoFabrica.Select();
@@ -227,21 +208,7 @@ namespace CapaPresentacion
                     txtMarcaCarro.Text = dgvData.Rows[Indice].Cells["MarcaCarro"].Value.ToString();
                     txtAplicaParaCarro.Text = dgvData.Rows[Indice].Cells["AplicaParaCarro"].Value.ToString();
 
-
-                    foreach (OpcionCombo oc in cboCategoria.Items)
-                    {
-
-                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvData.Rows[Indice].Cells["IdCategoria"].Value))
-                        {
-
-                            int indice_Combo = cboCategoria.Items.IndexOf(oc);
-                            cboCategoria.SelectedIndex = indice_Combo;
-                            break;
-
-                        }
-
-                    }
-
+                    
                     foreach (OpcionCombo oc in cboEstado.Items)
                     {
 
@@ -350,11 +317,10 @@ namespace CapaPresentacion
                             row.Cells[5].Value.ToString(),
                             row.Cells[6].Value.ToString(),
                             row.Cells[7].Value.ToString(),
+                            row.Cells[8].Value.ToString(),
                             row.Cells[9].Value.ToString(),
                             row.Cells[10].Value.ToString(),
-                            row.Cells[11].Value.ToString(),
                             row.Cells[12].Value.ToString(),
-                            row.Cells[14].Value.ToString(),
                         });
                 }
 

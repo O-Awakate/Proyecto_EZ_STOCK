@@ -38,6 +38,12 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cboCiudad = new System.Windows.Forms.ComboBox();
+            this.cboEstadoVen = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cboNacionalidad = new System.Windows.Forms.ComboBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label23 = new System.Windows.Forms.Label();
@@ -55,13 +61,9 @@
             this.txtSector = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtCiudad = new System.Windows.Forms.TextBox();
             this.txtCI = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtEstado = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -181,6 +183,12 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.cboCiudad);
+            this.panel1.Controls.Add(this.cboEstadoVen);
+            this.panel1.Controls.Add(this.label15);
+            this.panel1.Controls.Add(this.label16);
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.cboNacionalidad);
             this.panel1.Controls.Add(this.groupBox6);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.label23);
@@ -198,13 +206,9 @@
             this.panel1.Controls.Add(this.txtSector);
             this.panel1.Controls.Add(this.label18);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.txtCiudad);
             this.panel1.Controls.Add(this.txtCI);
-            this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.txtEstado);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label16);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtTelefono);
             this.panel1.Controls.Add(this.label6);
@@ -214,6 +218,64 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(829, 123);
             this.panel1.TabIndex = 15;
+            // 
+            // cboCiudad
+            // 
+            this.cboCiudad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCiudad.FormattingEnabled = true;
+            this.cboCiudad.Location = new System.Drawing.Point(405, 71);
+            this.cboCiudad.Name = "cboCiudad";
+            this.cboCiudad.Size = new System.Drawing.Size(94, 21);
+            this.cboCiudad.TabIndex = 53;
+            // 
+            // cboEstadoVen
+            // 
+            this.cboEstadoVen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEstadoVen.FormattingEnabled = true;
+            this.cboEstadoVen.Location = new System.Drawing.Point(405, 27);
+            this.cboEstadoVen.Name = "cboEstadoVen";
+            this.cboEstadoVen.Size = new System.Drawing.Size(94, 21);
+            this.cboEstadoVen.TabIndex = 52;
+            this.cboEstadoVen.SelectedIndexChanged += new System.EventHandler(this.cboEstadoVen_SelectedIndexChanged);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(401, 50);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(49, 17);
+            this.label15.TabIndex = 51;
+            this.label15.Text = "Ciudad";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(400, 6);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(48, 17);
+            this.label16.TabIndex = 50;
+            this.label16.Text = "Estado";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(8, 2);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(85, 17);
+            this.label11.TabIndex = 49;
+            this.label11.Text = "Nacionalidad";
+            // 
+            // cboNacionalidad
+            // 
+            this.cboNacionalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboNacionalidad.FormattingEnabled = true;
+            this.cboNacionalidad.Location = new System.Drawing.Point(11, 22);
+            this.cboNacionalidad.Name = "cboNacionalidad";
+            this.cboNacionalidad.Size = new System.Drawing.Size(94, 21);
+            this.cboNacionalidad.TabIndex = 48;
             // 
             // groupBox6
             // 
@@ -275,6 +337,7 @@
             this.txtNurCasa.Name = "txtNurCasa";
             this.txtNurCasa.Size = new System.Drawing.Size(64, 22);
             this.txtNurCasa.TabIndex = 47;
+            this.txtNurCasa.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNurCasa_KeyDown);
             // 
             // groupBox2
             // 
@@ -301,6 +364,7 @@
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(121, 22);
             this.txtApellido.TabIndex = 28;
+            this.txtApellido.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtApellido_KeyDown);
             // 
             // txtCalle
             // 
@@ -309,6 +373,7 @@
             this.txtCalle.Name = "txtCalle";
             this.txtCalle.Size = new System.Drawing.Size(95, 22);
             this.txtCalle.TabIndex = 45;
+            this.txtCalle.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCalle_KeyDown);
             // 
             // label9
             // 
@@ -337,6 +402,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(121, 22);
             this.txtNombre.TabIndex = 26;
+            this.txtNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombre_KeyDown);
             // 
             // txtSector
             // 
@@ -345,6 +411,7 @@
             this.txtSector.Name = "txtSector";
             this.txtSector.Size = new System.Drawing.Size(95, 22);
             this.txtSector.TabIndex = 43;
+            this.txtSector.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSector_KeyDown);
             // 
             // label18
             // 
@@ -366,49 +433,25 @@
             this.label8.TabIndex = 25;
             this.label8.Text = "Nombre";
             // 
-            // txtCiudad
-            // 
-            this.txtCiudad.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCiudad.Location = new System.Drawing.Point(407, 66);
-            this.txtCiudad.Name = "txtCiudad";
-            this.txtCiudad.Size = new System.Drawing.Size(95, 22);
-            this.txtCiudad.TabIndex = 41;
-            // 
             // txtCI
             // 
             this.txtCI.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCI.Location = new System.Drawing.Point(11, 47);
+            this.txtCI.Location = new System.Drawing.Point(11, 66);
             this.txtCI.Name = "txtCI";
             this.txtCI.Size = new System.Drawing.Size(117, 22);
             this.txtCI.TabIndex = 24;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(404, 46);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(49, 17);
-            this.label15.TabIndex = 40;
-            this.label15.Text = "Ciudad";
+            this.txtCI.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCI_KeyDown);
+            this.txtCI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCI_KeyPress);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(17, 27);
+            this.label2.Location = new System.Drawing.Point(16, 46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 17);
             this.label2.TabIndex = 23;
             this.label2.Text = "Número C.I.";
-            // 
-            // txtEstado
-            // 
-            this.txtEstado.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEstado.Location = new System.Drawing.Point(407, 22);
-            this.txtEstado.Name = "txtEstado";
-            this.txtEstado.Size = new System.Drawing.Size(95, 22);
-            this.txtEstado.TabIndex = 39;
             // 
             // label4
             // 
@@ -419,16 +462,6 @@
             this.label4.Size = new System.Drawing.Size(105, 17);
             this.label4.TabIndex = 4;
             this.label4.Text = "Nombre Cliente";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(403, 2);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(48, 17);
-            this.label16.TabIndex = 38;
-            this.label16.Text = "Estado";
             // 
             // label3
             // 
@@ -447,6 +480,8 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(91, 22);
             this.txtTelefono.TabIndex = 36;
+            this.txtTelefono.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTelefono_KeyDown);
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // label6
             // 
@@ -677,6 +712,7 @@
             this.txtIdTelefono.Size = new System.Drawing.Size(25, 22);
             this.txtIdTelefono.TabIndex = 43;
             this.txtIdTelefono.Text = "0";
+            this.txtIdTelefono.Visible = false;
             // 
             // txtIdDireccion
             // 
@@ -686,6 +722,7 @@
             this.txtIdDireccion.Size = new System.Drawing.Size(25, 22);
             this.txtIdDireccion.TabIndex = 42;
             this.txtIdDireccion.Text = "0";
+            this.txtIdDireccion.Visible = false;
             // 
             // txtIdDatosPersonas
             // 
@@ -695,6 +732,7 @@
             this.txtIdDatosPersonas.Size = new System.Drawing.Size(25, 22);
             this.txtIdDatosPersonas.TabIndex = 41;
             this.txtIdDatosPersonas.Text = "0";
+            this.txtIdDatosPersonas.Visible = false;
             // 
             // txtIndice
             // 
@@ -704,6 +742,7 @@
             this.txtIndice.Size = new System.Drawing.Size(25, 22);
             this.txtIndice.TabIndex = 40;
             this.txtIndice.Text = "-1";
+            this.txtIndice.Visible = false;
             // 
             // txtIdCliente
             // 
@@ -713,6 +752,7 @@
             this.txtIdCliente.Size = new System.Drawing.Size(25, 22);
             this.txtIdCliente.TabIndex = 39;
             this.txtIdCliente.Text = "0";
+            this.txtIdCliente.Visible = false;
             // 
             // txtDeuda
             // 
@@ -722,6 +762,7 @@
             this.txtDeuda.Size = new System.Drawing.Size(25, 22);
             this.txtDeuda.TabIndex = 44;
             this.txtDeuda.Text = "0";
+            this.txtDeuda.Visible = false;
             // 
             // FrmCliente
             // 
@@ -781,10 +822,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtSector;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox txtCiudad;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox txtEstado;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label14;
@@ -821,5 +858,11 @@
         private System.Windows.Forms.TextBox txtIndice;
         private System.Windows.Forms.TextBox txtIdCliente;
         private System.Windows.Forms.TextBox txtDeuda;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ComboBox cboCiudad;
+        private System.Windows.Forms.ComboBox cboEstadoVen;
+        private System.Windows.Forms.ComboBox cboNacionalidad;
     }
 }

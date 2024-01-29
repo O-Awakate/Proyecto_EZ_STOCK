@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title11 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title12 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaFin = new System.Windows.Forms.DateTimePicker();
@@ -67,6 +67,8 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.dgvBajoStock = new System.Windows.Forms.DataGridView();
             this.label14 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -94,7 +96,7 @@
             this.dtpFechaInicio.CustomFormat = "MMM dd, yyyy";
             this.dtpFechaInicio.Enabled = false;
             this.dtpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFechaInicio.Location = new System.Drawing.Point(181, 12);
+            this.dtpFechaInicio.Location = new System.Drawing.Point(184, 20);
             this.dtpFechaInicio.Name = "dtpFechaInicio";
             this.dtpFechaInicio.Size = new System.Drawing.Size(100, 20);
             this.dtpFechaInicio.TabIndex = 77;
@@ -104,14 +106,14 @@
             this.dtpFechaFin.CustomFormat = "MMM dd, yyyy";
             this.dtpFechaFin.Enabled = false;
             this.dtpFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFechaFin.Location = new System.Drawing.Point(287, 12);
+            this.dtpFechaFin.Location = new System.Drawing.Point(300, 21);
             this.dtpFechaFin.Name = "dtpFechaFin";
             this.dtpFechaFin.Size = new System.Drawing.Size(100, 20);
             this.dtpFechaFin.TabIndex = 78;
             // 
             // btn30Dias
             // 
-            this.btn30Dias.Location = new System.Drawing.Point(688, 12);
+            this.btn30Dias.Location = new System.Drawing.Point(691, 19);
             this.btn30Dias.Name = "btn30Dias";
             this.btn30Dias.Size = new System.Drawing.Size(90, 23);
             this.btn30Dias.TabIndex = 79;
@@ -121,7 +123,7 @@
             // 
             // btnEsteMes
             // 
-            this.btnEsteMes.Location = new System.Drawing.Point(784, 13);
+            this.btnEsteMes.Location = new System.Drawing.Point(787, 20);
             this.btnEsteMes.Name = "btnEsteMes";
             this.btnEsteMes.Size = new System.Drawing.Size(62, 22);
             this.btnEsteMes.TabIndex = 80;
@@ -131,7 +133,7 @@
             // 
             // btn7Dias
             // 
-            this.btn7Dias.Location = new System.Drawing.Point(597, 12);
+            this.btn7Dias.Location = new System.Drawing.Point(600, 19);
             this.btn7Dias.Name = "btn7Dias";
             this.btn7Dias.Size = new System.Drawing.Size(85, 24);
             this.btn7Dias.TabIndex = 81;
@@ -141,7 +143,7 @@
             // 
             // btnHoy
             // 
-            this.btnHoy.Location = new System.Drawing.Point(547, 12);
+            this.btnHoy.Location = new System.Drawing.Point(550, 19);
             this.btnHoy.Name = "btnHoy";
             this.btnHoy.Size = new System.Drawing.Size(44, 24);
             this.btnHoy.TabIndex = 82;
@@ -151,7 +153,7 @@
             // 
             // btnPersonalizado
             // 
-            this.btnPersonalizado.Location = new System.Drawing.Point(460, 13);
+            this.btnPersonalizado.Location = new System.Drawing.Point(463, 20);
             this.btnPersonalizado.Name = "btnPersonalizado";
             this.btnPersonalizado.Size = new System.Drawing.Size(81, 23);
             this.btnPersonalizado.TabIndex = 83;
@@ -161,7 +163,7 @@
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(423, 13);
+            this.btnOk.Location = new System.Drawing.Point(426, 20);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(31, 23);
             this.btnOk.TabIndex = 84;
@@ -194,17 +196,18 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.lblNumeroVentas);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(17, 51);
+            this.panel1.Location = new System.Drawing.Point(709, 51);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(137, 40);
             this.panel1.TabIndex = 85;
+            this.panel1.Visible = false;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.lblTotalIngresos);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Location = new System.Drawing.Point(160, 51);
+            this.panel2.Location = new System.Drawing.Point(17, 51);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(289, 40);
             this.panel2.TabIndex = 86;
@@ -233,7 +236,7 @@
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.lblTotalGanancia);
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Location = new System.Drawing.Point(455, 51);
+            this.panel3.Location = new System.Drawing.Point(312, 51);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(391, 40);
             this.panel3.TabIndex = 87;
@@ -259,51 +262,51 @@
             // 
             // chartIngresosBrutos
             // 
-            chartArea11.Name = "ChartArea1";
-            this.chartIngresosBrutos.ChartAreas.Add(chartArea11);
-            legend11.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend11.Name = "Legend1";
-            this.chartIngresosBrutos.Legends.Add(legend11);
+            chartArea3.Name = "ChartArea1";
+            this.chartIngresosBrutos.ChartAreas.Add(chartArea3);
+            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend3.Name = "Legend1";
+            this.chartIngresosBrutos.Legends.Add(legend3);
             this.chartIngresosBrutos.Location = new System.Drawing.Point(17, 97);
             this.chartIngresosBrutos.Name = "chartIngresosBrutos";
-            series11.ChartArea = "ChartArea1";
-            series11.Legend = "Legend1";
-            series11.Name = "Series1";
-            this.chartIngresosBrutos.Series.Add(series11);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chartIngresosBrutos.Series.Add(series3);
             this.chartIngresosBrutos.Size = new System.Drawing.Size(513, 258);
             this.chartIngresosBrutos.TabIndex = 88;
             this.chartIngresosBrutos.Text = "chart1";
-            title11.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            title11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            title11.Name = "Title1";
-            title11.Text = "Ingresos Brutos";
-            this.chartIngresosBrutos.Titles.Add(title11);
+            title3.Alignment = System.Drawing.ContentAlignment.TopLeft;
+            title3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            title3.Name = "Title1";
+            title3.Text = "Ingresos Brutos";
+            this.chartIngresosBrutos.Titles.Add(title3);
             // 
             // chartTopProductos
             // 
-            chartArea12.Name = "ChartArea1";
-            this.chartTopProductos.ChartAreas.Add(chartArea12);
-            legend12.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend12.Name = "Legend1";
-            this.chartTopProductos.Legends.Add(legend12);
+            chartArea4.Name = "ChartArea1";
+            this.chartTopProductos.ChartAreas.Add(chartArea4);
+            legend4.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend4.Name = "Legend1";
+            this.chartTopProductos.Legends.Add(legend4);
             this.chartTopProductos.Location = new System.Drawing.Point(536, 97);
             this.chartTopProductos.Name = "chartTopProductos";
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            series12.IsValueShownAsLabel = true;
-            series12.LabelForeColor = System.Drawing.Color.White;
-            series12.Legend = "Legend1";
-            series12.Name = "Series1";
-            this.chartTopProductos.Series.Add(series12);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            series4.IsValueShownAsLabel = true;
+            series4.LabelForeColor = System.Drawing.Color.White;
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chartTopProductos.Series.Add(series4);
             this.chartTopProductos.Size = new System.Drawing.Size(310, 445);
             this.chartTopProductos.TabIndex = 89;
             this.chartTopProductos.Text = "chart2";
-            title12.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            title12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            title12.Name = "Title1";
-            title12.Text = "Top 5 productos";
-            this.chartTopProductos.Titles.Add(title12);
+            title4.Alignment = System.Drawing.ContentAlignment.TopLeft;
+            title4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            title4.Name = "Title1";
+            title4.Text = "Top 5 productos";
+            this.chartTopProductos.Titles.Add(title4);
             // 
             // panel4
             // 
@@ -415,12 +418,32 @@
             this.label14.TabIndex = 1;
             this.label14.Text = "Productos de Bajo Stock";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(297, 5);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(62, 13);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Fecha Final";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(181, 5);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(67, 13);
+            this.label9.TabIndex = 92;
+            this.label9.Text = "Fecha Inicial";
+            // 
             // frmPanelGestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(858, 566);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.chartTopProductos);
@@ -439,6 +462,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmPanelGestion";
             this.Text = "frmPanelGestion";
+            this.Load += new System.EventHandler(this.frmPanelGestion_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -490,5 +514,7 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.DataGridView dgvBajoStock;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label9;
     }
 }

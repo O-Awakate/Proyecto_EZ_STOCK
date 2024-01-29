@@ -48,10 +48,14 @@ namespace CapaNegocio
         {
             return objcd_Venta.Abono(obj, out Mensaje);
         }
-        public bool DevolucionVenta(Venta obj , out string Mensaje)
+        public bool DevolucionVenta(Venta obj, out string Mensaje)
         {
-            return objcd_Venta.DevolucionVenta (obj, out Mensaje);
+            return objcd_Venta.DevolucionVenta(obj, out Mensaje);
         }
 
+        public bool DevolverProducto(Venta obj, DataTable DetalleVenta, out string Mensaje)
+        {
+            return objcd_Venta.DevolverProducto(obj, DetalleVenta, out Mensaje);
+        }
     }
 }

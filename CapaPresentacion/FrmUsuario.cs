@@ -16,11 +16,16 @@ namespace CapaPresentacion
 {
     public partial class FrmUsuario : Form
     {
+        private ToolTip toolTip1;
         public FrmUsuario()
         {
             InitializeComponent();
+            
+            toolTip1 = new ToolTip();
+            toolTip1.SetToolTip(txtContraseña, "Se requiere almenos una mayuscula, una minuscula y un numero");
+
         }
-        
+
         private void Limpiar()
         {
             txtIndice.Text = "-1";
@@ -34,8 +39,8 @@ namespace CapaPresentacion
             txtApellido.Text = "";
             txtCorreo.Text = "";
             txtTelefono.Text = "";
-            txtEstado.Text = "";
-            txtCiudad.Text = "";
+            cboEstado.SelectedValue = "AN";
+            cboCiudad.SelectedIndex = 1;
             txtSector.Text = "";
             txtCalle.Text = "";
             txtNurCasa.Text = "";
@@ -77,9 +82,15 @@ namespace CapaPresentacion
             return true;
         }
 
-        private void btnGuardar_Click_1(object sender, EventArgs e)
+        private void Guardar()
         {
             string mensaje = string.Empty;
+
+            if (!txtCorreo.Text.Contains("@") || !txtCorreo.Text.Contains("."))
+            {
+                MessageBox.Show("Ingrese una dirección de correo electrónico válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             if (!SeguridadClaves(txtContraseña.Text))
             {
@@ -101,8 +112,8 @@ namespace CapaPresentacion
                 IdUsuario = Convert.ToInt32(txtIdUsuario.Text),
                 oDatosPersona = new Datos_Persona
                 {
-                    IdDatosPersona= Convert.ToInt32(txtIdDatosPersonas.Text),
-                    CI = txtCI.Text,
+                    IdDatosPersona = Convert.ToInt32(txtIdDatosPersonas.Text),
+                    CI = ((OpcionCombo)cboNacionalidad.SelectedItem).Valor + txtCI.Text,
                     Nombre = txtNombre.Text,
                     Apellido = txtApellido.Text,
                     oCorreo = new Correo
@@ -118,8 +129,8 @@ namespace CapaPresentacion
                     oDireccion = new Direccion
                     {
                         IdDireccion = Convert.ToInt32(txtIdDireccion.Text),
-                        Estado = txtEstado.Text,
-                        Ciudad = txtCiudad.Text,
+                        Estado = Convert.ToString(((OpcionCombo)cboEstadoVen.SelectedItem).Texto),
+                        Ciudad = Convert.ToString(((OpcionCombo)cboCiudad.SelectedItem).Texto),
                         Sector = txtSector.Text,
                         Calle = txtCalle.Text,
                         Casa = txtNurCasa.Text
@@ -138,8 +149,8 @@ namespace CapaPresentacion
                 if (IdUsuarioGenrado != 0)
                 {
 
-                    dgvData.Rows.Add(new object[] { IdUsuarioGenrado, "", txtIdDatosPersonas.Text, txtCI.Text, txtNombre.Text, txtApellido.Text,
-                        txtIdCorreo.Text, txtCorreo.Text, txtIdTelefono.Text, txtTelefono.Text, txtIdDireccion.Text, txtEstado.Text, txtCiudad.Text, txtSector.Text, txtCalle.Text, txtNurCasa.Text,
+                    dgvData.Rows.Add(new object[] { IdUsuarioGenrado, "", txtIdDatosPersonas.Text, ((OpcionCombo)cboNacionalidad.SelectedItem).Texto.ToString() + txtCI.Text, txtNombre.Text, txtApellido.Text,
+                        txtIdCorreo.Text, txtCorreo.Text, txtIdTelefono.Text, txtTelefono.Text, txtIdDireccion.Text, ((OpcionCombo)cboEstadoVen.SelectedItem).Texto.ToString(),((OpcionCombo)cboCiudad.SelectedItem).Texto.ToString(), txtSector.Text, txtCalle.Text, txtNurCasa.Text,
                         txtContraseña.Text,
                         ((OpcionCombo)cboRol.SelectedItem).Valor.ToString(),
                         ((OpcionCombo)cboRol.SelectedItem).Texto.ToString(),
@@ -166,7 +177,7 @@ namespace CapaPresentacion
                     DataGridViewRow row = dgvData.Rows[Convert.ToInt32(txtIndice.Text)];
                     row.Cells["IdUsuario"].Value = txtIdUsuario.Text;
                     row.Cells["IdDatosPersonas"].Value = txtIdDatosPersonas.Text;
-                    row.Cells["Cedula"].Value = txtCI.Text;
+                    row.Cells["Cedula"].Value = ((OpcionCombo)cboNacionalidad.SelectedItem).Texto.ToString() + txtCI.Text;
                     row.Cells["Nombre"].Value = txtNombre.Text;
                     row.Cells["Apellido"].Value = txtApellido.Text;
                     row.Cells["IdCorreo"].Value = txtIdCorreo.Text;
@@ -174,8 +185,8 @@ namespace CapaPresentacion
                     row.Cells["IdTelefono"].Value = txtIdTelefono.Text;
                     row.Cells["Telefono"].Value = txtTelefono.Text;
                     row.Cells["IdDireccion"].Value = txtIdDireccion.Text;
-                    row.Cells["Estado"].Value = txtEstado.Text;
-                    row.Cells["Ciudad"].Value = txtCiudad.Text;
+                    row.Cells["Estado"].Value = ((OpcionCombo)cboEstadoVen.SelectedItem).Texto.ToString();
+                    row.Cells["Ciudad"].Value = ((OpcionCombo)cboCiudad.SelectedItem).Texto.ToString();
                     row.Cells["Sector"].Value = txtSector.Text;
                     row.Cells["Calle"].Value = txtCalle.Text;
                     row.Cells["Casa"].Value = txtNurCasa.Text;
@@ -195,12 +206,57 @@ namespace CapaPresentacion
                 }
 
             }
-
         }
+
+        private void btnGuardar_Click_1(object sender, EventArgs e)
+        {
+            Guardar();
+        }
+
+        private void Estados()
+        {
+            cboEstadoVen.Items.Add(new OpcionCombo() { Valor = "AM", Texto = "Amazonas" });
+            cboEstadoVen.Items.Add(new OpcionCombo() { Valor = "AN", Texto = "Anzoátegui" });
+            cboEstadoVen.Items.Add(new OpcionCombo() { Valor = "AP", Texto = "Apure" });
+            cboEstadoVen.Items.Add(new OpcionCombo() { Valor = "AR", Texto = "Aragua" });
+            cboEstadoVen.Items.Add(new OpcionCombo() { Valor = "BA", Texto = "Barinas" });
+            cboEstadoVen.Items.Add(new OpcionCombo() { Valor = "BO", Texto = "Bolívar" });
+            cboEstadoVen.Items.Add(new OpcionCombo() { Valor = "CA", Texto = "Carabobo" });
+            cboEstadoVen.Items.Add(new OpcionCombo() { Valor = "CO", Texto = "Cojedes" });
+            cboEstadoVen.Items.Add(new OpcionCombo() { Valor = "DA", Texto = "Delta Amacuro" });
+            cboEstadoVen.Items.Add(new OpcionCombo() { Valor = "DI", Texto = "Distrito Capital" });
+            cboEstadoVen.Items.Add(new OpcionCombo() { Valor = "FA", Texto = "Falcón" });
+            cboEstadoVen.Items.Add(new OpcionCombo() { Valor = "GU", Texto = "Guárico" });
+            cboEstadoVen.Items.Add(new OpcionCombo() { Valor = "LA", Texto = "Lara" });
+            cboEstadoVen.Items.Add(new OpcionCombo() { Valor = "ME", Texto = "Mérida" });
+            cboEstadoVen.Items.Add(new OpcionCombo() { Valor = "MI", Texto = "Miranda" });
+            cboEstadoVen.Items.Add(new OpcionCombo() { Valor = "MO", Texto = "Monagas" });
+            cboEstadoVen.Items.Add(new OpcionCombo() { Valor = "NE", Texto = "Nueva Esparta" });
+            cboEstadoVen.Items.Add(new OpcionCombo() { Valor = "PO", Texto = "Portuguesa" });
+            cboEstadoVen.Items.Add(new OpcionCombo() { Valor = "SU", Texto = "Sucre" });
+            cboEstadoVen.Items.Add(new OpcionCombo() { Valor = "TA", Texto = "Táchira" });
+            cboEstadoVen.Items.Add(new OpcionCombo() { Valor = "TR", Texto = "Trujillo" });
+            cboEstadoVen.Items.Add(new OpcionCombo() { Valor = "VA", Texto = "Vargas" });
+            cboEstadoVen.Items.Add(new OpcionCombo() { Valor = "YA", Texto = "Yaracuy" });
+            cboEstadoVen.Items.Add(new OpcionCombo() { Valor = "ZU", Texto = "Zulia" });
+
+            cboEstadoVen.DisplayMember = "Texto";
+            cboEstadoVen.ValueMember = "Valor";
+            cboEstadoVen.SelectedIndex = 1;
+        }
+        
 
         private void FrmUsuario_Load_1(object sender, EventArgs e)
         {
+            Estados();
             
+            //ComboBox Nacionalidad
+            cboNacionalidad.Items.Add(new OpcionCombo() { Valor = "V", Texto = "V" });
+            cboNacionalidad.Items.Add(new OpcionCombo() { Valor = "E", Texto = "E" });
+            cboNacionalidad.DisplayMember = "Texto";
+            cboNacionalidad.ValueMember = "Valor";
+            cboNacionalidad.SelectedIndex = 0;
+
 
             //ComboBox Estado
             cboEstado.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Activo" });
@@ -264,10 +320,16 @@ namespace CapaPresentacion
                 int indice = e.RowIndex;
                 if (indice >= 0)
                 {
+
+                    string cedulaCompleta = dgvData.Rows[indice].Cells["Cedula"].Value.ToString();
+                    if (cedulaCompleta.Length > 1)
+                        txtCI.Text = cedulaCompleta.Substring(1);
+                    else
+                        txtCI.Text = cedulaCompleta;
+                    
                     txtIndice.Text = indice.ToString();
                     txtIdUsuario.Text = dgvData.Rows[indice].Cells["IdUsuario"].Value.ToString();
                     txtIdDatosPersonas.Text= dgvData.Rows[indice].Cells["IdDatosPersonas"].Value.ToString();
-                    txtCI.Text = dgvData.Rows[indice].Cells["Cedula"].Value.ToString();
                     txtNombre.Text = dgvData.Rows[indice].Cells["Nombre"].Value.ToString();
                     txtApellido.Text = dgvData.Rows[indice].Cells["Apellido"].Value.ToString();
                     txtIdCorreo.Text = dgvData.Rows[indice].Cells["IdCorreo"].Value.ToString();
@@ -275,8 +337,6 @@ namespace CapaPresentacion
                     txtIdTelefono.Text = dgvData.Rows[indice].Cells["IdTelefono"].Value.ToString();
                     txtTelefono.Text = dgvData.Rows[indice].Cells["Telefono"].Value.ToString();
                     txtIdDireccion.Text = dgvData.Rows[indice].Cells["IdDireccion"].Value.ToString();
-                    txtEstado.Text = dgvData.Rows[indice].Cells["Estado"].Value.ToString();
-                    txtCiudad.Text = dgvData.Rows[indice].Cells["Ciudad"].Value.ToString();
                     txtSector.Text = dgvData.Rows[indice].Cells["Sector"].Value.ToString();
                     txtCalle.Text = dgvData.Rows[indice].Cells["Calle"].Value.ToString();
                     txtNurCasa.Text = dgvData.Rows[indice].Cells["Casa"].Value.ToString();
@@ -290,7 +350,29 @@ namespace CapaPresentacion
                             break;
                         }
                     }
+                    string estadoBuscado = dgvData.Rows[indice].Cells["Estado"].Value.ToString();
 
+                    foreach (OpcionCombo oc in cboEstadoVen.Items)
+                    {
+                        if (oc.Texto == estadoBuscado)
+                        {
+                            int indice_combo = cboEstadoVen.Items.IndexOf(oc);
+                            cboEstadoVen.SelectedIndex = indice_combo;
+                            break;
+                        }
+                    }
+
+                    string Ciudad = dgvData.Rows[indice].Cells["Ciudad"].Value.ToString();
+
+                    foreach (object item in cboCiudad.Items)
+                    {
+                        if (item is OpcionCombo oc && oc.Texto == Ciudad)
+                        {
+                            int indice_combo = cboCiudad.Items.IndexOf(item);
+                            cboCiudad.SelectedIndex = indice_combo;
+                            break;
+                        }
+                    }
                     foreach (OpcionCombo oc in cboEstado.Items)
                     {
                         if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvData.Rows[indice].Cells["EstadoValor"].Value))
@@ -338,6 +420,151 @@ namespace CapaPresentacion
         {
             Limpiar();
         }
-        
+
+        private void txtCI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Enter)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCI_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtNombre.Focus();
+
+                e.Handled = true;
+            }
+        }
+
+        private void txtNombre_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtApellido.Focus();
+
+                e.Handled = true;
+            }
+        }
+
+        private void txtApellido_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtCorreo.Focus();
+
+                e.Handled = true;
+            }
+        }
+
+        private void txtCorreo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtTelefono.Focus();
+
+                e.Handled = true;
+            }
+        }
+
+        private void cboEstadoVen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Ciudades ciudadesInstance = new Ciudades();
+
+            string estadoSeleccionado = ((OpcionCombo)cboEstadoVen.SelectedItem).Texto;
+            string[] ciudades = ciudadesInstance.CiudadesPorEstado[estadoSeleccionado];
+            cboCiudad.Items.Clear();
+            foreach (var ciudad in ciudades)
+            {
+                cboCiudad.Items.Add(new OpcionCombo() { Valor = ciudad, Texto = ciudad });
+            }
+            if (ciudades.Length > 0)
+            {
+                cboCiudad.SelectedIndex = 0;
+            }
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Enter)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTelefono_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtSector.Focus();
+
+                e.Handled = true;
+            }
+        }
+
+        private void txtSector_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtCalle.Focus();
+
+                e.Handled = true;
+            }
+        }
+
+        private void txtCalle_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtNurCasa.Focus();
+
+                e.Handled = true;
+            }
+        }
+
+        private void txtNurCasa_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtContraseña.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void txtContraseña_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Guardar();
+                e.SuppressKeyPress = true;
+            }
+            
+        }
+
+        private void btnClave_Click(object sender, EventArgs e)
+        {
+            if (txtContraseña.PasswordChar == '*')
+            {
+                txtContraseña.PasswordChar = '\0';
+            }
+            else
+            {
+                txtContraseña.PasswordChar = '*';
+            }
+        }
+
+        private void btnConClave_Click(object sender, EventArgs e)
+        {
+            if (txtConfirmarContraseña.PasswordChar == '*')
+            {
+                txtConfirmarContraseña.PasswordChar = '\0';
+            }
+            else
+            {
+                txtConfirmarContraseña.PasswordChar = '*';
+            }
+        }
     }
 }

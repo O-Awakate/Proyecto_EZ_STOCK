@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -87,8 +88,23 @@ namespace CapaPresentacion
             }
         }
 
+        public Image byteToImagege(byte[] imageByte)
+        {
+            MemoryStream ms = new MemoryStream();
+            ms.Write(imageByte, 0, imageByte.Length);
+            Image image = new Bitmap(ms);
+
+            return image;
+        }
+
         private void Inicio_Load(object sender, EventArgs e)
         {
+            bool obtenido = true;
+            byte[] byteimage = new CN_OtrosDatos().obtenerLogo(out obtenido);
+
+            if (obtenido)
+                picLogo.Image = byteToImagege(byteimage);
+
             List<Permiso> listaPermisos = new CN_Permiso().Listar(usuarioActual.IdUsuario);
             foreach (Button botonMenu in menu.Controls.OfType<Button>())
             {
@@ -136,11 +152,6 @@ namespace CapaPresentacion
 
         }
         //menu Administracion 
-        private void SubMenuCategoria_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario(menuadministracion, new FrmCategoria());
-        }
-
         private void SubMenuProducto_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menuadministracion, new FrmProducto());
@@ -156,15 +167,8 @@ namespace CapaPresentacion
             AbrirFormulario(menuventas, new FrmVentaRegistro(usuarioActual));
         }
 
-        private void SubMenuDetVenta_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario(menuventas, new FrmDetalleVenta());
-        }
-
-        private void SubMenuAbonoVenta_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario(menuventas, new FrmAbonoVenta());
-        }
+        
+        
         //menu Ingreso
         private void SubMenuRegIngreso_Click(object sender, EventArgs e)
         {
@@ -227,6 +231,26 @@ namespace CapaPresentacion
         private void panelGerencialToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menureportes, new frmPanelGestion());
+        }
+
+        private void menuabono_Click(object sender, EventArgs e)
+        {
+            Open_DropDownMenu(ddmAbono,sender);
+        }
+
+        private void abonoVentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuabono, new FrmAbonoVenta());
+        }
+
+        private void abonoCompraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuabono, new FrmAbonoCompra());
+        }
+
+        private void SubMenuDetVenta_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuventas, new FrmDetalleVenta());
         }
     }
     

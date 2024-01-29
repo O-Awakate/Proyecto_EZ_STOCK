@@ -181,7 +181,7 @@ namespace CapaDatos
 
                     StringBuilder query = new StringBuilder();
 
-                    query.AppendLine("select p.DescripcionProducto,p.MarcaProducto,dc.PrecioCompra,dc.Cantidad,dc.MontoTotal from DETALLE_COMPRA dc");
+                    query.AppendLine("select p.IdProducto, p.DescripcionProducto,p.MarcaProducto,dc.PrecioCompra,dc.Cantidad,dc.MontoTotal from DETALLE_COMPRA dc");
                     query.AppendLine("inner join PRODUCTO p on p.IdProducto = dc.IdProducto");
                     query.AppendLine("where dc.IdCompra = @idcompra");
 
@@ -197,6 +197,7 @@ namespace CapaDatos
                             oLista.Add(new Detalle_Compra()
                             {
                                 OProducto = new Producto() {
+                                    IdProducto = int.Parse(dr["IdProducto"].ToString()),
                                     DescripcionProducto = dr["DescripcionProducto"].ToString(),
                                     MarcaProducto = dr["MarcaProducto"].ToString()
                                 },

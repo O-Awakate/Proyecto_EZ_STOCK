@@ -53,6 +53,8 @@
             this.panelCorreoSMS = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnConClave = new System.Windows.Forms.Button();
+            this.btnClave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon)).BeginInit();
             this.panelCambioClave.SuspendLayout();
@@ -218,6 +220,8 @@
             // panelCambioClave
             // 
             this.panelCambioClave.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelCambioClave.Controls.Add(this.btnConClave);
+            this.panelCambioClave.Controls.Add(this.btnClave);
             this.panelCambioClave.Controls.Add(this.lblConClave);
             this.panelCambioClave.Controls.Add(this.lblClave);
             this.panelCambioClave.Controls.Add(this.btnCancelar);
@@ -334,6 +338,34 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Verificación";
             // 
+            // btnConClave
+            // 
+            this.btnConClave.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnConClave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConClave.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConClave.Image = global::CapaPresentacion.Properties.Resources.eye__5_;
+            this.btnConClave.Location = new System.Drawing.Point(303, 158);
+            this.btnConClave.Name = "btnConClave";
+            this.btnConClave.Size = new System.Drawing.Size(23, 22);
+            this.btnConClave.TabIndex = 65;
+            this.btnConClave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnConClave.UseVisualStyleBackColor = true;
+            this.btnConClave.Click += new System.EventHandler(this.btnConClave_Click);
+            // 
+            // btnClave
+            // 
+            this.btnClave.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnClave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClave.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClave.Image = global::CapaPresentacion.Properties.Resources.eye__5_;
+            this.btnClave.Location = new System.Drawing.Point(303, 116);
+            this.btnClave.Name = "btnClave";
+            this.btnClave.Size = new System.Drawing.Size(23, 22);
+            this.btnClave.TabIndex = 64;
+            this.btnClave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnClave.UseVisualStyleBackColor = true;
+            this.btnClave.Click += new System.EventHandler(this.btnClave_Click);
+            // 
             // Verificacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -388,5 +420,7 @@
         private System.Windows.Forms.Panel panelCorreoSMS;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnConClave;
+        private System.Windows.Forms.Button btnClave;
     }
 }

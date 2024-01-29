@@ -46,31 +46,35 @@
             this.contenedor = new System.Windows.Forms.Panel();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.menu = new System.Windows.Forms.Panel();
+            this.menuabono = new System.Windows.Forms.Button();
             this.ddmAdministracion = new CapaPresentacion.Controls.DropdownMenu(this.components);
-            this.SubMenuCategoria = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuProducto = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuNegocio = new System.Windows.Forms.ToolStripMenuItem();
             this.ddmVenta = new CapaPresentacion.Controls.DropdownMenu(this.components);
             this.SubMenuRegVenta = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuDetVenta = new System.Windows.Forms.ToolStripMenuItem();
-            this.SubMenuAbonoVenta = new System.Windows.Forms.ToolStripMenuItem();
             this.ddmCompra = new CapaPresentacion.Controls.DropdownMenu(this.components);
             this.SubMenuRegIngreso = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuDetIngreso = new System.Windows.Forms.ToolStripMenuItem();
-            this.SubMenuAbonoIngreso = new System.Windows.Forms.ToolStripMenuItem();
             this.ddmReportes = new CapaPresentacion.Controls.DropdownMenu(this.components);
             this.SubMenuRepVenta = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuRepIngreso = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelGerencialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ddmDevoluciones = new CapaPresentacion.Controls.DropdownMenu(this.components);
             this.devolverVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuDevlProv = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelGerencialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ddmAbono = new CapaPresentacion.Controls.DropdownMenu(this.components);
+            this.abonoVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.abonoCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.picLogo = new System.Windows.Forms.PictureBox();
             this.menu.SuspendLayout();
             this.ddmAdministracion.SuspendLayout();
             this.ddmVenta.SuspendLayout();
             this.ddmCompra.SuspendLayout();
             this.ddmReportes.SuspendLayout();
             this.ddmDevoluciones.SuspendLayout();
+            this.ddmAbono.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // notifyIcon1
@@ -132,7 +136,7 @@
             this.menuproveedores.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuproveedores.Image = global::CapaPresentacion.Properties.Resources.timeline_delivery__1_;
             this.menuproveedores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.menuproveedores.Location = new System.Drawing.Point(10, 129);
+            this.menuproveedores.Location = new System.Drawing.Point(10, 289);
             this.menuproveedores.Name = "menuproveedores";
             this.menuproveedores.Size = new System.Drawing.Size(168, 34);
             this.menuproveedores.TabIndex = 7;
@@ -148,7 +152,7 @@
             this.menuclientes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuclientes.Image = global::CapaPresentacion.Properties.Resources.users__1_;
             this.menuclientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.menuclientes.Location = new System.Drawing.Point(10, 89);
+            this.menuclientes.Location = new System.Drawing.Point(10, 49);
             this.menuclientes.Name = "menuclientes";
             this.menuclientes.Size = new System.Drawing.Size(168, 34);
             this.menuclientes.TabIndex = 6;
@@ -164,7 +168,7 @@
             this.menureportes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menureportes.Image = global::CapaPresentacion.Properties.Resources.report_multiple__1_;
             this.menureportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.menureportes.Location = new System.Drawing.Point(10, 289);
+            this.menureportes.Location = new System.Drawing.Point(10, 169);
             this.menureportes.Name = "menureportes";
             this.menureportes.Size = new System.Drawing.Size(168, 34);
             this.menureportes.TabIndex = 8;
@@ -181,7 +185,7 @@
             this.menuadministracion.ForeColor = System.Drawing.SystemColors.ControlText;
             this.menuadministracion.Image = global::CapaPresentacion.Properties.Resources.result_draft__1_;
             this.menuadministracion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.menuadministracion.Location = new System.Drawing.Point(10, 249);
+            this.menuadministracion.Location = new System.Drawing.Point(10, 129);
             this.menuadministracion.Name = "menuadministracion";
             this.menuadministracion.Size = new System.Drawing.Size(168, 34);
             this.menuadministracion.TabIndex = 5;
@@ -197,7 +201,7 @@
             this.menudevolución.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menudevolución.Image = global::CapaPresentacion.Properties.Resources.product_release__1_;
             this.menudevolución.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.menudevolución.Location = new System.Drawing.Point(10, 329);
+            this.menudevolución.Location = new System.Drawing.Point(10, 209);
             this.menudevolución.Name = "menudevolución";
             this.menudevolución.Size = new System.Drawing.Size(168, 34);
             this.menudevolución.TabIndex = 9;
@@ -213,7 +217,7 @@
             this.menucompras.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menucompras.Image = global::CapaPresentacion.Properties.Resources.interface_download_box_1_arrow_box_down_download_internet_network_server_upload__1_;
             this.menucompras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.menucompras.Location = new System.Drawing.Point(10, 49);
+            this.menucompras.Location = new System.Drawing.Point(10, 249);
             this.menucompras.Name = "menucompras";
             this.menucompras.Size = new System.Drawing.Size(168, 34);
             this.menucompras.TabIndex = 4;
@@ -245,13 +249,14 @@
             this.menuapartado.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuapartado.Image = global::CapaPresentacion.Properties.Resources.box_time_outline__1_;
             this.menuapartado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.menuapartado.Location = new System.Drawing.Point(10, 169);
+            this.menuapartado.Location = new System.Drawing.Point(10, 369);
             this.menuapartado.Name = "menuapartado";
             this.menuapartado.Size = new System.Drawing.Size(168, 34);
             this.menuapartado.TabIndex = 0;
             this.menuapartado.Text = "Servicio de Apartado";
             this.menuapartado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.menuapartado.UseVisualStyleBackColor = true;
+            this.menuapartado.Visible = false;
             this.menuapartado.Click += new System.EventHandler(this.menuServicioApartado_Click);
             // 
             // menuusuarios
@@ -262,7 +267,7 @@
             this.menuusuarios.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuusuarios.Image = global::CapaPresentacion.Properties.Resources.user__1_1;
             this.menuusuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.menuusuarios.Location = new System.Drawing.Point(10, 209);
+            this.menuusuarios.Location = new System.Drawing.Point(10, 89);
             this.menuusuarios.Name = "menuusuarios";
             this.menuusuarios.Size = new System.Drawing.Size(168, 34);
             this.menuusuarios.TabIndex = 2;
@@ -291,6 +296,8 @@
             // 
             // menu
             // 
+            this.menu.Controls.Add(this.menuapartado);
+            this.menu.Controls.Add(this.menuabono);
             this.menu.Controls.Add(this.menudevolución);
             this.menu.Controls.Add(this.menureportes);
             this.menu.Controls.Add(this.menuadministracion);
@@ -298,32 +305,39 @@
             this.menu.Controls.Add(this.menuventas);
             this.menu.Controls.Add(this.menucompras);
             this.menu.Controls.Add(this.menuproveedores);
-            this.menu.Controls.Add(this.menuapartado);
             this.menu.Controls.Add(this.menuclientes);
             this.menu.Location = new System.Drawing.Point(0, 40);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(187, 443);
+            this.menu.Size = new System.Drawing.Size(187, 409);
             this.menu.TabIndex = 10;
+            // 
+            // menuabono
+            // 
+            this.menuabono.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.menuabono.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.menuabono.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menuabono.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuabono.Image = global::CapaPresentacion.Properties.Resources.pricetag_outline__1_;
+            this.menuabono.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.menuabono.Location = new System.Drawing.Point(10, 329);
+            this.menuabono.Name = "menuabono";
+            this.menuabono.Size = new System.Drawing.Size(168, 34);
+            this.menuabono.TabIndex = 10;
+            this.menuabono.Text = "Abono";
+            this.menuabono.UseVisualStyleBackColor = true;
+            this.menuabono.Click += new System.EventHandler(this.menuabono_Click);
             // 
             // ddmAdministracion
             // 
             this.ddmAdministracion.IsMainMenu = false;
             this.ddmAdministracion.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SubMenuCategoria,
             this.SubMenuProducto,
             this.SubMenuNegocio});
             this.ddmAdministracion.MenuItemHeight = 25;
             this.ddmAdministracion.MenuItemTextColor = System.Drawing.Color.DimGray;
             this.ddmAdministracion.Name = "dropdownMenu1";
             this.ddmAdministracion.PrimaryColor = System.Drawing.Color.MediumSlateBlue;
-            this.ddmAdministracion.Size = new System.Drawing.Size(148, 70);
-            // 
-            // SubMenuCategoria
-            // 
-            this.SubMenuCategoria.Name = "SubMenuCategoria";
-            this.SubMenuCategoria.Size = new System.Drawing.Size(147, 22);
-            this.SubMenuCategoria.Text = "Categoria";
-            this.SubMenuCategoria.Click += new System.EventHandler(this.SubMenuCategoria_Click);
+            this.ddmAdministracion.Size = new System.Drawing.Size(148, 48);
             // 
             // SubMenuProducto
             // 
@@ -344,47 +358,38 @@
             this.ddmVenta.IsMainMenu = false;
             this.ddmVenta.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SubMenuRegVenta,
-            this.SubMenuDetVenta,
-            this.SubMenuAbonoVenta});
+            this.SubMenuDetVenta});
             this.ddmVenta.MenuItemHeight = 25;
             this.ddmVenta.MenuItemTextColor = System.Drawing.Color.DimGray;
             this.ddmVenta.Name = "dropdownMenu2";
             this.ddmVenta.PrimaryColor = System.Drawing.Color.MediumSlateBlue;
-            this.ddmVenta.Size = new System.Drawing.Size(130, 70);
+            this.ddmVenta.Size = new System.Drawing.Size(181, 70);
             // 
             // SubMenuRegVenta
             // 
             this.SubMenuRegVenta.Name = "SubMenuRegVenta";
-            this.SubMenuRegVenta.Size = new System.Drawing.Size(129, 22);
+            this.SubMenuRegVenta.Size = new System.Drawing.Size(180, 22);
             this.SubMenuRegVenta.Text = "Registrar";
             this.SubMenuRegVenta.Click += new System.EventHandler(this.SubMenuRegVenta_Click);
             // 
             // SubMenuDetVenta
             // 
             this.SubMenuDetVenta.Name = "SubMenuDetVenta";
-            this.SubMenuDetVenta.Size = new System.Drawing.Size(129, 22);
+            this.SubMenuDetVenta.Size = new System.Drawing.Size(180, 22);
             this.SubMenuDetVenta.Text = "Ver Detalle";
             this.SubMenuDetVenta.Click += new System.EventHandler(this.SubMenuDetVenta_Click);
-            // 
-            // SubMenuAbonoVenta
-            // 
-            this.SubMenuAbonoVenta.Name = "SubMenuAbonoVenta";
-            this.SubMenuAbonoVenta.Size = new System.Drawing.Size(129, 22);
-            this.SubMenuAbonoVenta.Text = "Abono";
-            this.SubMenuAbonoVenta.Click += new System.EventHandler(this.SubMenuAbonoVenta_Click);
             // 
             // ddmCompra
             // 
             this.ddmCompra.IsMainMenu = false;
             this.ddmCompra.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SubMenuRegIngreso,
-            this.SubMenuDetIngreso,
-            this.SubMenuAbonoIngreso});
+            this.SubMenuDetIngreso});
             this.ddmCompra.MenuItemHeight = 25;
             this.ddmCompra.MenuItemTextColor = System.Drawing.Color.DimGray;
             this.ddmCompra.Name = "dropdownMenu3";
             this.ddmCompra.PrimaryColor = System.Drawing.Color.MediumSlateBlue;
-            this.ddmCompra.Size = new System.Drawing.Size(135, 70);
+            this.ddmCompra.Size = new System.Drawing.Size(135, 48);
             // 
             // SubMenuRegIngreso
             // 
@@ -400,13 +405,6 @@
             this.SubMenuDetIngreso.Text = "Ver Detalles";
             this.SubMenuDetIngreso.Click += new System.EventHandler(this.SubMenuDetIngreso_Click);
             // 
-            // SubMenuAbonoIngreso
-            // 
-            this.SubMenuAbonoIngreso.Name = "SubMenuAbonoIngreso";
-            this.SubMenuAbonoIngreso.Size = new System.Drawing.Size(134, 22);
-            this.SubMenuAbonoIngreso.Text = "Abono";
-            this.SubMenuAbonoIngreso.Click += new System.EventHandler(this.SubMenuAbonoIngreso_Click);
-            // 
             // ddmReportes
             // 
             this.ddmReportes.IsMainMenu = false;
@@ -418,21 +416,28 @@
             this.ddmReportes.MenuItemTextColor = System.Drawing.Color.DimGray;
             this.ddmReportes.Name = "dropdownMenu4";
             this.ddmReportes.PrimaryColor = System.Drawing.Color.MediumSlateBlue;
-            this.ddmReportes.Size = new System.Drawing.Size(181, 92);
+            this.ddmReportes.Size = new System.Drawing.Size(163, 70);
             // 
             // SubMenuRepVenta
             // 
             this.SubMenuRepVenta.Name = "SubMenuRepVenta";
-            this.SubMenuRepVenta.Size = new System.Drawing.Size(180, 22);
+            this.SubMenuRepVenta.Size = new System.Drawing.Size(162, 22);
             this.SubMenuRepVenta.Text = "Reporte Ventas";
             this.SubMenuRepVenta.Click += new System.EventHandler(this.SubMenuRepVenta_Click);
             // 
             // SubMenuRepIngreso
             // 
             this.SubMenuRepIngreso.Name = "SubMenuRepIngreso";
-            this.SubMenuRepIngreso.Size = new System.Drawing.Size(180, 22);
+            this.SubMenuRepIngreso.Size = new System.Drawing.Size(162, 22);
             this.SubMenuRepIngreso.Text = "Reporte Ingresos";
             this.SubMenuRepIngreso.Click += new System.EventHandler(this.SubMenuRepIngreso_Click);
+            // 
+            // panelGerencialToolStripMenuItem
+            // 
+            this.panelGerencialToolStripMenuItem.Name = "panelGerencialToolStripMenuItem";
+            this.panelGerencialToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.panelGerencialToolStripMenuItem.Text = "Panel Gerencial";
+            this.panelGerencialToolStripMenuItem.Click += new System.EventHandler(this.panelGerencialToolStripMenuItem_Click);
             // 
             // ddmDevoluciones
             // 
@@ -460,12 +465,40 @@
             this.SubMenuDevlProv.Text = "Devolver al Proveedor";
             this.SubMenuDevlProv.Click += new System.EventHandler(this.SubMenuDevlProv_Click);
             // 
-            // panelGerencialToolStripMenuItem
+            // ddmAbono
             // 
-            this.panelGerencialToolStripMenuItem.Name = "panelGerencialToolStripMenuItem";
-            this.panelGerencialToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.panelGerencialToolStripMenuItem.Text = "Panel Gerencial";
-            this.panelGerencialToolStripMenuItem.Click += new System.EventHandler(this.panelGerencialToolStripMenuItem_Click);
+            this.ddmAbono.IsMainMenu = false;
+            this.ddmAbono.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.abonoVentaToolStripMenuItem,
+            this.abonoCompraToolStripMenuItem});
+            this.ddmAbono.MenuItemHeight = 25;
+            this.ddmAbono.MenuItemTextColor = System.Drawing.Color.DimGray;
+            this.ddmAbono.Name = "dropdownMenu1";
+            this.ddmAbono.PrimaryColor = System.Drawing.Color.MediumSlateBlue;
+            this.ddmAbono.Size = new System.Drawing.Size(157, 48);
+            // 
+            // abonoVentaToolStripMenuItem
+            // 
+            this.abonoVentaToolStripMenuItem.Name = "abonoVentaToolStripMenuItem";
+            this.abonoVentaToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.abonoVentaToolStripMenuItem.Text = "Abono Venta";
+            this.abonoVentaToolStripMenuItem.Click += new System.EventHandler(this.abonoVentaToolStripMenuItem_Click);
+            // 
+            // abonoCompraToolStripMenuItem
+            // 
+            this.abonoCompraToolStripMenuItem.Name = "abonoCompraToolStripMenuItem";
+            this.abonoCompraToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.abonoCompraToolStripMenuItem.Text = "Abono Compra";
+            this.abonoCompraToolStripMenuItem.Click += new System.EventHandler(this.abonoCompraToolStripMenuItem_Click);
+            // 
+            // picLogo
+            // 
+            this.picLogo.Location = new System.Drawing.Point(0, 455);
+            this.picLogo.Name = "picLogo";
+            this.picLogo.Size = new System.Drawing.Size(184, 103);
+            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picLogo.TabIndex = 46;
+            this.picLogo.TabStop = false;
             // 
             // Inicio
             // 
@@ -473,6 +506,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(1072, 633);
+            this.Controls.Add(this.picLogo);
             this.Controls.Add(this.menu);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.groupBox1);
@@ -491,6 +525,8 @@
             this.ddmCompra.ResumeLayout(false);
             this.ddmReportes.ResumeLayout(false);
             this.ddmDevoluciones.ResumeLayout(false);
+            this.ddmAbono.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -513,17 +549,14 @@
         private System.Windows.Forms.Button menuusuarios;
         private System.Windows.Forms.Panel contenedor;
         private Controls.DropdownMenu ddmAdministracion;
-        private System.Windows.Forms.ToolStripMenuItem SubMenuCategoria;
         private System.Windows.Forms.ToolStripMenuItem SubMenuProducto;
         private System.Windows.Forms.ToolStripMenuItem SubMenuNegocio;
         private Controls.DropdownMenu ddmVenta;
         private System.Windows.Forms.ToolStripMenuItem SubMenuRegVenta;
         private System.Windows.Forms.ToolStripMenuItem SubMenuDetVenta;
-        private System.Windows.Forms.ToolStripMenuItem SubMenuAbonoVenta;
         private Controls.DropdownMenu ddmCompra;
         private System.Windows.Forms.ToolStripMenuItem SubMenuRegIngreso;
         private System.Windows.Forms.ToolStripMenuItem SubMenuDetIngreso;
-        private System.Windows.Forms.ToolStripMenuItem SubMenuAbonoIngreso;
         private Controls.DropdownMenu ddmReportes;
         private System.Windows.Forms.ToolStripMenuItem SubMenuRepVenta;
         private System.Windows.Forms.ToolStripMenuItem SubMenuRepIngreso;
@@ -534,5 +567,10 @@
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Panel menu;
         private System.Windows.Forms.ToolStripMenuItem panelGerencialToolStripMenuItem;
+        private System.Windows.Forms.Button menuabono;
+        private Controls.DropdownMenu ddmAbono;
+        private System.Windows.Forms.ToolStripMenuItem abonoVentaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem abonoCompraToolStripMenuItem;
+        private System.Windows.Forms.PictureBox picLogo;
     }
 }

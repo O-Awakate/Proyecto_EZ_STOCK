@@ -86,7 +86,6 @@ namespace CapaPresentacion
                     txtMarcaProducto.Text = modal._Producto.MarcaProducto;
                     txtMarcaCarro.Text = modal._Producto.MarcaCarro;
                     txtDescripcion.Text = modal._Producto.DescripcionProducto;
-                    txtCategoria.Text = modal._Producto.oCategoria.NombreCategoria;
                     txtAplica.Text = modal._Producto.AplicaParaCarro;
                     txtPrecVenta.Text = modal._Producto.PrecioVenta.ToString("0.00");
                     txtStock.Text = modal._Producto.Stock.ToString();
@@ -114,7 +113,6 @@ namespace CapaPresentacion
                     txtMarcaProducto.Text = oProducto.MarcaProducto;
                     txtMarcaCarro.Text = oProducto.MarcaCarro;
                     txtDescripcion.Text = oProducto.DescripcionProducto;
-                    txtCategoria.Text = oProducto.oCategoria.NombreCategoria;
                     txtAplica.Text = oProducto.AplicaParaCarro;
                     txtPrecVenta.Text = oProducto.PrecioVenta.ToString("0.00");
                     txtStock.Text = oProducto.Stock.ToString();
@@ -344,7 +342,7 @@ namespace CapaPresentacion
 
         private void calcularCambio()
         {
-            if (txtTotalPagar.Text.Trim() == "")
+            if (txtTotalPagar.Text.Trim() == "0")
             {
                 MessageBox.Show("No existen productos en la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
@@ -352,24 +350,57 @@ namespace CapaPresentacion
 
             decimal pagaCon;
             decimal total = Convert.ToDecimal(txtTotalPagar.Text);
+            decimal Bs = Convert.ToDecimal(txtMontoBs.Text);
 
             if (txtPago.Text.Trim() == "")
             {
                 txtPago.Text = "0";
             }
 
-            if (decimal.TryParse(txtPago.Text.Trim(), out pagaCon))
+            string metodoSeleccionado = Convert.ToString(((OpcionCombo)cboMetodo.SelectedItem).Valor);
+
+            if (metodoSeleccionado == "Pago Movil" || metodoSeleccionado == "Efectivo")
             {
-                if (pagaCon < total)
+                if (decimal.TryParse(txtPago.Text.Trim(), out pagaCon))
                 {
-                    txtCambio.Text = "0.00";
+                    if (pagaCon == Bs)
+                    {
+                        txtCambio.Text = "0.00";
+                    }
+                    else
+                    {
+                        decimal cambio = pagaCon - Bs;
+                        txtCambio.Text = cambio.ToString("0.00");
+                    }
+                }
+            }
+            else
+            {
+                if (txtCambio.Visible == true)
+                {
+                    if (decimal.TryParse(txtPago.Text.Trim(), out pagaCon))
+                    {
+                        if (pagaCon == total)
+                        {
+                            txtCambio.Text = "0.00";
+                        }
+                        else
+                        {
+                            decimal cambio = pagaCon - total;
+                            txtCambio.Text = cambio.ToString("0.00");
+                        }
+                    }
                 }
                 else
                 {
-                    decimal cambio = pagaCon - total;
-                    txtCambio.Text = cambio.ToString("0.00");
+                    if (decimal.TryParse(txtPago.Text.Trim(), out pagaCon))
+                    {
+                        decimal Deuda = total - pagaCon;
+                        txtDeuda.Text = Deuda.ToString("0.00");
+                    }
                 }
             }
+
         }
 
         private void txtPago_KeyDown(object sender, KeyEventArgs e)
@@ -383,8 +414,25 @@ namespace CapaPresentacion
         private void txtRegistrar_Click(object sender, EventArgs e)
         {
             Venta TieneDeuda = new Venta();
-
+            double cambio = 0.00;
             TieneDeuda.TieneDeuda = false;
+
+            if (double.TryParse(txtCambio.Text, out cambio) )
+            {
+                string metodoSeleccionado = Convert.ToString(((OpcionCombo)cboMetodo.SelectedItem).Valor);
+
+                if (metodoSeleccionado != "Credito" && cambio < 0)
+                {
+                    MessageBox.Show("Actualice método de pago", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+            }
+
+            if(txtPago.Text == "")
+            {
+                MessageBox.Show("No inserto pago cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
             if (txtDocumento.Text == "")
             {
@@ -496,7 +544,6 @@ namespace CapaPresentacion
                 lblDeuda.Visible = true;
                 txtDeuda.Visible = true;
                 txtCambio.Visible = false;
-                txtIdCredito.Visible = true;
             }
             else
             {
@@ -504,7 +551,6 @@ namespace CapaPresentacion
                 lblDeuda.Visible = false;
                 txtDeuda.Visible = false;
                 txtCambio.Visible = true;
-                txtIdCredito.Visible = false;
             }
         }
     }

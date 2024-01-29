@@ -17,6 +17,7 @@ namespace CapaPresentacion
     public partial class FrmCompra : Form
     {
         private Usuario _Usuario;
+        private bool nuevoProcuto;
 
         public FrmCompra(Usuario oUsuario = null)
         {
@@ -26,6 +27,8 @@ namespace CapaPresentacion
 
         private void FrmRegIngresoProducto_Load(object sender, EventArgs e)
         {
+            btnGuardarNuevo.Visible = false;
+
             cboTipDocumento.Items.Add(new OpcionCombo() { Valor = "Recibo", Texto = "Recibo" });
             cboTipDocumento.DisplayMember = "Texto";
             cboTipDocumento.ValueMember = "Valor";
@@ -44,7 +47,7 @@ namespace CapaPresentacion
             txtFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
 
             txtIdProv.Text = "0";
-            txtIdProducto.Text = "0";
+            txtId.Text = "0";
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -77,13 +80,12 @@ namespace CapaPresentacion
 
                 if (result == DialogResult.OK)
                 {
-                    txtIdProducto.Text = modal._Producto.IdProducto.ToString();
+                    txtId.Text = modal._Producto.IdProducto.ToString();
                     txtCodigoAvila.Text = modal._Producto.CodigoAvila;
                     txtCodigoFabrica.Text = modal._Producto.CodigoFabrica;
                     txtMarcaProducto.Text = modal._Producto.MarcaProducto;
                     txtMarcaCarro.Text = modal._Producto.MarcaCarro;
                     txtDescripcion.Text = modal._Producto.DescripcionProducto;
-                    txtCategoria.Text = modal._Producto.oCategoria.NombreCategoria;
                     txtAplica.Text = modal._Producto.AplicaParaCarro;
                     txtPrecCompra.Select();
                 }
@@ -104,24 +106,22 @@ namespace CapaPresentacion
                 if (oProducto != null) 
                 {
                     txtCodigoAvila.BackColor = Color.Honeydew;
-                    txtIdProducto.Text = oProducto.IdProducto.ToString();
+                    txtId.Text = oProducto.IdProducto.ToString();
                     txtCodigoFabrica.Text = oProducto.CodigoFabrica;
                     txtMarcaProducto.Text = oProducto.MarcaProducto;
                     txtMarcaCarro.Text = oProducto.MarcaCarro;
                     txtDescripcion.Text = oProducto.DescripcionProducto;
-                    txtCategoria.Text = oProducto.oCategoria.NombreCategoria;
                     txtAplica.Text = oProducto.AplicaParaCarro;
                     txtPrecCompra.Select();
                 }
                 else
                 {
                     txtCodigoAvila.BackColor = Color.MistyRose;
-                    txtIdProducto.Text = "0";
+                    txtId.Text = "0";
                     txtCodigoFabrica.Text = "";
                     txtMarcaProducto.Text = "";
                     txtMarcaCarro.Text = "";
                     txtDescripcion.Text = "";
-                    txtCategoria.Text = "";
                     txtAplica.Text = "";
                 }
             }
@@ -151,7 +151,7 @@ namespace CapaPresentacion
                 return;
             }
 
-            if (int.Parse(txtIdProducto.Text) == 0)
+            if (int.Parse(txtId.Text) == 0)
             {
                 MessageBox.Show("Debe seleccionar un producto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
@@ -171,7 +171,7 @@ namespace CapaPresentacion
             }
             foreach (DataGridViewRow fila in dgvData.Rows)
             {
-                if (fila.Cells["IdProducto"].Value.ToString() == txtIdProducto.Text)
+                if (fila.Cells["IdProducto"].Value.ToString() == txtId.Text)
                 {
                     Producto_Existe = true;
                     break;
@@ -181,7 +181,7 @@ namespace CapaPresentacion
             {
                 dgvData.Rows.Add(new object[]
                 {
-                    txtIdProducto.Text,
+                    txtId.Text,
                     txtDescripcion.Text + " | " +txtMarcaProducto.Text,
                     precioCompra.ToString("0.00"),
                     PrecioVenta.ToString("0.00"),
@@ -199,14 +199,13 @@ namespace CapaPresentacion
         private void LimpiarProducto()
         {
 
-            txtIdProducto.Text = "0";
+            txtId.Text = "0";
             txtCodigoAvila.Text = "";
             txtCodigoAvila.BackColor = Color.White;
             txtCodigoFabrica.Text = "";
             txtMarcaProducto.Text = "";
             txtMarcaCarro.Text = "";
             txtDescripcion.Text = "";
-            txtCategoria.Text = "";
             txtAplica.Text = "";
             txtPrecCompra.Text = "";
             txtPrecVenta.Text = "";
@@ -442,6 +441,77 @@ namespace CapaPresentacion
                 txtDeuda.Visible = false;
                 txtIdCredito.Visible = false;
             }
+
+        }
+
+        private void btnNuevoProducto_Click(object sender, EventArgs e)
+        {
+            if (txtCodigoFabrica.ReadOnly == false)
+            {
+                txtCodigoFabrica.ReadOnly = true;
+                txtDescripcion.ReadOnly = true;
+                txtMarcaProducto.ReadOnly = true;
+                txtMarcaCarro.ReadOnly = true;
+                txtAplica.ReadOnly = true;
+                nuevoProcuto = false;
+                btnGuardarNuevo.Visible = false;
+
+
+            }
+            else
+            {
+                txtCodigoFabrica.ReadOnly = false;
+                txtDescripcion.ReadOnly = false;
+                txtMarcaProducto.ReadOnly = false;
+                txtMarcaCarro.ReadOnly = false;
+                txtAplica.ReadOnly = false;
+                nuevoProcuto = true;
+                btnGuardarNuevo.Visible = true;
+            }
+            
+
+        }
+
+        private void btnGuardarNuevo_Click(object sender, EventArgs e)
+        {
+            string mensaje = string.Empty;
+
+            Producto obj = new Producto()
+            {
+                IdProducto = Convert.ToInt32(txtId.Text),
+                CodigoFabrica = txtCodigoFabrica.Text,
+                CodigoAvila = txtCodigoAvila.Text,
+                DescripcionProducto = txtDescripcion.Text,
+                MarcaProducto = txtMarcaProducto.Text,
+                MarcaCarro = txtMarcaCarro.Text,
+                AplicaParaCarro = txtAplica.Text,
+                Estado = true
+            };
+            int IdProductoGenrado = new CN_Producto().Registrar(obj, out mensaje);
+
+            Producto oProducto = new CN_Producto().listar().Where(p => p.CodigoAvila == txtCodigoAvila.Text && p.Estado == true).FirstOrDefault();
+
+            if (oProducto != null)
+            {
+                txtCodigoAvila.BackColor = Color.Honeydew;
+                txtId.Text = oProducto.IdProducto.ToString();
+                txtCodigoFabrica.Text = oProducto.CodigoFabrica;
+                txtMarcaProducto.Text = oProducto.MarcaProducto;
+                txtMarcaCarro.Text = oProducto.MarcaCarro;
+                txtDescripcion.Text = oProducto.DescripcionProducto;
+                txtAplica.Text = oProducto.AplicaParaCarro;
+                txtPrecCompra.Select();
+            }
+
+            txtCodigoFabrica.ReadOnly = true;
+            txtDescripcion.ReadOnly = true;
+            txtMarcaProducto.ReadOnly = true;
+            txtMarcaCarro.ReadOnly = true;
+            txtAplica.ReadOnly = true;
+            nuevoProcuto = false;
+            btnGuardarNuevo.Visible = false;
+
+
 
         }
     }

@@ -147,7 +147,7 @@ namespace CapaDatos
                     oconexion.Open();
                     StringBuilder query = new StringBuilder();
                     query.AppendLine("select v.IdVenta,");
-                    query.AppendLine("dpu.Nombre, dpu.Apellido,");
+                    query.AppendLine("dpu.Nombre, dpu.Apellido, u.IdUsuario,");
                     query.AppendLine("cl.IdCliente, dpcl.CI, dpcl.Nombre as NombreCliente, dpcl.Apellido as ApellidoCliente,");
                     query.AppendLine("v.TipoDocumento, v.NumeroDocumento, v.MontoTotal, v.MontoBs, v.MontoPago, v.MontoCambio, v.MetodoPago, CONVERT(char(10), v.FechaRegistro, 103)[FechaRegistro],");
                     query.AppendLine("crd.Deuda, crd.IdCredito");
@@ -172,6 +172,7 @@ namespace CapaDatos
                                 IdVenta = int.Parse(dr["IdVenta"].ToString()),
                                 oUsuario = new Usuario()
                                 {
+                                    IdUsuario = int.Parse(dr["IdUsuario"].ToString()),
                                     oDatosPersona = new Datos_Persona()
                                     {
                                         Nombre = dr["Nombre"].ToString(),
@@ -224,10 +225,11 @@ namespace CapaDatos
                 try
                 {
                     conexion.Open();
+                    Console.WriteLine("Conexión abierta correctamente");
 
                     StringBuilder query = new StringBuilder();
 
-                    query.AppendLine("select p.DescripcionProducto, p.MarcaProducto,dv.PrecioVenta, dv.Cantidad, dv.SubTotal from DETALLE_VENTA dv");
+                    query.AppendLine("select p.IdProducto, p.DescripcionProducto, p.MarcaProducto,dv.PrecioVenta, dv.Cantidad, dv.SubTotal from DETALLE_VENTA dv");
                     query.AppendLine("inner join PRODUCTO p on p.IdProducto = dv.IdProducto");
                     query.AppendLine("where dv.Idventa = @idVenta");
                     
@@ -245,6 +247,7 @@ namespace CapaDatos
                             {
                                 OProducto = new Producto()
                                 {
+                                    IdProducto = int.Parse(dr["IdProducto"].ToString()),
                                     DescripcionProducto = dr["DescripcionProducto"].ToString(),
                                     MarcaProducto = dr["MarcaProducto"].ToString()
                                 },
@@ -259,6 +262,7 @@ namespace CapaDatos
 
                 catch (Exception ex)
                 {
+                    Console.WriteLine($"Error al abrir la conexión: {ex.Message}");
                     oLista = new List<Detalle_Venta>();
                 }
             }
@@ -329,6 +333,51 @@ namespace CapaDatos
             }
 
             return respuesta;
+        }
+
+        public bool DevolverProducto(Venta obj, DataTable DetalleVenta, out string Mensaje)
+        {
+            bool Respuesta = false;
+            Mensaje = string.Empty;
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("SP_EDITARVENTA", oconexion);
+                    cmd.Parameters.AddWithValue("IdVenta", obj.IdVenta);
+                    cmd.Parameters.AddWithValue("IdUsuario", obj.oUsuario.IdUsuario);
+                    cmd.Parameters.AddWithValue("IdCliente", obj.oCliente.IdCliente);
+                    cmd.Parameters.AddWithValue("TipoDocumento", obj.TipoDocumento);
+                    cmd.Parameters.AddWithValue("NumeroDocumento", obj.NumeroDocumento);
+                    cmd.Parameters.AddWithValue("MontoTotal", obj.MontoTotal);
+                    cmd.Parameters.AddWithValue("MontoBs", obj.MontoBs);
+                    cmd.Parameters.AddWithValue("MontoPago", obj.MontoPago);
+                    cmd.Parameters.AddWithValue("MontoCambio", obj.MontoCambio);
+                    cmd.Parameters.AddWithValue("DetalleVenta", DetalleVenta);
+                    cmd.Parameters.AddWithValue("TieneDeuda", obj.TieneDeuda);
+                    cmd.Parameters.AddWithValue("MetodoPago", obj.MetodoPago);
+                    cmd.Parameters.AddWithValue("Deuda", obj.oCredito.Deuda);
+
+                    cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oconexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                    Respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Respuesta = false;
+                Mensaje = ex.Message;
+            }
+
+            return Respuesta;
         }
 
     }

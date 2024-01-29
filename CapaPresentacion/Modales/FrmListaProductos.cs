@@ -49,7 +49,6 @@ namespace CapaPresentacion.Modales
                     item.MarcaProducto,
                     item.MarcaCarro,
                     item.DescripcionProducto,
-                    item.oCategoria.NombreCategoria,
                     item.AplicaParaCarro,
                     item.Stock,
                     item.PrecioCompra,
@@ -74,10 +73,6 @@ namespace CapaPresentacion.Modales
                     MarcaProducto = dgvData.Rows[iRow].Cells["MarcaProducto"].Value.ToString(),
                     MarcaCarro = dgvData.Rows[iRow].Cells["MarcaCarro"].Value.ToString(),
                     DescripcionProducto = dgvData.Rows[iRow].Cells["Descripcion"].Value.ToString(),
-                    oCategoria = new Categoria
-                    {
-                        NombreCategoria = dgvData.Rows[iRow].Cells["Categoria"].Value.ToString()
-                    },
                     AplicaParaCarro = dgvData.Rows[iRow].Cells["AplicaParaCarro"].Value.ToString(),
                     Stock = Convert.ToInt32(dgvData.Rows[iRow].Cells["Stock"].Value.ToString()),
                     PrecioCompra = Convert.ToDecimal(dgvData.Rows[iRow].Cells["PrecioCompra"].Value.ToString()),

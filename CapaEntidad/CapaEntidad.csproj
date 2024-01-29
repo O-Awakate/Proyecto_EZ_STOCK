@@ -44,7 +44,6 @@
     <Compile Include="Abono_Credito.cs" />
     <Compile Include="Apartado.cs" />
     <Compile Include="Casa_Proveedora.cs" />
-    <Compile Include="Categoria.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Compra.cs" />
     <Compile Include="Correo.cs" />

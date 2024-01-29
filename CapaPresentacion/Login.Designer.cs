@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnClave = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -41,29 +41,17 @@
             this.btnIngresar = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.picLogo = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(33)))), ((int)(((byte)(61)))));
-            this.label1.Location = new System.Drawing.Point(27, 241);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(169, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Repuestos y Servicios Ávila; C.A.";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.btnClave);
             this.panel1.Controls.Add(this.btnSalir);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.pictureBox3);
@@ -79,6 +67,22 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(337, 403);
             this.panel1.TabIndex = 2;
+            // 
+            // btnClave
+            // 
+            this.btnClave.BackColor = System.Drawing.Color.Transparent;
+            this.btnClave.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnClave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClave.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClave.ForeColor = System.Drawing.Color.Transparent;
+            this.btnClave.Image = global::CapaPresentacion.Properties.Resources.eye__5_;
+            this.btnClave.Location = new System.Drawing.Point(303, 210);
+            this.btnClave.Name = "btnClave";
+            this.btnClave.Size = new System.Drawing.Size(23, 22);
+            this.btnClave.TabIndex = 63;
+            this.btnClave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnClave.UseVisualStyleBackColor = false;
+            this.btnClave.Click += new System.EventHandler(this.btnClave_Click);
             // 
             // btnSalir
             // 
@@ -198,25 +202,15 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Bienvenido";
             // 
-            // label5
+            // pictureBox1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 412);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 13);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Versión 0.0";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // picLogo
-            // 
-            this.picLogo.Location = new System.Drawing.Point(8, 106);
-            this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(232, 123);
-            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picLogo.TabIndex = 45;
-            this.picLogo.TabStop = false;
+            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.EZ_STOCK_1;
+            this.pictureBox1.Location = new System.Drawing.Point(23, 133);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(207, 190);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // Login
             // 
@@ -224,10 +218,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(595, 456);
-            this.Controls.Add(this.picLogo);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -237,14 +229,12 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.LinkLabel linkLabel1;
@@ -255,9 +245,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtClave;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.PictureBox picLogo;
+        private System.Windows.Forms.Button btnClave;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

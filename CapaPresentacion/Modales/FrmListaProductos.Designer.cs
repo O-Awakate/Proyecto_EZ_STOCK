@@ -44,7 +44,6 @@
             this.MarcaProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MarcaCarro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AplicaParaCarro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -152,7 +151,6 @@
             this.MarcaProducto,
             this.MarcaCarro,
             this.Descripcion,
-            this.Categoria,
             this.AplicaParaCarro,
             this.Stock,
             this.PrecioCompra,
@@ -208,12 +206,6 @@
             this.Descripcion.HeaderText = "Descripcion";
             this.Descripcion.Name = "Descripcion";
             this.Descripcion.ReadOnly = true;
-            // 
-            // Categoria
-            // 
-            this.Categoria.HeaderText = "Categoria";
-            this.Categoria.Name = "Categoria";
-            this.Categoria.ReadOnly = true;
             // 
             // AplicaParaCarro
             // 
@@ -280,7 +272,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MarcaProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn MarcaCarro;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn AplicaParaCarro;
         private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioCompra;

@@ -130,5 +130,11 @@ namespace CapaPresentacion
         {
             Datos();
         }
+
+        private void frmPanelGestion_Load(object sender, EventArgs e)
+        {
+            dtpFechaFin.MaxDate = DateTime.Now;
+            dtpFechaInicio.MaxDate = DateTime.Now;
+        }
     }
 }

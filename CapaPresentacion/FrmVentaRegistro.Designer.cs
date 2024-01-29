@@ -48,6 +48,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtDeuda = new System.Windows.Forms.TextBox();
             this.lblCambio = new System.Windows.Forms.Label();
             this.txtRegistrar = new System.Windows.Forms.Button();
             this.txtMontoBs = new System.Windows.Forms.TextBox();
@@ -95,7 +98,6 @@
             this.label20 = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.txtIdCredito = new System.Windows.Forms.TextBox();
-            this.txtDeuda = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
@@ -133,6 +135,7 @@
             this.txtIdCliente.Name = "txtIdCliente";
             this.txtIdCliente.Size = new System.Drawing.Size(35, 20);
             this.txtIdCliente.TabIndex = 46;
+            this.txtIdCliente.Visible = false;
             // 
             // txtApellido
             // 
@@ -285,6 +288,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.label18);
+            this.panel3.Controls.Add(this.label22);
             this.panel3.Controls.Add(this.txtDeuda);
             this.panel3.Controls.Add(this.lblCambio);
             this.panel3.Controls.Add(this.txtRegistrar);
@@ -303,6 +308,34 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(115, 330);
             this.panel3.TabIndex = 19;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(91, 72);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(24, 17);
+            this.label18.TabIndex = 84;
+            this.label18.Text = "Bs.";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(93, 26);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(15, 17);
+            this.label22.TabIndex = 83;
+            this.label22.Text = "$";
+            // 
+            // txtDeuda
+            // 
+            this.txtDeuda.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDeuda.Location = new System.Drawing.Point(5, 199);
+            this.txtDeuda.Name = "txtDeuda";
+            this.txtDeuda.Size = new System.Drawing.Size(100, 22);
+            this.txtDeuda.TabIndex = 83;
             // 
             // lblCambio
             // 
@@ -333,7 +366,7 @@
             this.txtMontoBs.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMontoBs.Location = new System.Drawing.Point(6, 67);
             this.txtMontoBs.Name = "txtMontoBs";
-            this.txtMontoBs.Size = new System.Drawing.Size(100, 22);
+            this.txtMontoBs.Size = new System.Drawing.Size(83, 22);
             this.txtMontoBs.TabIndex = 67;
             // 
             // txtCambio
@@ -389,7 +422,7 @@
             this.txtTotalPagar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTotalPagar.Location = new System.Drawing.Point(6, 24);
             this.txtTotalPagar.Name = "txtTotalPagar";
-            this.txtTotalPagar.Size = new System.Drawing.Size(100, 20);
+            this.txtTotalPagar.Size = new System.Drawing.Size(83, 20);
             this.txtTotalPagar.TabIndex = 64;
             this.txtTotalPagar.Text = "0";
             // 
@@ -445,6 +478,7 @@
             this.button4.Text = "Buscar Apartado";
             this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Visible = false;
             // 
             // dgvData
             // 
@@ -598,6 +632,7 @@
             this.txtIdProducto.Name = "txtIdProducto";
             this.txtIdProducto.Size = new System.Drawing.Size(35, 20);
             this.txtIdProducto.TabIndex = 69;
+            this.txtIdProducto.Visible = false;
             // 
             // txtCategoria
             // 
@@ -808,14 +843,7 @@
             this.txtIdCredito.Name = "txtIdCredito";
             this.txtIdCredito.Size = new System.Drawing.Size(35, 20);
             this.txtIdCredito.TabIndex = 82;
-            // 
-            // txtDeuda
-            // 
-            this.txtDeuda.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDeuda.Location = new System.Drawing.Point(5, 199);
-            this.txtDeuda.Name = "txtDeuda";
-            this.txtDeuda.Size = new System.Drawing.Size(100, 22);
-            this.txtDeuda.TabIndex = 83;
+            this.txtIdCredito.Visible = false;
             // 
             // FrmVentaRegistro
             // 
@@ -914,5 +942,7 @@
         private System.Windows.Forms.TextBox txtIdCredito;
         private System.Windows.Forms.Label lblDeuda;
         private System.Windows.Forms.TextBox txtDeuda;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label22;
     }
 }

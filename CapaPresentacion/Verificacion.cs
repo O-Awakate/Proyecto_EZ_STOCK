@@ -17,9 +17,12 @@ namespace CapaPresentacion
 {
     public partial class Verificacion : Form
     {
+        private ToolTip toolTip1;
         public Verificacion()
         {
             InitializeComponent();
+            toolTip1 = new ToolTip();
+            toolTip1.SetToolTip(txtClave, "Se requiere almenos una mayuscula, una minuscula y un numero");
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -279,6 +282,30 @@ namespace CapaPresentacion
                 form.FormClosing += frm_clossign;
                 
 
+            }
+        }
+
+        private void btnClave_Click(object sender, EventArgs e)
+        {
+            if (txtClave.PasswordChar == '*')
+            {
+                txtClave.PasswordChar = '\0';
+            }
+            else
+            {
+                txtClave.PasswordChar = '*';
+            }
+        }
+
+        private void btnConClave_Click(object sender, EventArgs e)
+        {
+            if (txtConfirmarClave.PasswordChar == '*')
+            {
+                txtConfirmarClave.PasswordChar = '\0';
+            }
+            else
+            {
+                txtConfirmarClave.PasswordChar = '*';
             }
         }
     }

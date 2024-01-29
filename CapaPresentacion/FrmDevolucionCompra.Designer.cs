@@ -28,15 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnGuardar = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvData = new System.Windows.Forms.DataGridView();
-            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.txtRIF = new System.Windows.Forms.TextBox();
@@ -65,6 +59,9 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnDevolverProducto = new System.Windows.Forms.Button();
+            this.btnCancelarCompra = new System.Windows.Forms.Button();
             this.txtMetodo = new System.Windows.Forms.TextBox();
             this.txtDeuda = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -74,26 +71,19 @@
             this.lblDeuda = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
+            this.dgvData = new System.Windows.Forms.DataGridView();
+            this.IdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Image = global::CapaPresentacion.Properties.Resources.save_20_regular__2_;
-            this.btnGuardar.Location = new System.Drawing.Point(33, 217);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(49, 53);
-            this.btnGuardar.TabIndex = 56;
-            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // label1
             // 
@@ -106,63 +96,6 @@
             this.label1.TabIndex = 73;
             this.label1.Text = "Devolución Producto";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // dgvData
-            // 
-            this.dgvData.AllowUserToAddRows = false;
-            this.dgvData.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Producto,
-            this.PrecioCompra,
-            this.Cantidad,
-            this.SubTotal});
-            this.dgvData.Location = new System.Drawing.Point(12, 264);
-            this.dgvData.MultiSelect = false;
-            this.dgvData.Name = "dgvData";
-            this.dgvData.ReadOnly = true;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvData.RowTemplate.Height = 28;
-            this.dgvData.Size = new System.Drawing.Size(708, 289);
-            this.dgvData.TabIndex = 79;
-            // 
-            // Producto
-            // 
-            this.Producto.HeaderText = "Producto";
-            this.Producto.Name = "Producto";
-            this.Producto.ReadOnly = true;
-            this.Producto.Width = 150;
-            // 
-            // PrecioCompra
-            // 
-            this.PrecioCompra.HeaderText = "Precio Compra";
-            this.PrecioCompra.Name = "PrecioCompra";
-            this.PrecioCompra.ReadOnly = true;
-            this.PrecioCompra.Width = 150;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            // 
-            // SubTotal
-            // 
-            this.SubTotal.DataPropertyName = "Sub Total";
-            this.SubTotal.HeaderText = "Sub Total";
-            this.SubTotal.Name = "SubTotal";
-            this.SubTotal.ReadOnly = true;
             // 
             // panel4
             // 
@@ -316,6 +249,7 @@
             this.txtIdCredito.Name = "txtIdCredito";
             this.txtIdCredito.Size = new System.Drawing.Size(35, 20);
             this.txtIdCredito.TabIndex = 76;
+            this.txtIdCredito.Visible = false;
             // 
             // txtIdCompra
             // 
@@ -450,20 +384,62 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.groupBox2);
+            this.panel3.Controls.Add(this.btnDevolverProducto);
+            this.panel3.Controls.Add(this.btnCancelarCompra);
             this.panel3.Controls.Add(this.txtMetodo);
             this.panel3.Controls.Add(this.txtDeuda);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.txtMontoBs);
             this.panel3.Controls.Add(this.txtMontoTotal);
-            this.panel3.Controls.Add(this.btnGuardar);
             this.panel3.Controls.Add(this.groupBox1);
             this.panel3.Controls.Add(this.lblDeuda);
             this.panel3.Controls.Add(this.label16);
             this.panel3.Controls.Add(this.label15);
-            this.panel3.Location = new System.Drawing.Point(726, 264);
+            this.panel3.Location = new System.Drawing.Point(726, 214);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(120, 289);
+            this.panel3.Size = new System.Drawing.Size(120, 339);
             this.panel3.TabIndex = 75;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Location = new System.Drawing.Point(9, 269);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(98, 5);
+            this.groupBox2.TabIndex = 85;
+            this.groupBox2.TabStop = false;
+            // 
+            // btnDevolverProducto
+            // 
+            this.btnDevolverProducto.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnDevolverProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDevolverProducto.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDevolverProducto.Image = global::CapaPresentacion.Properties.Resources.product_return__1_;
+            this.btnDevolverProducto.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnDevolverProducto.Location = new System.Drawing.Point(0, 280);
+            this.btnDevolverProducto.Name = "btnDevolverProducto";
+            this.btnDevolverProducto.Size = new System.Drawing.Size(121, 56);
+            this.btnDevolverProducto.TabIndex = 84;
+            this.btnDevolverProducto.Text = "Devolver Seleccion";
+            this.btnDevolverProducto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnDevolverProducto.UseVisualStyleBackColor = true;
+            this.btnDevolverProducto.Click += new System.EventHandler(this.btnDevolverProducto_Click);
+            // 
+            // btnCancelarCompra
+            // 
+            this.btnCancelarCompra.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCancelarCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelarCompra.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarCompra.Image = global::CapaPresentacion.Properties.Resources.remove_package;
+            this.btnCancelarCompra.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCancelarCompra.Location = new System.Drawing.Point(0, 209);
+            this.btnCancelarCompra.Name = "btnCancelarCompra";
+            this.btnCancelarCompra.Size = new System.Drawing.Size(121, 54);
+            this.btnCancelarCompra.TabIndex = 83;
+            this.btnCancelarCompra.Text = "Cancelar Compra";
+            this.btnCancelarCompra.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCancelarCompra.UseVisualStyleBackColor = true;
+            this.btnCancelarCompra.Click += new System.EventHandler(this.btnCancelarCompra_Click);
             // 
             // txtMetodo
             // 
@@ -549,6 +525,83 @@
             this.label15.TabIndex = 56;
             this.label15.Text = "Monto Total";
             // 
+            // dgvData
+            // 
+            this.dgvData.AllowUserToAddRows = false;
+            this.dgvData.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IdProducto,
+            this.Producto,
+            this.Precio,
+            this.Cantidad,
+            this.SubTotal,
+            this.btnSeleccionar});
+            this.dgvData.Location = new System.Drawing.Point(12, 264);
+            this.dgvData.MultiSelect = false;
+            this.dgvData.Name = "dgvData";
+            this.dgvData.ReadOnly = true;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvData.RowTemplate.Height = 28;
+            this.dgvData.Size = new System.Drawing.Size(708, 292);
+            this.dgvData.TabIndex = 82;
+            this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
+            this.dgvData.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvData_CellPainting);
+            // 
+            // IdProducto
+            // 
+            this.IdProducto.HeaderText = "IdProducto";
+            this.IdProducto.Name = "IdProducto";
+            this.IdProducto.ReadOnly = true;
+            this.IdProducto.Visible = false;
+            // 
+            // Producto
+            // 
+            this.Producto.HeaderText = "Producto";
+            this.Producto.Name = "Producto";
+            this.Producto.ReadOnly = true;
+            this.Producto.Width = 150;
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            this.Precio.Width = 150;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            // 
+            // SubTotal
+            // 
+            this.SubTotal.DataPropertyName = "Sub Total";
+            this.SubTotal.HeaderText = "Sub Total";
+            this.SubTotal.Name = "SubTotal";
+            this.SubTotal.ReadOnly = true;
+            // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.HeaderText = "";
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnSeleccionar.UseColumnTextForButtonValue = true;
+            this.btnSeleccionar.Width = 30;
+            // 
             // FrmDevolucionCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -563,7 +616,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmDevolucionCompra";
             this.Text = "FrmDevolucionProducto";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
+            this.Load += new System.EventHandler(this.FrmDevolucionCompra_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -572,19 +625,14 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvData;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioCompra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtRIF;
@@ -622,5 +670,15 @@
         private System.Windows.Forms.Label lblDeuda;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnDevolverProducto;
+        private System.Windows.Forms.Button btnCancelarCompra;
+        private System.Windows.Forms.DataGridView dgvData;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
+        private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
     }
 }

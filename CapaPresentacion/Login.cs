@@ -58,23 +58,11 @@ namespace CapaPresentacion
 
             this.Show();
         }
-
-        public Image byteToImagege(byte[] imageByte)
-        {
-            MemoryStream ms = new MemoryStream();
-            ms.Write(imageByte, 0, imageByte.Length);
-            Image image = new Bitmap(ms);
-
-            return image;
-        }
+        
 
         private void Login_Load(object sender, EventArgs e)
         {
-            bool obtenido = true;
-            byte[] byteimage = new CN_OtrosDatos().obtenerLogo(out obtenido);
-
-            if (obtenido)
-                picLogo.Image = byteToImagege(byteimage);
+            
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -85,6 +73,18 @@ namespace CapaPresentacion
             this.Hide();
 
             form.FormClosing += frm_clossign;
+        }
+
+        private void btnClave_Click(object sender, EventArgs e)
+        {
+            if (txtClave.PasswordChar == '*')
+            {
+                txtClave.PasswordChar = '\0';
+            }
+            else
+            {
+                txtClave.PasswordChar = '*';
+            }
         }
     }
 }

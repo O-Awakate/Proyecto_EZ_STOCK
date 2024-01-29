@@ -20,8 +20,8 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select IdProducto,c.IdCategoria,c.NombreCategoria, CodigoFabrica, CodigoAvila, DescripcionProducto,MarcaProducto,MarcaCarro,AplicaParaCarro,Stock,PrecioCompra,PrecioVenta,p.Estado from PRODUCTO p");
-                    query.AppendLine("inner join CATEGORIA c on c.IdCategoria = p.IdCategoria");
+                    query.AppendLine("select IdProducto, CodigoFabrica, CodigoAvila, DescripcionProducto,MarcaProducto,MarcaCarro,AplicaParaCarro,Stock,PrecioCompra,PrecioVenta,p.Estado from PRODUCTO p");
+                    
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
 
@@ -34,7 +34,6 @@ namespace CapaDatos
                             lista.Add(new Producto()
                             {
                                 IdProducto = Convert.ToInt32(dr["IdProducto"]),
-                                oCategoria = new Categoria() { IdCategoria = Convert.ToInt32(dr["IdCategoria"]), NombreCategoria = dr["NombreCategoria"].ToString() },
                                 CodigoFabrica = dr["CodigoFabrica"].ToString(),
                                 CodigoAvila = dr["CodigoAvila"].ToString(),
                                 DescripcionProducto = dr["DescripcionProducto"].ToString(),
@@ -54,13 +53,10 @@ namespace CapaDatos
                     lista = new List<Producto>();
                 }
             }
-
             return lista;
         }
-
         public int Registrar(Producto obj, out string Mensaje)
         {
-
             int IdProductoGenrado = 0;
             Mensaje = string.Empty;
 
@@ -68,9 +64,7 @@ namespace CapaDatos
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
-
                     SqlCommand cmd = new SqlCommand("SP_REGISTRARPRODUCTO", oconexion);
-                    cmd.Parameters.AddWithValue("IdCategoria", obj.oCategoria.IdCategoria);
                     cmd.Parameters.AddWithValue("CodigoFabrica", obj.CodigoFabrica);
                     cmd.Parameters.AddWithValue("CodigoAvila", obj.CodigoAvila);
                     cmd.Parameters.AddWithValue("DescripcionProducto", obj.DescripcionProducto);
@@ -89,18 +83,13 @@ namespace CapaDatos
                     IdProductoGenrado = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
                     Mensaje = cmd.Parameters["mensaje"].Value.ToString();
                 }
-
             }
             catch (Exception ex)
             {
-
                 IdProductoGenrado = 0;
                 Mensaje = ex.Message;
-
             }
-
             return IdProductoGenrado;
-
         }
 
         public bool Editar(Producto obj, out string Mensaje)
@@ -113,10 +102,8 @@ namespace CapaDatos
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
-
                     SqlCommand cmd = new SqlCommand("SP_ModificarProducto", oconexion);
                     cmd.Parameters.AddWithValue("IdProducto", obj.IdProducto);
-                    cmd.Parameters.AddWithValue("IdCategoria", obj.oCategoria.IdCategoria);
                     cmd.Parameters.AddWithValue("CodigoFabrica", obj.CodigoFabrica);
                     cmd.Parameters.AddWithValue("CodigoAvila", obj.CodigoAvila);
                     cmd.Parameters.AddWithValue("DescripcionProducto", obj.DescripcionProducto);

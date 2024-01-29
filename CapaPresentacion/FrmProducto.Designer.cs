@@ -44,10 +44,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.cboCategoria = new System.Windows.Forms.ComboBox();
             this.cboEstado = new System.Windows.Forms.ComboBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.txtAplicaParaCarro = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -70,8 +68,6 @@
             this.MarcaProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MarcaCarro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AplicaParaCarro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -187,10 +183,8 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.groupBox5);
             this.panel1.Controls.Add(this.label23);
-            this.panel1.Controls.Add(this.cboCategoria);
             this.panel1.Controls.Add(this.cboEstado);
             this.panel1.Controls.Add(this.label25);
-            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label21);
             this.panel1.Controls.Add(this.txtAplicaParaCarro);
             this.panel1.Controls.Add(this.label9);
@@ -250,16 +244,6 @@
             this.label23.TabIndex = 63;
             this.label23.Text = "Estado";
             // 
-            // cboCategoria
-            // 
-            this.cboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboCategoria.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboCategoria.FormattingEnabled = true;
-            this.cboCategoria.Location = new System.Drawing.Point(364, 51);
-            this.cboCategoria.Name = "cboCategoria";
-            this.cboCategoria.Size = new System.Drawing.Size(96, 21);
-            this.cboCategoria.TabIndex = 48;
-            // 
             // cboEstado
             // 
             this.cboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -278,16 +262,6 @@
             this.label25.Size = new System.Drawing.Size(100, 17);
             this.label25.TabIndex = 61;
             this.label25.Text = "Gestión Estado";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(362, 30);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 17);
-            this.label6.TabIndex = 46;
-            this.label6.Text = "Categoría";
             // 
             // label21
             // 
@@ -440,8 +414,6 @@
             this.MarcaProducto,
             this.MarcaCarro,
             this.AplicaParaCarro,
-            this.IdCategoria,
-            this.Categoria,
             this.Stock,
             this.PrecioCompra,
             this.PrecioVenta,
@@ -510,19 +482,6 @@
             this.AplicaParaCarro.HeaderText = "Aplica a Carro";
             this.AplicaParaCarro.Name = "AplicaParaCarro";
             this.AplicaParaCarro.ReadOnly = true;
-            // 
-            // IdCategoria
-            // 
-            this.IdCategoria.HeaderText = "IdCategoria";
-            this.IdCategoria.Name = "IdCategoria";
-            this.IdCategoria.ReadOnly = true;
-            this.IdCategoria.Visible = false;
-            // 
-            // Categoria
-            // 
-            this.Categoria.HeaderText = "Categoria";
-            this.Categoria.Name = "Categoria";
-            this.Categoria.ReadOnly = true;
             // 
             // Stock
             // 
@@ -611,8 +570,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnExcel;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox cboCategoria;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtAplicaParaCarro;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtMarcaProducto;
@@ -633,6 +590,9 @@
         private System.Windows.Forms.TextBox txtMarcaCarro;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvData;
+        private System.Windows.Forms.TextBox txtIndice;
+        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.TextBox txtCodigoFabrica;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodigoFabrica;
@@ -641,15 +601,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MarcaProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn MarcaCarro;
         private System.Windows.Forms.DataGridViewTextBoxColumn AplicaParaCarro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdCategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioCompra;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstadoValor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private System.Windows.Forms.TextBox txtIndice;
-        private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.TextBox txtCodigoFabrica;
     }
 }
