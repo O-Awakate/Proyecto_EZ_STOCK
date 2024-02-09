@@ -454,6 +454,7 @@
             this.txtSector.Size = new System.Drawing.Size(95, 22);
             this.txtSector.TabIndex = 57;
             this.txtSector.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSector_KeyDown);
+            this.txtSector.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmProveedor_KeyPress);
             // 
             // label18
             // 
@@ -529,6 +530,7 @@
             this.txtApellido.Size = new System.Drawing.Size(121, 22);
             this.txtApellido.TabIndex = 35;
             this.txtApellido.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtApellido_KeyDown);
+            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmProveedor_KeyPress);
             // 
             // groupBox1
             // 
@@ -556,6 +558,7 @@
             this.txtNombre.Size = new System.Drawing.Size(121, 22);
             this.txtNombre.TabIndex = 33;
             this.txtNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombre_KeyDown);
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmProveedor_KeyPress);
             // 
             // label8
             // 
@@ -901,6 +904,7 @@
             this.Name = "FrmProveedor";
             this.Text = "FrmProveedor";
             this.Load += new System.EventHandler(this.FrmProveedor_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmProveedor_KeyPress);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);

@@ -86,5 +86,13 @@ namespace CapaNegocio
         {
             return objcd_Negocio.ActualizarLogo(image, out mensaje);
         }
+        public bool Respaldo(string rutaBackup, out string mensaje)
+        {
+            return objcd_Negocio.Respaldo(rutaBackup, out mensaje);
+        }
+        public bool RecuperarInformacion(string rutaRestore, out string mensaje)
+        {
+            return objcd_Negocio.RecuperarInformacion(rutaRestore, out mensaje);
+        }
     }
 }

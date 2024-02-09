@@ -460,6 +460,7 @@
             this.txtDeudafinal.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDeudafinal.Location = new System.Drawing.Point(3, 204);
             this.txtDeudafinal.Name = "txtDeudafinal";
+            this.txtDeudafinal.ReadOnly = true;
             this.txtDeudafinal.Size = new System.Drawing.Size(118, 22);
             this.txtDeudafinal.TabIndex = 79;
             // 

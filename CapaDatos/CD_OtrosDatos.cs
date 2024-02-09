@@ -244,5 +244,77 @@ namespace CapaDatos
             return respuesta;
         }
 
+        public bool Respaldo(string rutaBackup, out string mensaje)
+        {
+            mensaje = string.Empty;
+            bool respuesta = true;
+
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
+                {
+                    
+                    string date = DateTime.Now.ToString("yyyy-MM-dd-HH-Mmm-ss");
+
+                    string databese = conexion.Database.ToString();
+                    string cmd = "BACKUP DATABASE["+databese+ "]TO DISK = '" + rutaBackup + "\\" + "EZSTOCK" + "-" + date+".bak'";
+                    conexion.Open();
+
+                    SqlCommand command = new SqlCommand(cmd, conexion);
+                    
+
+                    if (command.ExecuteNonQuery() < 1)
+                    {
+                        mensaje = "No se pudo crear el backup de la base de datos";
+                        respuesta = false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Error al realizar el respaldo: " + ex.Message;
+                respuesta = false;
+                Console.Write(mensaje);
+            }
+
+            return respuesta;
+        }
+
+        public bool RecuperarInformacion(string rutaRestore, out string mensaje)
+        {
+            mensaje = string.Empty;
+            bool respuesta = true;
+
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
+                {
+                    conexion.Open();
+                    string databese = conexion.Database.ToString();
+                    // Poner la base de datos en modo de usuario único antes de la restauración
+                    string str1 = string.Format("ALTER DATABASE["+ databese + "]SET SINGLE_USER WITH ROLLBACK IMMEDIATE");
+                    SqlCommand cmd1 = new SqlCommand(str1, conexion);
+                    cmd1.ExecuteNonQuery();
+
+                    // Restaurar la base de datos desde el archivo de respaldo
+                    string str2 = "USE MASTER RESTORE DATABASE[" + databese + "]FROM DISK='" + rutaRestore+ "'WITH REPLACE;";
+                    SqlCommand cmd2 = new SqlCommand(str2, conexion);
+                    cmd2.ExecuteNonQuery();
+
+                    // Poner la base de datos en modo de usuario múltiple después de la restauración
+                    string str3 = string.Format("ALTER DATABASE[" + databese + "]SET MULTI_USER");
+                    SqlCommand cmd3 = new SqlCommand(str3, conexion);
+                    cmd3.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Error al realizar el respaldo: " + ex.Message;
+                respuesta = false;
+                Console.Write(mensaje);
+            }
+
+            return respuesta;
+        }
     }
 }

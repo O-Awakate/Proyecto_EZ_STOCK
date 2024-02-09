@@ -18,6 +18,10 @@ namespace CapaNegocio
         {
             return objcd_Compra.ObtenerCorrelativo();
         }
+        public bool RestarStock(int idproducto, int cantidad)
+        {
+            return objcd_Compra.RestarStock(idproducto, cantidad);
+        }
 
         public bool Registrar(Compra obj, DataTable DetalleCompra, out string Mensaje)
         {
@@ -46,6 +50,10 @@ namespace CapaNegocio
         public bool DevolucionCompra(Compra obj, out string Mensaje)
         {
             return objcd_Compra.DevolucionCompra(obj, out Mensaje);
+        }
+        public bool DevolverProducto(Compra obj, DataTable DetalleCompra, out string Mensaje)
+        {
+            return objcd_Compra.DevolverProducto(obj, DetalleCompra, out Mensaje);
         }
     }
 }

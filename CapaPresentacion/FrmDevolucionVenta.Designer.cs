@@ -81,6 +81,7 @@
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -119,6 +120,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.btnGuardar);
             this.panel3.Controls.Add(this.groupBox2);
             this.panel3.Controls.Add(this.btnDevolverProducto);
             this.panel3.Controls.Add(this.txtDeuda);
@@ -147,7 +149,6 @@
             this.groupBox2.Size = new System.Drawing.Size(98, 5);
             this.groupBox2.TabIndex = 82;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // btnDevolverProducto
             // 
@@ -424,7 +425,7 @@
             // txtIdUsuario
             // 
             this.txtIdUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIdUsuario.Location = new System.Drawing.Point(579, 19);
+            this.txtIdUsuario.Location = new System.Drawing.Point(561, 19);
             this.txtIdUsuario.Name = "txtIdUsuario";
             this.txtIdUsuario.Size = new System.Drawing.Size(35, 20);
             this.txtIdUsuario.TabIndex = 78;
@@ -433,7 +434,7 @@
             // txtIdCredito
             // 
             this.txtIdCredito.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIdCredito.Location = new System.Drawing.Point(641, 19);
+            this.txtIdCredito.Location = new System.Drawing.Point(641, 13);
             this.txtIdCredito.Name = "txtIdCredito";
             this.txtIdCredito.Size = new System.Drawing.Size(35, 20);
             this.txtIdCredito.TabIndex = 77;
@@ -637,6 +638,21 @@
             this.btnSeleccionar.UseColumnTextForButtonValue = true;
             this.btnSeleccionar.Width = 30;
             // 
+            // btnGuardar
+            // 
+            this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Image = global::CapaPresentacion.Properties.Resources.save_20_regular__2_;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnGuardar.Location = new System.Drawing.Point(3, 310);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(121, 56);
+            this.btnGuardar.TabIndex = 83;
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
+            // 
             // FrmDevolucionVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -718,5 +734,6 @@
         private System.Windows.Forms.TextBox txtIdUsuario;
         private System.Windows.Forms.TextBox txtIdCliente;
         private System.Windows.Forms.TextBox txtNumeroDocumento;
+        private System.Windows.Forms.Button btnGuardar;
     }
 }

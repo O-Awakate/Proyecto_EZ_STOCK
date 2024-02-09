@@ -28,8 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.picLogo = new System.Windows.Forms.PictureBox();
+            this.btnSubir = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtRIF = new System.Windows.Forms.TextBox();
@@ -38,16 +42,31 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.txtPrecioDolar = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.picLogo = new System.Windows.Forms.PictureBox();
-            this.btnSubir = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnBuscarBackup = new System.Windows.Forms.Button();
+            this.btnGuradarBackup = new System.Windows.Forms.Button();
+            this.txtBackup = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnBuscarRestore = new System.Windows.Forms.Button();
+            this.btnGuradarRestore = new System.Windows.Forms.Button();
+            this.txtRestore = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -76,8 +95,43 @@
             this.panel1.Controls.Add(this.label20);
             this.panel1.Location = new System.Drawing.Point(12, 37);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(535, 323);
+            this.panel1.Size = new System.Drawing.Size(641, 265);
             this.panel1.TabIndex = 24;
+            // 
+            // picLogo
+            // 
+            this.picLogo.Location = new System.Drawing.Point(15, 62);
+            this.picLogo.Name = "picLogo";
+            this.picLogo.Size = new System.Drawing.Size(232, 123);
+            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picLogo.TabIndex = 44;
+            this.picLogo.TabStop = false;
+            // 
+            // btnSubir
+            // 
+            this.btnSubir.BackColor = System.Drawing.Color.White;
+            this.btnSubir.FlatAppearance.BorderSize = 0;
+            this.btnSubir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubir.Image = global::CapaPresentacion.Properties.Resources.upload__2_;
+            this.btnSubir.Location = new System.Drawing.Point(15, 191);
+            this.btnSubir.Name = "btnSubir";
+            this.btnSubir.Size = new System.Drawing.Size(232, 63);
+            this.btnSubir.TabIndex = 43;
+            this.btnSubir.UseVisualStyleBackColor = false;
+            this.btnSubir.Click += new System.EventHandler(this.btnSubir_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.Color.White;
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Image = global::CapaPresentacion.Properties.Resources.save_20_regular__2_;
+            this.btnGuardar.Location = new System.Drawing.Point(285, 191);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(217, 63);
+            this.btnGuardar.TabIndex = 42;
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // txtDireccion
             // 
@@ -149,21 +203,23 @@
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.txtPrecioDolar);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Location = new System.Drawing.Point(12, 401);
+            this.panel2.Location = new System.Drawing.Point(423, 338);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(182, 67);
             this.panel2.TabIndex = 25;
             // 
-            // label4
+            // button1
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(7, 368);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(169, 30);
-            this.label4.TabIndex = 26;
-            this.label4.Text = "Precio del Dolar";
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::CapaPresentacion.Properties.Resources.save_20_regular___1_;
+            this.button1.Location = new System.Drawing.Point(100, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(46, 33);
+            this.button1.TabIndex = 45;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtPrecioDolar
             // 
@@ -183,60 +239,167 @@
             this.label5.TabIndex = 45;
             this.label5.Text = "PrecioDolar";
             // 
-            // button1
+            // label4
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::CapaPresentacion.Properties.Resources.save_20_regular___1_;
-            this.button1.Location = new System.Drawing.Point(100, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(46, 33);
-            this.button1.TabIndex = 45;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(418, 305);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(169, 30);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "Precio del Dolar";
             // 
-            // picLogo
+            // label6
             // 
-            this.picLogo.Location = new System.Drawing.Point(15, 62);
-            this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(232, 123);
-            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picLogo.TabIndex = 44;
-            this.picLogo.TabStop = false;
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(7, 305);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(102, 30);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "Respaldo";
             // 
-            // btnSubir
+            // panel3
             // 
-            this.btnSubir.BackColor = System.Drawing.Color.White;
-            this.btnSubir.FlatAppearance.BorderSize = 0;
-            this.btnSubir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubir.Image = global::CapaPresentacion.Properties.Resources.upload__2_;
-            this.btnSubir.Location = new System.Drawing.Point(15, 191);
-            this.btnSubir.Name = "btnSubir";
-            this.btnSubir.Size = new System.Drawing.Size(232, 80);
-            this.btnSubir.TabIndex = 43;
-            this.btnSubir.UseVisualStyleBackColor = false;
-            this.btnSubir.Click += new System.EventHandler(this.btnSubir_Click);
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.btnBuscarBackup);
+            this.panel3.Controls.Add(this.btnGuradarBackup);
+            this.panel3.Controls.Add(this.txtBackup);
+            this.panel3.Controls.Add(this.label7);
+            this.panel3.Location = new System.Drawing.Point(12, 339);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(399, 66);
+            this.panel3.TabIndex = 27;
             // 
-            // btnGuardar
+            // btnBuscarBackup
             // 
-            this.btnGuardar.BackColor = System.Drawing.Color.White;
-            this.btnGuardar.FlatAppearance.BorderSize = 0;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Image = global::CapaPresentacion.Properties.Resources.save_20_regular__2_;
-            this.btnGuardar.Location = new System.Drawing.Point(285, 208);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(217, 63);
-            this.btnGuardar.TabIndex = 42;
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.btnBuscarBackup.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnBuscarBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarBackup.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarBackup.Image = global::CapaPresentacion.Properties.Resources.magnifying_glass_thin__1_;
+            this.btnBuscarBackup.Location = new System.Drawing.Point(299, 24);
+            this.btnBuscarBackup.Name = "btnBuscarBackup";
+            this.btnBuscarBackup.Size = new System.Drawing.Size(43, 26);
+            this.btnBuscarBackup.TabIndex = 44;
+            this.btnBuscarBackup.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnBuscarBackup.UseVisualStyleBackColor = true;
+            this.btnBuscarBackup.Click += new System.EventHandler(this.btnBuscarBackup_Click);
+            // 
+            // btnGuradarBackup
+            // 
+            this.btnGuradarBackup.BackColor = System.Drawing.Color.White;
+            this.btnGuradarBackup.FlatAppearance.BorderSize = 0;
+            this.btnGuradarBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuradarBackup.Image = global::CapaPresentacion.Properties.Resources.save_20_regular___1_;
+            this.btnGuradarBackup.Location = new System.Drawing.Point(348, 24);
+            this.btnGuradarBackup.Name = "btnGuradarBackup";
+            this.btnGuradarBackup.Size = new System.Drawing.Size(46, 26);
+            this.btnGuradarBackup.TabIndex = 45;
+            this.btnGuradarBackup.UseVisualStyleBackColor = false;
+            this.btnGuradarBackup.Click += new System.EventHandler(this.btnGuradarBackup_Click);
+            // 
+            // txtBackup
+            // 
+            this.txtBackup.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBackup.Location = new System.Drawing.Point(14, 25);
+            this.txtBackup.Name = "txtBackup";
+            this.txtBackup.Size = new System.Drawing.Size(279, 22);
+            this.txtBackup.TabIndex = 46;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(11, 5);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 17);
+            this.label7.TabIndex = 45;
+            this.label7.Text = "Ubicación";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(7, 407);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(105, 30);
+            this.label8.TabIndex = 30;
+            this.label8.Text = "Restaurar";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.btnBuscarRestore);
+            this.panel4.Controls.Add(this.btnGuradarRestore);
+            this.panel4.Controls.Add(this.txtRestore);
+            this.panel4.Controls.Add(this.label9);
+            this.panel4.Location = new System.Drawing.Point(12, 441);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(399, 66);
+            this.panel4.TabIndex = 29;
+            // 
+            // btnBuscarRestore
+            // 
+            this.btnBuscarRestore.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnBuscarRestore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarRestore.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarRestore.Image = global::CapaPresentacion.Properties.Resources.magnifying_glass_thin__1_;
+            this.btnBuscarRestore.Location = new System.Drawing.Point(302, 25);
+            this.btnBuscarRestore.Name = "btnBuscarRestore";
+            this.btnBuscarRestore.Size = new System.Drawing.Size(43, 26);
+            this.btnBuscarRestore.TabIndex = 44;
+            this.btnBuscarRestore.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnBuscarRestore.UseVisualStyleBackColor = true;
+            this.btnBuscarRestore.Click += new System.EventHandler(this.btnBuscarRestore_Click);
+            // 
+            // btnGuradarRestore
+            // 
+            this.btnGuradarRestore.BackColor = System.Drawing.Color.White;
+            this.btnGuradarRestore.FlatAppearance.BorderSize = 0;
+            this.btnGuradarRestore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuradarRestore.Image = global::CapaPresentacion.Properties.Resources.save_20_regular___1_;
+            this.btnGuradarRestore.Location = new System.Drawing.Point(348, 24);
+            this.btnGuradarRestore.Name = "btnGuradarRestore";
+            this.btnGuradarRestore.Size = new System.Drawing.Size(46, 26);
+            this.btnGuradarRestore.TabIndex = 45;
+            this.btnGuradarRestore.UseVisualStyleBackColor = false;
+            this.btnGuradarRestore.Click += new System.EventHandler(this.btnGuradarRestore_Click);
+            // 
+            // txtRestore
+            // 
+            this.txtRestore.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRestore.Location = new System.Drawing.Point(14, 25);
+            this.txtRestore.Name = "txtRestore";
+            this.txtRestore.Size = new System.Drawing.Size(279, 22);
+            this.txtRestore.TabIndex = 46;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(11, 5);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(65, 17);
+            this.label9.TabIndex = 45;
+            this.label9.Text = "Ubicación";
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // FrmNegocio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(559, 511);
+            this.ClientSize = new System.Drawing.Size(858, 566);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -246,9 +409,13 @@
             this.Load += new System.EventHandler(this.FrmNegocio_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,5 +440,21 @@
         private System.Windows.Forms.TextBox txtPrecioDolar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button btnGuradarBackup;
+        private System.Windows.Forms.TextBox txtBackup;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnBuscarBackup;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button btnBuscarRestore;
+        private System.Windows.Forms.Button btnGuradarRestore;
+        private System.Windows.Forms.TextBox txtRestore;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

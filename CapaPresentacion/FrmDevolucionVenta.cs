@@ -32,7 +32,7 @@ namespace CapaPresentacion
 
                     txtFecha.Text = oVenta.FechaRegistro;
                     txtTipoDocumento.Text = oVenta.TipoDocumento;
-                    txtTipoDocumento.Text = oVenta.NumeroDocumento;
+                    txtNumeroDocumento.Text = oVenta.NumeroDocumento;
                     txtIdUsuario.Text = oVenta.oUsuario.IdUsuario.ToString();
                     txtUsuario.Text = oVenta.oUsuario.oDatosPersona.Nombre + " " + oVenta.oUsuario.oDatosPersona.Apellido;
                     txtIdCliente.Text = oVenta.oCliente.IdCliente.ToString();
@@ -184,7 +184,7 @@ namespace CapaPresentacion
 
                             // Realizar la devolución
                             bool respuesta = new CN_Venta().SumarStock(idProducto, cantidadADevolver);
-
+                            
                             if (respuesta)
                             {
                                 Console.WriteLine("Devolución exitosa.");
@@ -192,13 +192,20 @@ namespace CapaPresentacion
                                 // Actualizar la cantidad en la celda
                                 dgvData.Rows[indice].Cells["Cantidad"].Value = cantidadActual - cantidadADevolver;
 
+                                decimal precio = Convert.ToDecimal(dgvData.Rows[indice].Cells["Precio"].Value);
+                                int cantidad = Convert.ToInt32(dgvData.Rows[indice].Cells["Cantidad"].Value);
+                                dgvData.Rows[indice].Cells["SubTotal"].Value = precio * cantidad;
+
+                                calcularTotal();
+                                calcularTotalBs();
+
                                 // Verificar si la cantidad final es 0 y eliminar el producto si es necesario
                                 if ((int)dgvData.Rows[indice].Cells["Cantidad"].Value == 0)
                                 {
                                     Console.WriteLine("Eliminando el producto...");
                                     dgvData.Rows.RemoveAt(indice);
                                 }
-                                //DevolverProducto();
+                               
                                 
                             }
                             else
@@ -220,75 +227,93 @@ namespace CapaPresentacion
                 }
             }
         }
+        
+        private void calcularTotal()
+        {
+            decimal total = 0;
+            if (dgvData.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgvData.Rows)
+                    total += Convert.ToDecimal(row.Cells["SubTotal"].Value.ToString());
+            }
+            txtMontoTotal.Text = total.ToString("0.00");
+        }
+        private void calcularTotalBs()
+        {
+            Otros_Datos Dolar = new CN_OtrosDatos().obtenerOtrosDatos();
+            txtMontoBs.Text = (decimal.Parse(txtMontoTotal.Text) * Dolar.ValorDolar).ToString("0.00");
+        }
 
-        //private void DevolverProducto()
-        //{
-        //    Venta TieneDeuda = new Venta();
-        //    TieneDeuda.TieneDeuda = false;
-           
+        private void DevolverProducto()
+        {
+            Venta TieneDeuda = new Venta();
+            TieneDeuda.TieneDeuda = false;
 
-        //    DataTable detalle_venta = new DataTable();
+            DataTable detalle_venta = new DataTable();
 
-        //    detalle_venta.Columns.Add("IdProducto", typeof(int));
-        //    detalle_venta.Columns.Add("Precio", typeof(decimal));
-        //    detalle_venta.Columns.Add("Cantidad", typeof(int));
-        //    detalle_venta.Columns.Add("SubTotal", typeof(decimal));
+            detalle_venta.Columns.Add("IdProducto", typeof(int));
+            detalle_venta.Columns.Add("Precio", typeof(decimal));
+            detalle_venta.Columns.Add("Cantidad", typeof(int));
+            detalle_venta.Columns.Add("SubTotal", typeof(decimal));
 
-        //    foreach (DataGridViewRow row in dgvData.Rows)
-        //    {
-        //        detalle_venta.Rows.Add(new object[] {
-        //            row.Cells["IdProducto"].Value.ToString(),
-        //            row.Cells["Precio"].Value.ToString(),
-        //            row.Cells["Cantidad"].Value.ToString(),
-        //            row.Cells["SubTotal"].Value.ToString()
-        //        });
-        //    }
-           
-        //    Venta oVenta = new Venta()
-        //    {
-        //        oUsuario = new Usuario() { IdUsuario = Convert.ToInt32(txtIdUsuario.Text) },
-        //        oCliente = new Cliente() { IdCliente = Convert.ToInt32(txtIdCliente.Text) },
-        //        TipoDocumento = txtTipoDocumento.Text,
-        //        NumeroDocumento = txtTipoDocumento.Text,
-        //        MetodoPago = txtMetodo.Text,
-        //        MontoPago = Convert.ToDecimal(txtPaga.Text),
-        //        MontoBs = Convert.ToDecimal(txtMontoBs.Text),
-        //        MontoCambio = Convert.ToDecimal(txtCambio.Text),
-        //        MontoTotal = Convert.ToDecimal(txtMontoTotal.Text),
-        //        oCredito = new Credito(),
-        //        Estado = true
-        //    };
+            foreach (DataGridViewRow row in dgvData.Rows)
+            {
+                detalle_venta.Rows.Add(new object[] {
+                    row.Cells["IdProducto"].Value.ToString(),
+                    row.Cells["Precio"].Value.ToString(),
+                    row.Cells["Cantidad"].Value.ToString(),
+                    row.Cells["SubTotal"].Value.ToString()
+                });
+            }
 
-        //    if (oVenta.MetodoPago == "Credito")
-        //    {
-        //        oVenta.TieneDeuda = true;
+            Venta oVenta = new Venta()
+            {
+                IdVenta = Convert.ToInt32(txtIdVenta.Text),
+                oUsuario = new Usuario() { IdUsuario = Convert.ToInt32(txtIdUsuario.Text) },
+                oCliente = new Cliente() { IdCliente = Convert.ToInt32(txtIdCliente.Text) },
+                TipoDocumento = txtTipoDocumento.Text,
+                NumeroDocumento = txtNumeroDocumento.Text,
+                MetodoPago = txtMetodo.Text,
+                MontoPago = Convert.ToDecimal(txtPaga.Text),
+                MontoBs = Convert.ToDecimal(txtMontoBs.Text),
+                MontoCambio = Convert.ToDecimal(txtCambio.Text),
+                MontoTotal = Convert.ToDecimal(txtMontoTotal.Text),
+                oCredito = new Credito(),
+                Estado = true
+            };
 
-        //        if (oVenta.oCredito != null)
-        //        {
-        //            oVenta.oCredito.Deuda = Convert.ToDecimal(txtDeuda.Text);
-        //        }
-        //    }
-        //    else
-        //    {
-        //        oVenta.TieneDeuda = false;
-        //    }
+            if (oVenta.MetodoPago == "Credito")
+            {
+                oVenta.TieneDeuda = true;
 
-        //    string mensaje = string.Empty;
-        //    bool respuesta = new CN_Venta().DevolverProducto(oVenta, detalle_venta, out mensaje);
+                if (oVenta.oCredito != null)
+                {
+                    oVenta.oCredito.Deuda = Convert.ToDecimal(txtDeuda.Text);
+                }
+            }
+            else
+            {
+                oVenta.TieneDeuda = false;
+            }
+            string mensaje = string.Empty;
+            bool respuesta = new CN_Venta().DevolverProducto(oVenta, detalle_venta, out mensaje);
 
-        //    if (respuesta)
-        //    {
-        //        MessageBox.Show("Devolucion exitosa", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (respuesta)
+            {
+                var result = MessageBox.Show("to correcto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 
-        //    }
+            }
 
-        //    else
-        //        MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            else
+                MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-        //}
+        }
 
         private void btnDevolverProducto_Click(object sender, EventArgs e)
         {
+            btnGuardar.Visible = true;
+            btnDevolverProducto.Visible = false;
+
             if(dgvData.Columns["btnSeleccionar"].Visible == false)
             {
                 dgvData.Columns["btnSeleccionar"].Visible = true;
@@ -302,11 +327,12 @@ namespace CapaPresentacion
         private void FrmDevolucionVenta_Load(object sender, EventArgs e)
         {
             dgvData.Columns["btnSeleccionar"].Visible = false;
+            btnGuardar.Visible = false;
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
+        private void btnGuardar_Click_1(object sender, EventArgs e)
         {
-
+            DevolverProducto();
         }
     }
 }

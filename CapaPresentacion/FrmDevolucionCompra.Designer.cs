@@ -72,9 +72,14 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.txtIdProveedor = new System.Windows.Forms.TextBox();
+            this.txtNumeroDocumento = new System.Windows.Forms.TextBox();
+            this.txtIdUsuario = new System.Windows.Forms.TextBox();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.IdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -227,6 +232,9 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.txtIdProveedor);
+            this.panel1.Controls.Add(this.txtNumeroDocumento);
+            this.panel1.Controls.Add(this.txtIdUsuario);
             this.panel1.Controls.Add(this.txtIdCredito);
             this.panel1.Controls.Add(this.txtIdCompra);
             this.panel1.Controls.Add(this.txtTipoDocumento);
@@ -245,7 +253,7 @@
             // txtIdCredito
             // 
             this.txtIdCredito.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIdCredito.Location = new System.Drawing.Point(660, 19);
+            this.txtIdCredito.Location = new System.Drawing.Point(576, 39);
             this.txtIdCredito.Name = "txtIdCredito";
             this.txtIdCredito.Size = new System.Drawing.Size(35, 20);
             this.txtIdCredito.TabIndex = 76;
@@ -254,7 +262,7 @@
             // txtIdCompra
             // 
             this.txtIdCompra.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIdCompra.Location = new System.Drawing.Point(561, 19);
+            this.txtIdCompra.Location = new System.Drawing.Point(526, 39);
             this.txtIdCompra.Name = "txtIdCompra";
             this.txtIdCompra.Size = new System.Drawing.Size(35, 20);
             this.txtIdCompra.TabIndex = 71;
@@ -384,6 +392,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.btnGuardar);
             this.panel3.Controls.Add(this.groupBox2);
             this.panel3.Controls.Add(this.btnDevolverProducto);
             this.panel3.Controls.Add(this.btnCancelarCompra);
@@ -543,6 +552,7 @@
             this.IdProducto,
             this.Producto,
             this.Precio,
+            this.PrecioVenta,
             this.Cantidad,
             this.SubTotal,
             this.btnSeleccionar});
@@ -558,6 +568,49 @@
             this.dgvData.TabIndex = 82;
             this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
             this.dgvData.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvData_CellPainting);
+            // 
+            // txtIdProveedor
+            // 
+            this.txtIdProveedor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIdProveedor.Location = new System.Drawing.Point(603, 13);
+            this.txtIdProveedor.Name = "txtIdProveedor";
+            this.txtIdProveedor.Size = new System.Drawing.Size(35, 20);
+            this.txtIdProveedor.TabIndex = 80;
+            this.txtIdProveedor.Visible = false;
+            // 
+            // txtNumeroDocumento
+            // 
+            this.txtNumeroDocumento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNumeroDocumento.Location = new System.Drawing.Point(622, 39);
+            this.txtNumeroDocumento.Name = "txtNumeroDocumento";
+            this.txtNumeroDocumento.ReadOnly = true;
+            this.txtNumeroDocumento.Size = new System.Drawing.Size(73, 20);
+            this.txtNumeroDocumento.TabIndex = 82;
+            this.txtNumeroDocumento.Visible = false;
+            // 
+            // txtIdUsuario
+            // 
+            this.txtIdUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIdUsuario.Location = new System.Drawing.Point(644, 13);
+            this.txtIdUsuario.Name = "txtIdUsuario";
+            this.txtIdUsuario.Size = new System.Drawing.Size(35, 20);
+            this.txtIdUsuario.TabIndex = 81;
+            this.txtIdUsuario.Visible = false;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Image = global::CapaPresentacion.Properties.Resources.save_20_regular__2_;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnGuardar.Location = new System.Drawing.Point(-1, 280);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(121, 56);
+            this.btnGuardar.TabIndex = 86;
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
             // 
             // IdProducto
             // 
@@ -579,6 +632,13 @@
             this.Precio.Name = "Precio";
             this.Precio.ReadOnly = true;
             this.Precio.Width = 150;
+            // 
+            // PrecioVenta
+            // 
+            this.PrecioVenta.HeaderText = "PrecioVenta";
+            this.PrecioVenta.Name = "PrecioVenta";
+            this.PrecioVenta.ReadOnly = true;
+            this.PrecioVenta.Visible = false;
             // 
             // Cantidad
             // 
@@ -674,9 +734,14 @@
         private System.Windows.Forms.Button btnDevolverProducto;
         private System.Windows.Forms.Button btnCancelarCompra;
         private System.Windows.Forms.DataGridView dgvData;
+        private System.Windows.Forms.TextBox txtIdProveedor;
+        private System.Windows.Forms.TextBox txtNumeroDocumento;
+        private System.Windows.Forms.TextBox txtIdUsuario;
+        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;

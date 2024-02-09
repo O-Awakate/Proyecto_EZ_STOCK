@@ -23,6 +23,8 @@ namespace CapaPresentacion
 
         private void FrmReporteVentas_Load(object sender, EventArgs e)
         {
+            txtFechaFin.MaxDate = DateTime.Now;
+            txtFechaInicio.MaxDate = DateTime.Now;
             foreach (DataGridViewColumn columna in dgvData.Columns)
             {
                 cboBuscar.Items.Add(new OpcionCombo() { Valor = columna.Name, Texto = columna.HeaderText });

@@ -345,32 +345,34 @@ namespace CapaDatos
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
                     SqlCommand cmd = new SqlCommand("SP_EDITARVENTA", oconexion);
-                    cmd.Parameters.AddWithValue("IdVenta", obj.IdVenta);
-                    cmd.Parameters.AddWithValue("IdUsuario", obj.oUsuario.IdUsuario);
-                    cmd.Parameters.AddWithValue("IdCliente", obj.oCliente.IdCliente);
-                    cmd.Parameters.AddWithValue("TipoDocumento", obj.TipoDocumento);
-                    cmd.Parameters.AddWithValue("NumeroDocumento", obj.NumeroDocumento);
-                    cmd.Parameters.AddWithValue("MontoTotal", obj.MontoTotal);
-                    cmd.Parameters.AddWithValue("MontoBs", obj.MontoBs);
-                    cmd.Parameters.AddWithValue("MontoPago", obj.MontoPago);
-                    cmd.Parameters.AddWithValue("MontoCambio", obj.MontoCambio);
-                    cmd.Parameters.AddWithValue("DetalleVenta", DetalleVenta);
-                    cmd.Parameters.AddWithValue("TieneDeuda", obj.TieneDeuda);
-                    cmd.Parameters.AddWithValue("MetodoPago", obj.MetodoPago);
-                    cmd.Parameters.AddWithValue("Deuda", obj.oCredito.Deuda);
-
-                    cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Parámetros de entrada
+                    cmd.Parameters.AddWithValue("@IdVenta", obj.IdVenta); // Asegúrate de tener el IdVenta en tu objeto Venta
+                    cmd.Parameters.AddWithValue("@IdUsuario", obj.oUsuario.IdUsuario);
+                    cmd.Parameters.AddWithValue("@IdCliente", obj.oCliente.IdCliente);
+                    cmd.Parameters.AddWithValue("@TipoDocumento", obj.TipoDocumento);
+                    cmd.Parameters.AddWithValue("@NumeroDocumento", obj.NumeroDocumento);
+                    cmd.Parameters.AddWithValue("@MontoTotal", obj.MontoTotal);
+                    cmd.Parameters.AddWithValue("@MontoBs", obj.MontoBs);
+                    cmd.Parameters.AddWithValue("@MontoPago", obj.MontoPago);
+                    cmd.Parameters.AddWithValue("@MontoCambio", obj.MontoCambio);
+                    cmd.Parameters.AddWithValue("@DetalleVenta", DetalleVenta);
+                    cmd.Parameters.AddWithValue("@MetodoPago", obj.MetodoPago);
+                    cmd.Parameters.AddWithValue("@TieneDeuda", obj.TieneDeuda);
+                    cmd.Parameters.AddWithValue("@Deuda", obj.oCredito.Deuda);
+
+                    // Parámetros de salida
+                    cmd.Parameters.Add("@Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
                     oconexion.Open();
                     cmd.ExecuteNonQuery();
 
-                    Respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
-                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                    Respuesta = Convert.ToBoolean(cmd.Parameters["@Resultado"].Value);
+                    Mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
                 }
             }
-
             catch (Exception ex)
             {
                 Respuesta = false;

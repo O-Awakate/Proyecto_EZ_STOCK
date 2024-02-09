@@ -23,6 +23,8 @@ namespace CapaPresentacion
 
         private void FrmReportesCompra_Load(object sender, EventArgs e)
         {
+            txtFechaFin.MaxDate = DateTime.Now;
+            txtFechaInicio.MaxDate = DateTime.Now;
             List<Proveedor> lista = new CN_Proveedor().listar();
 
             cboProveedor.Items.Add(new OpcionCombo() { Valor = 0, Texto = "TODOS" });

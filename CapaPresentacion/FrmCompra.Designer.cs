@@ -616,6 +616,7 @@
             this.txtTotalPagar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalPagar.Location = new System.Drawing.Point(7, 28);
             this.txtTotalPagar.Name = "txtTotalPagar";
+            this.txtTotalPagar.ReadOnly = true;
             this.txtTotalPagar.Size = new System.Drawing.Size(86, 22);
             this.txtTotalPagar.TabIndex = 56;
             // 
@@ -687,6 +688,7 @@
             this.txtMontoBs.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMontoBs.Location = new System.Drawing.Point(7, 73);
             this.txtMontoBs.Name = "txtMontoBs";
+            this.txtMontoBs.ReadOnly = true;
             this.txtMontoBs.Size = new System.Drawing.Size(86, 22);
             this.txtMontoBs.TabIndex = 58;
             // 

@@ -39,7 +39,7 @@ namespace CapaPresentacion
                 Inicio form = new Inicio(oUsuario);
 
                 form.Show();
-                this.Hide();
+                this.Close();
 
                 form.FormClosing += frm_clossign;
             }
@@ -60,17 +60,12 @@ namespace CapaPresentacion
         }
         
 
-        private void Login_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Verificacion form = new Verificacion();
 
             form.Show();
-            this.Hide();
+            this.Close();
 
             form.FormClosing += frm_clossign;
         }

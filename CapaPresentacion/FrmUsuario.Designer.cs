@@ -676,6 +676,7 @@
             this.txtSector.Size = new System.Drawing.Size(95, 22);
             this.txtSector.TabIndex = 28;
             this.txtSector.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSector_KeyDown);
+            this.txtSector.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmUsuario_KeyPress);
             // 
             // label18
             // 
@@ -754,6 +755,7 @@
             this.txtApellido.Size = new System.Drawing.Size(121, 22);
             this.txtApellido.TabIndex = 11;
             this.txtApellido.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtApellido_KeyDown);
+            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmUsuario_KeyPress);
             // 
             // label9
             // 
@@ -773,6 +775,7 @@
             this.txtNombre.Size = new System.Drawing.Size(121, 22);
             this.txtNombre.TabIndex = 9;
             this.txtNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombre_KeyDown);
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmUsuario_KeyPress);
             // 
             // label8
             // 
@@ -936,6 +939,7 @@
             this.Name = "FrmUsuario";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FrmUsuario_Load_1);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmUsuario_KeyPress);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();

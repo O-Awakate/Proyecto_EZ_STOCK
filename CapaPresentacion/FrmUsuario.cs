@@ -423,7 +423,7 @@ namespace CapaPresentacion
 
         private void txtCI_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Enter)
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Enter || txtCI.Text.Length >= 8)
             {
                 e.Handled = true;
             }
@@ -488,7 +488,7 @@ namespace CapaPresentacion
 
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Enter)
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Enter || txtTelefono.Text.Length >= 11)
             {
                 e.Handled = true;
             }
@@ -564,6 +564,16 @@ namespace CapaPresentacion
             else
             {
                 txtConfirmarContraseña.PasswordChar = '*';
+            }
+        }
+
+        private void FrmUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el caracter ingresado es una letra o la tecla "Enter"
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Enter && e.KeyChar != (char)Keys.Back)
+            {
+                // Si no es una letra ni la tecla "Enter", ignorar el caracter
+                e.Handled = true;
             }
         }
     }

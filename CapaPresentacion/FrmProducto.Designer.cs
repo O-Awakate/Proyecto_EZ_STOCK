@@ -207,6 +207,7 @@
             this.txtCodigoFabrica.Name = "txtCodigoFabrica";
             this.txtCodigoFabrica.Size = new System.Drawing.Size(105, 22);
             this.txtCodigoFabrica.TabIndex = 67;
+            this.txtCodigoFabrica.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoFabrica_KeyPress);
             // 
             // txtMarcaCarro
             // 
@@ -215,6 +216,7 @@
             this.txtMarcaCarro.Name = "txtMarcaCarro";
             this.txtMarcaCarro.Size = new System.Drawing.Size(108, 22);
             this.txtMarcaCarro.TabIndex = 66;
+            this.txtMarcaCarro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoFabrica_KeyPress);
             // 
             // label3
             // 
@@ -280,6 +282,7 @@
             this.txtAplicaParaCarro.Name = "txtAplicaParaCarro";
             this.txtAplicaParaCarro.Size = new System.Drawing.Size(108, 22);
             this.txtAplicaParaCarro.TabIndex = 45;
+            this.txtAplicaParaCarro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoFabrica_KeyPress);
             // 
             // label9
             // 
@@ -298,6 +301,7 @@
             this.txtMarcaProducto.Name = "txtMarcaProducto";
             this.txtMarcaProducto.Size = new System.Drawing.Size(121, 22);
             this.txtMarcaProducto.TabIndex = 42;
+            this.txtMarcaProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoFabrica_KeyPress);
             // 
             // label4
             // 
@@ -316,6 +320,7 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(121, 22);
             this.txtDescripcion.TabIndex = 40;
+            this.txtDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoFabrica_KeyPress);
             // 
             // label5
             // 
@@ -334,6 +339,7 @@
             this.txtCodigoAvila.Name = "txtCodigoAvila";
             this.txtCodigoAvila.Size = new System.Drawing.Size(105, 22);
             this.txtCodigoAvila.TabIndex = 35;
+            this.txtCodigoAvila.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoFabrica_KeyPress);
             // 
             // label19
             // 

@@ -38,6 +38,32 @@ namespace CapaDatos
 
             return idCorrelativo;
         }
+        public bool RestarStock(int idproducto, int cantidad)
+        {
+            bool respuesta = true;
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("update PRODUCTO set Stock = Stock - @cantidad where IdProducto = @idproducto");
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    cmd.Parameters.AddWithValue("@cantidad", cantidad);
+                    cmd.Parameters.AddWithValue("@idproducto", idproducto);
+                    cmd.CommandType = CommandType.Text;
+                    oconexion.Open();
+
+                    respuesta = cmd.ExecuteNonQuery() > 0 ? true : false;
+                }
+                catch (Exception ex)
+                {
+                    respuesta = false;
+                }
+            }
+
+            return respuesta;
+        }
 
         public bool Registra(Compra obj, DataTable DetalleCompra, out string Mensaje)
         {
@@ -94,7 +120,7 @@ namespace CapaDatos
                 {
 
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select c.IdCompra,");
+                    query.AppendLine("select c.IdCompra,c.IdUsuario,c.IdProveedor,");
                     query.AppendLine("dpu.Nombre, dpu.Apellido,");
                     query.AppendLine("dppr.CI, dppr.Nombre as NombreProveedor, dppr.Apellido as ApellidoProveedor, cp.RazonSocial, cp.RIF,");
                     query.AppendLine("c.TipoDocumento, c.NumeroDocumento, c.MontoTotal, c.MontoBs, c.MetodoPago, CONVERT(char(10), c.FechaRegistro, 103)[FechaRegistro],");
@@ -123,6 +149,7 @@ namespace CapaDatos
                                 IdCompra = Convert.ToInt32(dr["IdCompra"]),
                                 OUsuario = new Usuario()
                                 {
+                                    IdUsuario = Convert.ToInt32(dr["IdUsuario"]),
                                     oDatosPersona = new Datos_Persona()
                                     {
                                         Nombre = dr["Nombre"].ToString(),
@@ -136,6 +163,7 @@ namespace CapaDatos
                                 },
                                 OProvedor = new Proveedor()
                                 {
+                                    IdProveedor = Convert.ToInt32(dr["IdProveedor"]),
                                     oDatosPersona = new Datos_Persona()
                                     {
                                         CI = dr["CI"].ToString(),
@@ -181,7 +209,7 @@ namespace CapaDatos
 
                     StringBuilder query = new StringBuilder();
 
-                    query.AppendLine("select p.IdProducto, p.DescripcionProducto,p.MarcaProducto,dc.PrecioCompra,dc.Cantidad,dc.MontoTotal from DETALLE_COMPRA dc");
+                    query.AppendLine("select p.IdProducto, p.DescripcionProducto,p.MarcaProducto,dc.PrecioCompra,dc.PrecioVenta,dc.Cantidad,dc.MontoTotal from DETALLE_COMPRA dc");
                     query.AppendLine("inner join PRODUCTO p on p.IdProducto = dc.IdProducto");
                     query.AppendLine("where dc.IdCompra = @idcompra");
 
@@ -202,6 +230,7 @@ namespace CapaDatos
                                     MarcaProducto = dr["MarcaProducto"].ToString()
                                 },
                                 PrecioCompra = Convert.ToDecimal(dr["PrecioCompra"].ToString()),
+                                PrecioVenta = Convert.ToDecimal(dr["PrecioVenta"].ToString()),
                                 Cantidad = Convert.ToInt32(dr["Cantidad"].ToString()),
                                 MontoTotal = Convert.ToDecimal(dr["MontoTotal"].ToString()),
 
@@ -283,6 +312,51 @@ namespace CapaDatos
             }
 
             return respuesta;
+        }
+
+        public bool DevolverProducto(Compra obj, DataTable DetalleCompra, out string Mensaje)
+        {
+            bool Respuesta = false;
+            Mensaje = string.Empty;
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("SP_EDITARCOMPRA", oconexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    
+                    // Parámetros de entrada
+                    cmd.Parameters.AddWithValue("@IdCompra", obj.IdCompra); 
+                    cmd.Parameters.AddWithValue("@IdUsuario", obj.OUsuario.IdUsuario);
+                    cmd.Parameters.AddWithValue("@IdProveedor", obj.OProvedor.IdProveedor);
+                    cmd.Parameters.AddWithValue("@TipoDocumento", obj.TipoDocumento);
+                    cmd.Parameters.AddWithValue("@NumeroDocumento", obj.NumeroDocumento);
+                    cmd.Parameters.AddWithValue("@MontoTotal", obj.MontoTotal);
+                    cmd.Parameters.AddWithValue("@MontoBs", obj.MontoBs);
+                    cmd.Parameters.AddWithValue("@DetalleCompra", DetalleCompra);
+                    cmd.Parameters.AddWithValue("@MetodoPago", obj.MetodoPago);
+                    cmd.Parameters.AddWithValue("@TieneDeuda", obj.TieneDeuda);
+                    cmd.Parameters.AddWithValue("@Deuda", obj.oCredito.Deuda);
+
+                    // Parámetros de salida
+                    cmd.Parameters.Add("@Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+
+                    oconexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                    Respuesta = Convert.ToBoolean(cmd.Parameters["@Resultado"].Value);
+                    Mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                Respuesta = false;
+                Mensaje = ex.Message;
+            }
+
+            return Respuesta;
         }
 
     }

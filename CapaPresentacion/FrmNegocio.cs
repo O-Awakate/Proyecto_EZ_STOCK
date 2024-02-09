@@ -11,13 +11,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaEntidad;
 
+
 namespace CapaPresentacion
 {
     public partial class FrmNegocio : Form
     {
+
         public FrmNegocio()
         {
             InitializeComponent();
+
         }
 
         public Image byteToImagege(byte[] imageByte)
@@ -104,5 +107,73 @@ namespace CapaPresentacion
             else
                 MessageBox.Show("No se pudo guaedar los cambios", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
+
+        private void btnBuscarBackup_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folder = new FolderBrowserDialog();
+            if(folder.ShowDialog()== DialogResult.OK)
+            {
+                txtBackup.Text = folder.SelectedPath;
+            }
+        }
+
+        private void btnGuradarBackup_Click(object sender, EventArgs e)
+        {
+            string mensaje = string.Empty;
+            if (txtBackup.Text == string.Empty)
+            {
+                MessageBox.Show("Seleccione la ubicación para guardar el archivo de copia de seguridad");
+                return;
+            }
+            try
+            {
+                bool respuesta = new CN_OtrosDatos().Respaldo(txtBackup.Text, out mensaje);
+                MessageBox.Show("El respaldo fue creado con exito");
+                txtBackup.Text = "";
+
+            }
+            catch
+            {
+                MessageBox.Show("No se pudo crear un respaldo");
+            }
+
+
+        }
+
+        private void btnBuscarRestore_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog OpenDialog = new OpenFileDialog();
+
+            OpenDialog.Filter = "SQL SERVER database backup files | *.bak";
+            OpenDialog.Title = "database restore";
+            if(OpenDialog.ShowDialog() == DialogResult.OK)
+            {
+                txtRestore.Text = OpenDialog.FileName;
+            }
+
+        }
+
+        private void btnGuradarRestore_Click(object sender, EventArgs e)
+        {
+            string mensaje = string.Empty;
+            if (txtRestore.Text == string.Empty)
+            {
+                MessageBox.Show("Seleccione la ubicación del archivo de copia de seguridad");
+                return;
+            }
+            try
+            {
+                bool respuesta = new CN_OtrosDatos().RecuperarInformacion(txtRestore.Text, out mensaje);
+                MessageBox.Show("La copia de seguridad se realizo exitosamente");
+                txtBackup.Text = "";
+
+            }
+            catch
+            {
+                MessageBox.Show("No se pudo actualizar la informacion");
+            }
+        }
+
+        
     }
 }

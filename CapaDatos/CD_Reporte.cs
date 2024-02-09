@@ -65,6 +65,8 @@ namespace CapaDatos
 
                 catch (Exception ex)
                 {
+                    
+                    Console.Write("Error al realizar el respaldo: " + ex.Message);
                     Lista = new List<ReporteCompra>();
                 }
             }

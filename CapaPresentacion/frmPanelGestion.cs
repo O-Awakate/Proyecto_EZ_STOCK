@@ -19,6 +19,7 @@ namespace CapaPresentacion
         {
             InitializeComponent();
 
+
             dtpFechaInicio.Value = DateTime.Today.AddDays(-7);
             dtpFechaFin.Value = DateTime.Now;
             btn7Dias.Select();
@@ -88,6 +89,7 @@ namespace CapaPresentacion
 
         private void btnHoy_Click(object sender, EventArgs e)
         {
+            dtpFechaFin.MaxDate = DateTime.Today.AddDays(1);
             dtpFechaInicio.Value = DateTime.Today;
             dtpFechaFin.Value = DateTime.Now;
             Datos();
@@ -97,6 +99,7 @@ namespace CapaPresentacion
 
         private void btn7Dias_Click(object sender, EventArgs e)
         {
+            dtpFechaFin.MaxDate = DateTime.Today.AddDays(1);
             dtpFechaInicio.Value = DateTime.Today.AddDays(-7);
             dtpFechaFin.Value = DateTime.Now;
             Datos();
@@ -105,6 +108,7 @@ namespace CapaPresentacion
 
         private void btn30Dias_Click(object sender, EventArgs e)
         {
+            dtpFechaFin.MaxDate = DateTime.Today.AddDays(1);
             dtpFechaInicio.Value = DateTime.Today.AddDays(-30);
             dtpFechaFin.Value = DateTime.Now;
             Datos();
@@ -113,6 +117,7 @@ namespace CapaPresentacion
 
         private void btnEsteMes_Click(object sender, EventArgs e)
         {
+            dtpFechaFin.MaxDate = DateTime.Today.AddDays(1);
             dtpFechaInicio.Value = new DateTime (DateTime.Today.Year,DateTime.Today.Month,1);
             dtpFechaFin.Value = DateTime.Now;
             Datos();
@@ -121,6 +126,10 @@ namespace CapaPresentacion
 
         private void btnPersonalizado_Click(object sender, EventArgs e)
         {
+
+            dtpFechaFin.MaxDate = DateTime.Now;
+            dtpFechaInicio.MaxDate = DateTime.Now;
+
             dtpFechaInicio.Enabled = true;
             dtpFechaFin.Enabled = true;
             btnOk.Visible = true;
@@ -133,8 +142,7 @@ namespace CapaPresentacion
 
         private void frmPanelGestion_Load(object sender, EventArgs e)
         {
-            dtpFechaFin.MaxDate = DateTime.Now;
-            dtpFechaInicio.MaxDate = DateTime.Now;
+            
         }
     }
 }

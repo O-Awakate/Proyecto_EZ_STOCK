@@ -346,5 +346,15 @@ namespace CapaPresentacion
                 }
             }
         }
+
+        private void txtCodigoFabrica_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el caracter ingresado es una letra o la tecla "Enter"
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Enter && e.KeyChar != (char)Keys.Back)
+            {
+                // Si no es una letra ni la tecla "Enter", ignorar el caracter
+                e.Handled = true;
+            }
+        }
     }
 }
