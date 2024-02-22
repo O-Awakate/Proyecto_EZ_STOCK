@@ -24,7 +24,7 @@ namespace CapaDatos
                 {
                     conexion.Open();
 
-                    string query = "select IdOtrosDatos ,ValorDolar from OTROSDATOS where IdOtrosDatos = 1";
+                    string query = "select IdOtrosDatos, ValorDolar, FechaCreacion from OTROSDATOS where IdOtrosDatos = 1";
                     SqlCommand cmd = new SqlCommand(query, conexion);
                     cmd.CommandType = CommandType.Text;
 
@@ -35,7 +35,8 @@ namespace CapaDatos
                             objotroDatos = new Otros_Datos()
                             {
                                 IdOtrosDatos = int.Parse(dr["IdOtrosDatos"].ToString()),
-                                ValorDolar = decimal.Parse(dr["ValorDolar"].ToString())
+                                ValorDolar = decimal.Parse(dr["ValorDolar"].ToString()),
+                                FechaRegistro = dr["FechaCreacion"].ToString()
                             };
                         }
                     }
@@ -64,7 +65,7 @@ namespace CapaDatos
                     conexion.Open();
 
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("update OTROSDATOS Set ValorDolar = @ValorDolar");
+                    query.AppendLine("update OTROSDATOS SET ValorDolar = @ValorDolar, FechaCreacion = GETDATE()");
                     query.AppendLine("where IdOtrosDatos = 1;");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), conexion);

@@ -48,13 +48,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtDeuda = new System.Windows.Forms.TextBox();
+            this.txtCambio = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.txtDeuda = new System.Windows.Forms.TextBox();
             this.lblCambio = new System.Windows.Forms.Label();
             this.txtRegistrar = new System.Windows.Forms.Button();
             this.txtMontoBs = new System.Windows.Forms.TextBox();
-            this.txtCambio = new System.Windows.Forms.TextBox();
             this.lblDeuda = new System.Windows.Forms.Label();
             this.cboMetodo = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -73,12 +73,12 @@
             this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtPrecioCompra = new System.Windows.Forms.TextBox();
             this.txtStock = new System.Windows.Forms.TextBox();
             this.Stock = new System.Windows.Forms.Label();
             this.txtAplica = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.txtIdProducto = new System.Windows.Forms.TextBox();
-            this.txtCategoria = new System.Windows.Forms.TextBox();
             this.txtMarcaCarro = new System.Windows.Forms.TextBox();
             this.txtMarcaProducto = new System.Windows.Forms.TextBox();
             this.txtPrecVenta = new System.Windows.Forms.TextBox();
@@ -87,7 +87,6 @@
             this.label23 = new System.Windows.Forms.Label();
             this.txtCantidad = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.btnBuscarProducto = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -172,9 +171,9 @@
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.Image = global::CapaPresentacion.Properties.Resources.magnifying_glass_thin__1_;
-            this.btnBuscar.Location = new System.Drawing.Point(646, 18);
+            this.btnBuscar.Location = new System.Drawing.Point(661, 18);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(59, 24);
+            this.btnBuscar.Size = new System.Drawing.Size(44, 24);
             this.btnBuscar.TabIndex = 68;
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -288,13 +287,13 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.txtDeuda);
+            this.panel3.Controls.Add(this.txtCambio);
             this.panel3.Controls.Add(this.label18);
             this.panel3.Controls.Add(this.label22);
-            this.panel3.Controls.Add(this.txtDeuda);
             this.panel3.Controls.Add(this.lblCambio);
             this.panel3.Controls.Add(this.txtRegistrar);
             this.panel3.Controls.Add(this.txtMontoBs);
-            this.panel3.Controls.Add(this.txtCambio);
             this.panel3.Controls.Add(this.lblDeuda);
             this.panel3.Controls.Add(this.cboMetodo);
             this.panel3.Controls.Add(this.label12);
@@ -308,6 +307,25 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(115, 330);
             this.panel3.TabIndex = 19;
+            // 
+            // txtDeuda
+            // 
+            this.txtDeuda.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDeuda.Location = new System.Drawing.Point(6, 199);
+            this.txtDeuda.Name = "txtDeuda";
+            this.txtDeuda.ReadOnly = true;
+            this.txtDeuda.Size = new System.Drawing.Size(100, 22);
+            this.txtDeuda.TabIndex = 83;
+            this.txtDeuda.Text = "0.00";
+            // 
+            // txtCambio
+            // 
+            this.txtCambio.Location = new System.Drawing.Point(6, 199);
+            this.txtCambio.Name = "txtCambio";
+            this.txtCambio.ReadOnly = true;
+            this.txtCambio.Size = new System.Drawing.Size(100, 20);
+            this.txtCambio.TabIndex = 83;
+            this.txtCambio.Text = "0.00";
             // 
             // label18
             // 
@@ -328,15 +346,6 @@
             this.label22.Size = new System.Drawing.Size(15, 17);
             this.label22.TabIndex = 83;
             this.label22.Text = "$";
-            // 
-            // txtDeuda
-            // 
-            this.txtDeuda.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDeuda.Location = new System.Drawing.Point(5, 198);
-            this.txtDeuda.Name = "txtDeuda";
-            this.txtDeuda.ReadOnly = true;
-            this.txtDeuda.Size = new System.Drawing.Size(100, 22);
-            this.txtDeuda.TabIndex = 83;
             // 
             // lblCambio
             // 
@@ -370,15 +379,6 @@
             this.txtMontoBs.ReadOnly = true;
             this.txtMontoBs.Size = new System.Drawing.Size(83, 22);
             this.txtMontoBs.TabIndex = 67;
-            // 
-            // txtCambio
-            // 
-            this.txtCambio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCambio.Location = new System.Drawing.Point(5, 199);
-            this.txtCambio.Name = "txtCambio";
-            this.txtCambio.ReadOnly = true;
-            this.txtCambio.Size = new System.Drawing.Size(100, 20);
-            this.txtCambio.TabIndex = 66;
             // 
             // lblDeuda
             // 
@@ -564,12 +564,12 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.txtPrecioCompra);
             this.panel2.Controls.Add(this.txtStock);
             this.panel2.Controls.Add(this.Stock);
             this.panel2.Controls.Add(this.txtAplica);
             this.panel2.Controls.Add(this.label24);
             this.panel2.Controls.Add(this.txtIdProducto);
-            this.panel2.Controls.Add(this.txtCategoria);
             this.panel2.Controls.Add(this.txtMarcaCarro);
             this.panel2.Controls.Add(this.txtMarcaProducto);
             this.panel2.Controls.Add(this.txtPrecVenta);
@@ -578,7 +578,6 @@
             this.panel2.Controls.Add(this.label23);
             this.panel2.Controls.Add(this.txtCantidad);
             this.panel2.Controls.Add(this.label14);
-            this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.btnBuscarProducto);
             this.panel2.Controls.Add(this.label4);
@@ -592,10 +591,19 @@
             this.panel2.Size = new System.Drawing.Size(629, 128);
             this.panel2.TabIndex = 45;
             // 
+            // txtPrecioCompra
+            // 
+            this.txtPrecioCompra.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPrecioCompra.Location = new System.Drawing.Point(482, 27);
+            this.txtPrecioCompra.Name = "txtPrecioCompra";
+            this.txtPrecioCompra.Size = new System.Drawing.Size(96, 20);
+            this.txtPrecioCompra.TabIndex = 77;
+            this.txtPrecioCompra.Visible = false;
+            // 
             // txtStock
             // 
             this.txtStock.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtStock.Location = new System.Drawing.Point(448, 27);
+            this.txtStock.Location = new System.Drawing.Point(331, 26);
             this.txtStock.Name = "txtStock";
             this.txtStock.ReadOnly = true;
             this.txtStock.Size = new System.Drawing.Size(68, 20);
@@ -604,7 +612,7 @@
             // Stock
             // 
             this.Stock.AutoSize = true;
-            this.Stock.Location = new System.Drawing.Point(445, 11);
+            this.Stock.Location = new System.Drawing.Point(328, 8);
             this.Stock.Name = "Stock";
             this.Stock.Size = new System.Drawing.Size(35, 13);
             this.Stock.TabIndex = 75;
@@ -637,15 +645,6 @@
             this.txtIdProducto.Size = new System.Drawing.Size(35, 20);
             this.txtIdProducto.TabIndex = 69;
             this.txtIdProducto.Visible = false;
-            // 
-            // txtCategoria
-            // 
-            this.txtCategoria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCategoria.Location = new System.Drawing.Point(321, 26);
-            this.txtCategoria.Name = "txtCategoria";
-            this.txtCategoria.ReadOnly = true;
-            this.txtCategoria.Size = new System.Drawing.Size(121, 20);
-            this.txtCategoria.TabIndex = 72;
             // 
             // txtMarcaCarro
             // 
@@ -704,7 +703,7 @@
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(550, 27);
+            this.txtCantidad.Location = new System.Drawing.Point(1144, 97);
             this.txtCantidad.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -723,26 +722,17 @@
             0,
             0,
             0});
+            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(547, 5);
+            this.label14.Location = new System.Drawing.Point(402, 4);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(60, 17);
             this.label14.TabIndex = 54;
             this.label14.Text = "Cantidad";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(318, 6);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(65, 17);
-            this.label10.TabIndex = 44;
-            this.label10.Text = "Categoria";
             // 
             // label9
             // 
@@ -816,6 +806,7 @@
             this.txtCodigoAvila.Size = new System.Drawing.Size(121, 22);
             this.txtCodigoAvila.TabIndex = 33;
             this.txtCodigoAvila.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoAvila_KeyDown);
+            this.txtCodigoAvila.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoAvila_KeyPress);
             // 
             // label20
             // 
@@ -911,7 +902,6 @@
         private System.Windows.Forms.TextBox txtAplica;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox txtIdProducto;
-        private System.Windows.Forms.TextBox txtCategoria;
         private System.Windows.Forms.TextBox txtMarcaCarro;
         private System.Windows.Forms.TextBox txtMarcaProducto;
         private System.Windows.Forms.TextBox txtPrecVenta;
@@ -920,7 +910,6 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.NumericUpDown txtCantidad;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnBuscarProducto;
         private System.Windows.Forms.Label label4;
@@ -948,5 +937,6 @@
         private System.Windows.Forms.TextBox txtDeuda;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox txtPrecioCompra;
     }
 }

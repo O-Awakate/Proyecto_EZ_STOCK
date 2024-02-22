@@ -382,5 +382,87 @@ namespace CapaDatos
             return Respuesta;
         }
 
+        public List<Venta> listar()
+        {
+            List<Venta> lista = new List<Venta>();
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    // Construir y ejecutar consulta SQL para obtener información de clientes.
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("SELECT v.IdVenta,");
+                    query.AppendLine("dpu.Nombre, dpu.Apellido, u.IdUsuario,");
+                    query.AppendLine("cl.IdCliente, dpcl.CI, dpcl.Nombre as NombreCliente, dpcl.Apellido as ApellidoCliente,");
+                    query.AppendLine("v.TipoDocumento, v.NumeroDocumento, v.MontoTotal, v.MontoBs, v.MontoPago, v.MontoCambio, v.MetodoPago, CONVERT(char(10), v.FechaRegistro, 103)[FechaRegistro],");
+                    query.AppendLine("crd.Deuda, crd.IdCredito");
+                    query.AppendLine("FROM VENTA v");
+                    query.AppendLine("LEFT JOIN CREDITO crd ON crd.IdCredito = v.IdCredito");
+                    query.AppendLine("INNER JOIN USUARIO u ON u.IdUsuario = v.IdUsuario");
+                    query.AppendLine("INNER JOIN DATOS_PERSONA dpu ON dpu.IdDatosPersona = u.IdDatosPersona");
+                    query.AppendLine("INNER JOIN CLIENTE cl ON cl.IdCliente = v.IdCliente");
+                    query.AppendLine("INNER JOIN DATOS_PERSONA dpcl ON dpcl.IdDatosPersona = cl.IdDatosPersona");
+                    query.AppendLine("WHERE crd.Deuda IS NOT NULL");
+
+
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+                    // Procesar resultados y agregar a la lista de clientes.
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new Venta()
+                            {
+                                IdVenta = int.Parse(dr["IdVenta"].ToString()),
+                                oUsuario = new Usuario()
+                                {
+                                    IdUsuario = int.Parse(dr["IdUsuario"].ToString()),
+                                    oDatosPersona = new Datos_Persona()
+                                    {
+                                        Nombre = dr["Nombre"].ToString(),
+                                        Apellido = dr["Apellido"].ToString()
+                                    }
+                                },
+                                oCredito = new Credito()
+                                {
+                                    IdCredito = dr["IdCredito"] != DBNull.Value ? Convert.ToInt32(dr["IdCredito"]) : 0,
+                                    Deuda = dr["Deuda"] != DBNull.Value ? Convert.ToDecimal(dr["Deuda"]) : 0
+                                },
+                                oCliente = new Cliente()
+                                {
+                                    IdCliente = int.Parse(dr["IdCliente"].ToString()),
+                                    oDatosPersona = new Datos_Persona()
+                                    {
+                                        CI = dr["CI"].ToString(),
+                                        Nombre = dr["NombreCliente"].ToString(),
+                                        Apellido = dr["ApellidoCliente"].ToString()
+                                    },
+                                },
+                                TipoDocumento = dr["TipoDocumento"].ToString(),
+                                NumeroDocumento = dr["NumeroDocumento"].ToString(),
+                                MontoTotal = Convert.ToDecimal(dr["MontoTotal"].ToString()),
+                                MontoBs = Convert.ToDecimal(dr["MontoBs"].ToString()),
+                                MontoPago = Convert.ToDecimal(dr["MontoPago"].ToString()),
+                                MontoCambio = Convert.ToDecimal(dr["MontoCambio"].ToString()),
+                                MetodoPago = dr["MetodoPago"].ToString(),
+                                FechaRegistro = dr["FechaRegistro"].ToString()
+                            });
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // En caso de error, reinicializar la lista de Venta.
+                    lista = new List<Venta>();
+                }
+            }
+
+            return lista;
+        }
+
     }
 }

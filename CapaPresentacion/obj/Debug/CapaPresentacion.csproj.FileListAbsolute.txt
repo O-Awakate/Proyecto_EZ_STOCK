@@ -105,3 +105,10 @@ C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\bin\Debug\Sys
 C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\bin\Debug\Twilio.xml
 C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\CapaPresentacion.Verificacion.resources
 C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\CapaPresentacion.frmPanelGestion.resources
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\CapaPresentacion.Modales.FrmListaCreditoVentas.resources
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\CapaPresentacion.Modales.FrmListaCreditoCompras.resources
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\bin\Debug\EZStockBeta.exe.config
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\bin\Debug\EZStockBeta.exe
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\bin\Debug\EZStockBeta.pdb
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\EZStockBeta.exe
+C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaPresentacion\obj\Debug\EZStockBeta.pdb

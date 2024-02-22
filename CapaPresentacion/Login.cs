@@ -39,7 +39,7 @@ namespace CapaPresentacion
                 Inicio form = new Inicio(oUsuario);
 
                 form.Show();
-                this.Close();
+                this.Hide();
 
                 form.FormClosing += frm_clossign;
             }
@@ -65,7 +65,7 @@ namespace CapaPresentacion
             Verificacion form = new Verificacion();
 
             form.Show();
-            this.Close();
+            this.Hide();
 
             form.FormClosing += frm_clossign;
         }

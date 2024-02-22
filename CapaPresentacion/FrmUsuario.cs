@@ -11,6 +11,7 @@ using CapaPresentacion.Utilidades;
 using CapaEntidad;
 using CapaNegocio;
 using CapaPresentacion.Utilities;
+using System.Text.RegularExpressions;
 
 namespace CapaPresentacion
 {
@@ -82,13 +83,24 @@ namespace CapaPresentacion
             return true;
         }
 
+        private bool ValidarFormatoCI(string ci)
+        {
+                // Verificar que la cadena tenga exactamente 8 caracteres y que todos sean dígitos
+            if (ci.Length > 5 && ci.All(char.IsDigit))
+            {
+                return true;
+            }
+            return false;
+
+        }
+
         private void Guardar()
         {
             string mensaje = string.Empty;
 
-            if (!txtCorreo.Text.Contains("@") || !txtCorreo.Text.Contains("."))
+            if (!ValidarFormatoCI(txtCI.Text))
             {
-                MessageBox.Show("Ingrese una dirección de correo electrónico válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ingrese una Cedula válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -119,7 +131,7 @@ namespace CapaPresentacion
                     oCorreo = new Correo
                     {
                         IdCorreo = Convert.ToInt32(txtIdCorreo.Text),
-                        UsuarioCorreo = txtCorreo.Text
+                        UsuarioCorreo = txtCorreo.Text + Convert.ToString(((OpcionCombo)cboDominio.SelectedItem).Valor)
                     },
                     oTelefono = new Telefono
                     {
@@ -150,7 +162,7 @@ namespace CapaPresentacion
                 {
 
                     dgvData.Rows.Add(new object[] { IdUsuarioGenrado, "", txtIdDatosPersonas.Text, ((OpcionCombo)cboNacionalidad.SelectedItem).Texto.ToString() + txtCI.Text, txtNombre.Text, txtApellido.Text,
-                        txtIdCorreo.Text, txtCorreo.Text, txtIdTelefono.Text, txtTelefono.Text, txtIdDireccion.Text, ((OpcionCombo)cboEstadoVen.SelectedItem).Texto.ToString(),((OpcionCombo)cboCiudad.SelectedItem).Texto.ToString(), txtSector.Text, txtCalle.Text, txtNurCasa.Text,
+                        txtIdCorreo.Text, txtCorreo.Text + ((OpcionCombo)cboDominio.SelectedItem).Texto.ToString(), txtIdTelefono.Text, txtTelefono.Text, txtIdDireccion.Text, ((OpcionCombo)cboEstadoVen.SelectedItem).Texto.ToString(),((OpcionCombo)cboCiudad.SelectedItem).Texto.ToString(), txtSector.Text, txtCalle.Text, txtNurCasa.Text,
                         txtContraseña.Text,
                         ((OpcionCombo)cboRol.SelectedItem).Valor.ToString(),
                         ((OpcionCombo)cboRol.SelectedItem).Texto.ToString(),
@@ -249,7 +261,32 @@ namespace CapaPresentacion
         private void FrmUsuario_Load_1(object sender, EventArgs e)
         {
             Estados();
-            
+
+            txtCI.ShortcutsEnabled = false;
+            txtTelefono.ShortcutsEnabled = false;
+            txtNombre.ShortcutsEnabled = false;
+            txtApellido.ShortcutsEnabled = false;
+            txtSector.ShortcutsEnabled = false;
+
+            //ComboBoxDominio
+
+            cboDominio.Items.Add(new OpcionCombo() { Valor = "@gmail.com", Texto = "@Gmail.com" });
+            cboDominio.Items.Add(new OpcionCombo() { Valor = "@yahoo.com", Texto = "@Yahoo.com" });
+            cboDominio.Items.Add(new OpcionCombo() { Valor = "@outlook.com", Texto = "@Outlook.com" });
+            cboDominio.Items.Add(new OpcionCombo() { Valor = "@hotmail.com", Texto = "@Hotmail.com" });
+            cboDominio.Items.Add(new OpcionCombo() { Valor = "@icloud.com", Texto = "@iCloud.com" });
+
+            // Versiones .es
+            cboDominio.Items.Add(new OpcionCombo() { Valor = "@gmail.es", Texto = "@Gmail.es" });
+            cboDominio.Items.Add(new OpcionCombo() { Valor = "@yahoo.es", Texto = "@Yahoo.es" });
+            cboDominio.Items.Add(new OpcionCombo() { Valor = "@outlook.es", Texto = "@Outlook.es" });
+            cboDominio.Items.Add(new OpcionCombo() { Valor = "@hotmail.es", Texto = "@hotmail.es" });
+            cboDominio.Items.Add(new OpcionCombo() { Valor = "@icloud.es", Texto = "@iCloud.es" });
+
+            cboDominio.DisplayMember = "Texto";
+            cboDominio.ValueMember = "Valor";
+            cboDominio.SelectedIndex = 0;
+
             //ComboBox Nacionalidad
             cboNacionalidad.Items.Add(new OpcionCombo() { Valor = "V", Texto = "V" });
             cboNacionalidad.Items.Add(new OpcionCombo() { Valor = "E", Texto = "E" });
@@ -388,6 +425,13 @@ namespace CapaPresentacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+
+            if (txtIdUsuario.Text == "1")
+            {
+                MessageBox.Show("El administrador no puede ser Eliminado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (Convert.ToInt32(txtIdUsuario.Text) != 0)
             {
                 if (MessageBox.Show("¿Desea eliminar el usuario?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -423,7 +467,7 @@ namespace CapaPresentacion
 
         private void txtCI_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Enter || txtCI.Text.Length >= 8)
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Enter || (txtCI.Text.Length >= 8 && e.KeyChar != (char)Keys.Back))
             {
                 e.Handled = true;
             }
@@ -488,7 +532,7 @@ namespace CapaPresentacion
 
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Enter || txtTelefono.Text.Length >= 11)
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Enter || (txtTelefono.Text.Length >= 11 && e.KeyChar != (char)Keys.Back))
             {
                 e.Handled = true;
             }
@@ -567,10 +611,73 @@ namespace CapaPresentacion
             }
         }
 
-        private void FrmUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Enter && e.KeyChar != (char)Keys.Back || txtNombre.Text.Length >= 10 && e.KeyChar != (char)Keys.Back)
+            {
+                // Si no es una letra ni la tecla "Enter", ignorar el caracter
+                e.Handled = true;
+            }
+        }
+
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Enter && e.KeyChar != (char)Keys.Back || txtApellido.Text.Length >= 10 && e.KeyChar != (char)Keys.Back)
+            {
+                // Si no es una letra ni la tecla "Enter", ignorar el caracter
+                e.Handled = true;
+            }
+        }
+
+        private void txtSector_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Verificar si el caracter ingresado es una letra o la tecla "Enter"
-            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Enter && e.KeyChar != (char)Keys.Back)
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Enter && e.KeyChar != (char)Keys.Back || txtSector.Text.Length >= 15 && e.KeyChar != (char)Keys.Back)
+            {
+                // Si no es una letra ni la tecla "Enter", ignorar el caracter
+                e.Handled = true;
+            }
+        }
+
+        private void txtCalle_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtCalle.Text.Length >= 15 && e.KeyChar != (char)Keys.Back)
+            {
+                // Si no es una letra ni la tecla "Enter", ignorar el caracter
+                e.Handled = true;
+            }
+        }
+
+        private void txtNurCasa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtNurCasa.Text.Length >= 10 && e.KeyChar != (char)Keys.Back)
+            {
+                // Si no es una letra ni la tecla "Enter", ignorar el caracter
+                e.Handled = true;
+            }
+        }
+
+        private void txtContraseña_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtContraseña.Text.Length >= 16 && e.KeyChar != (char)Keys.Back)
+            {
+                // Si no es una letra ni la tecla "Enter", ignorar el caracter
+                e.Handled = true;
+            }
+        }
+
+        private void txtConfirmarContraseña_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtConfirmarContraseña.Text.Length >= 16 && e.KeyChar != (char)Keys.Back)
+            {
+                // Si no es una letra ni la tecla "Enter", ignorar el caracter
+                e.Handled = true;
+            }
+        }
+
+        private void txtCorreo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtCorreo.Text.Length >= 16 && e.KeyChar != (char)Keys.Back)
             {
                 // Si no es una letra ni la tecla "Enter", ignorar el caracter
                 e.Handled = true;

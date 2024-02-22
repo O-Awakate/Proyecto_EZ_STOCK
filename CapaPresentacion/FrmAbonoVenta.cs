@@ -20,9 +20,9 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void ObtenerVenta(string buscar)
         {
-            Venta oVenta = new CN_Venta().obtenerVenta(txtBusqueda.Text);
+            Venta oVenta = new CN_Venta().obtenerVenta(buscar);
 
             if (oVenta.IdVenta > 0 && oVenta.oCredito.Deuda <= 0)
             {
@@ -41,7 +41,7 @@ namespace CapaPresentacion
                 txtNombreCliente.Text = oVenta.oCliente.oDatosPersona.Nombre;
                 txtApellidoCliente.Text = oVenta.oCliente.oDatosPersona.Apellido;
                 txtIdCredito.Text = oVenta.oCredito.IdCredito.ToString();
-                
+
                 dgvData.Rows.Clear();
                 foreach (Detalle_Venta dv in oVenta.oDetalleVenta)
                 {
@@ -53,6 +53,11 @@ namespace CapaPresentacion
                 txtDeuda.Text = oVenta.oCredito.Deuda.ToString("0.00");
 
             }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            ObtenerVenta(txtBusqueda.Text);
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -145,6 +150,45 @@ namespace CapaPresentacion
             }
         }
 
-        
+        private void FrmAbonoVenta_Load(object sender, EventArgs e)
+        {
+            DateTime fechaActual = DateTime.Now;
+
+            Otros_Datos datos = new CN_OtrosDatos().obtenerOtrosDatos();
+
+            if (DateTime.TryParse(datos.FechaRegistro, out DateTime fechaValorDolar))
+            {
+                if (fechaActual.Date > fechaValorDolar.Date || (fechaActual.Date == fechaValorDolar.Date && fechaActual.Hour >= 9 && fechaValorDolar.Hour < 9))
+                {
+                    // Si la fecha actual es después de la fecha de FechaRegistro o es el mismo día y la hora actual es después de las 9 AM y la hora de FechaRegistro es antes de las 9 AM
+                    txtMontoBs.BackColor = Color.MistyRose;
+                }
+                else if (fechaActual.Date == fechaValorDolar.Date && fechaActual.Hour >= 13 && fechaValorDolar.Hour < 13)
+                {
+                    // Si la fecha actual es igual a la fecha de FechaRegistro y la hora actual es después de la 1 PM
+                    txtMontoBs.BackColor = Color.MistyRose;
+                }
+            }
+        }
+
+        private void btnBuscarVentas_Click(object sender, EventArgs e)
+        {
+            using (var modal = new FrmListaCreditoVentas())
+            {
+                var result = modal.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    txtBusqueda.Text = modal._Venta.NumeroDocumento.ToString();
+
+                    ObtenerVenta(txtBusqueda.Text);
+                }
+                else
+                {
+                    txtDocumento.Select();
+                }
+
+            }
+        }
     }
 }

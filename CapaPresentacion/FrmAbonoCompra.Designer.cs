@@ -77,6 +77,7 @@
             this.txtFecha = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnBuscarCompra = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.panel2.SuspendLayout();
@@ -585,12 +586,27 @@
             this.label9.TabIndex = 3;
             this.label9.Text = "Información de Compra";
             // 
+            // btnBuscarCompra
+            // 
+            this.btnBuscarCompra.BackColor = System.Drawing.Color.White;
+            this.btnBuscarCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarCompra.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarCompra.Image = global::CapaPresentacion.Properties.Resources.magnifying_glass_thin__2_;
+            this.btnBuscarCompra.Location = new System.Drawing.Point(726, 36);
+            this.btnBuscarCompra.Name = "btnBuscarCompra";
+            this.btnBuscarCompra.Size = new System.Drawing.Size(107, 69);
+            this.btnBuscarCompra.TabIndex = 86;
+            this.btnBuscarCompra.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnBuscarCompra.UseVisualStyleBackColor = false;
+            this.btnBuscarCompra.Click += new System.EventHandler(this.btnBuscarCompra_Click);
+            // 
             // FrmAbonoCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(858, 566);
+            this.Controls.Add(this.btnBuscarCompra);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
@@ -599,6 +615,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmAbonoCompra";
             this.Text = "FrmAbonoIngresoProducto";
+            this.Load += new System.EventHandler(this.FrmAbonoCompra_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
@@ -661,5 +678,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
+        private System.Windows.Forms.Button btnBuscarCompra;
     }
 }

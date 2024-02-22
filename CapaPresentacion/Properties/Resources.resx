@@ -262,4 +262,10 @@
   <data name="EZ_STOCK_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EZ STOCK 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Plantilla_Credito_Compra" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Plantilla Credito Compra.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Plantilla_Credito__Venta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Plantilla Credito  Venta.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
 </root>

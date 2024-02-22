@@ -96,8 +96,15 @@ namespace CapaPresentacion
                 MessageBox.Show("No se encontraron resultados", "mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-
-            string texto_HTML = Properties.Resources.Plantilla_Venta.ToString();
+            string texto_HTML;
+            if (txtMetodo.Text == "Credito")
+            {
+                texto_HTML = Properties.Resources.Plantilla_Credito_Compra.ToString();
+            }
+            else
+            {
+                texto_HTML = Properties.Resources.Plantilla_compra.ToString();
+            }
             Negocio oDatos = new CN_OtrosDatos().obtenerDatos();
 
             texto_HTML = texto_HTML.Replace("@nombrenegocio", oDatos.Nombre.ToUpper());

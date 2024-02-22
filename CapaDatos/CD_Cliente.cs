@@ -22,7 +22,7 @@ namespace CapaDatos
                 {
                     // Construir y ejecutar consulta SQL para obtener información de clientes.
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT cl.IdCliente, dp.IdDatosPersona, dp.CI, dp.Nombre, dp.Apellido, cl.Estado AS EstadoActual,cl.Deuda, t.IdTelefono, t.Numero, d.IdDireccion, d.Estado, d.Ciudad, d.Sector, d.Calle, d.Casa FROM CLIENTE cl");
+                    query.AppendLine("SELECT cl.IdCliente, dp.IdDatosPersona, dp.CI, dp.Nombre, dp.Apellido, cl.Estado AS EstadoActual, t.IdTelefono, t.Numero, d.IdDireccion, d.Estado, d.Ciudad, d.Sector, d.Calle, d.Casa FROM CLIENTE cl");
                     query.AppendLine("INNER JOIN DATOS_PERSONA dp ON cl.IdDatosPersona = dp.IdDatosPersona");
                     query.AppendLine("INNER JOIN TELEFONO t ON dp.IdTelefono = t.IdTelefono");
                     query.AppendLine("INNER JOIN DIRECCION d ON dp.IdDireccion = d.IdDireccion");
@@ -64,7 +64,6 @@ namespace CapaDatos
                                         Numero = dr["Numero"].ToString()
                                     },
                                 },
-                                Deuda = Convert.ToDecimal(dr["Deuda"]),
                                 Estado = Convert.ToBoolean(dr["EstadoActual"]),
                             });
                         }
@@ -98,7 +97,6 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("CI", obj.oDatosPersona.CI);
                     cmd.Parameters.AddWithValue("Nombre", obj.oDatosPersona.Nombre);
                     cmd.Parameters.AddWithValue("Apellido", obj.oDatosPersona.Apellido);
-                    cmd.Parameters.AddWithValue("Deuda", obj.Deuda);
                     cmd.Parameters.AddWithValue("Numero", obj.oDatosPersona.oTelefono.Numero);
                     cmd.Parameters.AddWithValue("Estado", obj.oDatosPersona.oDireccion.Estado);
                     cmd.Parameters.AddWithValue("Ciudad", obj.oDatosPersona.oDireccion.Ciudad);
@@ -155,7 +153,6 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("CI", obj.oDatosPersona.CI);
                     cmd.Parameters.AddWithValue("Nombre", obj.oDatosPersona.Nombre);
                     cmd.Parameters.AddWithValue("Apellido", obj.oDatosPersona.Apellido);
-                    cmd.Parameters.AddWithValue("Deuda", obj.Deuda);
                     cmd.Parameters.AddWithValue("Numero", obj.oDatosPersona.oTelefono.Numero);
                     cmd.Parameters.AddWithValue("Estado", obj.oDatosPersona.oDireccion.Estado);
                     cmd.Parameters.AddWithValue("Ciudad", obj.oDatosPersona.oDireccion.Ciudad);

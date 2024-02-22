@@ -19,7 +19,8 @@ namespace CapaPresentacion.Utilities
             msg.To.Add(receptor);
             msg.Subject = "Correo de verificación";
             msg.SubjectEncoding = Encoding.UTF8;
-            msg.Body = "Su codigo de verificacion es " + numero + "ingrese este numero en el sistema";
+            msg.Body = $"Su código de verificación es {numero}. Por razones de seguridad, no comparta este código con nadie. Úselo únicamente para ingresar al sistema.";
+
             msg.BodyEncoding = Encoding.UTF8;
             msg.IsBodyHtml = true;
             msg.From = new MailAddress(emisor);

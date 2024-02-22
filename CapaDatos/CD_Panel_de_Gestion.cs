@@ -24,7 +24,7 @@ namespace CapaDatos
                     SqlCommand cmd = new SqlCommand("SP_OBTENERCONTADORES", oconexion);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@FechaInicio", System.Data.SqlDbType.DateTime).Value = fechaInicio; ;
-                    cmd.Parameters.Add("@FechaFin", System.Data.SqlDbType.DateTime).Value = fechaInicio;
+                    cmd.Parameters.Add("@FechaFin", System.Data.SqlDbType.DateTime).Value = fechaFin;
 
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {

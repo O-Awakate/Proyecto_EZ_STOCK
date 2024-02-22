@@ -7,7 +7,7 @@
     <ProjectGuid>{F7144AD1-11BC-44AE-9CA8-62D384D8A125}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>CapaPresentacion</RootNamespace>
-    <AssemblyName>CapaPresentacion</AssemblyName>
+    <AssemblyName>EZStockBeta</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,6 +46,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>EZ1 %281%29.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
@@ -218,6 +221,18 @@
     <Compile Include="FrmVentaRegistro.Designer.cs">
       <DependentUpon>FrmVentaRegistro.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modales\FrmListaCreditoCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modales\FrmListaCreditoCompras.Designer.cs">
+      <DependentUpon>FrmListaCreditoCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modales\FrmListaCreditoVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modales\FrmListaCreditoVentas.Designer.cs">
+      <DependentUpon>FrmListaCreditoVentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\Ciudades.cs" />
     <Compile Include="Verificacion.cs">
       <SubType>Form</SubType>
@@ -236,12 +251,6 @@
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modales\FrmDeudaClientes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modales\FrmDeudaClientes.Designer.cs">
-      <DependentUpon>FrmDeudaClientes.cs</DependentUpon>
     </Compile>
     <Compile Include="Modales\FrmListaClientes.cs">
       <SubType>Form</SubType>
@@ -317,6 +326,12 @@
     <EmbeddedResource Include="FrmVentaRegistro.resx">
       <DependentUpon>FrmVentaRegistro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modales\FrmListaCreditoCompras.resx">
+      <DependentUpon>FrmListaCreditoCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modales\FrmListaCreditoVentas.resx">
+      <DependentUpon>FrmListaCreditoVentas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Verificacion.resx">
       <DependentUpon>Verificacion.cs</DependentUpon>
     </EmbeddedResource>
@@ -325,9 +340,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modales\FrmDeudaClientes.resx">
-      <DependentUpon>FrmDeudaClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modales\FrmListaClientes.resx">
       <DependentUpon>FrmListaClientes.cs</DependentUpon>
@@ -527,6 +539,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\EZ STOCK 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Plantilla Credito  Venta.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Plantilla Credito Compra.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EZ1 %281%29.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

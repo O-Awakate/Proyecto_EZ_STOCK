@@ -70,6 +70,9 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("DescripcionProducto", obj.DescripcionProducto);
                     cmd.Parameters.AddWithValue("MarcaProducto", obj.MarcaProducto);
                     cmd.Parameters.AddWithValue("MarcaCarro", obj.MarcaCarro);
+                    cmd.Parameters.AddWithValue("Stock", obj.Stock);
+                    cmd.Parameters.AddWithValue("PrecioCompra", obj.PrecioCompra);
+                    cmd.Parameters.AddWithValue("PrecioVenta", obj.PrecioVenta);
                     cmd.Parameters.AddWithValue("AplicaParaCarro", obj.AplicaParaCarro);
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;

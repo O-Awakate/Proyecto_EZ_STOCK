@@ -13,6 +13,11 @@ namespace CapaNegocio
     {
         private CD_Venta objcd_Venta = new CD_Venta();
 
+        public List<Venta> listar()
+        {
+            return objcd_Venta.listar();
+        }
+
         public bool RestarStock(int idproducto, int cantidad)
         {
             return objcd_Venta.RestarStock(idproducto, cantidad);

@@ -14,6 +14,11 @@ namespace CapaNegocio
     {
         private CD_Compra objcd_Compra = new CD_Compra();
 
+        public List<Compra> listar()
+        {
+            return objcd_Compra.Listar();
+        }
+
         public int ObtenerCorrelativo()
         {
             return objcd_Compra.ObtenerCorrelativo();

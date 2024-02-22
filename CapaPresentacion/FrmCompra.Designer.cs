@@ -291,6 +291,7 @@
             0,
             0,
             0});
+            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // label14
             // 

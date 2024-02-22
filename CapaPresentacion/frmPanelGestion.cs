@@ -137,12 +137,16 @@ namespace CapaPresentacion
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            DateTime fechaInicio = dtpFechaInicio.Value;
+            DateTime fechaFin = dtpFechaFin.Value;
+
+            if (fechaInicio > fechaFin)
+            {
+                MessageBox.Show("La fecha de inicio no puede ser posterior a la fecha de fin. Por favor, ajuste las fechas.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             Datos();
         }
-
-        private void frmPanelGestion_Load(object sender, EventArgs e)
-        {
-            
-        }
+        
     }
 }

@@ -42,6 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtFecha = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.txtPrecioDolar = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -158,6 +159,7 @@
             this.txtRIF.Name = "txtRIF";
             this.txtRIF.Size = new System.Drawing.Size(216, 22);
             this.txtRIF.TabIndex = 39;
+            this.txtRIF.Text = "J-";
             // 
             // label19
             // 
@@ -200,13 +202,23 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.txtFecha);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.txtPrecioDolar);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Location = new System.Drawing.Point(423, 338);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(182, 67);
+            this.panel2.Size = new System.Drawing.Size(230, 67);
             this.panel2.TabIndex = 25;
+            // 
+            // txtFecha
+            // 
+            this.txtFecha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFecha.Location = new System.Drawing.Point(115, 27);
+            this.txtFecha.Name = "txtFecha";
+            this.txtFecha.ReadOnly = true;
+            this.txtFecha.Size = new System.Drawing.Size(101, 20);
+            this.txtFecha.TabIndex = 47;
             // 
             // button1
             // 
@@ -214,9 +226,9 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = global::CapaPresentacion.Properties.Resources.save_20_regular___1_;
-            this.button1.Location = new System.Drawing.Point(100, 19);
+            this.button1.Location = new System.Drawing.Point(77, 25);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(46, 33);
+            this.button1.Size = new System.Drawing.Size(32, 22);
             this.button1.TabIndex = 45;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -224,10 +236,11 @@
             // txtPrecioDolar
             // 
             this.txtPrecioDolar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecioDolar.Location = new System.Drawing.Point(14, 25);
+            this.txtPrecioDolar.Location = new System.Drawing.Point(11, 25);
             this.txtPrecioDolar.Name = "txtPrecioDolar";
-            this.txtPrecioDolar.Size = new System.Drawing.Size(80, 22);
+            this.txtPrecioDolar.Size = new System.Drawing.Size(60, 22);
             this.txtPrecioDolar.TabIndex = 46;
+            this.txtPrecioDolar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioDolar_KeyPress);
             // 
             // label5
             // 
@@ -456,5 +469,6 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TextBox txtFecha;
     }
 }

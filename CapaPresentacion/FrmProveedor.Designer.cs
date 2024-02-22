@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
@@ -205,6 +205,7 @@
             this.txtSitioWeb.Size = new System.Drawing.Size(121, 22);
             this.txtSitioWeb.TabIndex = 39;
             this.txtSitioWeb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSitioWeb_KeyDown);
+            this.txtSitioWeb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSitioWeb_KeyPress);
             // 
             // label22
             // 
@@ -223,7 +224,9 @@
             this.txtRIF.Name = "txtRIF";
             this.txtRIF.Size = new System.Drawing.Size(121, 22);
             this.txtRIF.TabIndex = 35;
+            this.txtRIF.Text = "J-";
             this.txtRIF.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRIF_KeyDown);
+            this.txtRIF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRIF_KeyPress);
             // 
             // label19
             // 
@@ -253,6 +256,7 @@
             this.txtRazonSocial.Size = new System.Drawing.Size(121, 22);
             this.txtRazonSocial.TabIndex = 33;
             this.txtRazonSocial.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRazonSocial_KeyDown);
+            this.txtRazonSocial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRazonSocial_KeyPress);
             // 
             // label20
             // 
@@ -416,6 +420,7 @@
             this.txtNurCasa.Size = new System.Drawing.Size(64, 22);
             this.txtNurCasa.TabIndex = 61;
             this.txtNurCasa.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNurCasa_KeyDown);
+            this.txtNurCasa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNurCasa_KeyPress);
             // 
             // label26
             // 
@@ -435,6 +440,7 @@
             this.txtCalle.Size = new System.Drawing.Size(95, 22);
             this.txtCalle.TabIndex = 59;
             this.txtCalle.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCalle_KeyDown);
+            this.txtCalle.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCalle_KeyPress);
             // 
             // label17
             // 
@@ -454,7 +460,7 @@
             this.txtSector.Size = new System.Drawing.Size(95, 22);
             this.txtSector.TabIndex = 57;
             this.txtSector.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSector_KeyDown);
-            this.txtSector.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmProveedor_KeyPress);
+            this.txtSector.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSector_KeyPress);
             // 
             // label18
             // 
@@ -530,7 +536,7 @@
             this.txtApellido.Size = new System.Drawing.Size(121, 22);
             this.txtApellido.TabIndex = 35;
             this.txtApellido.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtApellido_KeyDown);
-            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmProveedor_KeyPress);
+            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // groupBox1
             // 
@@ -558,7 +564,7 @@
             this.txtNombre.Size = new System.Drawing.Size(121, 22);
             this.txtNombre.TabIndex = 33;
             this.txtNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombre_KeyDown);
-            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmProveedor_KeyPress);
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // label8
             // 
@@ -700,15 +706,15 @@
             // 
             this.dgvData.AllowUserToAddRows = false;
             this.dgvData.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -735,9 +741,9 @@
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvData.RowTemplate.Height = 28;
             this.dgvData.Size = new System.Drawing.Size(829, 259);
             this.dgvData.TabIndex = 75;
@@ -904,7 +910,6 @@
             this.Name = "FrmProveedor";
             this.Text = "FrmProveedor";
             this.Load += new System.EventHandler(this.FrmProveedor_Load);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmProveedor_KeyPress);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);

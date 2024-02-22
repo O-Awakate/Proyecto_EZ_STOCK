@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.picLogo = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.txtCorreo = new System.Windows.Forms.TextBox();
@@ -37,13 +36,13 @@
             this.lblCI = new System.Windows.Forms.Label();
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.btnIngresar = new System.Windows.Forms.Button();
-            this.btnSMS = new System.Windows.Forms.Button();
             this.btnCorreo = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.txtConfirmarClave = new System.Windows.Forms.TextBox();
             this.lblClave = new System.Windows.Forms.Label();
             this.lblConClave = new System.Windows.Forms.Label();
             this.panelCambioClave = new System.Windows.Forms.Panel();
+            this.btnConClave = new System.Windows.Forms.Button();
+            this.btnClave = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtClave = new System.Windows.Forms.TextBox();
@@ -53,22 +52,12 @@
             this.panelCorreoSMS = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnConClave = new System.Windows.Forms.Button();
-            this.btnClave = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.icon)).BeginInit();
             this.panelCambioClave.SuspendLayout();
             this.panelCorreoSMS.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // picLogo
-            // 
-            this.picLogo.Location = new System.Drawing.Point(8, 112);
-            this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(232, 123);
-            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picLogo.TabIndex = 49;
-            this.picLogo.TabStop = false;
             // 
             // label5
             // 
@@ -132,7 +121,7 @@
             // 
             // txtCedula
             // 
-            this.txtCedula.Location = new System.Drawing.Point(37, 102);
+            this.txtCedula.Location = new System.Drawing.Point(37, 142);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(253, 20);
             this.txtCedula.TabIndex = 3;
@@ -149,19 +138,6 @@
             this.btnIngresar.UseVisualStyleBackColor = true;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
-            // btnSMS
-            // 
-            this.btnSMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnSMS.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSMS.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSMS.Location = new System.Drawing.Point(37, 144);
-            this.btnSMS.Name = "btnSMS";
-            this.btnSMS.Size = new System.Drawing.Size(253, 23);
-            this.btnSMS.TabIndex = 17;
-            this.btnSMS.Text = "Verificación por SMS";
-            this.btnSMS.UseVisualStyleBackColor = true;
-            this.btnSMS.Click += new System.EventHandler(this.btnSMS_Click);
-            // 
             // btnCorreo
             // 
             this.btnCorreo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -174,18 +150,6 @@
             this.btnCorreo.Text = "Verificar por correo";
             this.btnCorreo.UseVisualStyleBackColor = true;
             this.btnCorreo.Click += new System.EventHandler(this.btnCorreo_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(33)))), ((int)(((byte)(61)))));
-            this.label1.Location = new System.Drawing.Point(27, 247);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(169, 13);
-            this.label1.TabIndex = 46;
-            this.label1.Text = "Repuestos y Servicios Ávila; C.A.";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // txtConfirmarClave
             // 
@@ -234,6 +198,34 @@
             this.panelCambioClave.Name = "panelCambioClave";
             this.panelCambioClave.Size = new System.Drawing.Size(337, 403);
             this.panelCambioClave.TabIndex = 48;
+            // 
+            // btnConClave
+            // 
+            this.btnConClave.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnConClave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConClave.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConClave.Image = global::CapaPresentacion.Properties.Resources.eye__5_;
+            this.btnConClave.Location = new System.Drawing.Point(303, 158);
+            this.btnConClave.Name = "btnConClave";
+            this.btnConClave.Size = new System.Drawing.Size(23, 22);
+            this.btnConClave.TabIndex = 65;
+            this.btnConClave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnConClave.UseVisualStyleBackColor = true;
+            this.btnConClave.Click += new System.EventHandler(this.btnConClave_Click);
+            // 
+            // btnClave
+            // 
+            this.btnClave.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnClave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClave.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClave.Image = global::CapaPresentacion.Properties.Resources.eye__5_;
+            this.btnClave.Location = new System.Drawing.Point(303, 116);
+            this.btnClave.Name = "btnClave";
+            this.btnClave.Size = new System.Drawing.Size(23, 22);
+            this.btnClave.TabIndex = 64;
+            this.btnClave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnClave.UseVisualStyleBackColor = true;
+            this.btnClave.Click += new System.EventHandler(this.btnClave_Click);
             // 
             // btnCancelar
             // 
@@ -307,7 +299,6 @@
             this.panelCorreoSMS.Controls.Add(this.btnBack);
             this.panelCorreoSMS.Controls.Add(this.groupBox4);
             this.panelCorreoSMS.Controls.Add(this.icon);
-            this.panelCorreoSMS.Controls.Add(this.btnSMS);
             this.panelCorreoSMS.Controls.Add(this.lblCI);
             this.panelCorreoSMS.Controls.Add(this.label4);
             this.panelCorreoSMS.Controls.Add(this.txtCedula);
@@ -338,71 +329,48 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Verificación";
             // 
-            // btnConClave
+            // pictureBox1
             // 
-            this.btnConClave.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnConClave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConClave.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConClave.Image = global::CapaPresentacion.Properties.Resources.eye__5_;
-            this.btnConClave.Location = new System.Drawing.Point(303, 158);
-            this.btnConClave.Name = "btnConClave";
-            this.btnConClave.Size = new System.Drawing.Size(23, 22);
-            this.btnConClave.TabIndex = 65;
-            this.btnConClave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnConClave.UseVisualStyleBackColor = true;
-            this.btnConClave.Click += new System.EventHandler(this.btnConClave_Click);
-            // 
-            // btnClave
-            // 
-            this.btnClave.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnClave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClave.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClave.Image = global::CapaPresentacion.Properties.Resources.eye__5_;
-            this.btnClave.Location = new System.Drawing.Point(303, 116);
-            this.btnClave.Name = "btnClave";
-            this.btnClave.Size = new System.Drawing.Size(23, 22);
-            this.btnClave.TabIndex = 64;
-            this.btnClave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnClave.UseVisualStyleBackColor = true;
-            this.btnClave.Click += new System.EventHandler(this.btnClave_Click);
+            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.EZ_STOCK_1;
+            this.pictureBox1.Location = new System.Drawing.Point(15, 103);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(207, 190);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 52;
+            this.pictureBox1.TabStop = false;
             // 
             // Verificacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(595, 456);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panelCorreoSMS);
             this.Controls.Add(this.txtCorreo);
             this.Controls.Add(this.txtID);
-            this.Controls.Add(this.picLogo);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Verificacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmVerificacion";
             this.Load += new System.EventHandler(this.FrmVerificacion_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon)).EndInit();
             this.panelCambioClave.ResumeLayout(false);
             this.panelCambioClave.PerformLayout();
             this.panelCorreoSMS.ResumeLayout(false);
             this.panelCorreoSMS.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox icon;
         private System.Windows.Forms.Label lblCI;
         private System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.Button btnIngresar;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnSMS;
         private System.Windows.Forms.Button btnCorreo;
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Label lblConClave;
@@ -422,5 +390,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnConClave;
         private System.Windows.Forms.Button btnClave;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmListaProveedores));
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.cboBuscar = new System.Windows.Forms.ComboBox();
@@ -203,9 +204,10 @@
             this.Controls.Add(this.dgvData);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmListaProveedores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmListaProveedores";
+            this.Text = "Lista de Proveedores";
             this.Load += new System.EventHandler(this.FrmListaProveedores_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

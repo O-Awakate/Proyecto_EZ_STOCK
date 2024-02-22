@@ -20,7 +20,7 @@ namespace CapaPresentacion
             InitializeComponent();
         }
         
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void ObtenerCompra(string buscar)
         {
             Compra oCompra = new CN_Compra().ObtenerCompra(txtBusqueda.Text);
 
@@ -56,6 +56,11 @@ namespace CapaPresentacion
                 txtDeuda.Text = oCompra.oCredito.Deuda.ToString("0.00");
 
             }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            ObtenerCompra(txtBusqueda.Text);
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -148,6 +153,47 @@ namespace CapaPresentacion
             if (e.KeyData == Keys.Enter)
             {
                 calculaDeudaFinal();
+            }
+        }
+
+        private void FrmAbonoCompra_Load(object sender, EventArgs e)
+        {
+            DateTime fechaActual = DateTime.Now;
+
+            Otros_Datos datos = new CN_OtrosDatos().obtenerOtrosDatos();
+
+            if (DateTime.TryParse(datos.FechaRegistro, out DateTime fechaValorDolar))
+            {
+                if (fechaActual.Date > fechaValorDolar.Date || (fechaActual.Date == fechaValorDolar.Date && fechaActual.Hour >= 9 && fechaValorDolar.Hour < 9))
+                {
+                    // Si la fecha actual es después de la fecha de FechaRegistro o es el mismo día y la hora actual es después de las 9 AM y la hora de FechaRegistro es antes de las 9 AM
+                    txtMontoBs.BackColor = Color.MistyRose;
+                }
+                else if (fechaActual.Date == fechaValorDolar.Date && fechaActual.Hour >= 13 && fechaValorDolar.Hour < 13)
+                {
+                    // Si la fecha actual es igual a la fecha de FechaRegistro y la hora actual es después de la 1 PM
+                    txtMontoBs.BackColor = Color.MistyRose;
+                }
+            }
+        }
+
+        private void btnBuscarCompra_Click(object sender, EventArgs e)
+        {
+            using (var modal = new FrmListaCreditoCompras())
+            {
+                var result = modal.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    txtBusqueda.Text = modal._Compra.NumeroDocumento.ToString();
+
+                    ObtenerCompra(txtBusqueda.Text);
+                }
+                else
+                {
+                    txtDocumento.Select();
+                }
+
             }
         }
     }

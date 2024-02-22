@@ -73,6 +73,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnBuscarVentas = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -539,11 +540,26 @@
             this.groupBox1.TabIndex = 63;
             this.groupBox1.TabStop = false;
             // 
+            // btnBuscarVentas
+            // 
+            this.btnBuscarVentas.BackColor = System.Drawing.Color.White;
+            this.btnBuscarVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarVentas.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarVentas.Image = global::CapaPresentacion.Properties.Resources.magnifying_glass_thin__2_;
+            this.btnBuscarVentas.Location = new System.Drawing.Point(731, 36);
+            this.btnBuscarVentas.Name = "btnBuscarVentas";
+            this.btnBuscarVentas.Size = new System.Drawing.Size(107, 69);
+            this.btnBuscarVentas.TabIndex = 81;
+            this.btnBuscarVentas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnBuscarVentas.UseVisualStyleBackColor = false;
+            this.btnBuscarVentas.Click += new System.EventHandler(this.btnBuscarVentas_Click);
+            // 
             // FrmAbonoVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(858, 566);
+            this.Controls.Add(this.btnBuscarVentas);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel5);
@@ -552,6 +568,7 @@
             this.Controls.Add(this.panel2);
             this.Name = "FrmAbonoVenta";
             this.Text = "FrmAbonoVenta";
+            this.Load += new System.EventHandler(this.FrmAbonoVenta_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -610,5 +627,6 @@
         private System.Windows.Forms.TextBox txtDeuda;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnBuscarVentas;
     }
 }

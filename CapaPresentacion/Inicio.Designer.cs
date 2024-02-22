@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.btnBack = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -363,19 +364,19 @@
             this.ddmVenta.MenuItemTextColor = System.Drawing.Color.DimGray;
             this.ddmVenta.Name = "dropdownMenu2";
             this.ddmVenta.PrimaryColor = System.Drawing.Color.MediumSlateBlue;
-            this.ddmVenta.Size = new System.Drawing.Size(181, 70);
+            this.ddmVenta.Size = new System.Drawing.Size(130, 48);
             // 
             // SubMenuRegVenta
             // 
             this.SubMenuRegVenta.Name = "SubMenuRegVenta";
-            this.SubMenuRegVenta.Size = new System.Drawing.Size(180, 22);
+            this.SubMenuRegVenta.Size = new System.Drawing.Size(129, 22);
             this.SubMenuRegVenta.Text = "Registrar";
             this.SubMenuRegVenta.Click += new System.EventHandler(this.SubMenuRegVenta_Click);
             // 
             // SubMenuDetVenta
             // 
             this.SubMenuDetVenta.Name = "SubMenuDetVenta";
-            this.SubMenuDetVenta.Size = new System.Drawing.Size(180, 22);
+            this.SubMenuDetVenta.Size = new System.Drawing.Size(129, 22);
             this.SubMenuDetVenta.Text = "Ver Detalle";
             this.SubMenuDetVenta.Click += new System.EventHandler(this.SubMenuDetVenta_Click);
             // 
@@ -516,6 +517,7 @@
             this.Controls.Add(this.contenedor);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Inicio_Load);

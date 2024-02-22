@@ -27,40 +27,21 @@ namespace CapaPresentacion
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            Login form = new Login();
-
-            form.Show();
             this.Close();
-
-            form.FormClosing += frm_clossign;
-        }
-
-        public Image byteToImagege(byte[] imageByte)
-        {
-            MemoryStream ms = new MemoryStream();
-            ms.Write(imageByte, 0, imageByte.Length);
-            Image image = new Bitmap(ms);
-
-            return image;
         }
 
         private void FrmVerificacion_Load(object sender, EventArgs e)
         {
-            bool obtenido = true;
-            byte[] byteimage = new CN_OtrosDatos().obtenerLogo(out obtenido);
 
-            if (obtenido)
-                picLogo.Image = byteToImagege(byteimage);
-
+            btnBack.Visible = false;
+            
             btnCorreo.Visible = false;
-            btnSMS.Visible = false;
             panelCambioClave.Visible = false;
         }
 
         public void verificacion()
         {
             btnCorreo.Visible = true;
-            btnSMS.Visible = true;
 
             lblCI.Visible = false;
             icon.Visible = false;
@@ -73,7 +54,6 @@ namespace CapaPresentacion
         private void btnCorreo_Click(object sender, EventArgs e)
         {
             btnCorreo.Visible = false;
-            btnSMS.Visible = false;
 
             EncryptMD5 cifrado = new EncryptMD5();
 
@@ -121,7 +101,6 @@ namespace CapaPresentacion
         private void btnSMS_Click(object sender, EventArgs e)
         {
             btnCorreo.Visible = false;
-            btnSMS.Visible = false;
 
             verificacion();
         }
@@ -142,6 +121,8 @@ namespace CapaPresentacion
                     verificacion();
                     txtCorreo.Text = oUsuario.oDatosPersona.oCorreo.UsuarioCorreo;
                     txtID.Text = oUsuario.IdUsuario.ToString();
+
+                    btnBack.Visible = true;
                 }
                 else
                 {
@@ -251,7 +232,6 @@ namespace CapaPresentacion
         private void btnBack_Click(object sender, EventArgs e)
         {
             btnCorreo.Visible = false;
-            btnSMS.Visible = false;
             btnBack.Visible = false;
 
 
@@ -260,6 +240,7 @@ namespace CapaPresentacion
             txtCedula.Visible = true;
             btnIngresar.Visible = true;
             btnSalir.Visible = true;
+            btnBack.Visible = false;
         }
         
         private void btnCancelar_Click(object sender, EventArgs e)

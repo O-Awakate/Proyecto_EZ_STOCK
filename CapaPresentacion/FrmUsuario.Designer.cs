@@ -42,10 +42,10 @@
             this.label25 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.txtConfirmarContraseña = new System.Windows.Forms.TextBox();
-            this.cboRol = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
+            this.cboRol = new System.Windows.Forms.ComboBox();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.dgvData = new System.Windows.Forms.DataGridView();
@@ -74,7 +74,9 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
             this.cboCiudad = new System.Windows.Forms.ComboBox();
+            this.cboDominio = new System.Windows.Forms.ComboBox();
             this.cboEstadoVen = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -138,10 +140,10 @@
             this.panel2.Controls.Add(this.label25);
             this.panel2.Controls.Add(this.label22);
             this.panel2.Controls.Add(this.txtConfirmarContraseña);
-            this.panel2.Controls.Add(this.cboRol);
             this.panel2.Controls.Add(this.label19);
             this.panel2.Controls.Add(this.label21);
             this.panel2.Controls.Add(this.label24);
+            this.panel2.Controls.Add(this.cboRol);
             this.panel2.Controls.Add(this.txtContraseña);
             this.panel2.Controls.Add(this.label20);
             this.panel2.Location = new System.Drawing.Point(17, 164);
@@ -179,7 +181,7 @@
             // 
             // groupBox6
             // 
-            this.groupBox6.Location = new System.Drawing.Point(273, 14);
+            this.groupBox6.Location = new System.Drawing.Point(285, 14);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(2, 104);
             this.groupBox6.TabIndex = 22;
@@ -197,7 +199,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(286, 30);
+            this.label23.Location = new System.Drawing.Point(177, 35);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(48, 17);
             this.label23.TabIndex = 38;
@@ -207,7 +209,7 @@
             // 
             this.cboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEstado.FormattingEnabled = true;
-            this.cboEstado.Location = new System.Drawing.Point(292, 50);
+            this.cboEstado.Location = new System.Drawing.Point(177, 55);
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.Size = new System.Drawing.Size(94, 21);
             this.cboEstado.TabIndex = 37;
@@ -216,7 +218,7 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(294, 101);
+            this.label25.Location = new System.Drawing.Point(173, 101);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(100, 17);
             this.label25.TabIndex = 36;
@@ -226,11 +228,12 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(170, 30);
+            this.label22.Location = new System.Drawing.Point(308, 34);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(27, 17);
             this.label22.TabIndex = 35;
             this.label22.Text = "Rol";
+            this.label22.Visible = false;
             // 
             // txtConfirmarContraseña
             // 
@@ -240,15 +243,6 @@
             this.txtConfirmarContraseña.PasswordChar = '*';
             this.txtConfirmarContraseña.Size = new System.Drawing.Size(121, 22);
             this.txtConfirmarContraseña.TabIndex = 35;
-            // 
-            // cboRol
-            // 
-            this.cboRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboRol.FormattingEnabled = true;
-            this.cboRol.Location = new System.Drawing.Point(173, 50);
-            this.cboRol.Name = "cboRol";
-            this.cboRol.Size = new System.Drawing.Size(94, 21);
-            this.cboRol.TabIndex = 34;
             // 
             // label19
             // 
@@ -274,11 +268,22 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(175, 96);
+            this.label24.Location = new System.Drawing.Point(302, 100);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(92, 17);
             this.label24.TabIndex = 31;
             this.label24.Text = "Gestión Roles";
+            this.label24.Visible = false;
+            // 
+            // cboRol
+            // 
+            this.cboRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboRol.FormattingEnabled = true;
+            this.cboRol.Location = new System.Drawing.Point(305, 54);
+            this.cboRol.Name = "cboRol";
+            this.cboRol.Size = new System.Drawing.Size(94, 21);
+            this.cboRol.TabIndex = 34;
+            this.cboRol.Visible = false;
             // 
             // txtContraseña
             // 
@@ -289,6 +294,7 @@
             this.txtContraseña.Size = new System.Drawing.Size(121, 22);
             this.txtContraseña.TabIndex = 33;
             this.txtContraseña.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtContraseña_KeyDown);
+            this.txtContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContraseña_KeyPress);
             // 
             // label20
             // 
@@ -336,7 +342,7 @@
             this.Rol,
             this.EstadoActual,
             this.EstadoValor});
-            this.dgvData.Location = new System.Drawing.Point(17, 296);
+            this.dgvData.Location = new System.Drawing.Point(17, 295);
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
@@ -524,7 +530,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.cboCiudad);
+            this.panel1.Controls.Add(this.cboDominio);
             this.panel1.Controls.Add(this.cboEstadoVen);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.groupBox4);
@@ -560,6 +568,17 @@
             this.panel1.Size = new System.Drawing.Size(829, 123);
             this.panel1.TabIndex = 16;
             // 
+            // label12
+            // 
+            this.label12.AllowDrop = true;
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(294, 46);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(57, 17);
+            this.label12.TabIndex = 65;
+            this.label12.Text = "Dominio";
+            // 
             // cboCiudad
             // 
             this.cboCiudad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -568,6 +587,15 @@
             this.cboCiudad.Name = "cboCiudad";
             this.cboCiudad.Size = new System.Drawing.Size(94, 21);
             this.cboCiudad.TabIndex = 42;
+            // 
+            // cboDominio
+            // 
+            this.cboDominio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboDominio.FormattingEnabled = true;
+            this.cboDominio.Location = new System.Drawing.Point(294, 66);
+            this.cboDominio.Name = "cboDominio";
+            this.cboDominio.Size = new System.Drawing.Size(118, 21);
+            this.cboDominio.TabIndex = 64;
             // 
             // cboEstadoVen
             // 
@@ -638,6 +666,7 @@
             this.txtNurCasa.Size = new System.Drawing.Size(64, 22);
             this.txtNurCasa.TabIndex = 32;
             this.txtNurCasa.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNurCasa_KeyDown);
+            this.txtNurCasa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNurCasa_KeyPress);
             // 
             // label26
             // 
@@ -657,6 +686,7 @@
             this.txtCalle.Size = new System.Drawing.Size(95, 22);
             this.txtCalle.TabIndex = 30;
             this.txtCalle.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCalle_KeyDown);
+            this.txtCalle.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCalle_KeyPress);
             // 
             // label17
             // 
@@ -676,7 +706,7 @@
             this.txtSector.Size = new System.Drawing.Size(95, 22);
             this.txtSector.TabIndex = 28;
             this.txtSector.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSector_KeyDown);
-            this.txtSector.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmUsuario_KeyPress);
+            this.txtSector.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSector_KeyPress);
             // 
             // label18
             // 
@@ -731,17 +761,18 @@
             // txtCorreo
             // 
             this.txtCorreo.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorreo.Location = new System.Drawing.Point(297, 47);
+            this.txtCorreo.Location = new System.Drawing.Point(293, 21);
             this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(125, 22);
+            this.txtCorreo.Size = new System.Drawing.Size(119, 22);
             this.txtCorreo.TabIndex = 13;
             this.txtCorreo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCorreo_KeyDown);
+            this.txtCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCorreo_KeyPress);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(295, 28);
+            this.label10.Location = new System.Drawing.Point(291, 2);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(49, 17);
             this.label10.TabIndex = 12;
@@ -755,7 +786,7 @@
             this.txtApellido.Size = new System.Drawing.Size(121, 22);
             this.txtApellido.TabIndex = 11;
             this.txtApellido.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtApellido_KeyDown);
-            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmUsuario_KeyPress);
+            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // label9
             // 
@@ -775,7 +806,7 @@
             this.txtNombre.Size = new System.Drawing.Size(121, 22);
             this.txtNombre.TabIndex = 9;
             this.txtNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombre_KeyDown);
-            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmUsuario_KeyPress);
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // label8
             // 
@@ -939,7 +970,6 @@
             this.Name = "FrmUsuario";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FrmUsuario_Load_1);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmUsuario_KeyPress);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
@@ -1032,5 +1062,7 @@
         private System.Windows.Forms.ComboBox cboCiudad;
         private System.Windows.Forms.Button btnConClave;
         private System.Windows.Forms.Button btnClave;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox cboDominio;
     }
 }

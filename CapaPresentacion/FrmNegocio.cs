@@ -50,6 +50,7 @@ namespace CapaPresentacion
             Otros_Datos OtrosDatos = new CN_OtrosDatos().obtenerOtrosDatos();
 
             txtPrecioDolar.Text = OtrosDatos.ValorDolar.ToString();
+            txtFecha.Text = OtrosDatos.FechaRegistro.ToString();
 
         }
 
@@ -74,6 +75,12 @@ namespace CapaPresentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (!txtRIF.Text.Contains("J-"))
+            {
+                MessageBox.Show("El campo RIF debe contener 'J-'", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; 
+            }
+
             string mensaje = string.Empty;
 
             Negocio obj = new Negocio()
@@ -174,6 +181,35 @@ namespace CapaPresentacion
             }
         }
 
-        
+        private void txtPrecioDolar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                if (txtPrecioDolar.Text.Trim().Length == 0 && e.KeyChar.ToString() == ".")
+                {
+                    e.Handled = true;
+                }
+                if (txtPrecioDolar.Text.Trim().Length == 0 && e.KeyChar.ToString() == ",")
+                {
+                    e.Handled = true;
+                }
+                else
+                {
+                    if (Char.IsControl(e.KeyChar) || e.KeyChar.ToString() == ",")
+                    {
+                        e.Handled = false;
+                    }
+                    else
+                    {
+                        e.Handled = true;
+                    }
+
+                }
+            }
+        }
     }
 }

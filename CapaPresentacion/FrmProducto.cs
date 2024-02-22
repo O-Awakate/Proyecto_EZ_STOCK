@@ -82,6 +82,9 @@ namespace CapaPresentacion
                 MarcaProducto = txtMarcaProducto.Text,
                 MarcaCarro = txtMarcaCarro.Text,
                 AplicaParaCarro = txtAplicaParaCarro.Text,
+                Stock = Convert.ToInt32(txtCantidad.Value),
+                PrecioCompra =Convert.ToDecimal(txtPrecCompra.Text),
+                PrecioVenta = Convert.ToDecimal(txtPrecVenta.Text),
                 Estado = Convert.ToInt32(((OpcionCombo)cboEstado.SelectedItem).Valor) == 1 ? true : false
             };
 
@@ -349,8 +352,121 @@ namespace CapaPresentacion
 
         private void txtCodigoFabrica_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Verificar si el caracter ingresado es una letra o la tecla "Enter"
-            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Enter && e.KeyChar != (char)Keys.Back)
+            if (txtCodigoFabrica.Text.Length >= 10 && e.KeyChar != (char)Keys.Back)
+            {
+                // Si no es una letra ni la tecla "Enter", ignorar el caracter
+                e.Handled = true;
+            }
+        }
+
+        private void txtCodigoAvila_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back || txtCodigoFabrica.Text.Length >= 10 && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Ignora el carácter
+            }
+        }
+
+        private void txtPrecCompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                if (txtPrecCompra.Text.Trim().Length == 0 && e.KeyChar.ToString() == ".")
+                {
+                    e.Handled = true;
+                }
+                if (txtPrecCompra.Text.Trim().Length == 0 && e.KeyChar.ToString() == ",")
+                {
+                    e.Handled = true;
+                }
+                else
+                {
+                    if (Char.IsControl(e.KeyChar) || e.KeyChar.ToString() == ",")
+                    {
+                        e.Handled = false;
+                    }
+                    else
+                    {
+                        e.Handled = true;
+                    }
+
+                }
+            }
+        }
+
+        private void txtPrecVenta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                if (txtPrecVenta.Text.Trim().Length == 0 && e.KeyChar.ToString() == ".")
+                {
+                    e.Handled = true;
+                }
+                if (txtPrecVenta.Text.Trim().Length == 0 && e.KeyChar.ToString() == ",")
+                {
+                    e.Handled = true;
+                }
+                else
+                {
+                    if (Char.IsControl(e.KeyChar) || e.KeyChar.ToString() == ",")
+                    {
+                        e.Handled = false;
+                    }
+                    else
+                    {
+                        e.Handled = true;
+                    }
+
+                }
+            }
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != '0')
+            {
+                e.Handled = true; // Ignorar el carácter
+            }
+        }
+
+        private void txtDescripcion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtDescripcion.Text.Length >= 20 && e.KeyChar != (char)Keys.Back)
+            {
+                // Si no es una letra ni la tecla "Enter", ignorar el caracter
+                e.Handled = true;
+            }
+        }
+
+        private void txtMarcaProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtMarcaProducto.Text.Length >= 20 && e.KeyChar != (char)Keys.Back)
+            {
+                // Si no es una letra ni la tecla "Enter", ignorar el caracter
+                e.Handled = true;
+            }
+        }
+
+        private void txtAplicaParaCarro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtAplicaParaCarro.Text.Length >= 20 && e.KeyChar != (char)Keys.Back)
+            {
+                // Si no es una letra ni la tecla "Enter", ignorar el caracter
+                e.Handled = true;
+            }
+        }
+
+        private void txtMarcaCarro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtMarcaCarro.Text.Length >= 20 && e.KeyChar != (char)Keys.Back)
             {
                 // Si no es una letra ni la tecla "Enter", ignorar el caracter
                 e.Handled = true;

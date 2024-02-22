@@ -48,6 +48,25 @@ namespace CapaPresentacion
 
             txtIdProv.Text = "0";
             txtId.Text = "0";
+
+
+            DateTime fechaActual = DateTime.Now;
+
+            Otros_Datos datos = new CN_OtrosDatos().obtenerOtrosDatos();
+
+            if (DateTime.TryParse(datos.FechaRegistro, out DateTime fechaValorDolar))
+            {
+                if (fechaActual.Date > fechaValorDolar.Date || (fechaActual.Date == fechaValorDolar.Date && fechaActual.Hour >= 9 && fechaValorDolar.Hour < 9))
+                {
+                    // Si la fecha actual es después de la fecha de FechaRegistro o es el mismo día y la hora actual es después de las 9 AM y la hora de FechaRegistro es antes de las 9 AM
+                    txtMontoBs.BackColor = Color.MistyRose;
+                }
+                else if (fechaActual.Date == fechaValorDolar.Date && fechaActual.Hour >= 13 && fechaValorDolar.Hour < 13)
+                {
+                    // Si la fecha actual es igual a la fecha de FechaRegistro y la hora actual es después de la 1 PM
+                    txtMontoBs.BackColor = Color.MistyRose;
+                }
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -485,6 +504,10 @@ namespace CapaPresentacion
                 MarcaProducto = txtMarcaProducto.Text,
                 MarcaCarro = txtMarcaCarro.Text,
                 AplicaParaCarro = txtAplica.Text,
+                Stock = 0,
+                PrecioCompra = 0.00M,
+                PrecioVenta = 0.00M,
+
                 Estado = true
             };
             int IdProductoGenrado = new CN_Producto().Registrar(obj, out mensaje);
@@ -513,6 +536,14 @@ namespace CapaPresentacion
 
 
 
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != '0')
+            {
+                e.Handled = true; // Ignorar el carácter
+            }
         }
     }
 }

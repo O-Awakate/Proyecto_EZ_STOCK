@@ -21,6 +21,17 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
+        private bool ValidarFormatoCI(string ci)
+        {
+            // Verificar que la cadena tenga exactamente 8 caracteres y que todos sean dígitos
+            if (ci.Length > 5 && ci.All(char.IsDigit))
+            {
+                return true;
+            }
+            return false;
+
+        }
+
         private void Estados()
         {
             cboEstadoVen.Items.Add(new OpcionCombo() { Valor = "AM", Texto = "Amazonas" });
@@ -56,6 +67,13 @@ namespace CapaPresentacion
         private void FrmCliente_Load(object sender, EventArgs e)
         {
             Estados();
+
+            txtCI.ShortcutsEnabled = false;
+            txtTelefono.ShortcutsEnabled = false;
+            txtNombre.ShortcutsEnabled = false;
+            txtApellido.ShortcutsEnabled = false;
+            txtSector.ShortcutsEnabled = false;
+
 
             //ComboBox Nacionalidad
             cboNacionalidad.Items.Add(new OpcionCombo() { Valor = "V", Texto = "V" });
@@ -112,6 +130,12 @@ namespace CapaPresentacion
         }
         private void Guardar()
         {
+            if (!ValidarFormatoCI(txtCI.Text))
+            {
+                MessageBox.Show("Ingrese una Cedula válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             string mensaje = string.Empty;
 
             Cliente obj = new Cliente()
@@ -395,14 +419,14 @@ namespace CapaPresentacion
 
         private void txtCI_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Enter || txtCI.Text.Length >= 8)
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Enter || (txtCI.Text.Length >= 8 && e.KeyChar != (char)Keys.Back))
             {
                 e.Handled = true;
             }
         }
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Enter || txtTelefono.Text.Length >= 11)
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Enter || (txtTelefono.Text.Length >= 11 && e.KeyChar != (char)Keys.Back))
             {
                 e.Handled = true;
             }
@@ -481,7 +505,7 @@ namespace CapaPresentacion
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Verificar si el caracter ingresado es una letra o la tecla "Enter"
-            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Enter && e.KeyChar != (char)Keys.Back)
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Enter && e.KeyChar != (char)Keys.Back || txtNombre.Text.Length >= 25 && e.KeyChar != (char)Keys.Back)
             {
                 // Si no es una letra ni la tecla "Enter", ignorar el caracter
                 e.Handled = true;
@@ -491,7 +515,7 @@ namespace CapaPresentacion
         private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Verificar si el caracter ingresado es una letra o la tecla "Enter"
-            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Enter && e.KeyChar != (char)Keys.Back)
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Enter && e.KeyChar != (char)Keys.Back || txtApellido.Text.Length >= 25 && e.KeyChar != (char)Keys.Back)
             {
                 // Si no es una letra ni la tecla "Enter", ignorar el caracter
                 e.Handled = true;
@@ -501,7 +525,25 @@ namespace CapaPresentacion
         private void txtSector_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Verificar si el caracter ingresado es una letra o la tecla "Enter"
-            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Enter && e.KeyChar != (char)Keys.Back)
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Enter && e.KeyChar != (char)Keys.Back || txtSector.Text.Length >= 15 && e.KeyChar != (char)Keys.Back)
+            {
+                // Si no es una letra ni la tecla "Enter", ignorar el caracter
+                e.Handled = true;
+            }
+        }
+
+        private void txtCalle_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtCalle.Text.Length >= 15 && e.KeyChar != (char)Keys.Back)
+            {
+                // Si no es una letra ni la tecla "Enter", ignorar el caracter
+                e.Handled = true;
+            }
+        }
+
+        private void txtNurCasa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtNurCasa.Text.Length >= 10 && e.KeyChar != (char)Keys.Back)
             {
                 // Si no es una letra ni la tecla "Enter", ignorar el caracter
                 e.Handled = true;
