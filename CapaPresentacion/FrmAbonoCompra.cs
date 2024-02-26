@@ -26,7 +26,7 @@ namespace CapaPresentacion
 
             if (oCompra.IdCompra != 0 && oCompra.oCredito.Deuda <= 0)
             {
-                MessageBox.Show("Esta venta no posee una deuda", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Esta compra no posee una deuda", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -86,6 +86,18 @@ namespace CapaPresentacion
 
         private void txtRegistrar_Click(object sender, EventArgs e)
         {
+            if (txtIdCredito.Text != "")
+            {
+                MessageBox.Show("Seleccione primero una compra de credito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (txtAbono.Text == "")
+            {
+                MessageBox.Show("No esta ingresando un monto a abonar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
             Abono_Credito oAbono = new Abono_Credito()
             {
                 oCredito = new Credito() { IdCredito = Convert.ToInt32(txtIdCredito.Text) },
@@ -126,6 +138,23 @@ namespace CapaPresentacion
 
         private void calculaDeudaFinal()
         {
+            if (Convert.ToDecimal(txtAbono.Text) > Convert.ToDecimal(txtMontoTotal.Text))
+            {
+                MessageBox.Show("No puede abonar un monto mayor a la compra", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (txtIdCredito.Text != "")
+            {
+                MessageBox.Show("Seleccione primero una compra de credito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (txtAbono.Text == "")
+            {
+                MessageBox.Show("No esta ingresando un monto a abonar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             decimal abono;
             decimal deuda = Convert.ToDecimal(txtDeuda.Text);
 
@@ -194,6 +223,37 @@ namespace CapaPresentacion
                     txtDocumento.Select();
                 }
 
+            }
+        }
+
+        private void txtAbono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                if (txtAbono.Text.Trim().Length == 0 && e.KeyChar.ToString() == ".")
+                {
+                    e.Handled = true;
+                }
+                if (txtAbono.Text.Trim().Length == 0 && e.KeyChar.ToString() == ",")
+                {
+                    e.Handled = true;
+                }
+                else
+                {
+                    if (Char.IsControl(e.KeyChar) || e.KeyChar.ToString() == ",")
+                    {
+                        e.Handled = false;
+                    }
+                    else
+                    {
+                        e.Handled = true;
+                    }
+
+                }
             }
         }
     }

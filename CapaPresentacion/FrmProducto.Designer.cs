@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnExcel = new System.Windows.Forms.Button();
             this.btnLimpiarBuscador = new System.Windows.Forms.Button();
@@ -39,10 +39,16 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtPrecVenta = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.txtCodigoFabrica = new System.Windows.Forms.TextBox();
+            this.txtPrecCompra = new System.Windows.Forms.TextBox();
             this.txtMarcaCarro = new System.Windows.Forms.TextBox();
+            this.txtCantidad = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.cboEstado = new System.Windows.Forms.ComboBox();
             this.label25 = new System.Windows.Forms.Label();
@@ -75,16 +81,10 @@
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtIndice = new System.Windows.Forms.TextBox();
             this.txtID = new System.Windows.Forms.TextBox();
-            this.txtPrecVenta = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtPrecCompra = new System.Windows.Forms.TextBox();
-            this.txtCantidad = new System.Windows.Forms.NumericUpDown();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCantidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -213,6 +213,25 @@
             this.panel1.Size = new System.Drawing.Size(724, 134);
             this.panel1.TabIndex = 60;
             // 
+            // txtPrecVenta
+            // 
+            this.txtPrecVenta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPrecVenta.Location = new System.Drawing.Point(364, 76);
+            this.txtPrecVenta.Name = "txtPrecVenta";
+            this.txtPrecVenta.Size = new System.Drawing.Size(96, 20);
+            this.txtPrecVenta.TabIndex = 75;
+            this.txtPrecVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecVenta_KeyPress);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(361, 56);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(80, 17);
+            this.label6.TabIndex = 76;
+            this.label6.Text = "Precio Venta";
+            // 
             // txtCodigoFabrica
             // 
             this.txtCodigoFabrica.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -222,6 +241,15 @@
             this.txtCodigoFabrica.TabIndex = 67;
             this.txtCodigoFabrica.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoFabrica_KeyPress);
             // 
+            // txtPrecCompra
+            // 
+            this.txtPrecCompra.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPrecCompra.Location = new System.Drawing.Point(364, 25);
+            this.txtPrecCompra.Name = "txtPrecCompra";
+            this.txtPrecCompra.Size = new System.Drawing.Size(96, 20);
+            this.txtPrecCompra.TabIndex = 74;
+            this.txtPrecCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecCompra_KeyPress);
+            // 
             // txtMarcaCarro
             // 
             this.txtMarcaCarro.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -230,6 +258,30 @@
             this.txtMarcaCarro.Size = new System.Drawing.Size(108, 22);
             this.txtMarcaCarro.TabIndex = 66;
             this.txtMarcaCarro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMarcaCarro_KeyPress);
+            // 
+            // txtCantidad
+            // 
+            this.txtCantidad.Location = new System.Drawing.Point(476, 57);
+            this.txtCantidad.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.txtCantidad.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtCantidad.Size = new System.Drawing.Size(61, 20);
+            this.txtCantidad.TabIndex = 73;
+            this.txtCantidad.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // label3
             // 
@@ -241,6 +293,16 @@
             this.label3.TabIndex = 65;
             this.label3.Text = "Marca carro";
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(473, 37);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(60, 17);
+            this.label14.TabIndex = 72;
+            this.label14.Text = "Cantidad";
+            // 
             // groupBox5
             // 
             this.groupBox5.Location = new System.Drawing.Point(611, 9);
@@ -248,6 +310,16 @@
             this.groupBox5.Size = new System.Drawing.Size(2, 104);
             this.groupBox5.TabIndex = 64;
             this.groupBox5.TabStop = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(361, 5);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(95, 17);
+            this.label12.TabIndex = 71;
+            this.label12.Text = "Precio Compra";
             // 
             // label23
             // 
@@ -414,15 +486,15 @@
             // 
             this.dgvData.AllowUserToAddRows = false;
             this.dgvData.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -442,9 +514,9 @@
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvData.RowTemplate.Height = 28;
             this.dgvData.Size = new System.Drawing.Size(818, 302);
             this.dgvData.TabIndex = 68;
@@ -551,77 +623,6 @@
             this.txtID.Text = "0";
             this.txtID.Visible = false;
             // 
-            // txtPrecVenta
-            // 
-            this.txtPrecVenta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPrecVenta.Location = new System.Drawing.Point(364, 76);
-            this.txtPrecVenta.Name = "txtPrecVenta";
-            this.txtPrecVenta.Size = new System.Drawing.Size(96, 20);
-            this.txtPrecVenta.TabIndex = 75;
-            this.txtPrecVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecVenta_KeyPress);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(361, 56);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 17);
-            this.label6.TabIndex = 76;
-            this.label6.Text = "Precio Venta";
-            // 
-            // txtPrecCompra
-            // 
-            this.txtPrecCompra.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPrecCompra.Location = new System.Drawing.Point(364, 25);
-            this.txtPrecCompra.Name = "txtPrecCompra";
-            this.txtPrecCompra.Size = new System.Drawing.Size(96, 20);
-            this.txtPrecCompra.TabIndex = 74;
-            this.txtPrecCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecCompra_KeyPress);
-            // 
-            // txtCantidad
-            // 
-            this.txtCantidad.Location = new System.Drawing.Point(476, 57);
-            this.txtCantidad.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.txtCantidad.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(61, 20);
-            this.txtCantidad.TabIndex = 73;
-            this.txtCantidad.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(473, 37);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(60, 17);
-            this.label14.TabIndex = 72;
-            this.label14.Text = "Cantidad";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(361, 5);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(95, 17);
-            this.label12.TabIndex = 71;
-            this.label12.Text = "Precio Compra";
-            // 
             // FrmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -644,8 +645,8 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCantidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

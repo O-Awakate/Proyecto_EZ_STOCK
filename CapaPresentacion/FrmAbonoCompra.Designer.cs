@@ -197,6 +197,7 @@
             this.txtAbono.Size = new System.Drawing.Size(118, 22);
             this.txtAbono.TabIndex = 60;
             this.txtAbono.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAbono_KeyDown);
+            this.txtAbono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAbono_KeyPress);
             // 
             // label17
             // 

@@ -97,8 +97,14 @@ namespace CapaPresentacion
             txtDeuda.Text = "0.00";
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void CancelCompra()
         {
+            if (txtIdVenta.Text == "")
+            {
+                MessageBox.Show("Selecciones una venta para devolver", "Confirmar Devolución", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             var confirmResult = MessageBox.Show("¿Estás seguro de que deseas realizar la devolución?", "Confirmar Devolución", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (confirmResult == DialogResult.Yes)
             {
@@ -133,6 +139,11 @@ namespace CapaPresentacion
                 else
                     MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            CancelCompra();
         }
 
         private void dgvData_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -300,8 +311,21 @@ namespace CapaPresentacion
 
             if (respuesta)
             {
-                var result = MessageBox.Show("to correcto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
+                var result = MessageBox.Show("Devolucion Completa", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                txtFecha.Text = "";
+                txtTipoDocumento.Text = "";
+                txtIdVenta.Text = "";
+                txtUsuario.Text = "";
+                txtDocumento.Text = "";
+                txtNombreCliente.Text = "";
+                txtApellidoCliente.Text = "";
+
+                dgvData.Rows.Clear();
+                txtMontoBs.Text = "";
+                txtMontoTotal.Text = "";
+                txtDeuda.Text = "";
+
             }
 
             else
@@ -311,6 +335,12 @@ namespace CapaPresentacion
 
         private void btnDevolverProducto_Click(object sender, EventArgs e)
         {
+            if (txtIdVenta.Text == "")
+            {
+                MessageBox.Show("Selecciones una Venta para devolver", "Confirmar Devolución", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             btnGuardar.Visible = true;
             btnDevolverProducto.Visible = false;
 
@@ -332,7 +362,25 @@ namespace CapaPresentacion
 
         private void btnGuardar_Click_1(object sender, EventArgs e)
         {
-            DevolverProducto();
+            if (Convert.ToDecimal(txtMontoTotal.Text) > 0.00M)
+            {
+                DevolverProducto();
+            }
+            else
+            {
+                CancelCompra();
+            }
+
+            btnGuardar.Visible = false;
+        }
+
+        private void txtBusqueda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
+            {
+                // Si no es un número ni la tecla de retroceso, no permitir la entrada
+                e.Handled = true;
+            }
         }
     }
 }

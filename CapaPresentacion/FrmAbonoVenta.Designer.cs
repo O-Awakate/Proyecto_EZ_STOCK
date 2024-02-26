@@ -139,6 +139,7 @@
             this.txtBusqueda.Name = "txtBusqueda";
             this.txtBusqueda.Size = new System.Drawing.Size(120, 20);
             this.txtBusqueda.TabIndex = 60;
+            this.txtBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBusqueda_KeyPress);
             // 
             // label20
             // 
@@ -492,6 +493,7 @@
             this.txtAbono.Size = new System.Drawing.Size(118, 22);
             this.txtAbono.TabIndex = 60;
             this.txtAbono.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAbono_KeyDown);
+            this.txtAbono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAbono_KeyPress);
             // 
             // label17
             // 

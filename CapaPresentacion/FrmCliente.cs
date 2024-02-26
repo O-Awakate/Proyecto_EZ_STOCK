@@ -120,7 +120,6 @@ namespace CapaPresentacion
                     item.oDatosPersona.oDireccion.Sector,
                     item.oDatosPersona.oDireccion.Calle,
                     item.oDatosPersona.oDireccion.Casa,
-                    item.Deuda,
                     item.Estado == true ? "Activo" : "No Activo",
                     item.Estado == true ? 1 : 0
 
@@ -162,7 +161,6 @@ namespace CapaPresentacion
                         Casa = txtNurCasa.Text
                     },
                 },
-                Deuda = Convert.ToDecimal(txtDeuda.Text),
                 Estado = Convert.ToInt32(((OpcionCombo)cboEstado.SelectedItem).Valor) == 1 ? true : false
             };
 

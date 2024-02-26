@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnLimpiarBuscador = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -73,6 +73,12 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.txtIdTelefono = new System.Windows.Forms.TextBox();
+            this.txtIdDireccion = new System.Windows.Forms.TextBox();
+            this.txtIdDatosPersonas = new System.Windows.Forms.TextBox();
+            this.txtIndice = new System.Windows.Forms.TextBox();
+            this.txtIdCliente = new System.Windows.Forms.TextBox();
+            this.txtDeuda = new System.Windows.Forms.TextBox();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.IdDatosPersonas = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,15 +93,8 @@
             this.Sector = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Calle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Casa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Deuda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EstadoActual = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EstadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtIdTelefono = new System.Windows.Forms.TextBox();
-            this.txtIdDireccion = new System.Windows.Forms.TextBox();
-            this.txtIdDatosPersonas = new System.Windows.Forms.TextBox();
-            this.txtIndice = new System.Windows.Forms.TextBox();
-            this.txtIdCliente = new System.Windows.Forms.TextBox();
-            this.txtDeuda = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
@@ -558,15 +557,15 @@
             // 
             this.dgvData.AllowUserToAddRows = false;
             this.dgvData.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -583,21 +582,80 @@
             this.Sector,
             this.Calle,
             this.Casa,
-            this.Deuda,
             this.EstadoActual,
             this.EstadoValor});
             this.dgvData.Location = new System.Drawing.Point(17, 265);
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvData.RowTemplate.Height = 28;
             this.dgvData.Size = new System.Drawing.Size(829, 289);
             this.dgvData.TabIndex = 33;
             this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
             this.dgvData.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvData_CellPainting);
+            // 
+            // txtIdTelefono
+            // 
+            this.txtIdTelefono.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdTelefono.Location = new System.Drawing.Point(420, 224);
+            this.txtIdTelefono.Name = "txtIdTelefono";
+            this.txtIdTelefono.Size = new System.Drawing.Size(25, 22);
+            this.txtIdTelefono.TabIndex = 43;
+            this.txtIdTelefono.Text = "0";
+            this.txtIdTelefono.Visible = false;
+            // 
+            // txtIdDireccion
+            // 
+            this.txtIdDireccion.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdDireccion.Location = new System.Drawing.Point(420, 196);
+            this.txtIdDireccion.Name = "txtIdDireccion";
+            this.txtIdDireccion.Size = new System.Drawing.Size(25, 22);
+            this.txtIdDireccion.TabIndex = 42;
+            this.txtIdDireccion.Text = "0";
+            this.txtIdDireccion.Visible = false;
+            // 
+            // txtIdDatosPersonas
+            // 
+            this.txtIdDatosPersonas.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdDatosPersonas.Location = new System.Drawing.Point(420, 168);
+            this.txtIdDatosPersonas.Name = "txtIdDatosPersonas";
+            this.txtIdDatosPersonas.Size = new System.Drawing.Size(25, 22);
+            this.txtIdDatosPersonas.TabIndex = 41;
+            this.txtIdDatosPersonas.Text = "0";
+            this.txtIdDatosPersonas.Visible = false;
+            // 
+            // txtIndice
+            // 
+            this.txtIndice.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIndice.Location = new System.Drawing.Point(458, 196);
+            this.txtIndice.Name = "txtIndice";
+            this.txtIndice.Size = new System.Drawing.Size(25, 22);
+            this.txtIndice.TabIndex = 40;
+            this.txtIndice.Text = "-1";
+            this.txtIndice.Visible = false;
+            // 
+            // txtIdCliente
+            // 
+            this.txtIdCliente.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdCliente.Location = new System.Drawing.Point(458, 168);
+            this.txtIdCliente.Name = "txtIdCliente";
+            this.txtIdCliente.Size = new System.Drawing.Size(25, 22);
+            this.txtIdCliente.TabIndex = 39;
+            this.txtIdCliente.Text = "0";
+            this.txtIdCliente.Visible = false;
+            // 
+            // txtDeuda
+            // 
+            this.txtDeuda.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDeuda.Location = new System.Drawing.Point(458, 224);
+            this.txtDeuda.Name = "txtDeuda";
+            this.txtDeuda.Size = new System.Drawing.Size(25, 22);
+            this.txtDeuda.TabIndex = 44;
+            this.txtDeuda.Text = "0";
+            this.txtDeuda.Visible = false;
             // 
             // Id
             // 
@@ -689,13 +747,6 @@
             this.Casa.Name = "Casa";
             this.Casa.ReadOnly = true;
             // 
-            // Deuda
-            // 
-            this.Deuda.HeaderText = "Deuda";
-            this.Deuda.Name = "Deuda";
-            this.Deuda.ReadOnly = true;
-            this.Deuda.Visible = false;
-            // 
             // EstadoActual
             // 
             this.EstadoActual.HeaderText = "Estado Actual";
@@ -708,66 +759,6 @@
             this.EstadoValor.Name = "EstadoValor";
             this.EstadoValor.ReadOnly = true;
             this.EstadoValor.Visible = false;
-            // 
-            // txtIdTelefono
-            // 
-            this.txtIdTelefono.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdTelefono.Location = new System.Drawing.Point(420, 224);
-            this.txtIdTelefono.Name = "txtIdTelefono";
-            this.txtIdTelefono.Size = new System.Drawing.Size(25, 22);
-            this.txtIdTelefono.TabIndex = 43;
-            this.txtIdTelefono.Text = "0";
-            this.txtIdTelefono.Visible = false;
-            // 
-            // txtIdDireccion
-            // 
-            this.txtIdDireccion.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdDireccion.Location = new System.Drawing.Point(420, 196);
-            this.txtIdDireccion.Name = "txtIdDireccion";
-            this.txtIdDireccion.Size = new System.Drawing.Size(25, 22);
-            this.txtIdDireccion.TabIndex = 42;
-            this.txtIdDireccion.Text = "0";
-            this.txtIdDireccion.Visible = false;
-            // 
-            // txtIdDatosPersonas
-            // 
-            this.txtIdDatosPersonas.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdDatosPersonas.Location = new System.Drawing.Point(420, 168);
-            this.txtIdDatosPersonas.Name = "txtIdDatosPersonas";
-            this.txtIdDatosPersonas.Size = new System.Drawing.Size(25, 22);
-            this.txtIdDatosPersonas.TabIndex = 41;
-            this.txtIdDatosPersonas.Text = "0";
-            this.txtIdDatosPersonas.Visible = false;
-            // 
-            // txtIndice
-            // 
-            this.txtIndice.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIndice.Location = new System.Drawing.Point(458, 196);
-            this.txtIndice.Name = "txtIndice";
-            this.txtIndice.Size = new System.Drawing.Size(25, 22);
-            this.txtIndice.TabIndex = 40;
-            this.txtIndice.Text = "-1";
-            this.txtIndice.Visible = false;
-            // 
-            // txtIdCliente
-            // 
-            this.txtIdCliente.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdCliente.Location = new System.Drawing.Point(458, 168);
-            this.txtIdCliente.Name = "txtIdCliente";
-            this.txtIdCliente.Size = new System.Drawing.Size(25, 22);
-            this.txtIdCliente.TabIndex = 39;
-            this.txtIdCliente.Text = "0";
-            this.txtIdCliente.Visible = false;
-            // 
-            // txtDeuda
-            // 
-            this.txtDeuda.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDeuda.Location = new System.Drawing.Point(458, 224);
-            this.txtDeuda.Name = "txtDeuda";
-            this.txtDeuda.Size = new System.Drawing.Size(25, 22);
-            this.txtDeuda.TabIndex = 44;
-            this.txtDeuda.Text = "0";
-            this.txtDeuda.Visible = false;
             // 
             // FrmCliente
             // 
@@ -840,6 +831,18 @@
         private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.ComboBox cboBuscar;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox txtIdTelefono;
+        private System.Windows.Forms.TextBox txtIdDireccion;
+        private System.Windows.Forms.TextBox txtIdDatosPersonas;
+        private System.Windows.Forms.TextBox txtIndice;
+        private System.Windows.Forms.TextBox txtIdCliente;
+        private System.Windows.Forms.TextBox txtDeuda;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ComboBox cboCiudad;
+        private System.Windows.Forms.ComboBox cboEstadoVen;
+        private System.Windows.Forms.ComboBox cboNacionalidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdDatosPersonas;
@@ -854,20 +857,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Sector;
         private System.Windows.Forms.DataGridViewTextBoxColumn Calle;
         private System.Windows.Forms.DataGridViewTextBoxColumn Casa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Deuda;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstadoActual;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstadoValor;
-        private System.Windows.Forms.TextBox txtIdTelefono;
-        private System.Windows.Forms.TextBox txtIdDireccion;
-        private System.Windows.Forms.TextBox txtIdDatosPersonas;
-        private System.Windows.Forms.TextBox txtIndice;
-        private System.Windows.Forms.TextBox txtIdCliente;
-        private System.Windows.Forms.TextBox txtDeuda;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.ComboBox cboCiudad;
-        private System.Windows.Forms.ComboBox cboEstadoVen;
-        private System.Windows.Forms.ComboBox cboNacionalidad;
     }
 }

@@ -142,7 +142,22 @@ namespace CapaPresentacion
 
             if (respuesta)
             {
-                var result = MessageBox.Show("to correcto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var result = MessageBox.Show("Devolucion Completa", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                txtFecha.Text = "";
+                txtTipoDocumento.Text = "";
+                txtIdCompra.Text = "";
+                txtUsuario.Text = "";
+                txtDocumento.Text = "";
+                txtRazonSocial.Text = "";
+                txtNombreProveedor.Text = "";
+                txtApellidoProveedor.Text = "";
+                txtMetodo.Text = "";
+
+                dgvData.Rows.Clear();
+                txtMontoBs.Text = "";
+                txtMontoTotal.Text = "";
+                txtDeuda.Text = "";
 
             }
 
@@ -159,6 +174,12 @@ namespace CapaPresentacion
 
         private void btnDevolverProducto_Click(object sender, EventArgs e)
         {
+            if (txtIdCompra.Text == "")
+            {
+                MessageBox.Show("Selecciones una compra para devolver", "Confirmar Devolución", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             btnGuardar.Visible = true;
             btnDevolverProducto.Visible = false;
 
@@ -313,8 +334,15 @@ namespace CapaPresentacion
             Otros_Datos Dolar = new CN_OtrosDatos().obtenerOtrosDatos();
             txtMontoBs.Text = (decimal.Parse(txtMontoTotal.Text) * Dolar.ValorDolar).ToString("0.00");
         }
-        private void btnCancelarCompra_Click(object sender, EventArgs e)
+
+        void CancelCompra()
         {
+            if (txtIdCompra.Text == "")
+            {
+                MessageBox.Show("Selecciones una compra para devolver", "Confirmar Devolución", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             var confirmResult = MessageBox.Show("¿Estás seguro de que deseas realizar la devolución?", "Confirmar Devolución", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (confirmResult == DialogResult.Yes)
             {
@@ -352,10 +380,32 @@ namespace CapaPresentacion
                     MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+        private void btnCancelarCompra_Click(object sender, EventArgs e)
+        {
+            CancelCompra();
+        }
 
         private void btnGuardar_Click_1(object sender, EventArgs e)
         {
-            DevolverProducto();
+            if (Convert.ToDecimal(txtMontoTotal.Text) >= 0.00M)
+            {
+                DevolverProducto();
+            }
+            else
+            {
+                CancelCompra();
+            }
+
+            btnGuardar.Visible = false;
+        }
+
+        private void txtBusqueda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
+            {
+                // Si no es un número ni la tecla de retroceso, no permitir la entrada
+                e.Handled = true;
+            }
         }
     }
 }

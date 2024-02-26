@@ -81,6 +81,17 @@ namespace CapaPresentacion
 
         private void txtRegistrar_Click(object sender, EventArgs e)
         {
+            if (txtIdCredito.Text == "")
+            {
+                MessageBox.Show("Seleccione primero una venta de credito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if (txtAbono.Text == "")
+            {
+                MessageBox.Show("No esta ingresando un monto a abonar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             Abono_Credito oAbono = new Abono_Credito()
             {
                 oCredito = new Credito() { IdCredito = Convert.ToInt32(txtIdCredito.Text) },
@@ -120,6 +131,24 @@ namespace CapaPresentacion
 
         private void calculaDeudaFinal()
         {
+            if (Convert.ToDecimal(txtAbono.Text) > Convert.ToDecimal(txtMontoTotal.Text))
+            {
+                MessageBox.Show("No puede abonar un monto mayor a la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (txtIdCredito.Text == "")
+            {
+                MessageBox.Show("Seleccione primero una venta de credito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (txtAbono.Text == "")
+            {
+                MessageBox.Show("No esta ingresando un monto a abonar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             decimal abono;
             decimal deuda = Convert.ToDecimal(txtDeuda.Text);
 
@@ -188,6 +217,46 @@ namespace CapaPresentacion
                     txtDocumento.Select();
                 }
 
+            }
+        }
+
+        private void txtBusqueda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
+            {
+                // Si no es un número ni la tecla de retroceso, no permitir la entrada
+                e.Handled = true;
+            }
+        }
+
+        private void txtAbono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                if (txtAbono.Text.Trim().Length == 0 && e.KeyChar.ToString() == ".")
+                {
+                    e.Handled = true;
+                }
+                if (txtAbono.Text.Trim().Length == 0 && e.KeyChar.ToString() == ",")
+                {
+                    e.Handled = true;
+                }
+                else
+                {
+                    if (Char.IsControl(e.KeyChar) || e.KeyChar.ToString() == ",")
+                    {
+                        e.Handled = false;
+                    }
+                    else
+                    {
+                        e.Handled = true;
+                    }
+
+                }
             }
         }
     }

@@ -20,10 +20,13 @@ namespace CapaPresentacion
         public FrmProducto()
         {
             InitializeComponent();
+            txtCantidad.Minimum = 0;
+            txtCantidad.Value = 0;
         }
 
         private void FrmProducto_Load(object sender, EventArgs e)
         {
+            
 
             cboEstado.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Activo" });
             cboEstado.Items.Add(new OpcionCombo() { Valor = 0, Texto = "No Activo" });
@@ -72,6 +75,18 @@ namespace CapaPresentacion
         {
 
             string mensaje = string.Empty;
+            decimal PrecioCompra = 0;
+            decimal precioVenta = 0;
+
+            if (txtPrecCompra.Text != "")
+            {
+                PrecioCompra = Convert.ToDecimal(txtPrecCompra.Text);
+            }
+
+            if (txtPrecVenta.Text != "")
+            {
+                precioVenta = Convert.ToDecimal(txtPrecVenta.Text);
+            }
 
             Producto obj = new Producto()
             {
@@ -83,8 +98,8 @@ namespace CapaPresentacion
                 MarcaCarro = txtMarcaCarro.Text,
                 AplicaParaCarro = txtAplicaParaCarro.Text,
                 Stock = Convert.ToInt32(txtCantidad.Value),
-                PrecioCompra =Convert.ToDecimal(txtPrecCompra.Text),
-                PrecioVenta = Convert.ToDecimal(txtPrecVenta.Text),
+                PrecioCompra = PrecioCompra,
+                PrecioVenta = precioVenta,
                 Estado = Convert.ToInt32(((OpcionCombo)cboEstado.SelectedItem).Valor) == 1 ? true : false
             };
 
@@ -105,9 +120,9 @@ namespace CapaPresentacion
                         txtMarcaProducto.Text,
                         txtMarcaCarro.Text,
                         txtAplicaParaCarro.Text,
-                        "0",
-                        "0,00",
-                        "0,00",
+                        txtCantidad.Value,
+                        PrecioCompra,
+                        precioVenta,
                         ((OpcionCombo)cboEstado.SelectedItem).Valor.ToString(),
                         ((OpcionCombo)cboEstado.SelectedItem).Texto.ToString()
                     });
@@ -328,7 +343,7 @@ namespace CapaPresentacion
                 }
 
                 SaveFileDialog savefile = new SaveFileDialog();
-                savefile.FileName = string.Format("ResporteProducto_{0}.xlsx", DateTime.Now.ToString("ddMMyyyyHHmmss"));
+                savefile.FileName = string.Format("ReporteProducto_{0}.xlsx", DateTime.Now.ToString("ddMMyyyyHHmmss"));
                 savefile.Filter = "Excel Files | *.xlsx*";
 
                 if (savefile.ShowDialog() == DialogResult.OK)

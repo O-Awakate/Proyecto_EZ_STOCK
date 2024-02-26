@@ -729,6 +729,7 @@
             this.txtDeuda.Name = "txtDeuda";
             this.txtDeuda.Size = new System.Drawing.Size(101, 22);
             this.txtDeuda.TabIndex = 74;
+            this.txtDeuda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDeuda_KeyPress);
             // 
             // lblDeuda
             // 

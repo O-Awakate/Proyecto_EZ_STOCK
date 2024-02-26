@@ -545,5 +545,10 @@ namespace CapaPresentacion
                 e.Handled = true; // Ignorar el carácter
             }
         }
+
+        private void txtDeuda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
     }
 }

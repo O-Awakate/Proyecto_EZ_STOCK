@@ -606,7 +606,7 @@ namespace CapaPresentacion
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != '0')
             {
-                e.Handled = true; // Ignorar el carácter
+                e.Handled = true; 
             }
         }
 
@@ -617,5 +617,6 @@ namespace CapaPresentacion
                 e.Handled = true; 
             }
         }
+        
     }
 }

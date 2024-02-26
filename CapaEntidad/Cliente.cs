@@ -10,7 +10,6 @@ namespace CapaEntidad
     {
         public int IdCliente { get; set; }
         public Datos_Persona oDatosPersona { get; set; }
-        public decimal Deuda { get; set; }
         public bool Estado { get; set; }
         public string FechaRegistro { get; set; }
     }
