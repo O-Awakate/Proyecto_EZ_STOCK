@@ -452,7 +452,7 @@ namespace CapaPresentacion
             {
                 lblDeuda.Visible = true;
                 txtDeuda.Visible = true;
-                txtIdCredito.Visible = true;
+                txtIdCredito.Visible = false;
             }
             else
             {

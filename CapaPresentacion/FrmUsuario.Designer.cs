@@ -53,10 +53,14 @@
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.IdDatosPersonas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumeroCI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nacionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UsuarioCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dominio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -113,6 +117,7 @@
             this.txtIdCorreo = new System.Windows.Forms.TextBox();
             this.txtIdDireccion = new System.Windows.Forms.TextBox();
             this.txtIdTelefono = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.panel1.SuspendLayout();
@@ -260,9 +265,9 @@
             this.label21.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.Location = new System.Drawing.Point(32, 102);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(77, 17);
+            this.label21.Size = new System.Drawing.Size(83, 17);
             this.label21.TabIndex = 31;
-            this.label21.Text = "Contraseña";
+            this.label21.Text = "Contraseña*";
             // 
             // label24
             // 
@@ -325,10 +330,14 @@
             this.btnSeleccionar,
             this.IdDatosPersonas,
             this.Cedula,
+            this.NumeroCI,
+            this.Nacionalidad,
             this.Nombre,
             this.Apellido,
             this.IdCorreo,
             this.Correo,
+            this.UsuarioCorreo,
+            this.Dominio,
             this.IdTelefono,
             this.Telefono,
             this.IdDireccion,
@@ -383,6 +392,20 @@
             this.Cedula.Name = "Cedula";
             this.Cedula.ReadOnly = true;
             // 
+            // NumeroCI
+            // 
+            this.NumeroCI.HeaderText = "NumeroCI";
+            this.NumeroCI.Name = "NumeroCI";
+            this.NumeroCI.ReadOnly = true;
+            this.NumeroCI.Visible = false;
+            // 
+            // Nacionalidad
+            // 
+            this.Nacionalidad.HeaderText = "Nacionalidad";
+            this.Nacionalidad.Name = "Nacionalidad";
+            this.Nacionalidad.ReadOnly = true;
+            this.Nacionalidad.Visible = false;
+            // 
             // Nombre
             // 
             this.Nombre.HeaderText = "Nombre";
@@ -407,6 +430,20 @@
             this.Correo.HeaderText = "Correo";
             this.Correo.Name = "Correo";
             this.Correo.ReadOnly = true;
+            // 
+            // UsuarioCorreo
+            // 
+            this.UsuarioCorreo.HeaderText = "UsuarioCorreo";
+            this.UsuarioCorreo.Name = "UsuarioCorreo";
+            this.UsuarioCorreo.ReadOnly = true;
+            this.UsuarioCorreo.Visible = false;
+            // 
+            // Dominio
+            // 
+            this.Dominio.HeaderText = "Dominio";
+            this.Dominio.Name = "Dominio";
+            this.Dominio.ReadOnly = true;
+            this.Dominio.Visible = false;
             // 
             // IdTelefono
             // 
@@ -844,9 +881,9 @@
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(295, 95);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(121, 17);
+            this.label5.Size = new System.Drawing.Size(127, 17);
             this.label5.TabIndex = 5;
-            this.label5.Text = "Correo Electrónico";
+            this.label5.Text = "Correo Electrónico*";
             // 
             // label4
             // 
@@ -854,9 +891,9 @@
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(152, 95);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(123, 17);
+            this.label4.Size = new System.Drawing.Size(129, 17);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Nombre Empleado";
+            this.label4.Text = "Nombre Empleado*";
             // 
             // label3
             // 
@@ -864,9 +901,9 @@
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(8, 95);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(132, 17);
+            this.label3.Size = new System.Drawing.Size(138, 17);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Cédula de Identidad";
+            this.label3.Text = "Cédula de Identidad*";
             // 
             // txtCI
             // 
@@ -948,12 +985,24 @@
             this.txtIdTelefono.Text = "0";
             this.txtIdTelefono.Visible = false;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Gray;
+            this.label13.Location = new System.Drawing.Point(560, 12);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(285, 17);
+            this.label13.TabIndex = 66;
+            this.label13.Text = "Los campos marcados con (*) son obligatorios.";
+            // 
             // FrmUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(858, 566);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.txtIdTelefono);
             this.Controls.Add(this.txtIdDireccion);
             this.Controls.Add(this.txtIdCorreo);
@@ -1038,14 +1087,23 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cboNacionalidad;
         private System.Windows.Forms.ComboBox cboEstadoVen;
+        private System.Windows.Forms.ComboBox cboCiudad;
+        private System.Windows.Forms.Button btnConClave;
+        private System.Windows.Forms.Button btnClave;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox cboDominio;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdUsuario;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdDatosPersonas;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cedula;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumeroCI;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nacionalidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdCorreo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Correo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UsuarioCorreo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dominio;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdTelefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdDireccion;
@@ -1059,10 +1117,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Rol;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstadoActual;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstadoValor;
-        private System.Windows.Forms.ComboBox cboCiudad;
-        private System.Windows.Forms.Button btnConClave;
-        private System.Windows.Forms.Button btnClave;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox cboDominio;
+        private System.Windows.Forms.Label label13;
     }
 }

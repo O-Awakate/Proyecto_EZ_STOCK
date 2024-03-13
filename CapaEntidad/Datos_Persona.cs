@@ -12,6 +12,7 @@ namespace CapaEntidad
         public Direccion oDireccion { get; set; }
         public Telefono oTelefono { get; set; }
         public Correo oCorreo { get; set; }
+        public string Nacionalidad { get; set; }
         public string CI { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }

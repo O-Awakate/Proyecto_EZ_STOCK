@@ -109,7 +109,9 @@ namespace CapaPresentacion
                 dgvData.Rows.Add(new object[] { item.IdCliente,
                     "",
                     item.oDatosPersona.IdDatosPersona,
+                    item.oDatosPersona.Nacionalidad + item.oDatosPersona.CI,
                     item.oDatosPersona.CI,
+                    item.oDatosPersona.Nacionalidad,
                     item.oDatosPersona.Nombre,
                     item.oDatosPersona.Apellido,
                     item.oDatosPersona.oTelefono.IdTelefono,
@@ -143,7 +145,8 @@ namespace CapaPresentacion
                 oDatosPersona = new Datos_Persona
                 {
                     IdDatosPersona = Convert.ToInt32(txtIdDatosPersonas.Text),
-                    CI = ((OpcionCombo)cboNacionalidad.SelectedItem).Valor + txtCI.Text,
+                    Nacionalidad = Convert.ToString(((OpcionCombo)cboNacionalidad.SelectedItem).Valor),
+                    CI =  txtCI.Text,
                     Nombre = txtNombre.Text,
                     Apellido = txtApellido.Text,
                     oTelefono = new Telefono
@@ -172,8 +175,22 @@ namespace CapaPresentacion
                 if (IdClienteGenrado != 0)
                 {
 
-                    dgvData.Rows.Add(new object[] { IdClienteGenrado, "", txtIdDatosPersonas.Text, ((OpcionCombo)cboNacionalidad.SelectedItem).Texto.ToString() + txtCI.Text, txtNombre.Text, txtApellido.Text,
-                        txtIdTelefono.Text, txtTelefono.Text, txtIdDireccion.Text, ((OpcionCombo)cboEstadoVen.SelectedItem).Texto.ToString(),((OpcionCombo)cboCiudad.SelectedItem).Texto.ToString(), txtSector.Text, txtCalle.Text, txtNurCasa.Text,
+                    dgvData.Rows.Add(new object[] { IdClienteGenrado,
+                        "",
+                        txtIdDatosPersonas.Text,
+                        ((OpcionCombo)cboNacionalidad.SelectedItem).Texto.ToString() + txtCI.Text,
+                        txtCI.Text,
+                        ((OpcionCombo)cboNacionalidad.SelectedItem).Texto.ToString(),
+                        txtNombre.Text,
+                        txtApellido.Text,
+                        txtIdTelefono.Text,
+                        txtTelefono.Text,
+                        txtIdDireccion.Text,
+                        ((OpcionCombo)cboEstadoVen.SelectedItem).Texto.ToString(),
+                        ((OpcionCombo)cboCiudad.SelectedItem).Texto.ToString(),
+                        txtSector.Text,
+                        txtCalle.Text,
+                        txtNurCasa.Text,
                         txtDeuda.Text,
                         ((OpcionCombo)cboEstado.SelectedItem).Texto.ToString(),
                         ((OpcionCombo)cboEstado.SelectedItem).Valor.ToString()
@@ -199,6 +216,8 @@ namespace CapaPresentacion
                     row.Cells["Id"].Value = txtIdCliente.Text;
                     row.Cells["IdDatosPersonas"].Value = txtIdDatosPersonas.Text;
                     row.Cells["Cedula"].Value = ((OpcionCombo)cboNacionalidad.SelectedItem).Texto.ToString() + txtCI.Text;
+                    row.Cells["Nacionalidad"].Value = ((OpcionCombo)cboNacionalidad.SelectedItem).Texto.ToString();
+                    row.Cells["NumeroCI"].Value =  txtCI.Text;
                     row.Cells["Nombre"].Value = txtNombre.Text;
                     row.Cells["Apellido"].Value = txtApellido.Text;
                     row.Cells["IdTelefono"].Value = txtIdTelefono.Text;
@@ -209,7 +228,6 @@ namespace CapaPresentacion
                     row.Cells["Sector"].Value = txtSector.Text;
                     row.Cells["Calle"].Value = txtCalle.Text;
                     row.Cells["Casa"].Value = txtNurCasa.Text;
-                    row.Cells["Deuda"].Value = txtDeuda.Text;
                     row.Cells["EstadoValor"].Value = ((OpcionCombo)cboEstado.SelectedItem).Valor.ToString();
                     row.Cells["EstadoActual"].Value = ((OpcionCombo)cboEstado.SelectedItem).Texto.ToString();
 
@@ -279,15 +297,10 @@ namespace CapaPresentacion
                 int indice = e.RowIndex;
                 if (indice >= 0)
                 {
-                    string cedulaCompleta = dgvData.Rows[indice].Cells["Cedula"].Value.ToString();
-                    if (cedulaCompleta.Length > 1)
-                        txtCI.Text = cedulaCompleta.Substring(1);
-                    else
-                        txtCI.Text = cedulaCompleta;
-
                     txtIndice.Text = indice.ToString();
                     txtIdCliente.Text = dgvData.Rows[indice].Cells["Id"].Value.ToString();
                     txtIdDatosPersonas.Text = dgvData.Rows[indice].Cells["IdDatosPersonas"].Value.ToString();
+                    txtCI.Text = dgvData.Rows[indice].Cells["NumeroCI"].Value.ToString();
                     txtNombre.Text = dgvData.Rows[indice].Cells["Nombre"].Value.ToString();
                     txtApellido.Text = dgvData.Rows[indice].Cells["Apellido"].Value.ToString();
                     txtIdTelefono.Text = dgvData.Rows[indice].Cells["IdTelefono"].Value.ToString();
@@ -296,7 +309,6 @@ namespace CapaPresentacion
                     txtSector.Text = dgvData.Rows[indice].Cells["Sector"].Value.ToString();
                     txtCalle.Text = dgvData.Rows[indice].Cells["Calle"].Value.ToString();
                     txtNurCasa.Text = dgvData.Rows[indice].Cells["Casa"].Value.ToString();
-                    txtDeuda.Text = dgvData.Rows[indice].Cells["Deuda"].Value.ToString();
 
                     string estadoBuscado = dgvData.Rows[indice].Cells["Estado"].Value.ToString();
 
@@ -318,6 +330,18 @@ namespace CapaPresentacion
                         {
                             int indice_combo = cboCiudad.Items.IndexOf(item);
                             cboCiudad.SelectedIndex = indice_combo;
+                            break;
+                        }
+                    }
+
+                    string Nacionalidad = dgvData.Rows[indice].Cells["Nacionalidad"].Value.ToString();
+
+                    foreach (object item in cboNacionalidad.Items)
+                    {
+                        if (item is OpcionCombo oc && oc.Texto == Nacionalidad)
+                        {
+                            int indice_combo = cboNacionalidad.Items.IndexOf(item);
+                            cboNacionalidad.SelectedIndex = indice_combo;
                             break;
                         }
                     }
@@ -503,17 +527,18 @@ namespace CapaPresentacion
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Verificar si el caracter ingresado es una letra o la tecla "Enter"
-            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Enter && e.KeyChar != (char)Keys.Back || txtNombre.Text.Length >= 25 && e.KeyChar != (char)Keys.Back)
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Enter && e.KeyChar != (char)Keys.Back && e.KeyChar != ' ' || txtNombre.Text.Length >= 25 && e.KeyChar != (char)Keys.Back)
             {
-                // Si no es una letra ni la tecla "Enter", ignorar el caracter
+                // Si no es una letra, ni la tecla "Enter", ni la tecla de retroceso, ni un espacio, ignorar el caracter
                 e.Handled = true;
             }
+
         }
 
         private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Verificar si el caracter ingresado es una letra o la tecla "Enter"
-            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Enter && e.KeyChar != (char)Keys.Back || txtApellido.Text.Length >= 25 && e.KeyChar != (char)Keys.Back)
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Enter && e.KeyChar != (char)Keys.Back && e.KeyChar != ' ' || txtApellido.Text.Length >= 25 && e.KeyChar != (char)Keys.Back)
             {
                 // Si no es una letra ni la tecla "Enter", ignorar el caracter
                 e.Handled = true;
@@ -523,7 +548,7 @@ namespace CapaPresentacion
         private void txtSector_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Verificar si el caracter ingresado es una letra o la tecla "Enter"
-            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Enter && e.KeyChar != (char)Keys.Back || txtSector.Text.Length >= 15 && e.KeyChar != (char)Keys.Back)
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Enter && e.KeyChar != (char)Keys.Back && e.KeyChar != ' ' || txtSector.Text.Length >= 15 && e.KeyChar != (char)Keys.Back)
             {
                 // Si no es una letra ni la tecla "Enter", ignorar el caracter
                 e.Handled = true;

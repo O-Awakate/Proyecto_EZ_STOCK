@@ -22,7 +22,7 @@ namespace CapaPresentacion
         {
             InitializeComponent();
             toolTip1 = new ToolTip();
-            toolTip1.SetToolTip(txtClave, "Se requiere almenos una mayuscula, una minuscula y un numero");
+            toolTip1.SetToolTip(txtClave, "La contraseña requiere un mínimo de una mayúscula, una minúscula y un número.");
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -76,12 +76,12 @@ namespace CapaPresentacion
                 {
                     try
                     {
-                        resultado = Convert.ToInt32(Interaction.InputBox("Ingrese el codigo enviado a su correo", "Verificación"));
+                        resultado = Convert.ToInt32(Interaction.InputBox("Por favor, ingrese el código de verificación enviado a su correo electrónico.", "Verificación"));
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Codigo invalido");
-                        result = MessageBox.Show("¿Desea reenviar el codigo?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Information); 
+                        MessageBox.Show("El código de verificación que ha ingresado es inválido.");
+                        result = MessageBox.Show("¿Desea enviar un nuevo código de verificación?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Information); 
                     }
                     if(numero == resultado)
                     {
@@ -90,7 +90,7 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    result = MessageBox.Show("¿Desea reenviar el correo?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    result = MessageBox.Show("¿Desea enviar un nuevo código de verificación?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 }
             } while (result == DialogResult.Yes);
 
@@ -109,7 +109,7 @@ namespace CapaPresentacion
         {
             if (string.IsNullOrEmpty(txtCedula.Text))
             {
-                MessageBox.Show("Necesario inglesar numero de cedula", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe ingresar el número de cédula del usuario (Formato: V00000000 o E00000000) para la recuperación de contraseña.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else
@@ -126,7 +126,7 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    MessageBox.Show("No se encontró el usuario", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("El usuario ingresado no se ha encontrado en el sistema. Ingrese el número de cédula de un usuario válido (Formato: V00000000 o E00000000). ", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
 
@@ -139,25 +139,25 @@ namespace CapaPresentacion
         {
             if (contraseña.Length < 8 || contraseña.Length > 16)
             {
-                MessageBox.Show("La contraseña debe tener entre 8 y 12 caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La nueva contraseña debe tener entre 8 y 16 caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             if (!contraseña.Any(char.IsLower))
             {
-                MessageBox.Show("La contraseña debe contener al menos una letra minúscula.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La nueva contraseña debe contener al menos una letra minúscula.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             if (!contraseña.Any(char.IsUpper))
             {
-                MessageBox.Show("La contraseña debe contener al menos una letra mayúscula.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La nueva contraseña debe contener al menos una letra mayúscula.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             if (!contraseña.Any(char.IsDigit))
             {
-                MessageBox.Show("La contraseña debe contener al menos un número.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La nueva contraseña debe contener al menos un número.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
@@ -184,7 +184,7 @@ namespace CapaPresentacion
 
             if (txtClave.Text != txtConfirmarClave.Text)
             {
-                MessageBox.Show("Las contraseñas no coinciden. Por favor, verifique.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La confirmación de contraseñas no coinciden. Por favor, verifique que la confirmación de clave sea correcta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
@@ -199,11 +199,11 @@ namespace CapaPresentacion
 
             if (resultado)
             {
-                MessageBox.Show("Contraseña actualizada con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("La contraseña ha sido actualizada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Error al actualizar la contraseña: " + mensajeResultado, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ha ocurrido un error al actualizar la contraseña: " + mensajeResultado, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             return resultado;
@@ -253,7 +253,7 @@ namespace CapaPresentacion
         {
             if (ActualizarClave())
             {
-                MessageBox.Show("Se recupero su contraseña exitosamente","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Se ha recuperado su contraseña exitosamente.", "Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
                 Login form = new Login();
 

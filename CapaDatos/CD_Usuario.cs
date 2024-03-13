@@ -19,7 +19,7 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT u.IdUsuario, dp.IdDatosPersona, dp.CI, dp.Nombre, dp.Apellido, u.Clave, u.Estado AS EstadoActual, c.IdCorreo, c.Correo, t.IdTelefono, t.Numero, d.IdDireccion, d.Estado, d.Ciudad, d.Sector, d.Calle, d.Casa, r.IdRol, r.Descripcion FROM USUARIO u");
+                    query.AppendLine("SELECT u.IdUsuario, dp.IdDatosPersona, dp.Nacionalidad, dp.CI, dp.Nombre, dp.Apellido, u.Clave, u.Estado AS EstadoActual, c.IdCorreo, c.Dominio, c.Correo, t.IdTelefono, t.Numero, d.IdDireccion, d.Estado, d.Ciudad, d.Sector, d.Calle, d.Casa, r.IdRol, r.Descripcion FROM USUARIO u");
                     query.AppendLine("INNER JOIN ROL r ON u.IdRol = r.IdRol");
                     query.AppendLine("INNER JOIN DATOS_PERSONA dp ON u.IdDatosPersona = dp.IdDatosPersona");
                     query.AppendLine("INNER JOIN CORREO c ON dp.IdCorreo = c.IdCorreo");
@@ -42,11 +42,13 @@ namespace CapaDatos
                                 oDatosPersona = new Datos_Persona
                                 {
                                     IdDatosPersona = Convert.ToInt32(dr["IdDatosPersona"]),
+                                    Nacionalidad = dr["Nacionalidad"].ToString(),
                                     CI = dr["CI"].ToString(),
                                     Nombre = dr["Nombre"].ToString(),
                                     Apellido = dr["Apellido"].ToString(),
                                     oCorreo = new Correo
                                     {
+                                        Dominio = dr["Dominio"].ToString(),
                                         IdCorreo = Convert.ToInt32(dr["IdCorreo"]),
                                         UsuarioCorreo = dr["Correo"].ToString()
                                     },
@@ -100,11 +102,13 @@ namespace CapaDatos
                 using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
                 {
                     SqlCommand cmd = new SqlCommand("SP_REGISTRARUSUARIOS", conexion);
-                    
+
+                    cmd.Parameters.AddWithValue("Nacionalidad", obj.oDatosPersona.Nacionalidad);
                     cmd.Parameters.AddWithValue("CI", obj.oDatosPersona.CI);
                     cmd.Parameters.AddWithValue("Nombre", obj.oDatosPersona.Nombre);
                     cmd.Parameters.AddWithValue("Apellido", obj.oDatosPersona.Apellido);
                     cmd.Parameters.AddWithValue("Correo", obj.oDatosPersona.oCorreo.UsuarioCorreo);
+                    cmd.Parameters.AddWithValue("Dominio", obj.oDatosPersona.oCorreo.Dominio);
                     cmd.Parameters.AddWithValue("Numero", obj.oDatosPersona.oTelefono.Numero);
                     cmd.Parameters.AddWithValue("Estado", obj.oDatosPersona.oDireccion.Estado);
                     cmd.Parameters.AddWithValue("Ciudad", obj.oDatosPersona.oDireccion.Ciudad);
@@ -163,10 +167,12 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("IdDireccion", obj.oDatosPersona.oDireccion.IdDireccion);
                     cmd.Parameters.AddWithValue("IdTelefono", obj.oDatosPersona.oTelefono.IdTelefono);
                     cmd.Parameters.AddWithValue("IdCorreo", obj.oDatosPersona.oCorreo.IdCorreo);
+                    cmd.Parameters.AddWithValue("Nacionalidad", obj.oDatosPersona.Nacionalidad);
                     cmd.Parameters.AddWithValue("CI", obj.oDatosPersona.CI);
                     cmd.Parameters.AddWithValue("Nombre", obj.oDatosPersona.Nombre);
                     cmd.Parameters.AddWithValue("Apellido", obj.oDatosPersona.Apellido);
                     cmd.Parameters.AddWithValue("Correo", obj.oDatosPersona.oCorreo.UsuarioCorreo);
+                    cmd.Parameters.AddWithValue("Dominio", obj.oDatosPersona.oCorreo.Dominio);
                     cmd.Parameters.AddWithValue("Numero", obj.oDatosPersona.oTelefono.Numero);
                     cmd.Parameters.AddWithValue("Estado", obj.oDatosPersona.oDireccion.Estado);
                     cmd.Parameters.AddWithValue("Ciudad", obj.oDatosPersona.oDireccion.Ciudad);

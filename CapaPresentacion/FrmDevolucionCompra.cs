@@ -142,7 +142,7 @@ namespace CapaPresentacion
 
             if (respuesta)
             {
-                var result = MessageBox.Show("Devolucion Completa", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var result = MessageBox.Show("La devolución de la compra ha sido exitosa.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 txtFecha.Text = "";
                 txtTipoDocumento.Text = "";
@@ -357,7 +357,7 @@ namespace CapaPresentacion
 
                 if (respuesta)
                 {
-                    var result = MessageBox.Show("Devolucion Completa", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    var result = MessageBox.Show("La devolución de la compra ha sido exitosa.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     txtFecha.Text = "";
                     txtTipoDocumento.Text = "";

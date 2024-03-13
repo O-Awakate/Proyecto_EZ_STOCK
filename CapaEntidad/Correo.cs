@@ -10,5 +10,6 @@ namespace CapaEntidad
     {
         public int IdCorreo { get; set; }
         public string UsuarioCorreo { get; set; }
+        public string Dominio { get; set; }
     }
 }

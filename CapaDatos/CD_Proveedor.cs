@@ -20,7 +20,7 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT pr.IdProveedor, dp.IdDatosPersona, dp.CI, dp.Nombre, dp.Apellido, pr.Estado AS EstadoActual, t.IdTelefono, t.Numero, cpr.IdCasaProveedora, d.IdDireccion, d.Estado, d.Ciudad, d.Sector, d.Calle, d.Casa, cpr.RIF,cpr.RazonSocial,cpr.SitioWeb FROM PROVEEDOR pr");
+                    query.AppendLine("SELECT pr.IdProveedor, dp.IdDatosPersona, dp.Nacionalidad, dp.CI, dp.Nombre, dp.Apellido, pr.Estado AS EstadoActual, t.IdTelefono, t.Numero, cpr.IdCasaProveedora, d.IdDireccion, d.Estado, d.Ciudad, d.Sector, d.Calle, d.Casa, cpr.RIF,cpr.RazonSocial,cpr.SitioWeb FROM PROVEEDOR pr");
                     query.AppendLine("INNER JOIN CASA_PROVEEDORA cpr ON pr.IdCasaProveedora = cpr.IdCasaProveedora");
                     query.AppendLine("INNER JOIN DATOS_PERSONA dp ON pr.IdDatosPersona = dp.IdDatosPersona");
                     query.AppendLine("INNER JOIN TELEFONO t ON dp.IdTelefono = t.IdTelefono");
@@ -40,6 +40,7 @@ namespace CapaDatos
                                 oDatosPersona = new Datos_Persona
                                 {
                                     IdDatosPersona = Convert.ToInt32(dr["IdDatosPersona"]),
+                                    Nacionalidad = dr["Nacionalidad"].ToString(),
                                     CI = dr["CI"].ToString(),
                                     Nombre = dr["Nombre"].ToString(),
                                     Apellido = dr["Apellido"].ToString(),
@@ -94,6 +95,7 @@ namespace CapaDatos
                 {
                     
                     SqlCommand cmd = new SqlCommand("SP_REGISTRARPROVEEDOR", oconexion);
+                    cmd.Parameters.AddWithValue("Nacionalidad", obj.oDatosPersona.Nacionalidad);
                     cmd.Parameters.AddWithValue("CI", obj.oDatosPersona.CI);
                     cmd.Parameters.AddWithValue("Nombre", obj.oDatosPersona.Nombre);
                     cmd.Parameters.AddWithValue("Apellido", obj.oDatosPersona.Apellido);
@@ -153,6 +155,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("IdDatosPersona", obj.oDatosPersona.IdDatosPersona);
                     cmd.Parameters.AddWithValue("IdDireccion", obj.oDatosPersona.oDireccion.IdDireccion);
                     cmd.Parameters.AddWithValue("IdTelefono", obj.oDatosPersona.oTelefono.IdTelefono);
+                    cmd.Parameters.AddWithValue("Nacionalidad", obj.oDatosPersona.Nacionalidad);
                     cmd.Parameters.AddWithValue("CI", obj.oDatosPersona.CI);
                     cmd.Parameters.AddWithValue("Nombre", obj.oDatosPersona.Nombre);
                     cmd.Parameters.AddWithValue("Apellido", obj.oDatosPersona.Apellido);

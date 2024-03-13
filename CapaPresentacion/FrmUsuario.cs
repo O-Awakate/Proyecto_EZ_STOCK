@@ -23,7 +23,7 @@ namespace CapaPresentacion
             InitializeComponent();
             
             toolTip1 = new ToolTip();
-            toolTip1.SetToolTip(txtContraseña, "Se requiere almenos una mayuscula, una minuscula y un numero");
+            toolTip1.SetToolTip(txtContraseña, "La contraseña requiere un mínimo de una mayúscula, una minúscula y un número.");
 
         }
 
@@ -111,7 +111,7 @@ namespace CapaPresentacion
 
             if (txtContraseña.Text != txtConfirmarContraseña.Text)
             {
-                MessageBox.Show("Las contraseñas no coinciden. Por favor, verifique.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La contraseña y confirmación de contraseña no coinciden. Por favor, verifique que ingrese la contraseña y/o confirmación correctamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -125,13 +125,15 @@ namespace CapaPresentacion
                 oDatosPersona = new Datos_Persona
                 {
                     IdDatosPersona = Convert.ToInt32(txtIdDatosPersonas.Text),
-                    CI = ((OpcionCombo)cboNacionalidad.SelectedItem).Valor + txtCI.Text,
+                    Nacionalidad = Convert.ToString(((OpcionCombo)cboNacionalidad.SelectedItem).Valor),
+                    CI =  txtCI.Text,
                     Nombre = txtNombre.Text,
                     Apellido = txtApellido.Text,
                     oCorreo = new Correo
                     {
                         IdCorreo = Convert.ToInt32(txtIdCorreo.Text),
-                        UsuarioCorreo = txtCorreo.Text + Convert.ToString(((OpcionCombo)cboDominio.SelectedItem).Valor)
+                        UsuarioCorreo = txtCorreo.Text,
+                        Dominio = Convert.ToString(((OpcionCombo)cboDominio.SelectedItem).Valor)
                     },
                     oTelefono = new Telefono
                     {
@@ -161,8 +163,26 @@ namespace CapaPresentacion
                 if (IdUsuarioGenrado != 0)
                 {
 
-                    dgvData.Rows.Add(new object[] { IdUsuarioGenrado, "", txtIdDatosPersonas.Text, ((OpcionCombo)cboNacionalidad.SelectedItem).Texto.ToString() + txtCI.Text, txtNombre.Text, txtApellido.Text,
-                        txtIdCorreo.Text, txtCorreo.Text + ((OpcionCombo)cboDominio.SelectedItem).Texto.ToString(), txtIdTelefono.Text, txtTelefono.Text, txtIdDireccion.Text, ((OpcionCombo)cboEstadoVen.SelectedItem).Texto.ToString(),((OpcionCombo)cboCiudad.SelectedItem).Texto.ToString(), txtSector.Text, txtCalle.Text, txtNurCasa.Text,
+                    dgvData.Rows.Add(new object[] { IdUsuarioGenrado,
+                        "",
+                        txtIdDatosPersonas.Text,
+                        ((OpcionCombo)cboNacionalidad.SelectedItem).Texto.ToString() + txtCI.Text,
+                        txtCI.Text,
+                        ((OpcionCombo)cboNacionalidad.SelectedItem).Texto.ToString(),
+                        txtNombre.Text,
+                        txtApellido.Text,
+                        txtIdCorreo.Text,
+                        txtCorreo.Text + ((OpcionCombo)cboDominio.SelectedItem).Texto.ToString(),
+                        txtCorreo.Text,
+                        ((OpcionCombo)cboDominio.SelectedItem).Texto.ToString(),
+                        txtIdTelefono.Text,
+                        txtTelefono.Text,
+                        txtIdDireccion.Text,
+                        ((OpcionCombo)cboEstadoVen.SelectedItem).Texto.ToString(),
+                        ((OpcionCombo)cboCiudad.SelectedItem).Texto.ToString(),
+                        txtSector.Text,
+                        txtCalle.Text,
+                        txtNurCasa.Text,
                         txtContraseña.Text,
                         ((OpcionCombo)cboRol.SelectedItem).Valor.ToString(),
                         ((OpcionCombo)cboRol.SelectedItem).Texto.ToString(),
@@ -190,10 +210,14 @@ namespace CapaPresentacion
                     row.Cells["IdUsuario"].Value = txtIdUsuario.Text;
                     row.Cells["IdDatosPersonas"].Value = txtIdDatosPersonas.Text;
                     row.Cells["Cedula"].Value = ((OpcionCombo)cboNacionalidad.SelectedItem).Texto.ToString() + txtCI.Text;
+                    row.Cells["NumeroCI"].Value = txtCI.Text;
+                    row.Cells["Nacionalidad"].Value = ((OpcionCombo)cboNacionalidad.SelectedItem).Texto.ToString();
                     row.Cells["Nombre"].Value = txtNombre.Text;
                     row.Cells["Apellido"].Value = txtApellido.Text;
                     row.Cells["IdCorreo"].Value = txtIdCorreo.Text;
-                    row.Cells["Correo"].Value = txtCorreo.Text;
+                    row.Cells["Correo"].Value = txtCorreo.Text + ((OpcionCombo)cboDominio.SelectedItem).Texto.ToString();
+                    row.Cells["UsuarioCorreo"].Value = txtCorreo.Text;
+                    row.Cells["Dominio"].Value = ((OpcionCombo)cboDominio.SelectedItem).Texto.ToString();
                     row.Cells["IdTelefono"].Value = txtIdTelefono.Text;
                     row.Cells["Telefono"].Value = txtTelefono.Text;
                     row.Cells["IdDireccion"].Value = txtIdDireccion.Text;
@@ -317,11 +341,29 @@ namespace CapaPresentacion
 
             foreach (Usuario item in listaUsuario)
             {
-                dgvData.Rows.Add(new object[] { item.IdUsuario, "",item.oDatosPersona.IdDatosPersona,
-                    item.oDatosPersona.CI, item.oDatosPersona.Nombre, item.oDatosPersona.Apellido, item.oDatosPersona.oCorreo.IdCorreo,
-                    item.oDatosPersona.oCorreo.UsuarioCorreo,item.oDatosPersona.oTelefono.IdTelefono, item.oDatosPersona.oTelefono.Numero,
-                    item.oDatosPersona.oDireccion.IdDireccion, item.oDatosPersona.oDireccion.Estado, item.oDatosPersona.oDireccion.Ciudad, item.oDatosPersona.oDireccion.Sector, item.oDatosPersona.oDireccion.Calle, item.oDatosPersona.oDireccion.Casa,
-                    item.Clave, item.oRol.IdRol,item.oRol.Descripcion,
+                dgvData.Rows.Add(new object[] { item.IdUsuario,
+                    "",
+                    item.oDatosPersona.IdDatosPersona,
+                    item.oDatosPersona.Nacionalidad + item.oDatosPersona.CI,
+                    item.oDatosPersona.CI,
+                    item.oDatosPersona.Nacionalidad,
+                    item.oDatosPersona.Nombre,
+                    item.oDatosPersona.Apellido,
+                    item.oDatosPersona.oCorreo.IdCorreo,
+                    item.oDatosPersona.oCorreo.UsuarioCorreo + item.oDatosPersona.oCorreo.Dominio,
+                    item.oDatosPersona.oCorreo.UsuarioCorreo,
+                    item.oDatosPersona.oCorreo.Dominio,
+                    item.oDatosPersona.oTelefono.IdTelefono,
+                    item.oDatosPersona.oTelefono.Numero,
+                    item.oDatosPersona.oDireccion.IdDireccion,
+                    item.oDatosPersona.oDireccion.Estado,
+                    item.oDatosPersona.oDireccion.Ciudad,
+                    item.oDatosPersona.oDireccion.Sector,
+                    item.oDatosPersona.oDireccion.Calle,
+                    item.oDatosPersona.oDireccion.Casa,
+                    item.Clave,
+                    item.oRol.IdRol,
+                    item.oRol.Descripcion,
                     item.Estado == true ? "Activo" : "No Activo",
                     item.Estado == true ? 1 : 0
 
@@ -357,20 +399,14 @@ namespace CapaPresentacion
                 int indice = e.RowIndex;
                 if (indice >= 0)
                 {
-
-                    string cedulaCompleta = dgvData.Rows[indice].Cells["Cedula"].Value.ToString();
-                    if (cedulaCompleta.Length > 1)
-                        txtCI.Text = cedulaCompleta.Substring(1);
-                    else
-                        txtCI.Text = cedulaCompleta;
-                    
                     txtIndice.Text = indice.ToString();
                     txtIdUsuario.Text = dgvData.Rows[indice].Cells["IdUsuario"].Value.ToString();
                     txtIdDatosPersonas.Text= dgvData.Rows[indice].Cells["IdDatosPersonas"].Value.ToString();
+                    txtCI.Text = dgvData.Rows[indice].Cells["NumeroCI"].Value.ToString();
                     txtNombre.Text = dgvData.Rows[indice].Cells["Nombre"].Value.ToString();
                     txtApellido.Text = dgvData.Rows[indice].Cells["Apellido"].Value.ToString();
                     txtIdCorreo.Text = dgvData.Rows[indice].Cells["IdCorreo"].Value.ToString();
-                    txtCorreo.Text = dgvData.Rows[indice].Cells["Correo"].Value.ToString();
+                    txtCorreo.Text = dgvData.Rows[indice].Cells["UsuarioCorreo"].Value.ToString();
                     txtIdTelefono.Text = dgvData.Rows[indice].Cells["IdTelefono"].Value.ToString();
                     txtTelefono.Text = dgvData.Rows[indice].Cells["Telefono"].Value.ToString();
                     txtIdDireccion.Text = dgvData.Rows[indice].Cells["IdDireccion"].Value.ToString();
@@ -416,6 +452,29 @@ namespace CapaPresentacion
                         {
                             int indice_combo = cboEstado.Items.IndexOf(oc);
                             cboEstado.SelectedIndex = indice_combo;
+                            break;
+                        }
+                    }
+
+                    string Nacionalidad = dgvData.Rows[indice].Cells["Nacionalidad"].Value.ToString();
+
+                    foreach (object item in cboNacionalidad.Items)
+                    {
+                        if (item is OpcionCombo oc && oc.Texto == Nacionalidad)
+                        {
+                            int indice_combo = cboNacionalidad.Items.IndexOf(item);
+                            cboNacionalidad.SelectedIndex = indice_combo;
+                            break;
+                        }
+                    }
+                    string Dominio = dgvData.Rows[indice].Cells["Dominio"].Value.ToString();
+
+                    foreach (object item in cboDominio.Items)
+                    {
+                        if (item is OpcionCombo oc && oc.Texto == Dominio)
+                        {
+                            int indice_combo = cboDominio.Items.IndexOf(item);
+                            cboDominio.SelectedIndex = indice_combo;
                             break;
                         }
                     }
@@ -613,7 +672,7 @@ namespace CapaPresentacion
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Enter && e.KeyChar != (char)Keys.Back || txtNombre.Text.Length >= 10 && e.KeyChar != (char)Keys.Back)
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Enter && e.KeyChar != (char)Keys.Back && e.KeyChar != ' ' || txtNombre.Text.Length >= 10 && e.KeyChar != (char)Keys.Back)
             {
                 // Si no es una letra ni la tecla "Enter", ignorar el caracter
                 e.Handled = true;
@@ -622,7 +681,7 @@ namespace CapaPresentacion
 
         private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Enter && e.KeyChar != (char)Keys.Back || txtApellido.Text.Length >= 10 && e.KeyChar != (char)Keys.Back)
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Enter && e.KeyChar != (char)Keys.Back && e.KeyChar != ' ' || txtApellido.Text.Length >= 10 && e.KeyChar != (char)Keys.Back)
             {
                 // Si no es una letra ni la tecla "Enter", ignorar el caracter
                 e.Handled = true;
@@ -632,7 +691,7 @@ namespace CapaPresentacion
         private void txtSector_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Verificar si el caracter ingresado es una letra o la tecla "Enter"
-            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Enter && e.KeyChar != (char)Keys.Back || txtSector.Text.Length >= 15 && e.KeyChar != (char)Keys.Back)
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Enter && e.KeyChar != (char)Keys.Back && e.KeyChar != ' ' || txtSector.Text.Length >= 15 && e.KeyChar != (char)Keys.Back)
             {
                 // Si no es una letra ni la tecla "Enter", ignorar el caracter
                 e.Handled = true;

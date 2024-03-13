@@ -177,7 +177,7 @@ namespace CapaPresentacion
             
             if (int.Parse(txtIdProducto.Text) == 0)
             {
-                MessageBox.Show("Debe seleccionar un producto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Debe seleccionar un producto para añadir a la venta.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             if (!decimal.TryParse(txtPrecVenta.Text, out PrecioVenta))
@@ -189,7 +189,7 @@ namespace CapaPresentacion
 
             if (Convert.ToInt32(txtStock.Text) < Convert.ToInt32(txtCantidad.Value.ToString()))
             {
-                MessageBox.Show("No existe stock suficiente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("No existe stock suficiente del producto seleccionado en el inventario para añadir a la venta.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -378,7 +378,7 @@ namespace CapaPresentacion
             txtCambio.Text = "0.00";
             if (txtTotalPagar.Text.Trim() == "0")
             {
-                MessageBox.Show("No existen productos en la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("No se encuentra ningún producto registrado en la venta.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -463,24 +463,24 @@ namespace CapaPresentacion
 
                     if (metodoSeleccionado != "Credito" && cambio < 0)
                     {
-                        MessageBox.Show("Actualice método de pago", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("El monto de pago es insuficiente. Si desea realizar una venta a crédito, actualice el método de pago.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
                 }
                 if (dgvData.Rows.Count < 1)
                 {
-                    MessageBox.Show("Debe ingresar productos en la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("No se encuentra ningún producto registrado en la venta.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
                 if (txtPago.Text == "")
                 {
-                    MessageBox.Show("No inserto pago cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Debe ingresar la cantidad a pagar del cliente.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
 
                 if (txtDocumento.Text == "")
                 {
-                    MessageBox.Show("Debe ingresar documento del cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Debe seleccionar la información del cliente en la venta.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
                 if (txtNombreCompleto.Text == "")
@@ -558,7 +558,7 @@ namespace CapaPresentacion
 
                 if (respuesta)
                 {
-                    var result = MessageBox.Show("Numero de venta generada:\n" + NumeroDocumento + "\n\n¿Desea copiar al portapapeles?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    var result = MessageBox.Show("La venta fue generada exitosamente. \nEl número de venta generado es: " + NumeroDocumento + "\n\n¿Desea copiar al portapapeles?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
                     if (result == DialogResult.Yes)
                         Clipboard.SetText(NumeroDocumento);

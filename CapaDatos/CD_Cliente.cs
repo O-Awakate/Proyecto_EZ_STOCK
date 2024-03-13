@@ -22,7 +22,7 @@ namespace CapaDatos
                 {
                     // Construir y ejecutar consulta SQL para obtener información de clientes.
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT cl.IdCliente, dp.IdDatosPersona, dp.CI, dp.Nombre, dp.Apellido, cl.Estado AS EstadoActual, t.IdTelefono, t.Numero, d.IdDireccion, d.Estado, d.Ciudad, d.Sector, d.Calle, d.Casa FROM CLIENTE cl");
+                    query.AppendLine("SELECT cl.IdCliente, dp.IdDatosPersona, dp.Nacionalidad, dp.CI, dp.Nombre, dp.Apellido, cl.Estado AS EstadoActual, t.IdTelefono, t.Numero, d.IdDireccion, d.Estado, d.Ciudad, d.Sector, d.Calle, d.Casa FROM CLIENTE cl");
                     query.AppendLine("INNER JOIN DATOS_PERSONA dp ON cl.IdDatosPersona = dp.IdDatosPersona");
                     query.AppendLine("INNER JOIN TELEFONO t ON dp.IdTelefono = t.IdTelefono");
                     query.AppendLine("INNER JOIN DIRECCION d ON dp.IdDireccion = d.IdDireccion");
@@ -44,6 +44,7 @@ namespace CapaDatos
                                 {
                                     // Construir objeto Datos_Persona con información del cliente.
                                     IdDatosPersona = Convert.ToInt32(dr["IdDatosPersona"]),
+                                    Nacionalidad = dr["Nacionalidad"].ToString(),
                                     CI = dr["CI"].ToString(),
                                     Nombre = dr["Nombre"].ToString(),
                                     Apellido = dr["Apellido"].ToString(),
@@ -94,6 +95,7 @@ namespace CapaDatos
 
                     SqlCommand cmd = new SqlCommand("SP_REGISTRARCLIENTE", oconexion);
                     // Asignar parámetros del cliente al comando SQL.
+                    cmd.Parameters.AddWithValue("Nacionalidad", obj.oDatosPersona.Nacionalidad);
                     cmd.Parameters.AddWithValue("CI", obj.oDatosPersona.CI);
                     cmd.Parameters.AddWithValue("Nombre", obj.oDatosPersona.Nombre);
                     cmd.Parameters.AddWithValue("Apellido", obj.oDatosPersona.Apellido);
@@ -150,6 +152,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("IdDatosPersona", obj.oDatosPersona.IdDatosPersona);
                     cmd.Parameters.AddWithValue("IdDireccion", obj.oDatosPersona.oDireccion.IdDireccion);
                     cmd.Parameters.AddWithValue("IdTelefono", obj.oDatosPersona.oTelefono.IdTelefono);
+                    cmd.Parameters.AddWithValue("Nacionalidad", obj.oDatosPersona.Nacionalidad);
                     cmd.Parameters.AddWithValue("CI", obj.oDatosPersona.CI);
                     cmd.Parameters.AddWithValue("Nombre", obj.oDatosPersona.Nombre);
                     cmd.Parameters.AddWithValue("Apellido", obj.oDatosPersona.Apellido);

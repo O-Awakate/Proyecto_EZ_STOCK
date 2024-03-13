@@ -32,7 +32,7 @@ namespace CapaPresentacion
 
             string claveCifrada = cifrado.Encrypt(txtClave.Text);
 
-            Usuario oUsuario = new CN_Usuario().Listar().FirstOrDefault(u => u.oDatosPersona.CI == txtCedula.Text && u.Clave == claveCifrada);
+            Usuario oUsuario = new CN_Usuario().Listar().FirstOrDefault(u => u.oDatosPersona.Nacionalidad + u.oDatosPersona.CI == txtCedula.Text && u.Clave == claveCifrada);
 
             if (oUsuario != null)
             {
@@ -45,7 +45,7 @@ namespace CapaPresentacion
             }
             else
             {
-                MessageBox.Show("No se encontró el usuario o la contraseña es incorrecta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("El usuario y/o contraseña ingresados son incorrectos.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             
 
