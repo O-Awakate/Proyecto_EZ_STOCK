@@ -68,8 +68,6 @@
             this.label22 = new System.Windows.Forms.Label();
             this.txtRazonSocial = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtIdCredito = new System.Windows.Forms.TextBox();
-            this.txtNumDocumento = new System.Windows.Forms.TextBox();
             this.txtTipoDocumento = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -77,6 +75,8 @@
             this.txtFecha = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.txtIdCredito = new System.Windows.Forms.TextBox();
+            this.txtNumDocumento = new System.Windows.Forms.TextBox();
             this.btnBuscarCompra = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
@@ -89,10 +89,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Open Sans ExtraBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(18, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(163, 30);
+            this.label1.Size = new System.Drawing.Size(173, 31);
             this.label1.TabIndex = 72;
             this.label1.Text = "Abono Compra";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -121,10 +121,11 @@
             // txtDeuda
             // 
             this.txtDeuda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDeuda.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDeuda.Location = new System.Drawing.Point(3, 114);
             this.txtDeuda.Name = "txtDeuda";
             this.txtDeuda.ReadOnly = true;
-            this.txtDeuda.Size = new System.Drawing.Size(118, 20);
+            this.txtDeuda.Size = new System.Drawing.Size(118, 22);
             this.txtDeuda.TabIndex = 82;
             // 
             // txtRegistrar
@@ -133,7 +134,7 @@
             this.txtRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.txtRegistrar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRegistrar.Image = global::CapaPresentacion.Properties.Resources.shopping_cart_outline__2_;
-            this.txtRegistrar.Location = new System.Drawing.Point(6, 242);
+            this.txtRegistrar.Location = new System.Drawing.Point(8, 242);
             this.txtRegistrar.Name = "txtRegistrar";
             this.txtRegistrar.Size = new System.Drawing.Size(109, 71);
             this.txtRegistrar.TabIndex = 81;
@@ -144,26 +145,26 @@
             // s
             // 
             this.s.AutoSize = true;
-            this.s.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.s.Location = new System.Drawing.Point(3, 184);
+            this.s.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.s.Location = new System.Drawing.Point(2, 184);
             this.s.Name = "s";
-            this.s.Size = new System.Drawing.Size(76, 17);
+            this.s.Size = new System.Drawing.Size(79, 19);
             this.s.TabIndex = 61;
             this.s.Text = "Deuda Final";
             // 
             // lblDeuda
             // 
             this.lblDeuda.AutoSize = true;
-            this.lblDeuda.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeuda.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDeuda.Location = new System.Drawing.Point(3, 184);
             this.lblDeuda.Name = "lblDeuda";
-            this.lblDeuda.Size = new System.Drawing.Size(46, 17);
+            this.lblDeuda.Size = new System.Drawing.Size(48, 19);
             this.lblDeuda.TabIndex = 77;
             this.lblDeuda.Text = "Deuda";
             // 
             // txtDeudafinal
             // 
-            this.txtDeudafinal.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDeudafinal.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDeudafinal.Location = new System.Drawing.Point(3, 204);
             this.txtDeudafinal.Name = "txtDeudafinal";
             this.txtDeudafinal.ReadOnly = true;
@@ -173,16 +174,16 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(3, 94);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(85, 17);
+            this.label10.Size = new System.Drawing.Size(88, 19);
             this.label10.TabIndex = 78;
             this.label10.Text = "Deuda Actual";
             // 
             // txtMontoBs
             // 
-            this.txtMontoBs.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMontoBs.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMontoBs.Location = new System.Drawing.Point(3, 69);
             this.txtMontoBs.Name = "txtMontoBs";
             this.txtMontoBs.ReadOnly = true;
@@ -191,7 +192,7 @@
             // 
             // txtAbono
             // 
-            this.txtAbono.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAbono.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAbono.Location = new System.Drawing.Point(3, 159);
             this.txtAbono.Name = "txtAbono";
             this.txtAbono.Size = new System.Drawing.Size(118, 22);
@@ -202,16 +203,16 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(3, 137);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(47, 17);
+            this.label17.Size = new System.Drawing.Size(49, 19);
             this.label17.TabIndex = 59;
             this.label17.Text = "Abono";
             // 
             // txtMontoTotal
             // 
-            this.txtMontoTotal.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMontoTotal.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMontoTotal.Location = new System.Drawing.Point(3, 24);
             this.txtMontoTotal.Name = "txtMontoTotal";
             this.txtMontoTotal.ReadOnly = true;
@@ -221,20 +222,20 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(3, 51);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(67, 17);
+            this.label16.Size = new System.Drawing.Size(70, 19);
             this.label16.TabIndex = 67;
             this.label16.Text = "Monto Bs.";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(3, 4);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(79, 17);
+            this.label15.Size = new System.Drawing.Size(83, 19);
             this.label15.TabIndex = 66;
             this.label15.Text = "Monto Total";
             // 
@@ -250,9 +251,10 @@
             // 
             this.dgvData.AllowUserToAddRows = false;
             this.dgvData.BackgroundColor = System.Drawing.Color.White;
+            this.dgvData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -345,25 +347,26 @@
             // 
             // txtBusqueda
             // 
+            this.txtBusqueda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBusqueda.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBusqueda.Location = new System.Drawing.Point(490, 27);
             this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(120, 20);
+            this.txtBusqueda.Size = new System.Drawing.Size(120, 22);
             this.txtBusqueda.TabIndex = 60;
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(340, 30);
+            this.label20.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(320, 27);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(153, 17);
+            this.label20.Size = new System.Drawing.Size(164, 19);
             this.label20.TabIndex = 32;
             this.label20.Text = "Número de Documento";
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.txtRIF);
             this.panel4.Controls.Add(this.txtNombreProveedor);
@@ -384,114 +387,116 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(586, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(25, 17);
+            this.label2.Size = new System.Drawing.Size(28, 19);
             this.label2.TabIndex = 72;
             this.label2.Text = "RIF";
             // 
             // txtRIF
             // 
             this.txtRIF.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRIF.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRIF.Location = new System.Drawing.Point(589, 29);
             this.txtRIF.Name = "txtRIF";
             this.txtRIF.ReadOnly = true;
-            this.txtRIF.Size = new System.Drawing.Size(106, 20);
+            this.txtRIF.Size = new System.Drawing.Size(106, 22);
             this.txtRIF.TabIndex = 71;
             // 
             // txtNombreProveedor
             // 
             this.txtNombreProveedor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNombreProveedor.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreProveedor.Location = new System.Drawing.Point(132, 29);
             this.txtNombreProveedor.Name = "txtNombreProveedor";
             this.txtNombreProveedor.ReadOnly = true;
-            this.txtNombreProveedor.Size = new System.Drawing.Size(156, 20);
+            this.txtNombreProveedor.Size = new System.Drawing.Size(156, 22);
             this.txtNombreProveedor.TabIndex = 68;
             // 
             // txtDocumento
             // 
             this.txtDocumento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDocumento.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDocumento.Location = new System.Drawing.Point(5, 29);
             this.txtDocumento.Name = "txtDocumento";
             this.txtDocumento.ReadOnly = true;
-            this.txtDocumento.Size = new System.Drawing.Size(121, 20);
+            this.txtDocumento.Size = new System.Drawing.Size(121, 22);
             this.txtDocumento.TabIndex = 65;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(239, 52);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(173, 17);
+            this.label7.Size = new System.Drawing.Size(183, 19);
             this.label7.TabIndex = 7;
             this.label7.Text = "Información del Proveedor";
             // 
             // txtApellidoProveedor
             // 
             this.txtApellidoProveedor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtApellidoProveedor.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApellidoProveedor.Location = new System.Drawing.Point(294, 29);
             this.txtApellidoProveedor.Name = "txtApellidoProveedor";
             this.txtApellidoProveedor.ReadOnly = true;
-            this.txtApellidoProveedor.Size = new System.Drawing.Size(137, 20);
+            this.txtApellidoProveedor.Size = new System.Drawing.Size(137, 22);
             this.txtApellidoProveedor.TabIndex = 70;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(132, 11);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(122, 17);
+            this.label13.Size = new System.Drawing.Size(124, 19);
             this.label13.TabIndex = 22;
             this.label13.Text = "Nombre Proveedor";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(291, 11);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(121, 17);
+            this.label6.Size = new System.Drawing.Size(122, 19);
             this.label6.TabIndex = 69;
             this.label6.Text = "Apellido Proveedor";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(2, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 17);
+            this.label3.Size = new System.Drawing.Size(80, 19);
             this.label3.TabIndex = 34;
             this.label3.Text = "Número C.I.";
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(434, 11);
+            this.label22.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(437, 9);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(82, 17);
+            this.label22.Size = new System.Drawing.Size(83, 19);
             this.label22.TabIndex = 35;
             this.label22.Text = "Razón Social";
             // 
             // txtRazonSocial
             // 
             this.txtRazonSocial.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRazonSocial.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRazonSocial.Location = new System.Drawing.Point(437, 29);
             this.txtRazonSocial.Name = "txtRazonSocial";
             this.txtRazonSocial.ReadOnly = true;
-            this.txtRazonSocial.Size = new System.Drawing.Size(146, 20);
+            this.txtRazonSocial.Size = new System.Drawing.Size(146, 22);
             this.txtRazonSocial.TabIndex = 66;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.txtIdCredito);
-            this.panel1.Controls.Add(this.txtNumDocumento);
             this.panel1.Controls.Add(this.txtTipoDocumento);
             this.panel1.Controls.Add(this.txtUsuario);
             this.panel1.Controls.Add(this.label5);
@@ -505,10 +510,80 @@
             this.panel1.Size = new System.Drawing.Size(708, 68);
             this.panel1.TabIndex = 84;
             // 
+            // txtTipoDocumento
+            // 
+            this.txtTipoDocumento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTipoDocumento.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTipoDocumento.Location = new System.Drawing.Point(132, 22);
+            this.txtTipoDocumento.Name = "txtTipoDocumento";
+            this.txtTipoDocumento.ReadOnly = true;
+            this.txtTipoDocumento.Size = new System.Drawing.Size(185, 22);
+            this.txtTipoDocumento.TabIndex = 12;
+            // 
+            // txtUsuario
+            // 
+            this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUsuario.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.Location = new System.Drawing.Point(323, 22);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.ReadOnly = true;
+            this.txtUsuario.Size = new System.Drawing.Size(154, 22);
+            this.txtUsuario.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(323, 3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(55, 19);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Usuario";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(132, 3);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(109, 19);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Tipo Documento";
+            // 
+            // txtFecha
+            // 
+            this.txtFecha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFecha.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFecha.Location = new System.Drawing.Point(5, 22);
+            this.txtFecha.Name = "txtFecha";
+            this.txtFecha.ReadOnly = true;
+            this.txtFecha.Size = new System.Drawing.Size(121, 22);
+            this.txtFecha.TabIndex = 8;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(3, 3);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(44, 19);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Fecha";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(154, 42);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(163, 19);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "Información de Compra";
+            // 
             // txtIdCredito
             // 
             this.txtIdCredito.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIdCredito.Location = new System.Drawing.Point(660, 19);
+            this.txtIdCredito.Location = new System.Drawing.Point(779, 111);
             this.txtIdCredito.Name = "txtIdCredito";
             this.txtIdCredito.Size = new System.Drawing.Size(35, 20);
             this.txtIdCredito.TabIndex = 76;
@@ -517,81 +592,18 @@
             // txtNumDocumento
             // 
             this.txtNumDocumento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNumDocumento.Location = new System.Drawing.Point(561, 19);
+            this.txtNumDocumento.Location = new System.Drawing.Point(738, 111);
             this.txtNumDocumento.Name = "txtNumDocumento";
             this.txtNumDocumento.Size = new System.Drawing.Size(35, 20);
             this.txtNumDocumento.TabIndex = 71;
             this.txtNumDocumento.Visible = false;
-            // 
-            // txtTipoDocumento
-            // 
-            this.txtTipoDocumento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTipoDocumento.Location = new System.Drawing.Point(132, 19);
-            this.txtTipoDocumento.Name = "txtTipoDocumento";
-            this.txtTipoDocumento.ReadOnly = true;
-            this.txtTipoDocumento.Size = new System.Drawing.Size(185, 20);
-            this.txtTipoDocumento.TabIndex = 12;
-            // 
-            // txtUsuario
-            // 
-            this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUsuario.Location = new System.Drawing.Point(323, 19);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.ReadOnly = true;
-            this.txtUsuario.Size = new System.Drawing.Size(185, 20);
-            this.txtUsuario.TabIndex = 11;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(320, 3);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Usuario";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(132, 2);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Tipo Documento";
-            // 
-            // txtFecha
-            // 
-            this.txtFecha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFecha.Location = new System.Drawing.Point(5, 19);
-            this.txtFecha.Name = "txtFecha";
-            this.txtFecha.ReadOnly = true;
-            this.txtFecha.Size = new System.Drawing.Size(121, 20);
-            this.txtFecha.TabIndex = 8;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 3);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(37, 13);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Fecha";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(160, 42);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(154, 17);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "Información de Compra";
             // 
             // btnBuscarCompra
             // 
             this.btnBuscarCompra.BackColor = System.Drawing.Color.White;
             this.btnBuscarCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarCompra.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarCompra.ForeColor = System.Drawing.Color.White;
             this.btnBuscarCompra.Image = global::CapaPresentacion.Properties.Resources.magnifying_glass_thin__2_;
             this.btnBuscarCompra.Location = new System.Drawing.Point(726, 36);
             this.btnBuscarCompra.Name = "btnBuscarCompra";
@@ -607,7 +619,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(858, 566);
+            this.Controls.Add(this.txtIdCredito);
             this.Controls.Add(this.btnBuscarCompra);
+            this.Controls.Add(this.txtNumDocumento);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
@@ -681,4 +695,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
         private System.Windows.Forms.Button btnBuscarCompra;
     }
+
 }

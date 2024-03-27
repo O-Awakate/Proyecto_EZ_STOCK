@@ -14,9 +14,18 @@ namespace CapaPresentacion
 {
     public partial class FrmDevolucionCompra : Form
     {
+        private ToolTip toolTip1;
+
         public FrmDevolucionCompra()
         {
             InitializeComponent();
+
+            toolTip1 = new ToolTip();
+            toolTip1.SetToolTip(btnBuscar, "Buscar compra.");
+            toolTip1.SetToolTip(btnLimpiar, "Limpiar datos de la compra.");
+            toolTip1.SetToolTip(btnGuardar, "Guardar devoluciones de la compra.");
+            toolTip1.SetToolTip(btnCancelarCompra, "Devolver compra entera.");
+            toolTip1.SetToolTip(btnDevolverProducto, "Devolver producto por unidad.");
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -153,6 +162,7 @@ namespace CapaPresentacion
                 txtNombreProveedor.Text = "";
                 txtApellidoProveedor.Text = "";
                 txtMetodo.Text = "";
+                txtRIF.Text = "";
 
                 dgvData.Rows.Clear();
                 txtMontoBs.Text = "";
@@ -234,6 +244,13 @@ namespace CapaPresentacion
                     if (int.TryParse(cantidadInput, out int cantidadADevolver))
                     {
                         Console.WriteLine($"Cantidad a devolver (entrada): {cantidadADevolver}");
+
+                        // Verifica si el numero es menor o igual a 0
+                        if (cantidadADevolver <= 0)
+                        {
+                            MessageBox.Show("No puedes devolver una cantidad igual o menor a cero *0*.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
 
                         // Verificar si la cantidad a devolver es menor o igual a la cantidad actual
                         if (cantidadADevolver <= cantidadActual)
@@ -368,6 +385,7 @@ namespace CapaPresentacion
                     txtNombreProveedor.Text = "";
                     txtApellidoProveedor.Text = "";
                     txtMetodo.Text = "";
+                    txtRIF.Text = "";
 
                     dgvData.Rows.Clear();
                     txtMontoBs.Text = "";
@@ -397,6 +415,7 @@ namespace CapaPresentacion
             }
 
             btnGuardar.Visible = false;
+            btnDevolverProducto.Visible = true;
         }
 
         private void txtBusqueda_KeyPress(object sender, KeyPressEventArgs e)

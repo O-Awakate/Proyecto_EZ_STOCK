@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,17 +11,24 @@ namespace CapaPresentacion
 {
     public partial class frmPanelGestion : Form
     {
-
+        private ToolTip toolTip1;
         public frmPanelGestion()
         {
             InitializeComponent();
-
 
             dtpFechaInicio.Value = DateTime.Today.AddDays(-7);
             dtpFechaFin.Value = DateTime.Now;
             btn7Dias.Select();
             Datos();
-           
+
+            toolTip1 = new ToolTip();
+            toolTip1.SetToolTip(btnOk, "Confirmar fechas personalizadas.");
+            toolTip1.SetToolTip(btnPersonalizado, "Selecciona fechas personalizadas.");
+            toolTip1.SetToolTip(btnHoy, "Ver movimientos de hoy.");
+            toolTip1.SetToolTip(btn7Dias, "Ver movimientos de los ultimos 7 dias.");
+            toolTip1.SetToolTip(btn30Dias, "Ver movimientos de los ultimos 30 dias.");
+            toolTip1.SetToolTip(btnEsteMes, "Ver movimientos de el mes actual.");
+
         }
 
         private bool CargarDatos(DateTime FechaInicio, DateTime FechaFin)

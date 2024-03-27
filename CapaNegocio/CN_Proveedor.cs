@@ -25,16 +25,27 @@ namespace CapaNegocio
 
             if (obj.oDatosPersona.CI == "")
             {
-                Mensaje += "Es necesario la cedula del Proveedor\n";
+                Mensaje += "Por favor, ingresa el número de cédula del Proveedor.\n";
             }
             if (obj.oDatosPersona.Nombre == "")
             {
-                Mensaje += "Es necesario el nombre del Proveedor\n";
+                Mensaje += "Por favor, ingresa el nombre del Proveedor.\n";
             }
-
+            if (obj.oDatosPersona.Apellido == "")
+            {
+                Mensaje += "Por favor, ingresa el apellido del Proveedor.\n";
+            }
+            if (obj.oDatosPersona.oTelefono.Numero == "")
+            {
+                Mensaje += "Por favor, ingresa el número telefónico del Proveedor.\n";
+            }
             if (obj.oCasaProveedora.RazonSocial == "")
             {
-                Mensaje += "Es necesario la razon social del Proveedor\n";
+                Mensaje += "Por favor, ingresa la razón social de la casa proveedora.\n";
+            }
+            if (obj.oCasaProveedora.RIF == "")
+            {
+                Mensaje += "Por favor, ingresa el RIF de la casa proveedora.\n";
             }
 
             if (Mensaje != string.Empty)
@@ -58,16 +69,27 @@ namespace CapaNegocio
 
             if (obj.oDatosPersona.CI == "")
             {
-                Mensaje += "Es necesario la cedula del Proveedor\n";
+                Mensaje += "Por favor, ingresa el número de cédula del Proveedor.\n";
             }
             if (obj.oDatosPersona.Nombre == "")
             {
-                Mensaje += "Es necesario el nombre del Proveedor\n";
+                Mensaje += "Por favor, ingresa el nombre del Proveedor.\n";
             }
-
+            if (obj.oDatosPersona.Apellido == "")
+            {
+                Mensaje += "Por favor, ingresa el apellido del Proveedor.\n";
+            }
+            if (obj.oDatosPersona.oTelefono.Numero == "")
+            {
+                Mensaje += "Por favor, ingresa el número telefónico del Proveedor.r\n";
+            }
             if (obj.oCasaProveedora.RazonSocial == "")
             {
-                Mensaje += "Es necesario la razon social del Proveedor\n";
+                Mensaje += "Por favor, ingresa la razón social de la casa proveedora.\n";
+            }
+            if (obj.oCasaProveedora.RIF == "")
+            {
+                Mensaje += "Por favor, ingresa el RIF de la casa proveedora.\n";
             }
 
             if (Mensaje != string.Empty)

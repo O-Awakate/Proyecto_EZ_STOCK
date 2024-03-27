@@ -20,12 +20,19 @@ namespace CapaPresentacion
         private List<Producto> productosEnVenta = new List<Producto>();
 
         private Usuario _Usuario;
+        private ToolTip toolTip1;
 
         public FrmVentaRegistro(Usuario oUsuario = null)
         {
             //Objeto para obtener datos del Usuario Actual
             _Usuario = oUsuario;
             InitializeComponent();
+
+            toolTip1 = new ToolTip();
+            toolTip1.SetToolTip(btnAgregar, "Agrega la compra al carrito");
+            toolTip1.SetToolTip(btnBuscar, "Agrega cliente");
+            toolTip1.SetToolTip(btnBuscarProducto, "Agrega Productos");
+            toolTip1.SetToolTip(txtRegistrar, "Registra venta de producto");
         }
 
         private void FrmVentaRegistro_Load(object sender, EventArgs e)

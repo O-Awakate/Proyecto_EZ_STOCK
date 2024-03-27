@@ -23,27 +23,27 @@ namespace CapaNegocio
 
             if (obj.oDatosPersona.Nombre == "")
             {
-                Mensaje += "Es necesario el nombre del usuario\n";
+                Mensaje += "Por favor, ingresa el nombre del usuario.\n";
             }
 
             if (obj.oDatosPersona.Apellido == "")
             {
-                Mensaje += "Es necesario el apellido del usuario\n";
+                Mensaje += "Por favor, ingresa el apellido del usuario.\n";
             }
 
             if (obj.oDatosPersona.CI == "")
             {
-                Mensaje += "Es necesario la cedula del usuario\n";
+                Mensaje += "Por favor, ingresa la cédula del usuario.\n";
             }
 
             if (obj.oDatosPersona.oCorreo.UsuarioCorreo == "")
             {
-                Mensaje += "Es necesario el correo del usuario\n";
+                Mensaje += "Por favor, ingresa el correo del usuario.\n";
             }
 
             if (obj.Clave == "")
             {
-                Mensaje += "Es necesario la clave del usuario\n";
+                Mensaje += "Por favor, ingresa la clave del usuario.\n";
             }
             
             if (Mensaje != string.Empty)
@@ -64,29 +64,29 @@ namespace CapaNegocio
 
             if (obj.oDatosPersona.Nombre == "")
             {
-                Mensaje += "Es necesario el nombre del usuario\n";
+                Mensaje += "Por favor, ingresa el nombre del usuario.\n";
             }
 
             if (obj.oDatosPersona.Apellido == "")
             {
-                Mensaje += "Es necesario el apellido del usuario\n";
+                Mensaje += "Por favor, ingresa el apellido del usuario.\n";
             }
 
             if (obj.oDatosPersona.CI == "")
             {
-                Mensaje += "Es necesario la cedula del usuario\n";
+                Mensaje += "Por favor, ingresa la cédula del usuario.\n";
             }
 
             if (obj.oDatosPersona.oCorreo.UsuarioCorreo == "")
             {
-                Mensaje += "Es necesario el correo del usuario\n";
+                Mensaje += "Por favor, ingresa el correo del usuario.\n";
             }
 
             if (obj.Clave == "")
             {
-                Mensaje += "Es necesario la clave del usuario\n";
+                Mensaje += "Por favor, ingresa la clave del usuario.\n";
             }
-            
+
             if (Mensaje != string.Empty)
             {
                 return false;

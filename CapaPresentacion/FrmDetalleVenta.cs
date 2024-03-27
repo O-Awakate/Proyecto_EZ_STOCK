@@ -19,9 +19,16 @@ namespace CapaPresentacion
 {
     public partial class FrmDetalleVenta : Form
     {
+        private ToolTip toolTip1;
+
         public FrmDetalleVenta()
         {
             InitializeComponent();
+
+            toolTip1.SetToolTip(btnBuscar, "Buscar venta.");
+            toolTip1.SetToolTip(btnLimpiar, "Limpiar datos de la venta.");
+            toolTip1.SetToolTip(btnpdf, "Generar factura en PDF.");
+
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -99,11 +106,11 @@ namespace CapaPresentacion
             string texto_HTML;
             if (txtMetodo.Text == "Credito")
             {
-                texto_HTML = Properties.Resources.Plantilla_Credito_Compra.ToString();
+                texto_HTML = Properties.Resources.Plantilla_Credito__Venta.ToString();
             }
             else
             {
-                texto_HTML = Properties.Resources.Plantilla_compra.ToString();
+                texto_HTML = Properties.Resources.Plantilla_Venta.ToString();
             }
             Negocio oDatos = new CN_OtrosDatos().obtenerDatos();
 

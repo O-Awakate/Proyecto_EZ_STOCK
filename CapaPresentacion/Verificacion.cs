@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaPresentacion.Utilities;
 using Microsoft.VisualBasic;
+using CapaPresentacion.Utilidades;
 
 namespace CapaPresentacion
 {
@@ -21,26 +22,35 @@ namespace CapaPresentacion
         public Verificacion()
         {
             InitializeComponent();
+            // Burbujas con informacion relevante
             toolTip1 = new ToolTip();
             toolTip1.SetToolTip(txtClave, "La contraseña requiere un mínimo de una mayúscula, una minúscula y un número.");
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Close(); //Cierra ventana de verificacion
         }
 
         private void FrmVerificacion_Load(object sender, EventArgs e)
         {
+            //Ingresa valores al Combo box
 
-            btnBack.Visible = false;
-            
+            cboNacionalidad.Items.Add(new OpcionCombo() { Valor = "V", Texto = "V" });
+            cboNacionalidad.Items.Add(new OpcionCombo() { Valor = "E", Texto = "E" });
+            cboNacionalidad.DisplayMember = "Texto";
+            cboNacionalidad.ValueMember = "Valor";
+            cboNacionalidad.SelectedIndex = 0;
+
+            //Oculta votones hasta que sean necesarios
+            btnBack.Visible = false; 
             btnCorreo.Visible = false;
             panelCambioClave.Visible = false;
         }
 
         public void verificacion()
         {
+            //Opciones para verificar usuario y oculta lo que no es necesario
             btnCorreo.Visible = true;
 
             lblCI.Visible = false;
@@ -53,6 +63,7 @@ namespace CapaPresentacion
 
         private void btnCorreo_Click(object sender, EventArgs e)
         {
+            //Veridicacion por correo
             btnCorreo.Visible = false;
 
             EncryptMD5 cifrado = new EncryptMD5();
@@ -109,24 +120,24 @@ namespace CapaPresentacion
         {
             if (string.IsNullOrEmpty(txtCedula.Text))
             {
-                MessageBox.Show("Debe ingresar el número de cédula del usuario (Formato: V00000000 o E00000000) para la recuperación de contraseña.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe ingresar el número de cédula del usuario para la recuperación de contraseña.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else
             {
 
-                Usuario oUsuario = new CN_Usuario().Listar().FirstOrDefault(u => u.oDatosPersona.CI == txtCedula.Text);
+                Usuario oUsuario = new CN_Usuario().Listar().FirstOrDefault(u => u.oDatosPersona.Nacionalidad  == cboNacionalidad.Text && u.oDatosPersona.CI == txtCedula.Text);
                 if (oUsuario != null)
                 {
                     verificacion();
-                    txtCorreo.Text = oUsuario.oDatosPersona.oCorreo.UsuarioCorreo;
+                    txtCorreo.Text = oUsuario.oDatosPersona.oCorreo.UsuarioCorreo + oUsuario.oDatosPersona.oCorreo.Dominio;
                     txtID.Text = oUsuario.IdUsuario.ToString();
 
                     btnBack.Visible = true;
                 }
                 else
                 {
-                    MessageBox.Show("El usuario ingresado no se ha encontrado en el sistema. Ingrese el número de cédula de un usuario válido (Formato: V00000000 o E00000000). ", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("El usuario ingresado no se ha encontrado en el sistema. Ingrese el número de cédula de un usuario válido. ", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
 

@@ -16,9 +16,16 @@ namespace CapaPresentacion
 {
     public partial class FrmReportesCompra : Form
     {
+        private ToolTip toolTip1;
         public FrmReportesCompra()
         {
             InitializeComponent();
+
+            toolTip1 = new ToolTip();
+            toolTip1.SetToolTip(btnBuscar, "filtrar compras.");
+            toolTip1.SetToolTip(btnLimpiarBuscador, "Limpiar filtro.");
+            toolTip1.SetToolTip(btnBuscarProv, "Buscar compras en las fechas seleccionadas");
+            toolTip1.SetToolTip(btnExcel, "Generar excel con compras visibles en la tabla");
         }
 
         private void FrmReportesCompra_Load(object sender, EventArgs e)
@@ -49,6 +56,15 @@ namespace CapaPresentacion
 
         private void btnBuscarProv_Click(object sender, EventArgs e)
         {
+            DateTime fechaInicio = txtFechaInicio.Value;
+            DateTime fechaFin = txtFechaFin.Value;
+
+            if (fechaInicio > fechaFin)
+            {
+                MessageBox.Show("La fecha de inicio no puede ser posterior a la fecha de fin. Por favor, ajuste las fechas.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             int idproveedor = Convert.ToInt32(((OpcionCombo)cboProveedor.SelectedItem).Valor.ToString());
 
             List<ReporteCompra> lista = new List<ReporteCompra>();

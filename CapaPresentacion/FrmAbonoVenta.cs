@@ -15,9 +15,16 @@ namespace CapaPresentacion
 {
     public partial class FrmAbonoVenta : Form
     {
+        private ToolTip toolTip;
         public FrmAbonoVenta()
         {
             InitializeComponent();
+
+            toolTip = new ToolTip();
+            toolTip.SetToolTip(btnBuscar, "Buscar venta.");
+            toolTip.SetToolTip(btnLimpiar, "Limpiar cuadros de texto.");
+            toolTip.SetToolTip(btnBuscarVentas, "Buscar lista de ventas que poseen deudas.");
+            toolTip.SetToolTip(txtRegistrar, "Registrar abono");
         }
 
         private void ObtenerVenta(string buscar)

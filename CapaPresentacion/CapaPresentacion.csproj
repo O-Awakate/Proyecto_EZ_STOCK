@@ -131,6 +131,12 @@
     <Compile Include="FrmAbonoVenta.Designer.cs">
       <DependentUpon>FrmAbonoVenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAcercaDe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAcercaDe.Designer.cs">
+      <DependentUpon>FrmAcercaDe.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmApartado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +287,9 @@
     <EmbeddedResource Include="FrmAbonoVenta.resx">
       <DependentUpon>FrmAbonoVenta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAcercaDe.resx">
+      <DependentUpon>FrmAcercaDe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmApartado.resx">
       <DependentUpon>FrmApartado.cs</DependentUpon>
     </EmbeddedResource>
@@ -360,6 +369,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Fonts\OpenSans-Italic-VariableFont_wdth,wght.ttf" />
+    <None Include="Fonts\OpenSans-VariableFont_wdth,wght.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -375,6 +386,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Manual de usuario.pdf" />
     <None Include="Resources\password %282%29.png" />
   </ItemGroup>
   <ItemGroup>
@@ -548,6 +560,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="EZ1 %281%29.ico" />
+    <None Include="Resources\photo_2024-03-26_12-36-51.jpg" />
+    <None Include="Resources\photo_2024-03-26_08-31-27.jpg" />
+    <None Include="Resources\photo_2024-03-26_08-31-211.jpg" />
+    <None Include="Resources\photo_2024-03-26_08-31-14.jpg" />
+    <None Include="Resources\photo_2024-03-13_10-17-49.jpg" />
+    <None Include="Resources\photo_2024-03-26_08-31-21.jpg" />
+    <None Include="Resources\download_ %281%29.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\diskette.png" />
+    <None Include="Resources\add-package1.png" />
+    <None Include="Resources\add-package.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

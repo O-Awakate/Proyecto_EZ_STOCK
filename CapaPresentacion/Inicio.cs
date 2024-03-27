@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaPresentacion.Modales;
 
 namespace CapaPresentacion
 {
@@ -19,6 +20,7 @@ namespace CapaPresentacion
         private static Usuario usuarioActual;
         private static Button menuActivo = null;
         private static Form formularioActivo = null;
+        private ToolTip toolTip1;
 
         public Inicio(Usuario objUsuario = null)
         {
@@ -26,16 +28,20 @@ namespace CapaPresentacion
             {
                 usuarioActual = new Usuario()
                 {
-                    oDatosPersona = new Datos_Persona { Nombre = "ADMIN" },IdUsuario =2
+                    oDatosPersona = new Datos_Persona { Nombre = "ADMIN" },
+                    IdUsuario = 2
                 };
             }
             else
             {
                 usuarioActual = objUsuario;
             }
-           
+
 
             InitializeComponent();
+
+            toolTip1 = new ToolTip();
+            toolTip1.SetToolTip(btnBack, "Volver a la pantalla de login");
         }
 
         //Dropdown menu
@@ -76,7 +82,7 @@ namespace CapaPresentacion
             dropdownMenu.VisibleChanged += new EventHandler((sender2, ev) => DropdownMenu_VisibleChanged(sender2, ev, control));
             dropdownMenu.Show(control, control.Width - dropdownMenu.Width, control.Height);
         }
-        
+
         private void DropdownMenu_VisibleChanged(object sender, EventArgs e, Control ctrl)
         {
             DropdownMenu dropdownMenu = (DropdownMenu)sender;
@@ -116,7 +122,7 @@ namespace CapaPresentacion
             }
 
             lblUsuario.Text = usuarioActual.oDatosPersona.Nombre + " " + usuarioActual.oDatosPersona.Apellido;
-            
+
         }
 
         private void AbrirFormulario(Button menu, Form formulario)
@@ -149,80 +155,94 @@ namespace CapaPresentacion
         private void menuUsuario_Click(object sender, EventArgs e)
         {
             AbrirFormulario((Button)sender, new FrmUsuario());
+            menuacercade.ForeColor = Color.FromArgb(252, 163, 17);
 
         }
         //menu Administracion 
         private void SubMenuProducto_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menuadministracion, new FrmProducto());
+            menuacercade.ForeColor = Color.FromArgb(252, 163, 17);
         }
 
         private void SubMenuNegocio_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menuadministracion, new FrmNegocio());
+            menuacercade.ForeColor = Color.FromArgb(252, 163, 17);
         }
         //menu venta
         private void SubMenuRegVenta_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menuventas, new FrmVentaRegistro(usuarioActual));
+            menuacercade.ForeColor = Color.FromArgb(252, 163, 17);
         }
 
-        
-        
+
+
         //menu Ingreso
         private void SubMenuRegIngreso_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menucompras, new FrmCompra(usuarioActual));
+            menuacercade.ForeColor = Color.FromArgb(252, 163, 17);
         }
 
         private void SubMenuDetIngreso_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menucompras, new FrmDetalleCompra());
+            menuacercade.ForeColor = Color.FromArgb(252, 163, 17);
         }
 
         private void SubMenuAbonoIngreso_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menucompras, new FrmAbonoCompra());
+            menuacercade.ForeColor = Color.FromArgb(252, 163, 17);
         }
         //menu Cliente
         private void menuClientes_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menuclientes, new FrmCliente());
+            menuacercade.ForeColor = Color.FromArgb(252, 163, 17);
         }
         //menu proveedor
         private void menuProveedores_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menuproveedores, new FrmProveedor());
+            menuacercade.ForeColor = Color.FromArgb(252, 163, 17);
         }
         //menu Genera Reportes
         private void SubMenuRepVenta_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menureportes, new FrmReporteVentas());
+            menuacercade.ForeColor = Color.FromArgb(252, 163, 17);
         }
 
         private void SubMenuRepIngreso_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menureportes, new FrmReportesCompra());
+            menuacercade.ForeColor = Color.FromArgb(252, 163, 17);
         }
 
         private void menuServicioApartado_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menuapartado, new FrmApartado());
+            menuacercade.ForeColor = Color.FromArgb(252, 163, 17);
         }
 
         private void devolverVentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menudevolución, new FrmDevolucionVenta());
+            menuacercade.ForeColor = Color.FromArgb(252, 163, 17);
         }
 
         private void SubMenuDevlProv_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menudevolución, new FrmDevolucionCompra());
+            menuacercade.ForeColor = Color.FromArgb(252, 163, 17);
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Desea Salir?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("¿Desea salir del sistema?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.Close();
             }
@@ -231,28 +251,39 @@ namespace CapaPresentacion
         private void panelGerencialToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menureportes, new frmPanelGestion());
+            menuacercade.ForeColor = Color.FromArgb(252, 163, 17);
         }
 
         private void menuabono_Click(object sender, EventArgs e)
         {
-            Open_DropDownMenu(ddmAbono,sender);
+            Open_DropDownMenu(ddmAbono, sender);
         }
 
         private void abonoVentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menuabono, new FrmAbonoVenta());
+            menuacercade.ForeColor = Color.FromArgb(252, 163, 17);
         }
 
         private void abonoCompraToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menuabono, new FrmAbonoCompra());
+            menuacercade.ForeColor = Color.FromArgb(252, 163, 17);
         }
 
         private void SubMenuDetVenta_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menuventas, new FrmDetalleVenta());
+
+            menuacercade.ForeColor = Color.FromArgb(252, 163, 17);
+        }
+
+        private void menuacercade_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuacercade, new FrmAcercaDe());
+
+            menuacercade.ForeColor = Color.Black;
         }
     }
-    
     
 }

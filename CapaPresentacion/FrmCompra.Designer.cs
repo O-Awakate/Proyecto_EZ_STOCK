@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnGuardarNuevo = new System.Windows.Forms.Button();
             this.btnNuevoProducto = new System.Windows.Forms.Button();
@@ -107,6 +108,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.btnCancelar);
             this.panel2.Controls.Add(this.groupBox3);
             this.panel2.Controls.Add(this.btnGuardarNuevo);
             this.panel2.Controls.Add(this.btnNuevoProducto);
@@ -136,6 +138,22 @@
             this.panel2.Size = new System.Drawing.Size(713, 128);
             this.panel2.TabIndex = 22;
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.AccessibleDescription = "";
+            this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Image = global::CapaPresentacion.Properties.Resources.delete_outline__2_;
+            this.btnCancelar.Location = new System.Drawing.Point(589, 66);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(108, 55);
+            this.btnCancelar.TabIndex = 77;
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // groupBox3
             // 
             this.groupBox3.Location = new System.Drawing.Point(568, 12);
@@ -150,14 +168,13 @@
             this.btnGuardarNuevo.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnGuardarNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarNuevo.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarNuevo.Image = global::CapaPresentacion.Properties.Resources.save_20_regular___1_;
-            this.btnGuardarNuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnGuardarNuevo.Location = new System.Drawing.Point(589, 66);
+            this.btnGuardarNuevo.Image = global::CapaPresentacion.Properties.Resources.save_20_regular__2_;
+            this.btnGuardarNuevo.Location = new System.Drawing.Point(589, 12);
             this.btnGuardarNuevo.Name = "btnGuardarNuevo";
             this.btnGuardarNuevo.Size = new System.Drawing.Size(108, 55);
             this.btnGuardarNuevo.TabIndex = 75;
-            this.btnGuardarNuevo.Text = "Guardar";
             this.btnGuardarNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnGuardarNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnGuardarNuevo.UseVisualStyleBackColor = true;
             this.btnGuardarNuevo.Click += new System.EventHandler(this.btnGuardarNuevo_Click);
             // 
@@ -167,13 +184,11 @@
             this.btnNuevoProducto.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnNuevoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevoProducto.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevoProducto.Image = global::CapaPresentacion.Properties.Resources.add_package__1_;
-            this.btnNuevoProducto.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnNuevoProducto.Location = new System.Drawing.Point(589, 16);
+            this.btnNuevoProducto.Image = global::CapaPresentacion.Properties.Resources.add_package1;
+            this.btnNuevoProducto.Location = new System.Drawing.Point(589, 36);
             this.btnNuevoProducto.Name = "btnNuevoProducto";
             this.btnNuevoProducto.Size = new System.Drawing.Size(108, 52);
             this.btnNuevoProducto.TabIndex = 70;
-            this.btnNuevoProducto.Text = "Nuevo Producto";
             this.btnNuevoProducto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnNuevoProducto.UseVisualStyleBackColor = true;
             this.btnNuevoProducto.Click += new System.EventHandler(this.btnNuevoProducto_Click);
@@ -729,7 +744,6 @@
             this.txtDeuda.Name = "txtDeuda";
             this.txtDeuda.Size = new System.Drawing.Size(101, 22);
             this.txtDeuda.TabIndex = 74;
-            this.txtDeuda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDeuda_KeyPress);
             // 
             // lblDeuda
             // 
@@ -816,15 +830,15 @@
             // 
             this.dgvData.AllowUserToAddRows = false;
             this.dgvData.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdProducto,
@@ -838,9 +852,9 @@
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvData.RowTemplate.Height = 28;
             this.dgvData.Size = new System.Drawing.Size(713, 289);
             this.dgvData.TabIndex = 69;
@@ -943,5 +957,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtIdCredito;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

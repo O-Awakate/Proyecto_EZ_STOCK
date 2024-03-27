@@ -14,9 +14,17 @@ namespace CapaPresentacion
 {
     public partial class FrmDevolucionVenta : Form
     {
+        private ToolTip toolTip1;
         public FrmDevolucionVenta()
         {
             InitializeComponent();
+
+            toolTip1 = new ToolTip();
+            toolTip1.SetToolTip(btnBuscar, "Buscar ventas.");
+            toolTip1.SetToolTip(btnLimpiar, "Limpiar datos de la ventas.");
+            toolTip1.SetToolTip(btnGuardar, "Guardar devoluciones de la ventas.");
+            toolTip1.SetToolTip(btnCancelarCompra, "Devolver ventas entera.");
+            toolTip1.SetToolTip(btnDevolverProducto, "Devolver producto por unidad.");
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -128,12 +136,13 @@ namespace CapaPresentacion
                     txtDocumento.Text = "";
                     txtNombreCliente.Text = "";
                     txtApellidoCliente.Text = "";
-
+                    txtCambio.Text = "";
                     dgvData.Rows.Clear();
                     txtMontoBs.Text = "";
                     txtMontoTotal.Text = "";
                     txtDeuda.Text = "";
-
+                    txtPaga.Text = "";
+                    txtMetodo.Text = "";
                 }
 
                 else
@@ -183,10 +192,18 @@ namespace CapaPresentacion
                     // Solicitar al usuario ingresar la cantidad a devolver
                     string cantidadInput = Microsoft.VisualBasic.Interaction.InputBox("Ingrese la cantidad a devolver:", "Cantidad a devolver", "0");
 
+
                     // Verificar si la entrada es un número válido
                     if (int.TryParse(cantidadInput, out int cantidadADevolver))
                     {
                         Console.WriteLine($"Cantidad a devolver (entrada): {cantidadADevolver}");
+
+                        // Verifica si el numero es menor o igual a 0
+                        if (cantidadADevolver <= 0)
+                        {
+                            MessageBox.Show("No puedes devolver una cantidad igual o menor a cero *0*.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
 
                         // Verificar si la cantidad a devolver es menor o igual a la cantidad actual
                         if (cantidadADevolver <= cantidadActual)
@@ -320,7 +337,9 @@ namespace CapaPresentacion
                 txtDocumento.Text = "";
                 txtNombreCliente.Text = "";
                 txtApellidoCliente.Text = "";
-
+                txtPaga.Text = "";
+                txtMetodo.Text = "";
+                txtCambio.Text = "";
                 dgvData.Rows.Clear();
                 txtMontoBs.Text = "";
                 txtMontoTotal.Text = "";
@@ -372,6 +391,7 @@ namespace CapaPresentacion
             }
 
             btnGuardar.Visible = false;
+            btnDevolverProducto.Visible = true;
         }
 
         private void txtBusqueda_KeyPress(object sender, KeyPressEventArgs e)

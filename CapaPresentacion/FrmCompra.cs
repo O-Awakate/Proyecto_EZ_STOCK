@@ -17,17 +17,29 @@ namespace CapaPresentacion
     public partial class FrmCompra : Form
     {
         private Usuario _Usuario;
-        private bool nuevoProcuto;
 
+        private ToolTip toolTip1;
         public FrmCompra(Usuario oUsuario = null)
         {
             _Usuario = oUsuario;
             InitializeComponent();
+
+            toolTip1 = new ToolTip();
+            toolTip1.SetToolTip(btnBuscar, "Buscar lista de proveedores.");
+            toolTip1.SetToolTip(btnBuscarProducto, "Buscar lista de productos.");
+            toolTip1.SetToolTip(btnNuevoProducto, "Registrar un nuevo producto.");
+            toolTip1.SetToolTip(btnGuardarNuevo, "Guardar nuevo procuto.");
+            toolTip1.SetToolTip(btnCancelar, "Cancelar registro de nuevo producto.");
+            toolTip1.SetToolTip(btnAgregar, "Agrega Productos.");
+            toolTip1.SetToolTip(btnRegistrar, "Registra compra de producto.");
+
+
         }
 
         private void FrmRegIngresoProducto_Load(object sender, EventArgs e)
         {
             btnGuardarNuevo.Visible = false;
+            btnCancelar.Visible = false;
 
             cboTipDocumento.Items.Add(new OpcionCombo() { Valor = "Recibo", Texto = "Recibo" });
             cboTipDocumento.DisplayMember = "Texto";
@@ -107,6 +119,15 @@ namespace CapaPresentacion
                     txtDescripcion.Text = modal._Producto.DescripcionProducto;
                     txtAplica.Text = modal._Producto.AplicaParaCarro;
                     txtPrecCompra.Select();
+
+                    txtCodigoFabrica.ReadOnly = true;
+                    txtDescripcion.ReadOnly = true;
+                    txtMarcaProducto.ReadOnly = true;
+                    txtMarcaCarro.ReadOnly = true;
+                    txtAplica.ReadOnly = true;
+                    btnGuardarNuevo.Visible = false;
+                    btnCancelar.Visible = false;
+                    btnNuevoProducto.Visible = true;
                 }
                 else
                 {
@@ -154,19 +175,19 @@ namespace CapaPresentacion
 
             if (txtPrecCompra.Text == "")
             {
-                MessageBox.Show("Asegurese de establecer un precio para la compra", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Por favor ingrese un precio de compra para el producto.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
             if (txtPrecVenta.Text == "")
             {
-                MessageBox.Show("Asegurese de establecer un precio para la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Por favor ingrese un precio de venta para el producto.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
             if (decimal.Parse(txtPrecCompra.Text) > decimal.Parse(txtPrecVenta.Text))
             {
-                MessageBox.Show("El precio de venta no puede ser menor al de la compra", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("EEl precio de venta del producto no puede ser menor que el precio de compra.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -465,35 +486,23 @@ namespace CapaPresentacion
 
         private void btnNuevoProducto_Click(object sender, EventArgs e)
         {
-            if (txtCodigoFabrica.ReadOnly == false)
-            {
-                txtCodigoFabrica.ReadOnly = true;
-                txtDescripcion.ReadOnly = true;
-                txtMarcaProducto.ReadOnly = true;
-                txtMarcaCarro.ReadOnly = true;
-                txtAplica.ReadOnly = true;
-                nuevoProcuto = false;
-                btnGuardarNuevo.Visible = false;
-
-
-            }
-            else
-            {
-                txtCodigoFabrica.ReadOnly = false;
-                txtDescripcion.ReadOnly = false;
-                txtMarcaProducto.ReadOnly = false;
-                txtMarcaCarro.ReadOnly = false;
-                txtAplica.ReadOnly = false;
-                nuevoProcuto = true;
-                btnGuardarNuevo.Visible = true;
-            }
+            LimpiarProducto();
             
-
+            txtCodigoFabrica.ReadOnly = false;
+            txtDescripcion.ReadOnly = false;
+            txtMarcaProducto.ReadOnly = false;
+            txtMarcaCarro.ReadOnly = false;
+            txtAplica.ReadOnly = false;
+            btnGuardarNuevo.Visible = true;
+            btnCancelar.Visible = true;
+            btnNuevoProducto.Visible = false;
+            
         }
 
         private void btnGuardarNuevo_Click(object sender, EventArgs e)
         {
             string mensaje = string.Empty;
+            int IdProductoGenerado = 0;
 
             Producto obj = new Producto()
             {
@@ -507,36 +516,66 @@ namespace CapaPresentacion
                 Stock = 0,
                 PrecioCompra = 0.00M,
                 PrecioVenta = 0.00M,
-
                 Estado = true
             };
-            int IdProductoGenrado = new CN_Producto().Registrar(obj, out mensaje);
 
-            Producto oProducto = new CN_Producto().listar().Where(p => p.CodigoAvila == txtCodigoAvila.Text && p.Estado == true).FirstOrDefault();
+            IdProductoGenerado = new CN_Producto().Registrar(obj, out mensaje);
 
-            if (oProducto != null)
+            if (IdProductoGenerado != 0)
             {
-                txtCodigoAvila.BackColor = Color.Honeydew;
-                txtId.Text = oProducto.IdProducto.ToString();
-                txtCodigoFabrica.Text = oProducto.CodigoFabrica;
-                txtMarcaProducto.Text = oProducto.MarcaProducto;
-                txtMarcaCarro.Text = oProducto.MarcaCarro;
-                txtDescripcion.Text = oProducto.DescripcionProducto;
-                txtAplica.Text = oProducto.AplicaParaCarro;
-                txtPrecCompra.Select();
+                MessageBox.Show("Nuevo producto registrado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                DesactivarEdicionCampos();
             }
+            else
+            {
+                var result = MessageBox.Show(mensaje + " ¿Desea traer el producto que tiene el mismo código Ávila?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 
+                if (result == DialogResult.Yes)
+                {
+                    Producto oProducto = new CN_Producto().listar().FirstOrDefault(p => p.CodigoAvila == txtCodigoAvila.Text && p.Estado == true);
+
+                    if (oProducto != null)
+                    {
+                        // Mostrar el producto existente
+                        MostrarProductoExistente(oProducto);
+                    }
+                    else
+                    {
+                        // Permitir cambiar el código Ávila
+                        txtCodigoAvila.ReadOnly = false;
+                        txtCodigoAvila.BackColor = Color.White;
+                        MessageBox.Show("Debe cambiar el código Ávila para poder registrar el producto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+            }
+        
+        }
+
+        private void MostrarProductoExistente(Producto productoExistente)
+        {
+            txtCodigoAvila.BackColor = Color.Honeydew;
+            txtId.Text = productoExistente.IdProducto.ToString();
+            txtCodigoFabrica.Text = productoExistente.CodigoFabrica;
+            txtMarcaProducto.Text = productoExistente.MarcaProducto;
+            txtMarcaCarro.Text = productoExistente.MarcaCarro;
+            txtDescripcion.Text = productoExistente.DescripcionProducto;
+            txtAplica.Text = productoExistente.AplicaParaCarro;
+            txtPrecCompra.Select();
+
+            DesactivarEdicionCampos();
+        }
+        private void DesactivarEdicionCampos()
+        {
             txtCodigoFabrica.ReadOnly = true;
             txtDescripcion.ReadOnly = true;
             txtMarcaProducto.ReadOnly = true;
             txtMarcaCarro.ReadOnly = true;
             txtAplica.ReadOnly = true;
-            nuevoProcuto = false;
             btnGuardarNuevo.Visible = false;
-
-
-
+            btnCancelar.Visible = false;
+            btnNuevoProducto.Visible = true;
         }
+
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -545,10 +584,17 @@ namespace CapaPresentacion
                 e.Handled = true; // Ignorar el carácter
             }
         }
-
-        private void txtDeuda_KeyPress(object sender, KeyPressEventArgs e)
+        
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            txtCodigoFabrica.ReadOnly = true;
+            txtDescripcion.ReadOnly = true;
+            txtMarcaProducto.ReadOnly = true;
+            txtMarcaCarro.ReadOnly = true;
+            txtAplica.ReadOnly = true;
+            btnGuardarNuevo.Visible = false;
+            btnCancelar.Visible = false;
+            btnNuevoProducto.Visible = true;
         }
     }
 }

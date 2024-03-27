@@ -53,6 +53,7 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cboNacionalidad = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.icon)).BeginInit();
             this.panelCambioClave.SuspendLayout();
             this.panelCorreoSMS.SuspendLayout();
@@ -121,9 +122,9 @@
             // 
             // txtCedula
             // 
-            this.txtCedula.Location = new System.Drawing.Point(37, 142);
+            this.txtCedula.Location = new System.Drawing.Point(86, 142);
             this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(253, 20);
+            this.txtCedula.Size = new System.Drawing.Size(204, 20);
             this.txtCedula.TabIndex = 3;
             // 
             // btnIngresar
@@ -194,7 +195,7 @@
             this.panelCambioClave.Controls.Add(this.txtClave);
             this.panelCambioClave.Controls.Add(this.btnAceptar);
             this.panelCambioClave.Controls.Add(this.label7);
-            this.panelCambioClave.Location = new System.Drawing.Point(0, 0);
+            this.panelCambioClave.Location = new System.Drawing.Point(248, 28);
             this.panelCambioClave.Name = "panelCambioClave";
             this.panelCambioClave.Size = new System.Drawing.Size(337, 403);
             this.panelCambioClave.TabIndex = 48;
@@ -294,7 +295,7 @@
             // panelCorreoSMS
             // 
             this.panelCorreoSMS.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panelCorreoSMS.Controls.Add(this.panelCambioClave);
+            this.panelCorreoSMS.Controls.Add(this.cboNacionalidad);
             this.panelCorreoSMS.Controls.Add(this.btnSalir);
             this.panelCorreoSMS.Controls.Add(this.btnBack);
             this.panelCorreoSMS.Controls.Add(this.groupBox4);
@@ -339,12 +340,22 @@
             this.pictureBox1.TabIndex = 52;
             this.pictureBox1.TabStop = false;
             // 
+            // cboNacionalidad
+            // 
+            this.cboNacionalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboNacionalidad.FormattingEnabled = true;
+            this.cboNacionalidad.Location = new System.Drawing.Point(37, 142);
+            this.cboNacionalidad.Name = "cboNacionalidad";
+            this.cboNacionalidad.Size = new System.Drawing.Size(43, 21);
+            this.cboNacionalidad.TabIndex = 65;
+            // 
             // Verificacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(595, 456);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.panelCambioClave);
             this.Controls.Add(this.panelCorreoSMS);
             this.Controls.Add(this.txtCorreo);
             this.Controls.Add(this.txtID);
@@ -391,5 +402,6 @@
         private System.Windows.Forms.Button btnConClave;
         private System.Windows.Forms.Button btnClave;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ComboBox cboNacionalidad;
     }
 }

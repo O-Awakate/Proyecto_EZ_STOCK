@@ -23,17 +23,17 @@ namespace CapaNegocio
 
             if (obj.oDatosPersona.Nombre == "")
             {
-                Mensaje += "Es necesario el nombre del Cliente\n";
+                Mensaje += "Por favor, ingresa el nombre del Cliente.\n";
             }
 
             if (obj.oDatosPersona.Apellido == "")
             {
-                Mensaje += "Es necesario el apellido del Cliente\n";
+                Mensaje += "Por favor, ingresa el apellido del Cliente.\n";
             }
 
             if (obj.oDatosPersona.CI == "")
             {
-                Mensaje += "Es necesario la cedula del Cliente\n";
+                Mensaje += "Por favor, ingresa el número de cédula del Cliente.\n";
             }
 
             if (Mensaje != string.Empty)
@@ -54,19 +54,19 @@ namespace CapaNegocio
 
             if (obj.oDatosPersona.Nombre == "")
             {
-                Mensaje += "Es necesario el nombre del Cliente\n";
+                Mensaje += "Por favor, ingresa el nombre del Cliente.\n";
             }
 
             if (obj.oDatosPersona.Apellido == "")
             {
-                Mensaje += "Es necesario el apellido del Cliente\n";
+                Mensaje += "Por favor, ingresa el apellido del Cliente.\n";
             }
 
             if (obj.oDatosPersona.CI == "")
             {
-                Mensaje += "Es necesario la cedula del Cliente\n";
+                Mensaje += "Por favor, ingresa el número de cédula del Cliente.\n";
             }
-            
+
 
             if (Mensaje != string.Empty)
             {

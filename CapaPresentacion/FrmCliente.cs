@@ -16,9 +16,17 @@ namespace CapaPresentacion
 {
     public partial class FrmCliente : Form
     {
+        private ToolTip toolTip;
         public FrmCliente()
         {
             InitializeComponent();
+            
+            toolTip = new ToolTip();
+            toolTip.SetToolTip(btnBuscar, "Buscar clientes filtrados");
+            toolTip.SetToolTip(btnLimpiar, "Limpiar filtro.");
+            toolTip.SetToolTip(btnGuardar, "Guardar datos del cliente");
+            toolTip.SetToolTip(btnLimpiar, "Limpiar cuadros de texto");
+            toolTip.SetToolTip(btnEliminar, "Eliminar cliente");
         }
 
         private bool ValidarFormatoCI(string ci)
@@ -29,7 +37,6 @@ namespace CapaPresentacion
                 return true;
             }
             return false;
-
         }
 
         private void Estados()
@@ -136,6 +143,16 @@ namespace CapaPresentacion
                 MessageBox.Show("Ingrese una Cedula válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if(txtNombre.Text.Length < 3)
+            {
+                MessageBox.Show("Ingrese un Nombre valido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (txtApellido.Text.Length < 3)
+            {
+                MessageBox.Show("Ingrese un Apellido valido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             string mensaje = string.Empty;
 
@@ -191,7 +208,6 @@ namespace CapaPresentacion
                         txtSector.Text,
                         txtCalle.Text,
                         txtNurCasa.Text,
-                        txtDeuda.Text,
                         ((OpcionCombo)cboEstado.SelectedItem).Texto.ToString(),
                         ((OpcionCombo)cboEstado.SelectedItem).Valor.ToString()
                     });
@@ -265,7 +281,6 @@ namespace CapaPresentacion
             txtSector.Text = "";
             txtCalle.Text = "";
             txtNurCasa.Text = "";
-            txtDeuda.Text = "0";
             cboEstado.SelectedIndex = 0;
 
             txtCI.Select();
@@ -572,5 +587,7 @@ namespace CapaPresentacion
                 e.Handled = true;
             }
         }
+
+        
     }
 }

@@ -124,11 +124,26 @@
   <data name="add (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="download_ (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download_ (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="save-20-regular (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\save-20-regular (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="arrow-back-circle-outline (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow-back-circle-outline (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="add_package__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add-package (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="photo_2024-03-26_08-31-27" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\photo_2024-03-26_08-31-27.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pricetag_outline__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pricetag-outline (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="microsoft-excel (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\microsoft-excel (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="users (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\users (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,8 +160,14 @@
   <data name="checkbox_outline__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\checkbox-outline (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="remove_package" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\remove-package.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="upload (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\upload (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="diskette" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\diskette.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="delete-outline (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete-outline (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -162,6 +183,9 @@
   </data>
   <data name="password (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\password (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Plantilla_Venta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Plantilla Venta.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="user (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,8 +208,29 @@
   <data name="clear-outlined (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\clear-outlined (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="box-time-outline (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\box-time-outline (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Plantilla_Credito__Venta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Plantilla Credito  Venta.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="EZ_STOCK_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EZ STOCK 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eye__5_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eye (5).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Plantilla_compra" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Plantilla compra.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="add-package1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add-package1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="photo_2024-03-26_08-31-211" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\photo_2024-03-26_08-31-211.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="save-20-regular  (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\save-20-regular  (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="photo_2024-03-26_08-31-14" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\photo_2024-03-26_08-31-14.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="microsoft-excel (1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\microsoft-excel (1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -193,26 +238,62 @@
   <data name="interface-download-box-1-arrow-box-down-download-internet-network-server-upload (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\interface-download-box-1-arrow-box-down-download-internet-network-server-upload (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="shopping-cart-outline (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\shopping-cart-outline (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="delete_outline__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\delete-outline (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pricetag_outline__2_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pricetag-outline (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Plantilla_Credito_Compra" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Plantilla Credito Compra.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="EZ_STOCK_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EZ STOCK 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="checkbox_outline__2_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\checkbox-outline (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="51EK7re4UzL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\51EK7re4UzL.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="product-release (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\product-release (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="product_return__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\product-return (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="box-time-outline (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\box-time-outline (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="clear_box_outline__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\clear-box-outline (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="microsoft-excel (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\microsoft-excel (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="add-package" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add-package.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eye__4_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eye (4).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="photo_2024-03-26_08-31-21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\photo_2024-03-26_08-31-21.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shopping-cart-outline (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shopping-cart-outline (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="interface-upload-box-1-arrow-box-download-internet-network-server-up-upload (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\interface-upload-box-1-arrow-box-download-internet-network-server-up-upload (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="photo_2024-03-13_10-17-49" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\photo_2024-03-13_10-17-49.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="magnifying-glass-thin (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\magnifying-glass-thin (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Manual_de_usuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Manual de usuario.pdf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="clear_box_outline__2_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\clear-box-outline (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -220,52 +301,10 @@
   <data name="file-pdf (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\file-pdf (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="save-20-regular  (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\save-20-regular  (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="delete_outline__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\delete-outline (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Plantilla_compra" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Plantilla compra.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="Plantilla_Venta" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Plantilla Venta.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="pricetag_outline__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pricetag-outline (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pricetag_outline__2_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pricetag-outline (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="eye__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eye (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="eye__4_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eye (4).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="eye__5_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eye (5).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="add_package__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add-package (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="product_return__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\product-return (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="remove_package" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\remove-package.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="EZ_STOCK_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EZ STOCK 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="EZ_STOCK_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EZ STOCK 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Plantilla_Credito_Compra" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Plantilla Credito Compra.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="Plantilla_Credito__Venta" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Plantilla Credito  Venta.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="photo_2024-03-26_12-36-51" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\photo_2024-03-26_12-36-51.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

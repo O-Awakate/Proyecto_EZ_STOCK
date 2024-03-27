@@ -16,9 +16,17 @@ namespace CapaPresentacion
 {
     public partial class FrmProveedor : Form
     {
+        private ToolTip toolTip1;
         public FrmProveedor()
         {
             InitializeComponent();
+
+            toolTip1 = new ToolTip();
+            toolTip1.SetToolTip(btnBuscar, "Buscar proveedores filtrados.");
+            toolTip1.SetToolTip(btnLimpiarBuscador, "Limpiar filtro.");
+            toolTip1.SetToolTip(btnGuardar, "Guardar proveedores.");
+            toolTip1.SetToolTip(btnLimpiar, "Limpiar cuadros de texto.");
+            toolTip1.SetToolTip(btnEliminar, "Eliminar proveedores.");
         }
 
         private void Estados()

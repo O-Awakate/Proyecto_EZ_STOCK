@@ -1,6 +1,5 @@
 C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaEntidad\bin\Debug\CapaEntidad.dll
 C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaEntidad\bin\Debug\CapaEntidad.pdb
-C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaEntidad\obj\Debug\CapaEntidad.csprojAssemblyReference.cache
 C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
 C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaEntidad\obj\Debug\CapaEntidad.dll
 C:\Users\O-Awakate\source\repos\Proyecto_EZ_STOCK\CapaEntidad\obj\Debug\CapaEntidad.pdb

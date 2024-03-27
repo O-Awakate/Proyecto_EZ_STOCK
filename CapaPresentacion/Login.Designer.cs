@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cboNacionalidad = new System.Windows.Forms.ComboBox();
             this.btnClave = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -51,6 +52,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.cboNacionalidad);
             this.panel1.Controls.Add(this.btnClave);
             this.panel1.Controls.Add(this.btnSalir);
             this.panel1.Controls.Add(this.groupBox1);
@@ -67,6 +69,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(337, 403);
             this.panel1.TabIndex = 2;
+            // 
+            // cboNacionalidad
+            // 
+            this.cboNacionalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboNacionalidad.FormattingEnabled = true;
+            this.cboNacionalidad.Location = new System.Drawing.Point(44, 122);
+            this.cboNacionalidad.Name = "cboNacionalidad";
+            this.cboNacionalidad.Size = new System.Drawing.Size(43, 21);
+            this.cboNacionalidad.TabIndex = 64;
             // 
             // btnClave
             // 
@@ -134,6 +145,7 @@
             this.txtClave.PasswordChar = '*';
             this.txtClave.Size = new System.Drawing.Size(253, 20);
             this.txtClave.TabIndex = 6;
+            this.txtClave.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtClave_KeyDown);
             // 
             // pictureBox2
             // 
@@ -158,10 +170,11 @@
             // 
             // txtCedula
             // 
-            this.txtCedula.Location = new System.Drawing.Point(44, 122);
+            this.txtCedula.Location = new System.Drawing.Point(93, 122);
             this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(253, 20);
+            this.txtCedula.Size = new System.Drawing.Size(204, 20);
             this.txtCedula.TabIndex = 3;
+            this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // btnIngresar
             // 
@@ -224,6 +237,7 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -248,5 +262,6 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnClave;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ComboBox cboNacionalidad;
     }
 }

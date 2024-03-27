@@ -63,6 +63,16 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _51EK7re4UzL {
+            get {
+                object obj = ResourceManager.GetObject("51EK7re4UzL", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add__2_ {
             get {
                 object obj = ResourceManager.GetObject("add (2)", resourceCulture);
@@ -73,9 +83,29 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_package {
+            get {
+                object obj = ResourceManager.GetObject("add-package", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add_package__1_ {
             get {
                 object obj = ResourceManager.GetObject("add_package__1_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap add_package1 {
+            get {
+                object obj = ResourceManager.GetObject("add-package1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -196,6 +226,26 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap delete_outline__2_ {
             get {
                 object obj = ResourceManager.GetObject("delete-outline (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap diskette {
+            get {
+                object obj = ResourceManager.GetObject("diskette", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap download___1_ {
+            get {
+                object obj = ResourceManager.GetObject("download_ (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -332,6 +382,16 @@ namespace CapaPresentacion.Properties {
         }
         
         /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] Manual_de_usuario {
+            get {
+                object obj = ResourceManager.GetObject("Manual_de_usuario", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap microsoft_excel__1_ {
@@ -372,6 +432,66 @@ namespace CapaPresentacion.Properties {
         }
         
         /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap photo_2024_03_13_10_17_49 {
+            get {
+                object obj = ResourceManager.GetObject("photo_2024-03-13_10-17-49", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap photo_2024_03_26_08_31_14 {
+            get {
+                object obj = ResourceManager.GetObject("photo_2024-03-26_08-31-14", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap photo_2024_03_26_08_31_21 {
+            get {
+                object obj = ResourceManager.GetObject("photo_2024-03-26_08-31-21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap photo_2024_03_26_08_31_211 {
+            get {
+                object obj = ResourceManager.GetObject("photo_2024-03-26_08-31-211", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap photo_2024_03_26_08_31_27 {
+            get {
+                object obj = ResourceManager.GetObject("photo_2024-03-26_08-31-27", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap photo_2024_03_26_12_36_51 {
+            get {
+                object obj = ResourceManager.GetObject("photo_2024-03-26_12-36-51", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
         ///&lt;html&gt;
         ///&lt;head&gt;
@@ -406,30 +526,28 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
         ///&lt;html&gt;
-        ///	&lt;head&gt;
-        ///		&lt;meta charset=&quot;utf-8&quot; /&gt;
-        ///		&lt;title&gt;Factura RESERACA&lt;/title&gt;
+        ///&lt;head&gt;
+        ///    &lt;title&gt;Web Page Design&lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        table.border {
+        ///            border-collapse: collapse;
+        ///        }
         ///
-        ///		&lt;style&gt;
-        ///			.invoice-box {
-        ///				max-width: 800px;
-        ///				margin: auto;
-        ///				padding: 30px;
-        ///				border: 1px solid #eee;
-        ///				box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-        ///				font-size: 16px;
-        ///				line-height: 24px;
-        ///				font-family: &apos;Helvetica Neue&apos;, &apos;Helvetica&apos;, Helvetica, Arial, sans-serif;
-        ///				color: #555;
-        ///			}
+        ///            table.border th {
+        ///                text-align: center;
+        ///                padding: 5px;
+        ///                border: 1px solid black;
+        ///            }
         ///
-        ///			.invoice-box table {
-        ///				width: 100%;
-        ///				line-height: inherit;
-        ///				text-align: left;
-        ///			}
-        ///
-        ///			.invoice-box ta [resto de la cadena truncado]&quot;;.
+        ///            table.border td {
+        ///                text-align: center;
+        ///                padding: 5px;
+        ///                border: 1px solid black;
+        ///            }
+        ///    &lt;/style&gt;
+        ///&lt;/head&gt;
+        ///&lt;body&gt;
+        ///    &lt;tab [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string Plantilla_Credito__Venta {
             get {
@@ -440,30 +558,28 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
         ///&lt;html&gt;
-        ///	&lt;head&gt;
-        ///		&lt;meta charset=&quot;utf-8&quot; /&gt;
-        ///		&lt;title&gt;Factura RESERACA&lt;/title&gt;
+        ///&lt;head&gt;
+        ///    &lt;title&gt;Web Page Design&lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        table.border {
+        ///            border-collapse: collapse;
+        ///        }
         ///
-        ///		&lt;style&gt;
-        ///			.invoice-box {
-        ///				max-width: 800px;
-        ///				margin: auto;
-        ///				padding: 30px;
-        ///				border: 1px solid #eee;
-        ///				box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-        ///				font-size: 16px;
-        ///				line-height: 24px;
-        ///				font-family: &apos;Helvetica Neue&apos;, &apos;Helvetica&apos;, Helvetica, Arial, sans-serif;
-        ///				color: #555;
-        ///			}
+        ///            table.border th {
+        ///                text-align: center;
+        ///                padding: 5px;
+        ///                border: 1px solid black;
+        ///            }
         ///
-        ///			.invoice-box table {
-        ///				width: 100%;
-        ///				line-height: inherit;
-        ///				text-align: left;
-        ///			}
-        ///
-        ///			.invoice-box ta [resto de la cadena truncado]&quot;;.
+        ///            table.border td {
+        ///                text-align: center;
+        ///                padding: 5px;
+        ///                border: 1px solid black;
+        ///            }
+        ///    &lt;/style&gt;
+        ///&lt;/head&gt;
+        ///&lt;body&gt;
+        ///    &lt;tab [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string Plantilla_Credito_Compra {
             get {
@@ -569,6 +685,16 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap result_draft__1_ {
             get {
                 object obj = ResourceManager.GetObject("result-draft (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap save {
+            get {
+                object obj = ResourceManager.GetObject("save", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

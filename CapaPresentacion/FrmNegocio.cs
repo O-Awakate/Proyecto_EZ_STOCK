@@ -16,11 +16,19 @@ namespace CapaPresentacion
 {
     public partial class FrmNegocio : Form
     {
-
+        private ToolTip toolTip1;
         public FrmNegocio()
         {
             InitializeComponent();
 
+            toolTip1 = new ToolTip();
+            toolTip1.SetToolTip(btnSubir, "Subir un nuevo logo para la empresa.");
+            toolTip1.SetToolTip(button1, "Guarda precio del dolar.");
+            toolTip1.SetToolTip(btnGuardar, "Guardar datos de la empresa.");
+            toolTip1.SetToolTip(btnGuradarBackup, "Guardar respaldo en direccion seleccionada.");
+            toolTip1.SetToolTip(btnBuscarBackup, "Seleccionar direccion para generar un respaldo.");
+            toolTip1.SetToolTip(btnGuradarRestore, "Restausar desde la version seleccionada.");
+            toolTip1.SetToolTip(btnBuscarRestore, "Buscar punto de restauracion.");
         }
 
         public Image byteToImagege(byte[] imageByte)
@@ -93,9 +101,9 @@ namespace CapaPresentacion
             bool respuesta = new CN_OtrosDatos().GuardarDatos(obj, out mensaje);
 
             if (respuesta)
-                MessageBox.Show("Los cambios fueron guardados", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Los cambios a la información del negocio fueron guardados exitosamente.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
-                MessageBox.Show("No se pudo guaedar los cambios", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("No se pudieron guardar los cambios.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -110,9 +118,9 @@ namespace CapaPresentacion
             bool respuesta = new CN_OtrosDatos().GuardarOtrosDatos(obj, out mensaje);
 
             if (respuesta)
-                MessageBox.Show("Los cambios fueron guardados", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Los cambios fueron guardados.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
-                MessageBox.Show("No se pudo guaedar los cambios", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("No se pudieron guardar los cambios.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
         private void btnBuscarBackup_Click(object sender, EventArgs e)

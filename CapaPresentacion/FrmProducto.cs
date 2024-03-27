@@ -17,11 +17,20 @@ namespace CapaPresentacion
 {
     public partial class FrmProducto : Form
     {
+        private ToolTip toolTip1;
         public FrmProducto()
         {
             InitializeComponent();
             txtCantidad.Minimum = 0;
             txtCantidad.Value = 0;
+
+            toolTip1 = new ToolTip();
+            toolTip1.SetToolTip(btnBuscar, "Buscar productos filtrados.");
+            toolTip1.SetToolTip(btnLimpiarBuscador, "Limpiar filtro.");
+            toolTip1.SetToolTip(btnExcel, "Generar un excel con los productos visibles en la lista.");
+            toolTip1.SetToolTip(btnGuardar, "Guardar producto.");
+            toolTip1.SetToolTip(btnLimpiar, "Limpiar cuadros de texto.");
+            toolTip1.SetToolTip(btnEliminar, "Eliminar producto.");
         }
 
         private void FrmProducto_Load(object sender, EventArgs e)
@@ -128,6 +137,8 @@ namespace CapaPresentacion
                     });
 
                     Limpiar();
+
+                    MessageBox.Show("Se registro el producto correctamente","Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
 
                 else
@@ -156,6 +167,7 @@ namespace CapaPresentacion
 
                     Limpiar();
 
+                    MessageBox.Show("El producto ha sido editado correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
 
                 else
@@ -179,6 +191,9 @@ namespace CapaPresentacion
             txtMarcaCarro.Text = "";
             txtAplicaParaCarro.Text = "";
             cboEstado.SelectedIndex = 0;
+            txtPrecCompra.Text = "";
+            txtPrecVenta.Text = "";
+            txtCantidad.Value = 0;
 
             txtCodigoFabrica.Select();
 

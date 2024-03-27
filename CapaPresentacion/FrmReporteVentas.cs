@@ -16,9 +16,16 @@ namespace CapaPresentacion
 {
     public partial class FrmReporteVentas : Form
     {
+        private ToolTip toolTip1;
         public FrmReporteVentas()
         {
             InitializeComponent();
+
+            toolTip1 = new ToolTip();
+            toolTip1.SetToolTip(btnBuscar, "filtrar ventas.");
+            toolTip1.SetToolTip(btnLimpiarBuscador, "Limpiar filtro.");
+            toolTip1.SetToolTip(btnBuscarVentas, "Buscar ventas en las fechas seleccionadas");
+            toolTip1.SetToolTip(btnExcel, "Generar excel con ventas visibles en la tabla");
         }
 
         private void FrmReporteVentas_Load(object sender, EventArgs e)
@@ -37,6 +44,15 @@ namespace CapaPresentacion
 
         private void btnBuscarVentas_Click(object sender, EventArgs e)
         {
+            DateTime fechaInicio = txtFechaInicio.Value;
+            DateTime fechaFin = txtFechaFin.Value;
+
+            if (fechaInicio > fechaFin)
+            {
+                MessageBox.Show("La fecha de inicio no puede ser posterior a la fecha de fin. Por favor, ajuste las fechas.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             List<ReporteVenta> lista = new List<ReporteVenta>();
 
             lista = new CN_Reporte().venta(txtFechaInicio.Value.ToString(), txtFechaFin.Value.ToString());

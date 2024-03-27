@@ -24,7 +24,11 @@ namespace CapaPresentacion
             
             toolTip1 = new ToolTip();
             toolTip1.SetToolTip(txtContraseña, "La contraseña requiere un mínimo de una mayúscula, una minúscula y un número.");
-
+            toolTip1.SetToolTip(btnGuardar, "Guardar datos del usuario");
+            toolTip1.SetToolTip(btnLimpiar, "Limpiar cuadros de texto");
+            toolTip1.SetToolTip(btnEliminar, "Eliminar usuario");
+            toolTip1.SetToolTip(btnClave, "Hacer visible la contraseña");
+            toolTip1.SetToolTip(btnConClave, "Hacer visible la confirmacion de contraseña");
         }
 
         private void Limpiar()
@@ -324,7 +328,7 @@ namespace CapaPresentacion
             cboEstado.Items.Add(new OpcionCombo() { Valor = 2, Texto = "No Activo" });
             cboEstado.DisplayMember = "Texto";
             cboEstado.ValueMember = "Valor";
-            cboEstado.SelectedIndex = 0;
+            cboEstado.SelectedIndex = 1;
 
             //ComboBox Rol
             List<Rol> listaRol = new CN_Rol().Listar();
@@ -334,7 +338,8 @@ namespace CapaPresentacion
             }
             cboRol.DisplayMember = "Texto";
             cboRol.ValueMember = "Valor";
-            cboRol.SelectedIndex = 0;
+            cboRol.SelectedIndex = 1;
+            
 
             //Mostrar todos los usuarios
             List<Usuario> listaUsuario = new CN_Usuario().Listar();
@@ -369,9 +374,6 @@ namespace CapaPresentacion
 
                 });
             }
-            cboRol.DisplayMember = "Texto";
-            cboRol.ValueMember = "Valor";
-            cboRol.SelectedIndex = 0;
         }
 
         private void dgvData_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)

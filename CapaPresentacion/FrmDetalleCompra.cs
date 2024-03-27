@@ -20,9 +20,15 @@ namespace CapaPresentacion
 {
     public partial class FrmDetalleCompra : Form
     {
+        private ToolTip toolTip1;
         public FrmDetalleCompra()
         {
             InitializeComponent();
+
+            toolTip1 = new ToolTip();
+            toolTip1.SetToolTip(btnBuscar, "Buscar compra.");
+            toolTip1.SetToolTip(btnLimpiar, "Limpiar datos de la compra.");
+            toolTip1.SetToolTip(btnpdf, "Generar factura en PDF.");
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

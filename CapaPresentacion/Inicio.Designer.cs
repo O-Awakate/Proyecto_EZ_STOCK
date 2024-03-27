@@ -128,6 +128,7 @@
             this.menuacercade.TabIndex = 11;
             this.menuacercade.Text = "Acerca De";
             this.menuacercade.UseVisualStyleBackColor = true;
+            this.menuacercade.Click += new System.EventHandler(this.menuacercade_Click);
             // 
             // menuproveedores
             // 

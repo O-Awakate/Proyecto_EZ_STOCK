@@ -15,9 +15,21 @@ namespace CapaPresentacion
 {
     public partial class FrmAbonoCompra : Form
     {
+
+
+        private ToolTip toolTip;
+
         public FrmAbonoCompra()
         {
             InitializeComponent();
+
+            toolTip = new ToolTip();
+            toolTip.SetToolTip(btnBuscar, "Buscar compra.");
+            toolTip.SetToolTip(btnLimpiar, "Limpiar cuadros de texto.");
+            toolTip.SetToolTip(btnBuscarCompra, "Buscar lista de compras que poseen deudas.");
+            toolTip.SetToolTip(txtRegistrar, "Registrar abono");
+
+            
         }
         
         private void ObtenerCompra(string buscar)
@@ -86,7 +98,7 @@ namespace CapaPresentacion
 
         private void txtRegistrar_Click(object sender, EventArgs e)
         {
-            if (txtIdCredito.Text != "")
+            if (txtIdCredito.Text == "")
             {
                 MessageBox.Show("Seleccione primero una compra de credito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -144,7 +156,7 @@ namespace CapaPresentacion
                 return;
             }
 
-            if (txtIdCredito.Text != "")
+            if (txtIdCredito.Text == "")
             {
                 MessageBox.Show("Seleccione primero una compra de credito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -256,5 +268,8 @@ namespace CapaPresentacion
                 }
             }
         }
+
+        
     }
+    
 }

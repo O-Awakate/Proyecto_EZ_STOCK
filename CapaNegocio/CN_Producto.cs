@@ -24,16 +24,21 @@ namespace CapaNegocio
 
             if (obj.CodigoAvila == "")
             {
-                Mensaje += "Es necesario el codigo del Producto\n";
+                Mensaje += "Por favor, ingrese el Código Ávila del producto.\n";
             }
             if (obj.DescripcionProducto == "")
             {
-                Mensaje += "Es necesario la Descripcio del Producto\n";
+                Mensaje += "Por favor, ingrese la descripción del producto.\n";
             }
 
             if (obj.AplicaParaCarro == "")
             {
-                Mensaje += "Es necesario indicar para que carro aplica el Producto\n";
+                Mensaje += "Por favor, ingrese los carros para los cuales aplica el producto.\n";
+            }
+
+            if (obj.MarcaProducto == "")
+            {
+                Mensaje += "Por favor, ingrese la marca del producto.";
             }
 
             if (Mensaje != string.Empty)
@@ -57,16 +62,21 @@ namespace CapaNegocio
 
             if (obj.CodigoAvila == "")
             {
-                Mensaje += "Es necesario el codigo del Producto\n";
+                Mensaje += "Por favor, ingrese el Código Ávila del producto.\n";
             }
             if (obj.DescripcionProducto == "")
             {
-                Mensaje += "Es necesario la Descripcion del Producto\n";
+                Mensaje += "Por favor, ingrese la descripción del producto.\n";
             }
 
             if (obj.AplicaParaCarro == "")
             {
-                Mensaje += "Es necesario indicar para que carro aplica el Producto\n";
+                Mensaje += "Por favor, ingrese los carros para los cuales aplica el producto.\n";
+            }
+
+            if (obj.MarcaProducto == "")
+            {
+                Mensaje += "Por favor, ingrese la marca del producto.\n";
             }
 
             if (Mensaje != string.Empty)
